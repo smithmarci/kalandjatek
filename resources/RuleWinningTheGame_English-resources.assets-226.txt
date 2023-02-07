@@ -1,0 +1,29 @@
+﻿<p align=left>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+A JÁTSZMA MEGNYERÉSE
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+Amikor a játékos a játszma elején meghatározott számú küldetését<br>
+teljesíti, az aktuális körét is befejezi. Ezután a többi játékos számára<br>
+még lehetőség van egy befejező kör lejátszására, ami után a játszma<br>
+véget ér. Az a játékos nyeri a játszmát, akinek a legtöbb DP-ja gyűlt<br>
+össze a játszma végére.<br>
+<br>
+Döntetlen állás esetén az alábbi szabályok érvényesek:<br>
+<br>
+1., Az a játékos nyer, aki azonos DP megszerzése mellett a több<br>
+&nbsp;&nbsp;&nbsp;&nbsp;főküldetést teljesítette.<br>
+<br>
+2., Ha még a fenti esetben is döntetlen az állás, úgy az érintett<br>
+&nbsp;&nbsp;&nbsp;&nbsp;játékosok minden bizonyítékukat nyom-jelölőkre váltják vissza<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(a saját hősük karakterlapja által vázolt váltási rátának<br>
+&nbsp;&nbsp;&nbsp;&nbsp;megfelelően, természetesen), és az a játékos nyer, akinek<br>
+&nbsp;&nbsp;&nbsp;&nbsp;végül a legtöbb nyom-jelölője és aranya lett.<br>
+<br>
+3., Ha mindezek ellenére még mindig döntetlen állás állna fenn,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;úgy az a játékos nyeri meg a játszmát, akinek az utolsó köre<br>
+&nbsp;&nbsp;&nbsp;&nbsp;előbb ért véget.<br>
+</font>
+</p>

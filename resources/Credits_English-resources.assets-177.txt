@@ -1,0 +1,128 @@
+<p align=center>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+&nbsp;<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#e9780b>
+CD PROJEKT RED TEAM
+</font>
+<br>
+<br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Game Design</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>IGNACY TRZEWICZEK</font><br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Executive Producer</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>RAFAŁ JAKI</font><br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Layout</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>PRZEMYSŁAW JUSZCZYK</font><br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>DTP</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>PRZEMYSŁAW JUSZCZYK<br>GRZEGORZ STRUS</font><br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Cover Art & Character Portraits</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>GRAFIT STUDIO</font><br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Figure Sculpts</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>PAWEŁ MIELNICZUK<br>MARCIN BŁASZCZAK<br>GRZEGORZ CHOJNACKI<br>ARKADIUSZ MATYSZEWSKI</font><br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Interior Art</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>MONIKA ZAWISTOWSKA<br>BARTŁOMIEJ GAWEŁ<br>JAN MAREK<br>MAREK MADEJ<br>JAKUB REBELKA<br>DAMIAN BAJOWSKI</font><br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Additional Graphic Design</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>PAULINA ŁUKIEWSKA<br>AGNIESZKA PATYK<br>MICHAŁ GRZĘDA</font><br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Music</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>MARCIN PRZYBYŁOWICZ<br>PERCIVAL<br>ADAM SKORUPA<br>KRZYSZTOF WIERZYNKIEWICZ</font><br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Production</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>MACIEJ BILSKI</font><br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Playtesters</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>MICHAŁ ORACZ<br>MICHAŁ WALCZAK<br>MACIEJ MOLENDA<br>NATALIA SZYMA<br>ŁUKASZ PIECHACZEK<br>ALEKSANDRA CIUPIŃSKA<br>MACIEJ MUTWIL<br>RAFAŁ SZYMA<br>MŁODY AND MERRY</font><br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Special Thanks</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>TRAVIS CURRIT<br>TOMASZ KOŁODZIEJCZAK<br>MARCIN MOMOT<br>MICHAŁ NOWAKOWSKI<br>ADAM BADOWSKI<br>ŁUKASZ KRATYŃSKI<br>BORYS PUGACZ-MURASZKIEWICZ<br>DAMIEN MONNIER<br>MICHAŁ PLATKOW-GILEWSKI<br>RAFAL SZCZEPKOWSKI</font><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#e9780b>
+CAN EXPLODE TEAM
+</font>
+<br>
+<br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Design and Execution</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>DARIUSZ ZIELIŃSKI</font><br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Lead Programmer</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>GRZEGORZ MACHNIEWSKI</font><br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Programmers</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>MICHAŁ GAŁĄZKA<br>PRZEMYSŁAW MACHNIEWSKI<br>DARIUSZ MARKOWICZ</font><br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Additional 3D Art</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>MICHAŁ RUDOWSKI</font><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#e9780b>
+MAGYAR LOKALIZÁCIÓ
+</font>
+<br>
+<br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Fordítás</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>SMITHMARCI</font><br>
+<br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Verzió</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>23.0206</font><br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>A magyarítás</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>KELLERMANN VIKTÓRIA fordításainak,</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>HERMANN PÉTER fordításainak,</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>a PLAY.ON lokalizációinak</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>és a QLOC lokalizációinak</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>felhasználásával készült.</font><br>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e9780b>Tesztelés & minőségbiztosítás</font><br>
+<font face=NGUI-Warnock-40-Regular_001 size=42>CICANUDLI</font><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</font>
+</p>

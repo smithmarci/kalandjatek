@@ -1,0 +1,34 @@
+﻿<p align=left>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+HÚZÁS
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+Jó néhány hatás utasítja arra a játékost, hogy »húzzon«, »nézzen meg«,<br>
+vagy »fedjen fel« kártyákat (vagy jelölőket); ilyen esetben a teendők<br>
+az alábbiak lehetnek:<br>
+<br>
+- Amikor egy hatás arra utasít, hogy »húzzon egy kártyát«, akkor a játékos<br>
+&nbsp;&nbsp;&nbsp;a hatás leírásában meghatározott pakliból húz egy lapot.<br>
+<br>
+- Amikor a játékos csak egy kártyalapot húz, akkor jellemzően meg is<br>
+&nbsp;&nbsp;&nbsp;oldja az azon kártya leírásába foglaltakat. Amikor egynél több lapot<br>
+&nbsp;&nbsp;&nbsp;húz, gyakran választás elé kerül, mely lapot tartja meg, és melyiket<br>
+&nbsp;&nbsp;&nbsp;dobja el.<br>
+<br>
+- Némely hatások arra utasítanak, hogy »húzzon X további lapot«. Ekkor<br>
+&nbsp;&nbsp;&nbsp;a játékos a már korábban húzott kártyák mellé még annyi lapot húz,<br>
+&nbsp;&nbsp;&nbsp;amennyi a hatás leírásában szerepel, majd kiválaszt közülük<br>
+&nbsp;&nbsp;&nbsp;egyet, a többit pedig eldobja.<br>
+<br>
+- Ha egy hatás azt az utasítást mondja ki, hogy »nézzen meg X lapot«,<br>
+&nbsp;&nbsp;&nbsp;akkor a játékos a leírásban meghatározott paklihoz tartozó és számú<br>
+&nbsp;&nbsp;&nbsp;lapot húz, majd csak ő néz meg a lapot, a többi játékos nem.<br>
+<br>
+- Ha egy hatás arra utasítja a játékost, hogy »fedjen fel X kártyát«,<br>
+&nbsp;&nbsp;&nbsp;akkor a játékos annyi kártyát húz a hatás leírásában meghatározott<br>
+&nbsp;&nbsp;&nbsp;pakliból, amennyit a leírás megkövetel, majd minden játékos<br>
+&nbsp;&nbsp;&nbsp;megtekinti azokat.<br>
+</font>
+</p>

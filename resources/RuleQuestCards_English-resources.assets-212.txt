@@ -1,0 +1,49 @@
+﻿<p align=left>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+KÜLDETÉS-KÁRTYÁK
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+- Egy küldetés-kártya akkor számít teljesítettnek, ha az általa<br>
+&nbsp;&nbsp;&nbsp;adott főküldetést a játékos teljesíti.<br>
+<br>
+- A játékos teljesített küldetés-kártyái eldobódnak.<br>
+<br>
+- A hősök csak abból a küldetés-pakliból húzhatnak küldetés-kártyát,<br>
+&nbsp;&nbsp;&nbsp;amely pakli a saját karakterlapjukon meghatározva van.<br>
+<br>
+- Miután a játékos teljesítette a játszma elején megbeszélt küldetés-<br>
+&nbsp;&nbsp;&nbsp;célt, azután már nem húz újabb küldetés-kártyákat.<br>
+<br>
+- Ha a főküldetés leírása a teljesítés feltételeként ellenféllel történő<br>
+&nbsp;&nbsp;&nbsp;összecsapást is szab, akkor a hős a főküldetés végrehajtásakor<br>
+&nbsp;&nbsp;&nbsp;harcba bocsátkozik azzal az ellenféllel. Ezután a küldetés teljesül,<br>
+&nbsp;&nbsp;&nbsp;függetlenül az összecsapás eredményétől.<br>
+<br>
+- A mellékküldetések bármilyen sorrendben teljesíthetőek.<br>
+<br>
+- Néhány mellékküldetés teljesítéséhez szörny legyőzése is szükséges.<br>
+&nbsp;&nbsp;&nbsp;Mivel a harcok a játékos körének legvégén zajlanak, a játékos a szörny<br>
+&nbsp;&nbsp;&nbsp;legyőzése után azonnal teljesíti a mellékküldetést manőver<br>
+&nbsp;&nbsp;&nbsp;végrehajtása nélkül.<br>
+<br>
+- Néhány mellékküldetés arra utasítja a játékost, hogy »menjen« egy<br>
+&nbsp;&nbsp;&nbsp;meghatározott helyszínre. Csak ezek az úgy nevezett »menj ide«<br>
+&nbsp;&nbsp;&nbsp;mellékküldetések az egyedüli olyan mellékküldetések, amelyek<br>
+&nbsp;&nbsp;&nbsp;helyszínhez kötöttek. Minden egyéb mellékküldetést helyszíntől<br>
+&nbsp;&nbsp;&nbsp;függetlenül teljesíteni lehet.<br>
+<br>
+- Ha a játékos olyan új küldetés-kártyát választ, amelynek valamely<br>
+&nbsp;&nbsp;&nbsp;mellékküldetése azt kívánja meg tőle, hogy egy meghatározott<br>
+&nbsp;&nbsp;&nbsp;helyszínre menjen, ám a hőse az adott pillanatban is azon a helyszínen<br>
+&nbsp;&nbsp;&nbsp;található, akkor a helyszín elhagyása nélkül is végrehajthatja azt a<br>
+&nbsp;&nbsp;&nbsp;mellékküldetést.<br>
+<br>
+- A támogatás-küldetés csak ellenfél által teljesíthető.<br>
+<br>
+- Amikor a játékos egy ellenfele támogatás-küldetését teljesíti, a<br>
+&nbsp;&nbsp;&nbsp;támogató játékos 6 DP-ot (a támogatás-küldetés mellett zárójelben<br>
+&nbsp;&nbsp;&nbsp;olvasható mennyiségűt) kap, a küldetés tulajdonosa pedig 3 DP-ot.<br>
+</font>
+</p>

@@ -1,0 +1,25 @@
+﻿<p align=left>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+HÁTRÁLTATOTT HŐSÖK
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+Hátráltatásról akkor beszélünk, amikor egy hatás vagy ellenfél a hőst<br>
+feltartóztatja, aki ezáltal vesztegelni kényszerül azon a ponton, ahol<br>
+a hatással vagy ellenféllel szembekerült.<br>
+<br>
+- Amennyiben egy hatás hátráltat egy hőst, úgy az esetlegesen fennmaradó,<br>
+&nbsp;&nbsp;&nbsp;még hátralevő akciójára való lehetőségét elveszíti.<br>
+<br>
+- Ha a hátráltató hatás a játékos első akciója során érvényesül, úgy a<br>
+&nbsp;&nbsp;&nbsp;második akciójának lehetőségét elveszíti.<br>
+<br>
+- Ha a hátráltató hatás a játékos második akciója során érvényesül, abban<br>
+&nbsp;&nbsp;&nbsp;az esetben a következő köre első akciójának lehetőségét veszíti el,<br>
+&nbsp;&nbsp;&nbsp;tehát a következő körében már csak egy akciót hajthat végre.<br>
+<br>
+- Ha egy hátráltató hatás egy már hátráltatott hőst érintene, abban az<br>
+&nbsp;&nbsp;&nbsp;esetben az utóbbi hátráltató hatás semmisnek tekintendő.<br>
+</font>
+</p>

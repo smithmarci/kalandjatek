@@ -1,0 +1,24 @@
+﻿<p align=left>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+A HÁBORÚ MENETE
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+A háború menete jelzi mindazt a zűrzavart, amit a Nilfgaardi Császárság<br>
+ténykedése okoz, valamint különböző akadályokkal népesíti be a játékteret.<br>
+<br>
+- Amikor a játékos a köre végén az akadály-fázishoz ér, és nincs akadály<br>
+&nbsp;&nbsp;&nbsp;az adott régióban, akkor a játékos előmozdítja a háború menetét.<br>
+<br>
+- Ha egy hatás mozdítja előre a háború menetét, akkor az aktív játékos az<br>
+&nbsp;&nbsp;&nbsp;óramutató járásának megfelelően egy mezőnyit mozdítja előre a háború<br>
+&nbsp;&nbsp;&nbsp;menete-jelölőt. Ez után az aktív játékos megoldja az adott mezőre<br>
+&nbsp;&nbsp;&nbsp;vonatkozó hatást:<br><br>
+&nbsp;&nbsp;&nbsp;- Szörny: Húz egy szörny-kártyát a megadott típusból, majd lefordítva<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arra a régióra helyezi, amelyen épp tartózkodik.<br>
+<br>
+&nbsp;&nbsp;&nbsp;- Balsors: Egy balsors-jelölőt helyez el a saját régióján.<br>
+<br>
+</font>
+</p>
