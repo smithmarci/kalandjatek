@@ -1,0 +1,56 @@
+0
+00:00:00,666 --> 00:00:02,608
+SÉRÜLÉSEK
+
+1
+00:00:02,858 --> 00:00:09,000
+A hősök a sérülések két fajtáját szenvedhetik el:
+könnyű sebesüléseket és súlyos sérüléseket.
+
+2
+00:00:21,050 --> 00:00:26,750
+A hősök nem halhatnak meg, de van korlátja annak,
+hogy mennyi sérülést képesek elviselni.
+
+3
+00:00:27,000 --> 00:00:29,100
+SÉRÜLÉSEK
+•
+Sebesülés szerzése
+
+4
+00:00:29,350 --> 00:00:35,350
+Ha a hősöd megsebesül, a sérülés-jelölőt bármely,
+jelölőt még nem tartalmazó akció-mezőre lehelyezheted.
+
+5
+00:00:35,600 --> 00:00:41,200
+A pihenés-akcióra nem helyezhetsz sérülés-jelölőt!
+
+6
+00:00:42,450 --> 00:00:47,000
+Ameddig sérülés-jelölő van egy akción,
+addig azt az akciót nem hajthatod végre.
+
+7
+00:00:48,000 --> 00:00:49,450
+SÉRÜLÉSEK
+•
+Sebesülések gyógyítása
+
+8
+00:00:49,700 --> 00:00:53,200
+Sérüléseket többféleképp is eltávolíthatsz a hőslapról:
+
+9
+00:00:53,450 --> 00:00:59,950
+például pihenés-akció végrehajtásával,
+
+10
+00:01:04,990 --> 00:01:10,600
+szív-szimbólummal jelölt helyszín felkeresésével,
+
+11
+00:01:22,650 --> 00:01:29,000
+vagy valamely kártya hatása által.
+

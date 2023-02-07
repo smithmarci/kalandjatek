@@ -1,0 +1,147 @@
+0
+00:00:00,300 --> 00:00:02,300
+HŐSLAP - KARAKTERLAP
+
+1
+00:00:05,150 --> 00:00:08,050
+Minden egyes játszma körökre oszlik.
+
+2
+00:00:10,000 --> 00:00:14,800
+Egy körben két akciót hajthatsz végre.
+
+3
+00:00:16,050 --> 00:00:18,050
+HŐSLAP - KARAKTERLAP
+•
+Akciók
+
+4
+00:00:19,400 --> 00:00:24,200
+A hősöd karakterlapja tartalmazza mindazon akciókat,
+amiket egy körön belül végrehajthatsz.
+
+5
+00:00:24,290 --> 00:00:28,550
+Új helyszínekre utazás-akciót végrehajtva
+
+6
+00:00:28,600 --> 00:00:35,300
+a bábuddal egy útnyit haladva,
+
+7
+00:00:40,150 --> 00:00:43,650
+vagy gyorsutazás-akciót végrehajtva
+két útnyit haladva juthatsz el,
+
+8
+00:00:46,400 --> 00:00:50,400
+mely utóbbi után viszont balsors-kártyát kell húznod.
+
+9
+00:00:55,050 --> 00:01:05,150
+Kivizsgálhatsz nyomokat valamely nyomkeresés-pakliból
+egy kártyát húzva, és a következményeit megoldva.
+
+10
+00:01:09,500 --> 00:01:12,900
+Fejlesztheted a képességeidet és tárgyaidat
+két fejlesztés-kártyát húzva,
+
+11
+00:01:12,950 --> 00:01:18,400
+közülük pedig egyet a készletedbe
+félretéve későbbi felhasználásra.
+
+12
+00:01:18,650 --> 00:01:20,550
+Továbbá pihenés-akciót is végrehajthatsz,
+
+13
+00:01:20,600 --> 00:01:27,200
+két kisebb sebesülés, vagy egy súlyos sérülés
+eltávolításához a karakterlapodról.
+
+14
+00:01:27,550 --> 00:01:30,000
+HŐSLAP - KARAKTERLAP
+•
+Speciális akció
+
+15
+00:01:30,050 --> 00:01:32,850
+Minden hős rendelkezik egy speciális akcióval is.
+
+16
+00:01:32,900 --> 00:01:34,600
+Geralt képessége a kotyvasztás,
+
+17
+00:01:34,650 --> 00:01:40,450
+amellyel minden egyes felfordított fejlesztés-
+kártyájára egy töltet-jelölőt helyezhet el.
+
+18
+00:01:40,950 --> 00:01:43,200
+Triss képessége a felkészülés,
+
+19
+00:01:43,250 --> 00:01:48,150
+ami után egy töltet-jelölőt helyezhet el
+egy felfordított fejlesztés-kártyáján.
+
+20
+00:01:48,950 --> 00:01:52,900
+Yarpen a vezényszó-akcióval
+két bajtársát utasíthatja,
+
+21
+00:01:52,950 --> 00:01:56,650
+és végrehajthatja azon lapok hatásait.
+
+22
+00:01:57,100 --> 00:02:00,400
+Kökörcsin pedig egy lelkesítő dalolással
+
+23
+00:02:00,450 --> 00:02:05,050
+két aranyat zsebelhet be magának
+az elragadtatott közönségtől.
+
+24
+00:02:05,100 --> 00:02:07,100
+HŐSLAP - KARAKTERLAP
+•
+Információk
+
+25
+00:02:09,150 --> 00:02:11,350
+A karakterlap megmutatja,
+
+26
+00:02:12,100 --> 00:02:15,500
+mennyi DiadalPonttal rendelkezel,
+
+27
+00:02:15,950 --> 00:02:18,950
+és hogy hány küldetést teljesítettél. 
+
+28
+00:02:19,000 --> 00:02:21,700
+Mutatja az aktuális küldetés-kártyádat,
+
+29
+00:02:21,750 --> 00:02:30,000
+amire kattintva elolvashatod
+a teljesítendő feladataid részleteit.
+
+30
+00:02:31,350 --> 00:02:36,500
+Valamint a készletedben lévő minden egyéb
+kártyát és szerzeményt,
+
+31
+00:02:36,750 --> 00:02:41,550
+amikre kattintva szintén
+további részleteket tudhatsz meg.
+

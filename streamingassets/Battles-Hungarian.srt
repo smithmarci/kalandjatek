@@ -1,0 +1,53 @@
+0
+00:00:00,300 --> 00:00:02,500
+HARCOK
+
+1
+00:00:03,550 --> 00:00:07,250
+Harcra akkor kerül sor, amikor ellenféllel találkozol.
+
+2
+00:00:07,500 --> 00:00:10,000
+Ezt nyomkeresés-kártyák,
+
+3
+00:00:10,050 --> 00:00:11,750
+küldetés-kártyák,
+
+4
+00:00:11,800 --> 00:00:14,000
+és szörny-akadályok idézhetik elő.
+
+5
+00:00:14,250 --> 00:00:16,450
+HARCOK
+•
+Ellenfél leküzdése
+
+6
+00:00:16,700 --> 00:00:19,400
+Kattints egyet az ellenfél kártyáján.
+
+7
+00:00:19,450 --> 00:00:22,050
+Aztán dobj a kockáiddal.
+
+8
+00:00:22,100 --> 00:00:26,960
+Ezután módosíthatod a dobott eredményt a készletedben
+található fejlesztés- és jószerencse-kártyák révén.
+
+9
+00:00:27,000 --> 00:00:34,050
+Próbálj annyi kard, pajzs és speciáls szimbólumot az
+ellenfél támadása és védekezés ellenében letenni, amennyit tudsz. 
+
+10
+00:00:34,100 --> 00:00:37,800
+Végül a lehetőségeknek megfelelően lezajlik a küzdelem.
+
+11
+00:00:37,950 --> 00:00:44,250
+A támadással és védekezéssel szembeni siker vagy bukás
+idézi elő az ellenfél-kártyán feltüntetett végkimenetelt.
+

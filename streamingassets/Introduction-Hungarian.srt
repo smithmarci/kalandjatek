@@ -1,0 +1,106 @@
+﻿0
+00:00:00,500 --> 00:00:02,900
+BEVEZETÉS
+
+1
+00:00:03,150 --> 00:00:06,150
+Üdvözlünk a The Witcher: Kalandjátékban!
+
+2
+00:00:06,400 --> 00:00:12,900
+Ebben a játékban négy hős indul útnak, hogy
+küldetéseket teljesítsen, és DiadalPontokat szerezzen.
+
+3
+00:00:13,150 --> 00:00:17,650
+A játék elején minden hős két küldetés-kártyát húz,
+amelyek közül kiválaszt és megtart magának egyet.
+
+4
+00:00:17,900 --> 00:00:21,100
+Geralt a harcon alapuló feladatokba veti bele magát.
+
+5
+00:00:21,350 --> 00:00:24,850
+Triss a mágiával kapcsolatosakat preferálja.
+
+6
+00:00:25,100 --> 00:00:28,600
+Kökörcsin a diplomáciai küldetéseket részesíti előnyben.
+
+7
+00:00:28,850 --> 00:00:33,650
+Míg Yarpen harci és diplomáciai küldetéseket is elvállal. 
+
+8
+00:00:33,900 --> 00:00:37,400
+Egy küldetés teljesítéséhez előbb bizonyos
+követelményeknek kell megfelelni, például
+
+9
+00:00:37,650 --> 00:00:43,550
+a feladathoz szükséges szerzemények összegyűjtésével,
+és megadott helyszínekre való eljutással.
+
+10
+00:00:44,000 --> 00:00:49,000
+Szerzeményeket helyszínekre történő utazással,
+
+11
+00:00:49,250 --> 00:00:53,750
+és nyomkeresés-kártyák megoldásával szerezhetsz.
+
+12
+00:00:54,000 --> 00:00:58,600
+Minden alkalommal, amikor helyszínre érkezel,
+kapsz egy nyomot.
+
+13
+00:00:58,850 --> 00:01:03,450
+A nyomok színe és száma a helyszíntől függ.
+
+14
+00:01:03,700 --> 00:01:07,300
+Ha elegendő nyomot szereztél,
+bizonyítékokra válhatod őket.
+
+15
+00:01:07,450 --> 00:01:14,550
+A váltási ráta minden hős számára más és más.
+
+16
+00:01:14,800 --> 00:01:17,200
+Amint elegendő bizonyíték összegyűlik,
+
+17
+00:01:17,250 --> 00:01:19,550
+érdemes a küldetés helyszíne felé venned az irányt.
+
+18
+00:01:19,650 --> 00:01:22,100
+Amikor odaérsz, teljesítheted a küldetést
+
+19
+00:01:22,150 --> 00:01:26,550
+a következményeinek megoldásával. Ezután
+megkapod az érte járó DiadalPontokat és jutalmakat.
+
+20
+00:01:26,800 --> 00:01:31,600
+A küldetés teljesítése után az előrejutáshoz
+újabb küldetést választasz.
+
+21
+00:01:31,850 --> 00:01:37,150
+Amint bármely játékos eléri a küldetéscélként
+meghatározott számú teljesített küldetést,
+
+22
+00:01:37,250 --> 00:01:41,400
+a többi játékos még lejátszik egy utolsó kört,
+és aztán a játszma véget ér.
+
+23
+00:01:41,650 --> 00:01:45,150
+Aki végül a legtöbb DiadalPontot szerzi,
+az nyeri a játszmát.

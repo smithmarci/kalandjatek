@@ -1,0 +1,110 @@
+0
+00:00:00,353 --> 00:00:02,001
+KÜLDETÉSEK
+
+1
+00:00:05,000 --> 00:00:08,251
+Minden egyes küldetés egy főküldetésből,
+
+2
+00:00:08,300 --> 00:00:10,501
+két mellékküldetésből,
+
+3
+00:00:10,551 --> 00:00:13,000
+és egy támogatás-küldetésből áll.
+
+4
+00:00:13,250 --> 00:00:15,010
+KÜLDETÉSEK
+•
+Főküldetés
+
+5
+00:00:15,960 --> 00:00:20,000
+A főküldetés a legfontosabb.
+
+6
+00:00:21,450 --> 00:00:24,450
+Egy küldetés-kártya főküldetésének teljesítésekor
+
+7
+00:00:26,100 --> 00:00:30,200
+véghezviszed a következményeit,
+
+8
+00:00:30,950 --> 00:00:33,950
+megkapod az érte járó DiadalPontokat,
+
+9
+00:00:34,000 --> 00:00:36,950
+és minden, a leírásban szereplő egyéb jutalmat;
+
+10
+00:00:37,000 --> 00:00:39,100
+aztán új küldetés-kártyát húzol.
+
+11
+00:00:39,250 --> 00:00:41,150
+KÜLDETÉSEK
+•
+Mellékküldetések
+
+12
+00:00:44,000 --> 00:00:50,000
+A mellékküldetéseket általában könnyebben és hamarabb is
+teljesíteni lehet, ugyanis kevesebb ráfordítást igényelnek.
+
+
+13
+00:00:50,200 --> 00:00:55,450
+Megoldásukhoz leggyakrabban helyszínekre történő utazás,
+vagy szerzemények elköltése lehet szükséges.
+
+14
+00:00:55,700 --> 00:01:00,200
+Minden egyes mellékküldetésért 2-5 DiadalPont is járhat,
+így érdemes őket a főküldetés előtt teljesíteni!
+
+15
+00:01:00,350 --> 00:01:03,000
+KÜLDETÉSEK
+•
+Támogatás-küldetés
+
+16
+00:01:04,150 --> 00:01:09,000
+A támogatás-küldetés megoldásával egy másik hős
+küldetés-kártyáján található feladatot oldasz meg.
+
+17
+00:01:09,050 --> 00:01:12,950
+Ezzel mindkettőtök számára DiadalPontot szerzel.
+
+18
+00:01:13,100 --> 00:01:20,500
+Egy támogatás-küldetés megoldásához hősödnek
+a támogatott hőssel azonos helyszínen kell tartózkodnia. 
+
+19
+00:01:21,150 --> 00:01:24,250
+Ekkor ha megtekinted az ő hőslapját,
+
+20
+00:01:24,300 --> 00:01:27,800
+és kiválasztod a küldetés-kártyáját,
+
+21
+00:01:27,850 --> 00:01:30,550
+jelezheted, hogy támogatást szeretnél nyújtani neki.
+
+22
+00:01:30,650 --> 00:01:34,000
+A támogatás nyújtásáért a hősöd
+hat DiadalPonttal lesz gazdagabb,
+
+23
+00:01:34,050 --> 00:01:38,550
+míg a támogatott hős a segítséged révén
+három DiadalPonthoz jut.
+

@@ -1,0 +1,181 @@
+0
+00:00:00,300 --> 00:00:02,100
+ÁLTALÁNOS TUDNIVALÓK
+
+1
+00:00:02,800 --> 00:00:05,000
+ÁLTALÁNOS TUDNIVALÓK
+•
+Offline és online játszma
+
+2
+00:00:05,350 --> 00:00:10,250
+A játékot kétféleképp játszhatod:
+egy gépen szólóban (vagy legfeljebb négyen), és online.
+
+3
+00:00:11,100 --> 00:00:15,000
+Offline (helyi) játszmában három barátod ellenében,
+
+4
+00:00:15,050 --> 00:00:18,250
+vagy legfeljebb három, a komputer által irányított
+játékossal szemben egy számítógépen.
+
+5
+00:00:18,300 --> 00:00:23,000
+A helyi (hot seat) játékhoz válaszd a főmenüből
+az „Offline játszma” lehetőséget.
+
+6
+00:00:23,050 --> 00:00:28,750
+A képernyőn kiválaszthatod, mely hős legyen barát, illetve
+melyik legyen komputer által irányított játékos.
+
+7
+00:00:28,800 --> 00:00:34,301
+Válassz küldetés-célt, majd
+kattints a „Játszma indítása” gombra a játék elkezdéséhez.
+
+8
+00:00:34,751 --> 00:00:39,051
+Online játszmában az interneten keresztül játszhatsz
+legfeljebb további három játékossal együtt.
+
+9
+00:00:39,101 --> 00:00:42,801
+Első lépésben a játékosok csatlakoznak egymáshoz,
+
+10
+00:00:46,851 --> 00:00:51,551
+majd mindannyian dobnak a kockákkal
+a kezdőjátékos és a sorrend meghatározásához.
+
+11
+00:00:51,701 --> 00:00:57,000
+Ezután választják ki a hősüket, és egyeznek meg
+a játszma küldetés-céljában.
+
+12
+00:00:57,050 --> 00:01:00,950
+Szavazhatnak az egyes hősök cselekvéseire
+rendelkezésre álló idő korlátjáról is.
+
+13
+00:01:01,000 --> 00:01:03,900
+Amennyiben valamely játékos a tétlensége okán
+eléri ezt az időkorlátot,
+
+14
+00:01:03,950 --> 00:01:09,050
+úgy automatikusan húz és megold egy balsors-kártyát,
+és ezzel a köre véget is ér.
+
+15
+00:01:09,100 --> 00:01:14,800
+Amely játékos zsinórban három kör során tétlen,
+automatikusan kiesik a játékból.
+
+16
+00:01:14,950 --> 00:01:19,150
+„Online játszma” kezdéséhez válaszd
+ezt a lehetőséget a főmenüből.
+
+17
+00:01:19,400 --> 00:01:25,500
+Ha azt szeretnéd, hogy a játék válasszon számodra
+játékostársakat, kattints a „Publikus játszma” gombra.
+
+18
+00:01:25,750 --> 00:01:32,250
+Ha a barátaiddal szeretnél kalandozni, add meg az
+általad (vagy a barátod által) indított játszma nevét,
+
+19
+00:01:32,400 --> 00:01:37,500
+kattints a „Privát játszma” gombra, majd
+oszd meg ezt a nevet a barátaiddal.
+
+20
+00:01:37,550 --> 00:01:41,250
+Így már minden adott ahhoz, hogy csatlakozhassanak!
+
+21
+00:01:41,400 --> 00:01:44,000
+Ha egy bizonyos típusú játszmát keresel,
+
+22
+00:01:44,050 --> 00:01:46,200
+– például olyat, amiben csak három játékos játszik -
+
+23
+00:01:46,250 --> 00:01:50,250
+úgy kattints a „Testreszabás” gombra
+egy játszmához való csatlakozás előtt.
+
+24
+00:01:50,500 --> 00:01:52,600
+ÁLTALÁNOS TUDNIVALÓK
+•
+Játékszabályok
+
+25
+00:01:52,650 --> 00:01:57,000
+A játék teljes leírását, valamint a szabályokat
+a „SZABÁLYOK” képernyőn érheted el.
+
+26
+00:01:57,050 --> 00:02:00,750
+Erre a képernyőre a főmenüből,
+
+27
+00:02:00,800 --> 00:02:03,500
+a „Szabályok” gombra kattintva juthatsz el,
+
+28
+00:02:03,550 --> 00:02:07,000
+vagy játszma közben a felső panelen
+szintén a „Szabályok” gombra kattintva.
+
+29
+00:02:07,050 --> 00:02:09,450
+ÁLTALÁNOS TUDNIVALÓK
+•
+Trófeák
+
+30
+00:02:09,500 --> 00:02:13,200
+Rengeteg trófeát gyűjthetsz össze a játszmák során.
+
+31
+00:02:13,250 --> 00:02:19,000
+A teljes listát a főmenü
+„TRÓFEÁK” menüpontjában tekintheted meg.
+
+32
+00:02:19,050 --> 00:02:21,250
+ÁLTALÁNOS TUDNIVALÓK
+•
+Opciók
+
+33
+00:02:21,300 --> 00:02:26,300
+A beállítások megváltoztatásához válaszd
+a főmenü „OPCIÓK” menüpontját.
+
+34
+00:02:26,350 --> 00:02:30,050
+ÁLTALÁNOS TUDNIVALÓK
+•
+Aktivitás napló és chat
+
+35
+00:02:30,100 --> 00:02:36,000
+Játék közben nyomon követheted játékostársaid
+tevékenységét az „Aktivitás napló” bekapcsolásával.
+
+36
+00:02:36,050 --> 00:02:43,150
+Online játszmák során chatelhetsz is
+a játszmában résztvevő többi játékossal.
+

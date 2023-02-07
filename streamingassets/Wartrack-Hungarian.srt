@@ -1,0 +1,46 @@
+0
+00:00:00,360 --> 00:00:02,000
+A HÁBORÚ MENETE
+
+1
+00:00:02,150 --> 00:00:06,550
+A háború menete mutatja mindazt a zűrzavart,
+amit a nilfgaardi hadsereg előrenyomulása okoz,
+
+2
+00:00:06,600 --> 00:00:10,400
+valamint a táblát többféle akadállyal népesíti be.
+
+3
+00:00:10,470 --> 00:00:12,550
+Néhány hatás „előremozdítja a háború menetét”,
+
+4
+00:00:12,600 --> 00:00:16,300
+vagyis a játékos az óramutató járásának
+megfelelően egy mezőnyit lépteti előre azt,
+
+5
+00:00:16,350 --> 00:00:20,050
+és az azon mezőn látható szimbólumnak
+megfelelő akadályt helyezi le a régiójára.
+
+6
+00:00:20,100 --> 00:00:22,350
+Így fest a háború menete a játszma során.
+
+7
+00:00:22,400 --> 00:00:27,700
+Eme szimbólum jelentése: „Helyezz le egy
+balsors-jelölőt a hősöd jelenlegi régiójára!”.
+
+8
+00:00:27,750 --> 00:00:33,400
+Ennek a szimbólumnak a jelentése pedig: „Helyezz le
+egy bronz szörny-jelölőt a hősöd jelenlegi régiójára!”.
+
+9
+00:00:33,450 --> 00:00:39,150
+Míg ennek a szimbólumnak a jelentése: „Helyezz le
+egy ezüst szörny-jelölőt a hősöd jelenlegi régiójára”.
+

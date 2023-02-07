@@ -1,0 +1,64 @@
+0
+00:00:00,300 --> 00:00:02,100
+AKADÁLYOK
+
+1
+00:00:02,150 --> 00:00:04,900
+A The Witcher világa telis-tele van veszélyekkel.
+
+2
+00:00:04,950 --> 00:00:08,500
+Utazásaid során számos akadállyal fogsz szembesülni.
+
+3
+00:00:08,650 --> 00:00:14,150
+A játékban kétféle akadály létezik:
+balsors-jelölők és szörny-jelölők.
+
+4
+00:00:14,200 --> 00:00:18,050
+Ezen akadályokat a köröd végén kell leküzdened.
+
+5
+00:00:18,150 --> 00:00:20,300
+AKADÁLYOK
+•
+Balsors
+
+6
+00:00:21,800 --> 00:00:28,000
+Egy balsors-akadály leküzdéséhez húzol egy balsors-kártyát,
+majd megoldod a kártya hatását.
+
+7
+00:00:28,050 --> 00:00:37,000
+Amikor balsors-jelölt akciót hajtasz végre, egy balsors-
+kártyát kell húznod, a hatását pedig meg kell oldanod.
+
+8
+00:00:37,050 --> 00:00:39,150
+AKADÁLYOK
+•
+Szörnyek
+
+9
+00:00:39,400 --> 00:00:41,950
+A játékban háromféle szörny létezik:
+
+10
+00:00:42,000 --> 00:00:44,090
+Arany - ezek a legerősebbek,
+
+11
+00:00:44,120 --> 00:00:45,240
+ezüst,
+
+12
+00:00:45,300 --> 00:00:47,400
+és bronz - ezek a leggyengébbek.
+
+13
+00:00:47,500 --> 00:00:52,850
+Egy szörny-akadály leküzdéséhez
+a szörnyet harcban kell legyőznöd.
+

@@ -1,0 +1,19 @@
+0
+00:00:00,300 --> 00:00:02,120
+TÉRKÉP
+
+1
+00:00:04,170 --> 00:00:14,170
+A játék térképe hat régióból áll,
+amely régiókban összesen tizenhét helyszín található.
+
+2
+00:00:14,720 --> 00:00:19,920
+Továbbá jelölve vannak a helyszíneket összekötő
+útvonalak, amelyek mentén a hősök utazhatnak.
+
+3
+00:00:21,870 --> 00:00:29,770
+Végül láthatóak azok a jelölők, amelyek jelzik,
+található-e az adott régióban szörny- vagy balsors-jelölő.
+

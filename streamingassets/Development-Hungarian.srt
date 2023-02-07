@@ -1,0 +1,70 @@
+0
+00:00:00,867 --> 00:00:02,867
+FEJLESZTÉS
+
+1
+00:00:05,000 --> 00:00:11,367
+A hősök fejlesztés-kártyák segítségével befolyásolhatják
+a harcok kimenetelét, valamint a játék menetét. 
+
+2
+00:00:14,617 --> 00:00:19,517
+Egyes kártyák hatásának kifejtéséhez
+előbb fel kell tölteni azokat.
+
+3
+00:00:19,767 --> 00:00:21,067
+FEJLESZTÉS
+•
+Kártyák feltöltése
+
+4
+00:00:21,767 --> 00:00:26,267
+A hősök ezen kártyáikat a saját speciális
+akciójuk révén tölthetik fel.
+
+5
+00:00:27,000 --> 00:00:32,017
+Geralt - kotyvasztással.
+
+6
+00:00:33,000 --> 00:00:37,000
+Triss – felkészüléssel.
+
+7
+00:00:38,350 --> 00:00:44,005
+Yarpen – vezényszóval.
+
+8
+00:00:47,855 --> 00:00:54,000
+Kökörcsin - dalolással; amivel aranyakat szerez.
+Ezen aranyakkal tölti fel a fejlesztés-kártyáit.
+
+9
+00:00:54,250 --> 00:00:55,750
+FEJLESZTÉS
+•
+Példa hatásokra
+
+10
+00:00:56,000 --> 00:01:01,200
+Íme néhány példa azon hatásokra, amelyeket
+fejlesztés-kártyák által érhetsz el:
+
+11
+00:01:03,250 --> 00:01:09,000
+- további eredmények létrehozása harc során,
+
+12
+00:01:10,800 --> 00:01:15,400
+- sérülések meggyógyítása, eltávolítása,
+
+13
+00:01:18,000 --> 00:01:23,600
+- akadályok elkerülése,
+
+14
+00:01:26,450 --> 00:01:33,000
+- és balsors-jelölők eltávolítása
+a hősöd karakterlapjáról.
+
