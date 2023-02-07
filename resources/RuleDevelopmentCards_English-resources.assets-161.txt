@@ -1,0 +1,30 @@
+﻿<p align=left>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+FEJLESZTÉS-KÁRTYÁK
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+- Némely fejlesztés-kártyákra általános töltés-jelölők ([ChargeWhite]) helyezhetők.<br>
+&nbsp;&nbsp;&nbsp;Ezen kártyákon egy időben egyszerre legfeljebb három jelölő lehet.<br>
+&nbsp;&nbsp;&nbsp;Amikor elfogynak róluk a jelölők, a fejlesztés-kártyák nem kerülnek<br>
+&nbsp;&nbsp;&nbsp;eldobásra; a gyűjteményben maradnak, és bármikor »újratölthetők«.<br>
+<br>
+- Fejlesztés-kártyák csak azon helyzetekben használhatóak fel, amely<br>
+&nbsp;&nbsp;&nbsp;helyzetekről az adott kártya rendelkezik (például: »harc közben«,<br>
+&nbsp;&nbsp;&nbsp;»kockadobásonként egyszer«, »utazás-akció végrehajtása során«, stb…).<br>
+<br>
+- Azok a fejlesztés-kártyák, amelyek olvasata úgy szól: »körönként egyszer«,<br>
+&nbsp;&nbsp;&nbsp;csak az aktív játékos körében használhatóak, és csakis abban az esetben,<br>
+&nbsp;&nbsp;&nbsp;ha a játékosnak még van cselekvésre, manőverezésre lehetősége.<br>
+<br>
+- Általános jelölők nem helyezhetőek el olyan fejlesztés-kártyákon,<br>
+&nbsp;&nbsp;&nbsp;amelyek leírásában nem szerepel az alábbi hatás:<br>
+&nbsp;&nbsp;&nbsp;»Költs el [ChargeWhite] -t erről a kártyáról«<br>
+<br>
+- Azon fejlesztés-kártyák hatása, amelyekre nem helyezhető el jelölő,<br>
+&nbsp;&nbsp;&nbsp;permanens, tehát speciális akció végrehajtása nélkül, és azáltal [ChargeWhite]<br>
+&nbsp;&nbsp;&nbsp;elhelyezése és elköltése, vagy arany elköltése nélkül is kijátszható.<br>
+<br>
+</font>
+</p>

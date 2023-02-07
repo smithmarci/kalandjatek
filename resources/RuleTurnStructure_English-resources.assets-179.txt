@@ -1,0 +1,20 @@
+﻿<p align=left>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+A HŐS KÖRE
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+A hős egy köre az alábbi szegmensekből áll:<br>
+<br>
+1., Tetszőleges számú, rendelkezésre álló manőver végrehajtása.<br>
+2., Az első akció végrehajtása.<br>
+3., Tetszőleges számú, rendelkezésre álló manőver végrehajtása.<br>
+4., A második akció végrehajtása.<br>
+5., Tetszőleges számú, rendelkezésre álló manőver végrehajtása.<br>
+6., A régióban található akadály leküzdése.<br>
+<br>
+- Ha nem található akadály az adott régióban, akkor:<br>
+&nbsp;&nbsp;&nbsp;a háború menetének előmozdítása.<br>
+</font>
+</p>

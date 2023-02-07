@@ -1,0 +1,21 @@
+﻿<p align=left>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+BIZONYÍTÉKOK
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+- A hős úgy juthat bizonyítékokhoz, hogy elcseréli rájuk a birtokában<br>
+&nbsp;&nbsp;&nbsp;lévő nyomokat a hőslapján olvasható váltási rátának megfelelően.<br>
+<br>
+- Miután a hős elcserélte az összegyűjtött nyomokat bizonyítékokra, úgy<br>
+&nbsp;&nbsp;&nbsp;a bizonyítékok egészen addig bizonyítékok maradnak, amíg a hősnek<br>
+&nbsp;&nbsp;&nbsp;vannak »szabadon álló« nyom-jelölői, amelyeket esetlegesen elkölthet<br>
+&nbsp;&nbsp;&nbsp;egyes hatások okán. Amennyiben kevesebb nyom-jelölője van, mint<br>
+&nbsp;&nbsp;&nbsp;amennyit elkölteni kényszerül, ám rendelkezik a költendő nyomokkal<br>
+&nbsp;&nbsp;&nbsp;megegyező színű bizonyíték(ok)kal is, úgy azon bizonyítéko(ka)t<br>
+&nbsp;&nbsp;&nbsp;visszaváltani kényszerül, és a visszaváltásból kapott nyomokból költi el<br>
+&nbsp;&nbsp;&nbsp;a hiányzó mennyiséget. Ezáltal fennáll a lehetősége, hogy bizonyítékot<br>
+&nbsp;&nbsp;&nbsp;veszít valamely hatás eredményeképp.<br>
+</font>
+</p>

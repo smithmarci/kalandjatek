@@ -1,0 +1,33 @@
+﻿<p align=left>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+HALADÁS
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+A hősök különböző helyszínekre utazhatnak az egyes helyszíneket<br>
+összekötő, sárgával jelölt útvonalak mentén történő haladás révén.<br>
+<br>
+A játékos a hősét vagy »utazás-akciót« végrehajtva egy úton, vagy pedig<br>
+»gyorsutazással« két útszakasz mentén mozdítja el. Majd megkapja a végcél<br>
+után járó, az odaérkezéskor választható színű nyomot. Végül, ha két út<br>
+mentén haladt, húz egy balsors-kártyát, és megcselekszi a következményeit.<br>
+<br>
+- A hős utazás- vagy gyorsutazás-akció végrehajtásával haladhat a táblán.<br>
+&nbsp;&nbsp;&nbsp;Másképp csak egy módon: a »Driádok barátja« nevű jószerencse-kártya<br>
+&nbsp;&nbsp;&nbsp;hatására, amely segítségével a tábla bármely helyszínére eljuthat.<br>
+<br>
+- A hős ugyanazon az útvonalon kétszer nem haladhat át ugyanazzal az<br>
+&nbsp;&nbsp;&nbsp;akcióval (például: a gyorsutazás-akcióval - amellyel egyszerre akár<br>
+&nbsp;&nbsp;&nbsp;két út is megtehető - sem haladhat két helyszín között oda és vissza).<br>
+<br>
+- A játékos csak azután kapja meg az adott helyszínen található nyomot,<br>
+&nbsp;&nbsp;&nbsp;miután előzőleg utazás-akciót végrehajtva odáig haladt.<br>
+<br>
+- A Novigrádot Duén Canellel összekötő tengeri úton történő haladáshoz<br>
+&nbsp;&nbsp;&nbsp;a játékosnak előbb két aranyat kell költenie.<br>
+<br>
+- A Duén Canell-t és Cintrát összekötő tengeri úton való haladáshoz<br>
+&nbsp;&nbsp;&nbsp;a játékosnak előbb egy aranyat kell költenie.<br>
+</font>
+</p>

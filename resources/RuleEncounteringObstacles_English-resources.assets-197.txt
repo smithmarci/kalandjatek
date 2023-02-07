@@ -1,0 +1,48 @@
+﻿<p align=left>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+AKADÁLYOK
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+A szörnyek és a balsors mind olyan akadályok, amelyekbe a játékos<br>
+a játszma során ütközhet.<br>
+<br>
+- Miután a hős végrehajtotta mindkét rendelkezésére álló akcióját,<br>
+&nbsp;&nbsp;&nbsp;és úgy dönt, nem kíván élni további manőverek végrehajtásával,<br>
+&nbsp;&nbsp;&nbsp;a régiójában egy akadály leküzdésére kényszerül.<br>
+<br>
+- A balsors leküzdéséhez a játékos húz egy balsors-kártyát, aminek<br>
+&nbsp;&nbsp;&nbsp;a hatását meg is oldja, végül eldobja ezt a lapot (hacsak a kártya<br>
+&nbsp;&nbsp;&nbsp;másként nem rendelkezik).<br>
+<br>
+- A szörnyek legyőzéséhez a játékos előbb felfordítja a választott<br>
+&nbsp;&nbsp;&nbsp;szörnyjelölő-kártyát (ha addig esetleg az le lett volna fordítva),<br>
+&nbsp;&nbsp;&nbsp;és megküzd a szörnnyel. Siker esetén eldobja a kártyát.<br>
+<br>
+- Ha a hős régiójában balsors- és szörny-akadály is található, akkor<br>
+&nbsp;&nbsp;&nbsp;a játékos döntheti el, melyiket küzdi le.<br>
+<br>
+- Ha a játékos amellett döntene, hogy a szörnnyel küzd meg, és a hőse<br>
+&nbsp;&nbsp;&nbsp;régiójában több szörny is található, akkor eldöntheti, hogy közülük<br>
+&nbsp;&nbsp;&nbsp;melyikkel küzd meg. A döntés során a játékos választ egy szörny-<br>
+&nbsp;&nbsp;&nbsp;kártyát az összes, a lefordítottak és az átfordítottak közül (ha és<br>
+&nbsp;&nbsp;&nbsp;amennyiben még lefordított szörnytípusra esik a választása, úgy<br>
+&nbsp;&nbsp;&nbsp;előbb átfordítja azt), aztán megküzd a választott ellenféllel.<br>
+<br>
+&nbsp;&nbsp;&nbsp;A már felfordított kártyák a továbbiakban felfordítva is maradnak!<br>
+<br>
+- Ha a régiójában nem található semmilyen akadály, akkor a háború<br>
+&nbsp;&nbsp;&nbsp;menetét mozdítja elő azáltal, hogy a háború menete-jelölőt az óramutató<br>
+&nbsp;&nbsp;&nbsp;járásával megegyező irányba egy mezővel mozgatja el. Ez után azon<br>
+&nbsp;&nbsp;&nbsp;akadály, amely a háború menet-jelölőn is látható, lehelyeződik ama<br>
+&nbsp;&nbsp;&nbsp;régió akadály-mezőjére, amely régióban a játékos hőse tartózkodik.<br>
+<br>
+- Néhány hatás lehetővé teszi a hős számára, hogy »ne vegyen tudomást«<br>
+&nbsp;&nbsp;&nbsp;egy akadályról (a hatás leírásától függően az adott körben vagy a<br>
+&nbsp;&nbsp;&nbsp;továbbiakban egyáltalán). A hős nem küzdhet le egy, a körében már<br>
+&nbsp;&nbsp;&nbsp;hárított akadályt. Ha a hős egy vagy több akadály figyelmen kívül<br>
+&nbsp;&nbsp;&nbsp;hagyásával nem kényszerül akadályok leküzdésére, abban az esetben<br>
+&nbsp;&nbsp;&nbsp;a háború menetét sem kell előmozdítania.<br>
+</font>
+</p>

@@ -1,0 +1,10 @@
+﻿<p align=left>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+AKTÍV JÁTÉKOS
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+Azt a játékost nevezzük aktív játékosnak, akinek épp a köre tart.<br>
+</font>
+</p>

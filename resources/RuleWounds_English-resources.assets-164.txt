@@ -1,0 +1,55 @@
+﻿<p align=left>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+SEBESÜLÉSEK
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+A sebesüléseknek két típusa van:<br>
+a kisebb sebesülések ([WoundWhite]) , és<br>
+a súlyos sérülések ([WoundSevereWhite]) .<br>
+<br>
+- A súlyos sérülések sokkal komolyabbak, mint a kisebb sebesülések.<br>
+&nbsp;&nbsp;&nbsp;Habár a súlyos sérüléseknek nincs egyéb speciális, a játékot befolyásoló<br>
+&nbsp;&nbsp;&nbsp;hatása, mint hogy a hősnek több pihenés szükséges a meggyógyításukhoz.<br>
+<br>
+- Sérülés-jelölőket csak és kizárólag olyan akció-mezőkre lehet elhelyezni,<br>
+&nbsp;&nbsp;&nbsp;amelyek egy »szív« szimbólummal vannak jelölve - ezeket sebezhető akció-<br>
+&nbsp;&nbsp;&nbsp;mezőknek hívjuk (ezek lehetnek: »utazás«, »gyorsutazás«, »fejlesztés«<br>
+&nbsp;&nbsp;&nbsp;»nyomkeresés«, és a hős-specifikus akciók).<br>
+<br>
+- Egy sebezhető akció-mezőt csak egy sérülés-jelölő foglalhat el.<br>
+<br>
+- Amikor a hős megsérül, a hatás által kiváltott sebesüléstípust<br>
+&nbsp;&nbsp;&nbsp;olyan sebezhető akció-mezőre helyezi el, amelyen még nem található<br>
+&nbsp;&nbsp;&nbsp;semmilyen sérülés-jelölő.<br>
+<br>
+- Mialatt az akció-mezőt sérülés-jelölő foglalja el, azon akciót a hős<br>
+&nbsp;&nbsp;&nbsp;nem hajthatja végre, egészen a sérülés meggyógyításáig (történjen az<br>
+&nbsp;&nbsp;&nbsp;pihenés-akció, vagy valamely hatás által), és újabb sérülés-jelölőt<br>
+&nbsp;&nbsp;&nbsp;sem helyezhet el rajta.<br>
+<br>
+- Amikor a hős egy akció végrehajtása után szerez sérülést, akkor van<br>
+&nbsp;&nbsp;&nbsp;lehetősége sérülés-jelölőt elhelyezni a már végrehajtott akció mezőjére.<br>
+<br>
+- Ha már minden sebezhető akció-mezője sérülés-jelölők által foglalt,<br>
+&nbsp;&nbsp;&nbsp;csak a pihenés-akciót hajthatja végre, mint következő műveletet.<br>
+<br>
+- Ha a hős sebesülést szerez, és már minden sebezhető akció-mezőjén<br>
+&nbsp;&nbsp;&nbsp;található sérülés-jelölő, úgy nem helyez el további sérülés-jelölőket<br>
+&nbsp;&nbsp;&nbsp;a karakterlapján. Helyette minden olyan sérülés-jelölő után, amit<br>
+&nbsp;&nbsp;&nbsp;nem tudott elhelyezni, 2 DP-ot veszít.<br>
+<br>
+- A hősök nem halhatnak meg. Viszont, amennyiben több sérülést<br>
+&nbsp;&nbsp;&nbsp;szereznek, mint amennyit elviselni képesek, úgy a továbbiakban<br>
+&nbsp;&nbsp;&nbsp;DP-okat veszítenek a fenti szabály értelmében.<br>
+<br>
+- A hős többféleképpen is eltávolíthat sebesüléseket. Például pihenés-<br>
+&nbsp;&nbsp;&nbsp;akció végrehajtásával, olyan helyszínek meglátogatásával, amelyet<br>
+&nbsp;&nbsp;&nbsp;egy »szív« ikon is jelöl, valamint néhány kártya hatása által.<br>
+<br>
+- Azon helyszínek meglátogatása, amely helyszínek a »szív« ikonnal vannak<br>
+&nbsp;&nbsp;&nbsp;jelölve, lehetővé teszik egy kisebb sebesülés gyógyítását, vagy pedig<br>
+&nbsp;&nbsp;&nbsp;egy súlyos sérülés jelölőjének átfordítását kisebb sebesüléssé.<br>
+</font>
+</p>

@@ -1,0 +1,113 @@
+﻿<p align=left>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+KOCKÁK
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+- Amikor egy hatás azt követeli meg a hőstől, hogy dobjon a<br>
+&nbsp;&nbsp;&nbsp;hős-kockáival, akkor minden hős-kockájával egyszerre dob.<br>
+<br>
+- A harc-kockák nem hős-kockák, és a hős-kockák nem harc-kockák.<br>
+<br>
+- Amikor a hős újradobja egy vagy több kockáját, akkor az újradobott<br>
+&nbsp;&nbsp;&nbsp;kockák eredménye számít.<br>
+<br>
+- A legtöbb kocka kidobása többféle eredménnyel is járhat. Például:<br>
+&nbsp;&nbsp;&nbsp;minden egyes harc-kockának van egy olyan oldala, amely üres,<br>
+&nbsp;&nbsp;&nbsp;ezáltal azt kidobva az a kocka nem hoz semmilyen eredményt.<br>
+<br>
+- A hősök egyes kockadobásaikat fejlesztés-kártya hatásokra is költhetik.<br>
+<br>
+- Némely hatás azt kívánja a hőstől, hogy dobjon a hős-kockáival. Abban<br>
+&nbsp;&nbsp;&nbsp;az esetben ér el »sikeres« dobást, ha legalább az egyik kockájával a<br>
+&nbsp;&nbsp;&nbsp;hőslapon »siker-dobásként« feltüntetett szimbólumot sikerül dobnia.<br>
+<br>
+- Némely hatás olyan kockadobás eredményt követelhet meg, amely<br>
+&nbsp;&nbsp;&nbsp;dobás bizonyos elemei nem találhatóak meg a hős kockáin. Az ilyen<br>
+&nbsp;&nbsp;&nbsp;eredményeket a hős fejlesztés-kártyák felhasználása révén érheti el.<br>
+<br>
+- Egyes kártyák [SwordWhite] vagy [ShieldWhite] szimbólumokat mutathatnak:<br>
+&nbsp;&nbsp;&nbsp;ezen ikonok nem az egyes kockák azonos szimbólummal ellátott<br>
+&nbsp;&nbsp;&nbsp;oldalaira utalnak, hanem az összes kocka segítségével kidobott<br>
+&nbsp;&nbsp;&nbsp;eredmények összességére.<br>
+<br>
+<br>
+Alább következzen minden egyes kocka minden egyes oldalának rajzolata:<br>
+<br>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+Harc-kocka #1:
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#ffffff>
+[Dices-SwordDiceSide]&nbsp;[Dices-ShieldDiceSide]&nbsp;[Dices-ShieldDiceSide]&nbsp;[Dices-ShieldDiceSide]&nbsp;[Dices-ShieldDiceSide]&nbsp;[Dices-EmptyDiceSide]
+<br><br><br><br><br><br>
+</font>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+Harc-kocka #2:
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#ffffff>
+[Dices-SwordDiceSide]&nbsp;[Dices-SwordDiceSide]&nbsp;[Dices-SwordDiceSide]&nbsp;[Dices-ShieldDiceSide]&nbsp;[Dices-ShieldDiceSide]&nbsp;[Dices-EmptyDiceSide]
+<br><br><br><br><br><br>
+</font>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+Harc-kocka #3:
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#ffffff>
+[Dices-SwordDiceSide]&nbsp;[Dices-SwordDiceSide]&nbsp;[Dices-SwordDiceSide]&nbsp;[Dices-SwordDiceSide]&nbsp;[Dices-ShieldDiceSide]&nbsp;[Dices-EmptyDiceSide]
+<br><br><br><br><br><br>
+</font>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+Geralt hős-kockája #1:
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e13b3b>
+[Dices-SwordDiceSide]&nbsp;[Dices-SwordDiceSide]&nbsp;[Dices-ShieldDiceSide]&nbsp;[Dices-ShieldDiceSide]&nbsp;[Dices-SignDiceSide]&nbsp;[Dices-SignDiceSide]
+<br><br><br><br><br><br>
+</font>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+Geralt hős-kockája #2:
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e13b3b>
+[Dices-SwordDiceSide]&nbsp;[Dices-DodgeDiceSide]&nbsp;[Dices-SignDiceSide]&nbsp;[Dices-SignDiceSide]&nbsp;[Dices-SignDiceSide]&nbsp;[Dices-SpecialDiceSide]
+<br><br><br><br><br><br>
+</font>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+Geralt hős-kockája #3:
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e13b3b>
+[Dices-DoubleSwordDiceSide]&nbsp;[Dices-SwordDiceSide]&nbsp;[Dices-SwordDiceSide]&nbsp;[Dices-SwordDiceSide]&nbsp;[Dices-SignDiceSide]&nbsp;[Dices-SpecialDiceSide]
+<br><br><br><br><br><br>
+</font>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+Triss hős-kockája:
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#4c8dd6>
+[Dices-DodgeDiceSide]&nbsp;[Dices-DodgeDiceSide]&nbsp;[Dices-SpecialDiceSide]&nbsp;[Dices-SpecialDiceSide]&nbsp;[Dices-SpecialDiceSide]&nbsp;[Dices-SpecialDiceSide]
+<br><br><br><br><br><br>
+</font>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+Kökörcsin hős-kockája:
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#884fb8>
+[Dices-DodgeDiceSide]&nbsp;[Dices-DodgeDiceSide]&nbsp;[Dices-DodgeDiceSide]&nbsp;[Dices-DodgeDiceSide]&nbsp;[Dices-SpecialDiceSide]&nbsp;[Dices-SpecialDiceSide]
+<br><br><br><br><br><br>
+</font>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+Yarpen hős-kockája:
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30 color=#e59f24>
+[Dices-DoubleShieldSwordDiceSide]&nbsp;[Dices-DoubleShieldDodgeDiceSide]&nbsp;[Dices-DoubleShieldDodgeDiceSide]&nbsp;[Dices-DoubleShieldDiceSide]&nbsp;[Dices-DoubleShieldDiceSide]&nbsp;[Dices-DodgeDiceSide]
+<br><br><br><br><br><br>
+</font>
+&nbsp;
+</font>
+</p>

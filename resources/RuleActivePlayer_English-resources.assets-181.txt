@@ -1,0 +1,14 @@
+﻿<p align=left>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+JÁTÉKOSOK ÉS HŐSÖK
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+A The Witcher Kalandjátékban minden játékos egy hőst irányít.<br>
+A játék fogalmai szerint a »hős« egyaránt utal a játékosra is, aki a<br>
+hőst irányítja, valamint a játékos játékban szereplő hősére. Ezáltal<br>
+a »játékos« és »hős« kifejezéseket egyenértékűen használjuk.<br>
+<br>
+</font>
+</p>

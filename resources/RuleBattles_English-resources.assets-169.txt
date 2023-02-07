@@ -1,0 +1,71 @@
+﻿<p align=left>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+HARCOK
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+Amikor a hős ellenféllel kerül szembe, harcba bocsátkozik vele.<br>
+Ellenfél jöhet szembe nyomkereséskor, balsors révén, a főküldetése<br>
+egyik feltételeként, vagy az aktuális régió akadályaképp.<br>
+<br>
+Alább következzenek a harc menetének lépései:<br>
+<br>
+1., Használj fel bármilyen »a harc kezdetén« hatást.<br>
+2., Teljesíts bármilyen »a kockadobás előtt« hatást.<br>
+3., Dobj a harc- és hős-kockáiddal.<br>
+4., Összesítsd a kockadobásod eredményeit.<br>
+5., Módosítsd az egyes kockák részeredményét az alábbiak szerint:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- Költs 1 [DodgeWhite] -t és 1 [SwordWhite] -t 1 [ShieldWhite] eredményhez.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- Használj fel a harcok közben is kijátszható fejlesztést.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- Használj fel a harcok közben is kijátszható jószerencse-kártyát.<br>
+<br>
+6., Vesd össze az összes [SwordWhite] dobásod az ellenfeled támadás-értékével.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Amennyiben a [SwordWhite] kockáid száma megegyezik vagy több, mint az<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ellenfél támadás-értéke, az esetben a támadás sikeresnek minősül,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;és ezzel a hősöd teljesíti a »sikeres [SwordWhite]« hatást.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Ha a [SwordWhite] kockáid száma kevesebb, mint az ellenfél támadás-értéke,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;akkor a hős támadása kudarcot vall, és a »sikertelen [SwordWhite]« hatást<br>
+&nbsp;&nbsp;&nbsp;&nbsp;kell megcselekednie.<br>
+<br>
+7., Vesd össze az összes [ShieldWhite] dobásod az ellenfél védekezés-értékével.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Amennyiben a [ShieldWhite] kockáid száma megegyezik vagy több, mint az<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ellenfél védekezés-értéke, az esetben a védekezés sikeresnek minősül,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ezáltal a hős teljesíti a »sikeres [ShieldWhite]« hatást.<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Ha a [ShieldWhite] kockáid száma kevesebb, mint az ellenfél védekezés-értéke,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;akkor a hős védekezése kudarcot vall, és a »sikertelen [ShieldWhite]« hatást<br>
+&nbsp;&nbsp;&nbsp;&nbsp;kell végrehajtania.<br>
+<br>
+8., Ha az ellenfél egy szörny, és a támadás sikeres, úgy a szörny<br>
+&nbsp;&nbsp;&nbsp;&nbsp;legyőzésre kerül, és a szörny-kártya végleg lekerül a játéktérről.<br>
+<br>
+- Néhány főküldetés esetében előfordulhat, hogy a hősnek ellenfelekkel<br>
+&nbsp;&nbsp;&nbsp;kell konfrontálódnia. Ezen főküldetések teljesítéséhez a hősnek először<br>
+&nbsp;&nbsp;&nbsp;el kell jutnia arra a helyszínre, ahol végrehajthatja a küldetést, majd<br>
+&nbsp;&nbsp;&nbsp;el kell költenie a szükséges szerzemény-mennyiséget. Majd csak ez<br>
+&nbsp;&nbsp;&nbsp;után kell harcba bocsátkoznia az ellenféllel. A harc kimenetelétől<br>
+&nbsp;&nbsp;&nbsp;függetlenül a hős teljesíti a főküldetést a harc lezárultával.<br>
+<br>
+- Némely ellenfél befolyással van a hős állapotára, például hatás által:<br>
+&nbsp;&nbsp;&nbsp;»szenvedj el (X)-et minden (Y) után, amiből kevesebbel rendelkezel«.<br>
+&nbsp;&nbsp;&nbsp;Ez azt jelenti, hogy a hős annyi alkalommal szenvedi el az X hatást,<br>
+&nbsp;&nbsp;&nbsp;amennyivel az ellenfél Y attribútumával összehasonlítva a saját Y<br>
+&nbsp;&nbsp;&nbsp;attribútumából kevesebbel rendelkezik.<br>
+<br>
+&nbsp;&nbsp;&nbsp;Például a Striga védekezés-értéke 5 [ShieldWhite]. »Sikertelen védekezés [ShieldWhite]«<br>
+&nbsp;&nbsp;&nbsp;hatására vele szemben a hősnek a következőt kell teljesítenie:<br>
+&nbsp;&nbsp;&nbsp;»szenvedj el 1 [WoundWhite] -t minden egyes [ShieldWhite] után, amivel kevesebbet dobtál«.<br>
+&nbsp;&nbsp;&nbsp;Tehát ha a hős csak 3 [ShieldWhite] -t dobott, úgy elszenved (5 - 3 = 2) kettő [WoundWhite] -t.<br>
+<br>
+- Némely ellenfélnek támadás-érték helyett, vagy támadás- és védekezés-<br>
+&nbsp;&nbsp;&nbsp;értéke mellett rituálé-értéke ([SpecialWhite]) van.<br>
+<br>
+- Azon szörnyek, amelyeknek rituálé-értéke ([SpecialWhite]) van támadás-érték ([SwordWhite])<br>
+&nbsp;&nbsp;&nbsp;helyett, csak abban az esetben győzhetők le, (tehát a kártyájuk csak aztán<br>
+&nbsp;&nbsp;&nbsp;dobható el), amennyiben a rituálé sikeres lesz (azaz a játékos a hőse<br>
+&nbsp;&nbsp;&nbsp;kockájával [SpecialWhite] eredményt dob).
+</font>
+</p>

@@ -1,0 +1,15 @@
+﻿<p align=left>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+SZOMSZÉDOS TÁBLAELEMEK
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+Szomszédosnak a játéktáblán helyszíneket és régiókat nevezünk.<br>
+<br>
+- Két helyszín egymással szomszédos, ha út révén összeköttetésben állnak.<br>
+<br>
+- Két régió szomszédos egymással, ha legalább egy-egy helyszínük egy út<br>
+&nbsp;&nbsp;&nbsp;révén összeköttetésben áll.<br>
+</font>
+</p>

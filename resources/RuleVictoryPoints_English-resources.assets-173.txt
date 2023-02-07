@@ -1,0 +1,31 @@
+﻿<p align=left>
+<br>
+<font face=NGUI-Warnock-40-Regular_001 size=42 color=#f1b058>
+DIADALPONTOK
+</font>
+<br>
+<font face=NGUI-Warnock-28-Regular_001 size=30>
+A játékosok DiadalPontjaikat a hősük karakterlapjának bal szélén<br>
+található DiadalPont-mezőben feltüntetve követhetik nyomon.<br>
+<br>
+- DP-ot jó néhány módon szerezhetnek a játékosok a játszma során, mint<br>
+&nbsp;&nbsp;&nbsp;például küldetések teljesítésével, valamint szörnyek legyőzésével.<br>
+<br>
+- Amikor a játékos DiadalPontot szerez, az hozzáadódik a hőse<br>
+&nbsp;&nbsp;&nbsp;karakterlapján olvasható, korábban megszerzett DP-okból képződő<br>
+&nbsp;&nbsp;&nbsp;mennyiséghez.<br>
+<br>
+- Amikor a játékos DP-ot veszít, akkor az levonódik a hőse karakterlapján<br>
+&nbsp;&nbsp;&nbsp;található mezőben olvasható, korábbról halmozódott mennyiségből.<br>
+<br>
+- A játékosnak 0-nál kevesebb DiadalPontja nem lehet.<br>
+<br>
+- A megszerezhető DP-ok számának nincsen felső határa.<br>
+<br>
+- Amennyiben egy hatás a »legtöbb DP-tal rendelkező hős« -re hivatkozik,<br>
+&nbsp;&nbsp;&nbsp;és az adott pillanatban kettő vagy több hős is azonos számú DP-tal<br>
+&nbsp;&nbsp;&nbsp;rendelkezik, abban az esetben az éppen a körét teljesítő aktív játékos<br>
+&nbsp;&nbsp;&nbsp;lesz az, aki eldöntheti, hogy melyik hős szenvedje el a hatást.<br>
+<br>
+</font>
+</p>
