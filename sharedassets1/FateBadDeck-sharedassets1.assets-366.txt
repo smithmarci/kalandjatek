@@ -1,0 +1,1341 @@
+{
+	"defalutDescription":{
+		"ribbon": {"key":"BFC_RIBBON","values":[{"lang":"Polish","val":"ZŁY LOS"},
+										 		{"lang":"English","val":"BALSORS"}]},
+		"front": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Front-LuckBad"},
+		"flag": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Flag-LuckBad"},
+		"back": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Reverse-LuckBad"}
+	},
+	"cards":[{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_1",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_1_IMAGE"},
+			"title": {"key":"BFC_1_TITLE","values":[{"lang":"Polish","val":"Nieszczęśliwy wypadek"},
+													 {"lang":"English","val":"Egy szerencsétlen baleset"}]},
+			"subheader": {"key":"BFC_1_SUBHEADER","values":[{"lang":"Polish","val":"Ktoś potrąca cię na ulicy i wpadasz pod koła rozpędzonego wozu. Ty się wyliżesz, ale wóz do niczego się już nie nadaje."},
+															 {"lang":"English","val":"Meglöknek az utcán, és épp egy arra elrobogó szekér kerekei alá zuhansz. Idővel ugyan felépülsz, ám a szekér már soha többé nem fog gurulni."}]},
+			"body": {"key":"BFC_1_BODY","values":[	{"lang":"Polish", "val":"Odnosisz 1 [Wound]."},
+													{"lang":"English","val":"Szerzel 1 [Wound]-t."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{ 
+			"action":"place_wound",
+			"params": {
+				"amount": 1,
+				"wound": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_2",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_2_IMAGE"},
+			"title": {"key":"BFC_2_TITLE","values":[{"lang":"Polish","val":"Pech!"},
+													 {"lang":"English","val":"Balszerencse!"}]},
+			"subheader": {"key":"BFC_2_SUBHEADER","values":[{"lang":"Polish", "val":"Stara baba, na którą wpadasz na targu, krzywo na ciebie spogląda i mamrocze coś pod nosem."},
+															 {"lang":"English","val":"A piacot járva véletlenül nekiütközöl egy öregasszonynak, aki erre komiszul néz rád, és mormog valamit az orra alatt."}]},
+			"body": {"key":"BFC_2_BODY","values":[	{"lang":"Polish", "val":"Podczas następnej walki nie rzucaj 1 kością swojej postaci."},
+													{"lang":"English","val":"A következő harcod során nem dobhatsz az egyik hős-kockáddal."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition":{"battle": true}
+			} 
+		},{ 
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"battle_character_dice_block"
+		},{
+			"action":"kill_card",
+			"params": "FateBad"				
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_3",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_3_IMAGE"},
+			"title": {"key":"BFC_3_TITLE","values":[{"lang":"Polish","val":"Zatrucie"},
+													 {"lang":"English","val":"Megmérgeztek!"}]},
+			"subheader": {"key":"BFC_3_SUBHEADER","values":[{"lang":"Polish", "val":"Wieczorem nie poczułeś w strawie nic dziwnego, ale rano język ci spuchł i skręcało cię w kiszkach."},
+															 {"lang":"English","val":"Bár a tegnap esti ragunak nem volt rosszabb íze, mint máskor, reggelre feldagad a nyelved, és megállás nélkül görcsöl a gyomrod."}]},
+			"body": {"key":"BFC_3_BODY","values":[	{"lang":"Polish", "val":"Obróć wszystkie [Wound] na swojej karcie postaci na stronę [WoundSevere]. Jeśli nie masz żadnych [Wound], zamiast tego odnosisz 1 [Wound]."},
+													{"lang":"English","val":"A karakterlapodon fordíts át minden [Wound]-t a [WoundSevere] oldalára!\n\nHa még nincsen [Wound]-ed, akkor szerzel 1 [Wound]-t."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action": "test",
+			"params": {
+				"woundedRegular": true
+			},
+			"success": {
+				"action":"place_posine_wound",
+				"params": {
+					"all": true
+				}
+			},
+			"fail": {
+				"action": "place_wound",
+				"params": {
+					"wound": 1,
+					"amount": 1
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_4",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_4_IMAGE"},
+			"title": {"key":"BFC_4_TITLE","values":[{"lang":"Polish", "val":"Rozwścieczona ciżba"},
+													{"lang":"English","val":"Feldühödött csőcselék"}]},
+			"subheader": {"key":"BFC_4_SUBHEADER","values":[{"lang":"Polish", "val":"Nie wiesz, czym starucha zasłużyła na gniew wieśniaków, ale czy będziesz bezczynnie się przyglądać, jak palą ją na stosie?"},
+															{"lang":"English","val":"Nem tudod biztosan, az öregasszony mivel érdemelte ki a falusiak haragját, de akkor sem nézheted tétlenül, ahogy a máglyán megégetik."}]},
+			"body": {"key":"BFC_4_BODY","values":[	{"lang":"Polish", "val":"Opóźnij działania, lub otrzymujesz 1 [BadFateMarker]."},
+													{"lang":"English","val":"Feltartóztatnak, vagy szerzel 1 [BadFateMarker]-t."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action": "test",
+			"params": {
+				"delayed": false
+			},
+			"success": {
+				"action":"confirm",
+				"params": {
+					"titleKey": "BFC_4_TITLE",
+					"contentKey": "BFC_4_BODY",
+						"confirm": {"key":"BFC_4_CONFIRM","values":[{"lang":"Polish", "val":"Opóźnij działania "},{"lang":"English","val":"Veszteglek"}]},	
+						"cancel": {"key":"BFC_4_CANCEL","values":[{"lang":"Polish", "val":"Otrzymaj 1 [BadFateMarkerColor]"},{"lang":"English","val":"1 [BadFateMarkerColor]-t szerzek"}]}				
+				},
+				"success": {
+					"action":"delay_action"	
+				},
+				"fail": {
+					"action":"place_bad_fate",
+					"params": {
+						"amount": 1
+					}
+				}
+			},
+			"fail": {
+				"action": "place_bad_fate",
+				"params": {
+					"amount": 1
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_5",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_5_IMAGE"},
+			"title": {"key":"BFC_5_TITLE","values":[{"lang":"Polish","val":"Zjawa"},
+													 {"lang":"English","val":"A jelenés"}]},
+			"subheader": {"key":"BFC_5_SUBHEADER","values":[{"lang":"Polish", "val":"Odstawiasz piwo i patrzysz na widmo, wieszczące zło i nadejście mrocznych czasów."},
+															 {"lang":"English","val":"Leteszed a söröskorsód, és a kísérteties jelenésre, a rossz szerencse előfutárára, a sötét idők hírnökére bámulsz."}]},
+			"body": {"key":"BFC_5_BODY","values":[	{"lang":"Polish", "val":"Odsłoń kartę na wierzchu każdej z talii śledztwa. Jeśli to karta niepowodzenia, odłóż ją z powrotem na wierzch talii. W przeciwnym razie odrzuć ją."},
+													{"lang":"English","val":"Fedd fel mindegyik nyomkeresés​-​pakli legfelső lapját!\n\nHa bármelyik a felfedett kártyák közül hátráltatás-​lap, azt helyezd vissza! Különben pedig dobd el!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action":"preview_card",
+			"params": {
+				"deck": "Investigation",
+				"amount": 1,
+				"discardAll": true,
+				"dontDiscardSetbeks": true
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_6",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_6_IMAGE"},
+			"title": {"key":"BFC_6_TITLE","values":[{"lang":"Polish","val":"Cień"},
+													 {"lang":"English","val":"Egy árny"}]},
+			"subheader": {"key":"BFC_6_SUBHEADER","values":[{"lang":"Polish", "val":"Ktoś od rana cię śledzi. Masz złe przeczucia."},
+															 {"lang":"English","val":"Egész nap követett valaki. Van egy rossz megérzésed ezzel kapcsolatban."}]},
+			"body": {"key":"BFC_6_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 2 [BadFateMarker]."},
+													{"lang":"English","val":"Szerzel 2 [BadFateMarker]-t."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action":"place_bad_fate",
+			"params": {
+				"amount": 2
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_7",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_7_IMAGE"},
+			"title": {"key":"BFC_7_TITLE","values":[{"lang":"Polish","val":"Dręczący lęk"},
+													 {"lang":"English","val":"Nyomodban a félelem"}]},
+			"subheader": {"key":"BFC_7_SUBHEADER","values":[{"lang":"Polish", "val":"Masz nieodparte wrażenie, że ktoś wynajął ludzi, by uprzykrzyć ci życie."},
+															 {"lang":"English","val":"Nem tudsz szabadulni az érzéstől, hogy felbéreltek valakit az életed megkeserítésére."}]},
+			"body": {"key":"BFC_7_BODY","values":[	{"lang":"Polish", "val":"Połóż 1 [BadFateMarker] w swoim regionie."},
+													{"lang":"English","val":"Helyezz le 1 [BadFateMarker]-t a régiódban!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action":"place_bad_fate_region"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_8",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_8_IMAGE"},
+			"title": {"key":"BFC_8_TITLE","values":[{"lang":"Polish","val":"Zdrada!"},
+													 {"lang":"English","val":"Árulás!"}]},
+			"subheader": {"key":"BFC_8_SUBHEADER","values":[{"lang":"Polish", "val":"Ufałeś mu, a on wystawił cię do wiatru..."},
+															 {"lang":"English","val":"Megbíztál benne, és persze teljesen hülyére vett téged..."}]},
+			"body": {"key":"BFC_8_BODY","values":[	{"lang":"Polish", "val":"Odrzuć 1 ze swoich kart dobrego losu. Jeśli nie masz żadnej karty dobrego losu, otrzymujesz 1 [BadFateMarker]."},
+													{"lang":"English","val":"Dobd el 1 jószerencse-kártyádat!\n\nHa nincs egy jószerencse-​kártyád sem, szerzel 1 [BadFateMarker]-t."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action": "test",
+			"params": {
+				"InventoryCardType": {
+					"type": "FateGood",
+					"amount": 1
+				}
+			},
+			"success": {
+				"action":"select_inventory_card",
+				"params": {
+					"filter": "FateGood",
+					"amount": 1,
+					"mode": "DISCARD"
+				}
+			},
+			"fail": {
+				"action": "place_bad_fate",
+				"params": {
+					"amount": 1
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_9",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_9_IMAGE"},
+			"title": {"key":"BFC_9_TITLE","values":[{"lang":"Polish", "val":"Rabusie"},
+													{"lang":"English","val":"Útonállók"}]},
+			"subheader": {"key":"BFC_9_SUBHEADER","values":[{"lang":"Polish", "val":"Omiatasz ich wzrokiem, ważysz w dłoni sakiewkę i podejmujesz decyzję."},
+															{"lang":"English","val":"Hosszasan bámulod őket, megnézed, mennyit nyom az erszényed, majd döntesz."}]},
+			"body": {"key":"BFC_9_BODY","values":[	{"lang":"Polish", "val":"Wydaj 2 [GoldCoin] albo walcz!\n\nWróg: 3 [Shield].\n\nNieudana [Shield]: odnosisz 2 [Wound]."},
+													{"lang":"English","val":"Költs 2 [GoldCoin]-at, vagy harcolj!\n\nEllenfél: 3 [Shield]\n\n[Shield] bukás: szerzel 2 [Wound]-t."}]}
+		},
+		"ai":{
+			"wound" : 2,
+			"shield": 3
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action":"pay_gold",
+			"params": {
+				"amount": 2,
+				"message": {
+					"titleKey": "BFC_9_TITLE",
+					"contentKey": "BFC_9_BODY",
+					"confirm": {"key":"BFC_9_CONFIRM","values":[{"lang":"Polish", "val":"Wydaj 2 [GoldCoinColor]"},{"lang":"English","val":"Elköltök 2 [GoldCoinColor]-at"}]},	
+					"cancel": {"key":"BFC_9_CANCEL","values":[{"lang":"Polish", "val":"Walcz"},{"lang":"English","val":"Harcolok!"}]}									
+				}
+			},			
+			"fail": {		
+				"action":"battle",
+				"params": {
+					"defense": {
+						"condition":["shield", "shield", "shield"],
+						"fail": {
+							"action": "place_wound",
+							"params": {
+								"amount": 2,
+								"wound": 1
+							}
+						}
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_10",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_10_IMAGE"},
+			"title": {"key":"BFC_10_TITLE","values":[{"lang":"Polish","val":"Siepacze Dijkstry"},
+													 {"lang":"English","val":"Dijkstra bérencei"}]},
+			"subheader": {"key":"BFC_10_SUBHEADER","values":[{"lang":"Polish", "val":"Banda brudnych osiłków zatrzymuje cię w ciemnym zaułku. Jak miło, zaniosą za ciebie do Dijkstry wszystko, co znalazłeś."},
+															 {"lang":"English","val":"Egy mocskos, csupa izmokból álló »falnak« ütközöl egy sötét sikátorban. Felnyalábolnak, és még a cókmókodat is segítenek Dijkstra színe elé cipelni. Milyen kedvesek!"}]},
+			"body": {"key":"BFC_10_BODY","values":[	{"lang":"Polish", "val":"Zużyj 2 [ClueMarkerGray]."},
+													{"lang":"English","val":"Költs 2 [ClueMarkerGray]-ot!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action": "select_leads",
+			"params": {
+				"Lead": -1,
+				"random": false
+			}
+		},{
+			"action": "test",
+			"params": {
+				"Lead": 1
+			},
+			"success": {
+				"action": "select_leads",
+				"params": {
+					"Lead": -1,
+					"random": false
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_11",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_11_IMAGE"},
+			"title": {"key":"BFC_11_TITLE","values":[{"lang":"Polish","val":"Choroba"},
+													 {"lang":"English","val":"Betegség"}]},
+			"subheader": {"key":"BFC_11_SUBHEADER","values":[{"lang":"Polish", "val":"Gdy wymiotujesz, kichasz i się trzęsiesz, sprawy wymykają się spod kontroli..."},
+															 {"lang":"English","val":"Ráz a hideg miközben hánysz és öklendezel; a helyzet irányítása kezd kicsúszni a kezeid közül..."}]},
+			"body": {"key":"BFC_11_BODY","values":[	{"lang":"Polish", "val":"Albo odnosisz 1 [WoundSevere], albo odrzuć 1 ze swoich kart rozwoju."},
+													{"lang":"English","val":"Vagy szerzel 1 [WoundSevere]-t, vagy eldobod 1 fejlesztés-​kártyádat."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action": "test",
+			"params": {
+				"InventoryCardType": {
+					"type": "XP",
+					"amount": 1
+				}
+			},
+			"success": {
+				"action": "confirm",
+					"params": {
+						"titleKey": "BFC_11_TITLE",
+						"contentKey": "BFC_11_BODY",
+						"confirm": {"key":"BFC_11_CONFIRM","values":[{"lang":"Polish", "val":"Odnosisz [WoundSevereColor]"},{"lang":"English","val":"1 [WoundSevereColor]-t szerzek"}]},	
+						"cancel": {"key":"BFC_11_CANCEL","values":[{"lang":"Polish", "val":"Odrzuć kartę rozwoju"},{"lang":"English","val":"Eldobok 1 kártyát"}]}
+					},
+					"success": {
+						"action": "place_wound",
+						"params": {
+							"amount": 1,
+							"wound": 2
+						}
+					},
+					"fail": {
+						"action": "select_inventory_card",
+						"params": {
+							"filter": "XP",
+							"amount": 1,
+							"mode": "DISCARD"
+						}
+					}
+			},
+			"fail": {
+				"action": "place_wound",
+					"params": {
+						"amount": 1,
+						"wound": 2
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_12",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_12_IMAGE"},
+			"title": {"key":"BFC_12_TITLE","values":[{"lang":"Polish","val":"Ulewa"},
+													 {"lang":"English","val":"Felhőszakadás"}]},
+			"subheader": {"key":"BFC_12_SUBHEADER","values":[{"lang":"Polish", "val":"Zawisły nad tobą ciemne chmury. Potężne ulewy uniemożliwiają jakiekolwiek działanie."},
+															 {"lang":"English","val":"Sötét fellegek úsznak az égen. A szakadó esőben lehetetlen bármit is csinálni, bárhová is eljutni."}]},
+			"body": {"key":"BFC_12_BODY","values":[	{"lang":"Polish", "val":"Opóźniasz działania i otrzymujesz 1 [BadFateMarker]."},
+													{"lang":"English","val":"Vesztegelsz, és szerzel 1 [BadFateMarker]-t."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params":"FateBad"
+		},{
+			"action":"delay_action"
+		},{
+			"action": "place_bad_fate",
+			"params": {
+				"amount": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_13",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_13_IMAGE"},
+			"title": {"key":"BFC_13_TITLE","values":[{"lang":"Polish","val":"Zamieć"},
+													 {"lang":"English","val":"A lecsapó hóvihar"}]},
+			"subheader": {"key":"BFC_13_SUBHEADER","values":[{"lang":"Polish", "val":"Nocą wiał lodowaty wiatr, który pozostawił nieprzebyty, śnieżny i lodowy krajobraz."},
+															 {"lang":"English","val":"Cudar hóvihar söpör végig az éjjel, és nem marad utána más, csak hótól járhatatlan vidék és jég."}]},
+			"body": {"key":"BFC_13_BODY","values":[	{"lang":"Polish", "val":"Opóźnij działania. Każda postać w twoim regionie otrzymuje 1 [BadFateMarker]."},
+													{"lang":"English","val":"Vesztegelsz, és a régiódban minden hős szerez 1 [BadFateMarker]-t."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action":"delay_action"
+		},{
+			"action": "dispatch",
+			"params": {
+				"characterMode": "ALL",
+				"characterFilter": "IN_REGION",
+				"description":{
+					"title": {"key":"BFC_13_TITLE_1","values":[{"lang":"Polish","val":"Banda złodziei"},
+													 {"lang":"English","val":"A lecsapó hóvihar"}]},
+					"body": {"key":"BFC_13_BODY_1","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 [BadFateMarker]."},
+													{"lang":"English","val":"Szereztél 1 [BadFateMarker]-t!"}]}
+				},
+				"task": {
+					"action": "place_bad_fate",
+					"params": {
+						"amount": 1
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_14",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_14_IMAGE"},
+			"title": {"key":"BFC_14_TITLE","values":[{"lang":"Polish","val":"Potwór z legend"},
+													 {"lang":"English","val":"Legendák lénye"}]},
+			"subheader": {"key":"BFC_14_SUBHEADER","values":[{"lang":"Polish", "val":"W karczmach przerażeni ludzie nerwowo pociągają piwo i opowiadają o straszliwym potworze, który sieje grozę na traktach."},
+															 {"lang":"English","val":"Idegesen hörpintik sörüket a rémült törzsvendégek, miközben az utakat kísértő szörnyű teremtményről mesélnek."}]},
+			"body": {"key":"BFC_14_BODY","values":[	{"lang":"Polish", "val":"Połóż w swoim regionie 1 odkrytego złotego [EnemyMarker]."},
+													{"lang":"English","val":"Helyezz le 1 arany [EnemyMarker]-et felfordítva a régiódra!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action":"place_enemy",
+			"params": {
+				"amount": 1,
+				"type": "EnemyBig",
+				"direction": "THIS",
+				"reveal": true 
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_15",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_15_IMAGE"},
+			"title": {"key":"BFC_15_TITLE","values":[{"lang":"Polish","val":"Zaginiona karawana"},
+													 {"lang":"English","val":"Az eltűnt karaván"}]},
+			"subheader": {"key":"BFC_15_SUBHEADER","values":[{"lang":"Polish", "val":"Wędrowców w całej okolicy ogarnęło przerażenie. Na trakty rusza niewielu - a wraca jeszcze mniej..."},
+															 {"lang":"English","val":"Rettegés tartja markában az utazókat a vidéken. Kevesen mernek útra kelni - és még kevesebben térnek vissza élve..."}]},
+			"body": {"key":"BFC_15_BODY","values":[	{"lang":"Polish", "val":"Połóż 1 złoty [EnemyMarker] w swoim regionie."},
+													{"lang":"English","val":"Helyezz le a régiódra 1 arany [EnemyMarker]-et!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action":"place_enemy",
+			"params": {
+				"amount": 1,
+				"type": "EnemyBig",
+				"direction": "THIS" 
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_16",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_16_IMAGE"},
+			"title": {"key":"BFC_16_TITLE","values":[{"lang":"Polish","val":"Niebezpieczeństwo na każdym kroku"},
+													 {"lang":"English","val":"Veszély minden bokorban"}]},
+			"subheader": {"key":"BFC_16_SUBHEADER","values":[{"lang":"Polish", "val":"Z każdym tygodniem coraz więcej dezerterów i rabusiów wałęsa się po traktach."},
+															 {"lang":"English","val":"Ahogy múlnak a hetek, a vidék útjain kóborló dezertőrök és banditák száma egyre csak nő."}]},
+			"body": {"key":"BFC_16_BODY","values":[	{"lang":"Polish", "val":"Połóż 1 brązowego [EnemyMarker] w swoim regionie i 1 brązowego [EnemyMarker] w sąsiednim regionie."},
+													{"lang":"English","val":"Helyezz le 1 bronz [EnemyMarker]-et a régiódra, és 1 bronz [EnemyMarker]-et egy szomszédos régión!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action":"place_enemy",
+			"params": {
+				"amount": 1,
+				"type": "EnemySmall",
+				"direction": "THIS" 
+			}
+		},{
+			"action":"place_enemy",
+			"params": {
+				"amount": 1,
+				"type": "EnemySmall",
+				"direction": "NEIGHBOURS" 
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_17",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_17_IMAGE"},
+			"title": {"key":"BFC_17_TITLE","values":[{"lang":"Polish","val":"Uff!"},
+													 {"lang":"English","val":"Ez közel volt!"}]},
+			"subheader": {"key":"BFC_17_SUBHEADER","values":[{"lang":"Polish", "val":"Coś wisiało w powietrzu, ale na szczęście uniknąłeś kłopotów."},
+															 {"lang":"English","val":"Baj van készülőben, de sikerül szerencsésen elkerülnöd."}]},
+			"body": {"key":"BFC_17_BODY","values":[	{"lang":"Polish", "val":"Nic się nie dzieje!"},
+													{"lang":"English","val":"Szerencsére semmi sem történik."}]}
+		},
+		"drawTask":{
+			"action":"kill_card",
+			"params": "FateBad"
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_18",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_17_IMAGE"},
+			"title": {"key":"BFC_18_TITLE","values":[{"lang":"Polish","val":"Uff!"},
+													 {"lang":"English","val":"Ez közel volt!"}]},
+			"subheader": {"key":"BFC_18_SUBHEADER","values":[{"lang":"Polish", "val":"Coś wisiało w powietrzu, ale na szczęście uniknąłeś kłopotów."},
+															 {"lang":"English","val":"Vihar van készülőben, de sikerül szerencsésen elkerülnöd."}]},
+			"body": {"key":"BFC_18_BODY","values":[	{"lang":"Polish", "val":"Nic się nie dzieje!"},
+													{"lang":"English","val":"Szerencsére semmi sem történik."}]}
+		},
+		"drawTask":{
+			"action":"kill_card",
+			"params": "FateBad"
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_19",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_17_IMAGE"},
+			"title": {"key":"BFC_19_TITLE","values":[{"lang":"Polish","val":"Uff!"},
+													 {"lang":"English","val":"Ez közel volt!"}]},
+			"subheader": {"key":"BFC_19_SUBHEADER","values":[{"lang":"Polish", "val":"Coś wisiało w powietrzu, ale na szczęście uniknąłeś kłopotów."},
+															 {"lang":"English","val":"Baj van készülőben, de sikerül szerencsésen elkerülnöd."}]},
+			"body": {"key":"BFC_19_BODY","values":[	{"lang":"Polish", "val":"Nic się nie dzieje!"},
+													{"lang":"English","val":"Szerencsére semmi sem történik."}]}
+		},
+		"drawTask":{
+			"action":"kill_card",
+			"params": "FateBad"
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_20",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_17_IMAGE"},
+			"title": {"key":"BFC_20_TITLE","values":[{"lang":"Polish","val":"Uff!"},
+													 {"lang":"English","val":"Ez közel volt!"}]},
+			"subheader": {"key":"BFC_20_SUBHEADER","values":[{"lang":"Polish", "val":"Coś wisiało w powietrzu, ale na szczęście uniknąłeś kłopotów."},
+															 {"lang":"English","val":"Vihar van készülőben, de sikerül szerencsésen elkerülnöd."}]},
+			"body": {"key":"BFC_20_BODY","values":[	{"lang":"Polish", "val":"Nic się nie dzieje!"},
+													{"lang":"English","val":"Szerencsére semmi sem történik."}]}
+		},
+		"drawTask":{
+			"action":"kill_card",
+			"params": "FateBad"
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_21",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_21_IMAGE"},
+			"title": {"key":"BFC_21_TITLE","values":[{"lang":"Polish","val":"Ohydny stwór"},
+													 {"lang":"English","val":"Ocsmány kreatúra"}]},
+			"subheader": {"key":"BFC_21_SUBHEADER","values":[{"lang":"Polish", "val":"Widzisz paskudę, zaczajoną na śniegu przed tobą. Zanim masz okazję odwrócić się i uciec, podnosi łeb i rozwiera paszczę pełną ohydnych zębów."},
+															 {"lang":"English","val":"Látod, amint a teremtmény előtted settenkedik a hóban. Még mielőtt érkezésed lenne megfordulni és elfutni, felemeli a fejét, és kitátja hatalmas, fogaktól hemzsegő pofáját."}]},
+			"body": {"key":"BFC_21_BODY","values":[	{"lang":"Polish", "val":"Połóż w swoim regionie 1 odkrytego srebrnego [EnemyMarker]."},
+													{"lang":"English","val":"Helyezz le 1 ezüst [EnemyMarker]-et felfordítva a régiódra!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action":"place_enemy",
+			"params": {
+				"amount": 1,
+				"type": "EnemyMedium",
+				"direction": "THIS",
+				"reveal": true  
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_22",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_22_IMAGE"},
+			"title": {"key":"BFC_22_TITLE","values":[{"lang":"Polish","val":"Niepokojące wieści"},
+													 {"lang":"English","val":"Nyugtalanító hírek"}]},
+			"subheader": {"key":"BFC_22_SUBHEADER","values":[{"lang":"Polish", "val":"Ranny, krwawiący z oczodołów wędrowiec opowiada o napaści, jąkając się jak szaleniec, po czym kona z przeraźliwym okrzykiem."},
+															 {"lang":"English","val":"Miközben vér szivárog a szemüregeiből, a sebesült utazó még habogva lefesti neked a támadást, mielőtt egy fájdalmas nyögés kíséretében kileheli a lelkét."}]},
+			"body": {"key":"BFC_22_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 [BadFateMarker]. Następnie w tajemnicy przed innymi podejrzyj żeton z wierzchu stosu srebrnych [EnemyMarker] i połóż w dowolnym regionie."},
+													{"lang":"English","val":"Szerzel 1 [BadFateMarker]-t. Ezután nézd meg az ezüst [EnemyMarker] pakli legfelső lapját, majd a [EnemyMarker]-et lefordítva helyezd le a régiódra!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"	
+		},{
+			"action": "place_bad_fate",
+			"params": {
+				"amount": 1
+			}
+		},{
+			"action":"place_enemy",
+			"params": {
+				"amount": 1,
+				"type": "EnemyMedium",
+				"show": true,
+				"direction": "ANY" 
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_23",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_23_IMAGE"},
+			"title": {"key":"BFC_23_TITLE","values":[{"lang":"Polish","val":"Wojna puka do drzwi"},
+													 {"lang":"English","val":"A küszöbön álló háború"}]},
+			"subheader": {"key":"BFC_23_SUBHEADER","values":[{"lang":"Polish", "val":"Napięcia między narodami wciąż narastają, a coraz więcej królów i arystokratów pielęgnuje wrogość zamiast pokoju."},
+															 {"lang":"English","val":"A népek közötti feszültség egyre csak nő, miután a királyok és a nagyurak a béke helyett az ellenségeskedésnek adják át magukat."}]},
+			"body": {"key":"BFC_23_BODY","values":[	{"lang":"Polish", "val":"Przesuń w przód znacznik na torze wojny."},
+													{"lang":"English","val":"Mozdítsd előre a háború menetét!"}]}
+		},
+		"drawTask": [{
+			"action":"kill_card",
+			"params": "FateBad"	
+		},{
+			"action": "advance_war_track"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_24",
+		"description":{ 
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_23_IMAGE"},
+			"title": {"key":"BFC_24_TITLE","values":[{"lang":"Polish","val":"Wojna puka do drzwi"},
+													 {"lang":"English","val":"A küszöbön álló háború"}]},
+			"subheader": {"key":"BFC_24_SUBHEADER","values":[{"lang":"Polish", "val":"Napięcia między narodami wciąż narastają, a coraz więcej królów i arystokratów pielęgnuje wrogość zamiast pokoju."},
+															 {"lang":"English","val":"A népek közötti feszültség egyre csak nő, miután a királyok és a nagyurak a béke helyett az ellenségeskedésnek adják át magukat."}]},
+			"body": {"key":"BFC_24_BODY","values":[	{"lang":"Polish", "val":"Przesuń w przód znacznik na torze wojny."},
+													{"lang":"English","val":"Mozdítsd előre a háború menetét!"}]}
+		},
+		"drawTask": [{
+			"action":"kill_card",
+			"params": "FateBad"	
+		},{
+			"action": "advance_war_track"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_25",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_23_IMAGE"},
+			"title": {"key":"BFC_25_TITLE","values":[{"lang":"Polish","val":"Wojna puka do drzwi"},
+													 {"lang":"English","val":"A küszöbön álló háború"}]},
+			"subheader": {"key":"BFC_25_SUBHEADER","values":[{"lang":"Polish", "val":"Napięcia między narodami wciąż narastają, a coraz więcej królów i arystokratów pielęgnuje wrogość zamiast pokoju."},
+															 {"lang":"English","val":"A népek közötti feszültség egyre csak nő, miután a királyok és a nagyurak a béke helyett az ellenségeskedésnek adják át magukat."}]},
+			"body": {"key":"BFC_25_BODY","values":[	{"lang":"Polish", "val":"Przesuń w przód znacznik na torze wojny."},
+													{"lang":"English","val":"Mozdítsd előre a háború menetét!"}]}
+		},
+		"drawTask": [{
+			"action":"kill_card",
+			"params": "FateBad"	
+		},{
+			"action": "advance_war_track"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_26",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_23_IMAGE"},
+			"title": {"key":"BFC_26_TITLE","values":[{"lang":"Polish","val":"Wojna puka do drzwi"},
+													 {"lang":"English","val":"A küszöbön álló háború"}]},
+			"subheader": {"key":"BFC_26_SUBHEADER","values":[{"lang":"Polish", "val":"Napięcia między narodami wciąż narastają, a coraz więcej królów i arystokratów pielęgnuje wrogość zamiast pokoju."},
+															 {"lang":"English","val":"A népek közötti feszültség egyre csak nő, miután a királyok és a nagyurak a béke helyett az ellenségeskedésnek adják át magukat."}]},
+			"body": {"key":"BFC_26_BODY","values":[	{"lang":"Polish", "val":"Przesuń w przód znacznik na torze wojny."},
+													{"lang":"English","val":"Mozdítsd előre a háború menetét!"}]}
+		},
+		"drawTask": [{
+			"action":"kill_card",
+			"params": "FateBad"	
+		},{
+			"action": "advance_war_track"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_27",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_27_IMAGE"},
+			"title": {"key":"BFC_27_TITLE","values":[{"lang":"Polish","val":"Mroczne czasy"},
+													 {"lang":"English","val":"Sötét idők járnak"}]},
+			"subheader": {"key":"BFC_27_SUBHEADER","values":[{"lang":"Polish", "val":"Ziemie są posępne i spustoszone. O przyjaciół i wszelkie dobra równie trudno, jak o nadzieję i dobrą wolę."},
+															 {"lang":"English","val":"Elhagyatott és felégetett földek mindenfelé. A barátok és a fellelhető készletek oly ritkák, mint a remény és a jóakarat."}]},
+			"body": {"key":"BFC_27_BODY","values":[	{"lang":"Polish", "val":"Zużyj maksymalnie 3 [Charge] z dowolnej swojej karty rozwoju bez rozpatrywania jej efektu. Za każdy [Charge], którego nie zużyjesz, otrzymujesz 1 [BadFateMarker]."},
+													{"lang":"English","val":"Költs legfeljebb 3 [Charge]-t a fejlesztés-​kártyáidról anélkül, hogy a hatásukat megoldanád!\n\nMinden egyes [Charge] után, amit nem költesz el, szerzel 1 [BadFateMarker]-t."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action":"select_inventory_card",
+			"params": {
+				"filter": "XP",
+				"mode": "CHARGE_REMOVE_THREE",
+				"amount": 1
+			}
+		},{
+			"action":"place_bad_fate",
+			"params": {
+				"variable_amount": "CHARGE_REMOVE_SHORT"
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_28",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_28_IMAGE"},
+			"title": {"key":"BFC_28_TITLE","values":[{"lang":"Polish","val":"Dezerterzy"},
+													 {"lang":"English","val":"Dezertőrök"}]},
+			"subheader": {"key":"BFC_28_SUBHEADER","values":[{"lang":"Polish", "val":"Wałęsające się bandy dezerterów napadają na pobliskie gospodarstwa, by się wyżywić kosztem prostego ludu."},
+															 {"lang":"English","val":"Kóborló dezertőr bandák fosztogatják a közeli tanyákat ellátmány után kutatva, a köznép kárára."}]},
+			"body": {"key":"BFC_28_BODY","values":[	{"lang":"Polish", "val":"Połóż 1 [BadFateMarker] w swoim regionie i stocz walkę!\n\nWróg: 3 [Sword].\n\nNieudany [Sword]: odnosisz 1 [Wound]."},
+													{"lang":"English","val":"Helyezz le 1 [BadFateMarker]-t a régiódra, és bocsátkozz harcba!\n\nEllenfél: 3 [Sword]\n\n[Sword] bukás: szerzel 1 [Wound]-t."}]}
+		},
+		"ai":{
+			"wound" : 1,
+			"sword": 3
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action": "place_bad_fate_region",
+			"params": {
+				"amount": 1,
+				"direction": "THIS"
+			}
+		},{
+			"action":"battle",
+			"params": {
+				"attack": {
+					"condition":["sword", "sword", "sword"],
+					"fail": {
+						"action": "place_wound",
+						"params": {
+							"amount": 1,
+							"wound": 1
+						}
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_29",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_29_IMAGE"},
+			"title": {"key":"BFC_29_TITLE","values":[{"lang":"Polish","val":"Zaraza"},
+													 {"lang":"English","val":"A járvány"}]},
+			"subheader": {"key":"BFC_29_SUBHEADER","values":[{"lang":"Polish", "val":"Odór śmierci unosi się nad każdym rozstajem dróg, każdym targowiskiem..."},
+															 {"lang":"English","val":"A halál szaga telepszik meg minden keresztúton, minden piactéren..."}]},
+			"body": {"key":"BFC_29_BODY","values":[	{"lang":"Polish", "val":"Każdy z graczy odnosi 1 [Wound]. Następnie odwróć 1 [Wound] na swojej karcie postaci na stronę [WoundSevere]."},
+													{"lang":"English","val":"Minden hős szerez 1 [Wound]-t.\n\nEzután fordíts át 1 [Wound]-t a karakterlapodon a [WoundSevere] oldalára!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action": "dispatch",
+			"params": {
+				"characterMode": "ALL",
+				"description":{
+					"title": {"key":"BFC_29_TITLE_1","values":[{"lang":"Polish","val":"Zaraza"},
+													 {"lang":"English","val":"A járvány"}]},
+					"body": {"key":"BFC_29_BODY_1","values":[	{"lang":"Polish", "val":"Odnosisz 1 [Wound]"},
+													{"lang":"English","val":"Szereztél 1 [Wound]-t!"}]}
+				},
+				"task": {
+					"action": "place_wound",
+					"params": {
+						"amount": 1,
+						"wound": 1
+					}
+				}
+			}
+		},{
+			"action":"place_posine_wound",
+				"params": {
+					"amount": 1
+				}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_30",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_001", "sprite":"BFC_30_IMAGE"},
+			"title": {"key":"BFC_30_TITLE","values":[{"lang":"Polish","val":"Ludzie Dijkstry ruszają na łowy"},
+													 {"lang":"English","val":"Dijkstra emberei mindenütt"}]},
+			"subheader": {"key":"BFC_30_SUBHEADER","values":[{"lang":"Polish", "val":"Zbiry i donosiciele wszędzie zdwajają wysiłki. Król szpiegów traci cierpliwość."},
+															 {"lang":"English","val":"Gonosztevők és informátorok ténykednek elszántan a vidéken. A Kémek Királya kezdi elveszíteni a türelmét!"}]},
+			"body": {"key":"BFC_30_BODY","values":[	{"lang":"Polish", "val":"Połóż 1 [BadFateMarker] w każdym regionie, w którym jeszcze nie ma [BadFateMarker]."},
+													{"lang":"English","val":"Helyezz le 1 [BadFateMarker]-t minden olyan régióra, amelyen még nincs [BadFateMarker]!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action": "place_bad_fate_region",
+			"params": {
+				"direction": "ANY",
+				"if_possible_place_auto": true,
+				"all": true
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_31",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"BFC_31_IMAGE"},
+			"title": {"key":"BFC_31_TITLE","values":[{"lang":"Polish","val":"Szantaż"},
+													 {"lang":"English","val":"Zsarolás"}]},
+			"subheader": {"key":"BFC_31_SUBHEADER","values":[{"lang":"Polish", "val":"Ludzie Dijkstry nie zostawiają ci wyboru. Aby utrzymać własne mroczne tajemnice, musisz zdradzić cudze..."},
+															 {"lang":"English","val":"Dijkstra nem hagy számodra más választást. Hogy a saját sötét titkaidat megőrizhesd, fel kell helyettük fedned másokét..."}]},
+			"body": {"key":"BFC_31_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 [BadFateMarker]. Następnie połóż 1 [BadFateMarker] na karcie postaci, która ma najwięcej PZ ."},
+													{"lang":"English","val":"Szerzel 1 [BadFateMarker]-t.\n\nEzután helyezz el 1 [BadFateMarker]-t a legtöbb DP-tal rendelkező hős karakterlapján!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action": "place_bad_fate",
+			"params": {
+				"amount": 1
+			}
+		},{
+			"action": "dispatch",
+			"params": {
+				"characterMode": "MOST_VP",
+				"description":{
+					"title": {"key":"BFC_31_TITLE_1","values":[{"lang":"Polish","val":"Szantaż"},
+													 {"lang":"English","val":"Zsarolás"}]},
+					"body": {"key":"BFC_31_BODY_1","values":[	{"lang":"Polish", "val":"Odnosisz 1 [BadFateMarker]"},
+													{"lang":"English","val":"Szereztél 1 [BadFateMarker]-t!"}]}
+				},
+				"task": {
+					"action": "place_bad_fate",
+					"params": {
+						"amount": 1
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_32",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"BFC_32_IMAGE"},
+			"title": {"key":"BFC_32_TITLE","values":[{"lang":"Polish","val":"Pełnia księżyca"},
+													 {"lang":"English","val":"Telihold"}]},
+			"subheader": {"key":"BFC_32_SUBHEADER","values":[{"lang":"Polish", "val":"Srebrzysty blask wywabia bestie spośród cieni..."},
+															 {"lang":"English","val":"Ezüstös fénye szörnyeket csal elő az árnyékokból..."}]},
+			"body": {"key":"BFC_32_BODY","values":[	{"lang":"Polish", "val":"Połóż 1 brązowego [EnemyMarker] w każdym regionie, gdzie jeszcze nie ma [EnemyMarker]. Zgodnie z kolejnością w grze, każdy gracz wybiera 1 [EnemyMarker] w swoim regionie, by stoczyć z nim walkę."},
+													{"lang":"English","val":"Helyezz le 1 bronz [EnemyMarker]-et minden olyan régióra, amelyen nincsen [EnemyMarker]!\n\nEzután, a kör sorrendjének megfelelően minden hős választ 1 [EnemyMarker]-et a régiójában, és megküzd azzal."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action":"place_enemy",
+			"params": {
+				"all": true,
+				"noEnemy": true,
+				"type": "EnemySmall",
+				"direction": "ANY"
+			}	
+		},{
+			"action": "dispatch",
+			"params": {
+				"characterMode": "ALL",
+				"description":{
+					"title": {"key":"BFC_32_TITLE_1","values":[{"lang":"Polish","val":"Pełnia księżyca"},
+													 {"lang":"English","val":"Telihold"}]},
+					"body": {"key":"BFC_32_BODY_1","values":[	{"lang":"Polish", "val":"Wybierasz 1 [EnemyMarker] w swoim regionie, by stoczyć z nim walkę."},
+													{"lang":"English","val":"Válassz 1 [EnemyMarker]-et a régiódban, és küzdj meg vele!"}]}
+				},
+				"task": {
+					"action": "resolve_region_obstacles",
+					"params": {
+						"ignoreFate": true
+					}
+				}
+			}
+		}],"------------------":"------------------------"	
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_33",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"BFC_33_IMAGE"},
+			"title": {"key":"BFC_33_TITLE","values":[{"lang":"Polish","val":"Coraz więcej zagrożeń"},
+													 {"lang":"English","val":"Nő a baj"}]},
+			"subheader": {"key":"BFC_33_SUBHEADER","values":[{"lang":"Polish", "val":"Wiedźmini niespecjalnie zważają na wojnę, ale nie mogą lekceważyć coraz większych zagrożeń, czyhających na traktach."},
+															 {"lang":"English","val":"Bár a vajákok kevés figyelmet fordítanak a háborúkra, az utakon ólálkodó, egyre csak növekvő veszélyt nem vehetik semmibe."}]},
+			"body": {"key":"BFC_33_BODY","values":[	{"lang":"Polish", "val":"Wymień wszystkich brązowych [EnemyMarker] na planszy na srebrnych [EnemyMarker]."},
+													{"lang":"English","val":"Cserélj ki a táblán minden bronz [EnemyMarker]-et 1 lefordított ezüst [EnemyMarker]-re!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action":"replace_enemy",
+			"params": {
+				"all": true,
+				"removeType": "EnemySmall",
+				"replaceType": "EnemyMedium",
+				"direction": "ANY"
+			}			
+		}],"------------------":"------------------------"	
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_34",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"BFC_34_IMAGE"},
+			"title": {"key":"BFC_34_TITLE","values":[{"lang":"Polish","val":"Niebezpieczne czasy"},
+													 {"lang":"English","val":"Vészterhes idők"}]},
+			"subheader": {"key":"BFC_34_SUBHEADER","values":[{"lang":"Polish", "val":"Każdy dzień jest niebezpieczniejszy od poprzedniego i nawet najsprawniejsi żyją w cieniu śmierci."},
+															 {"lang":"English","val":"Minden eljövendő nap veszélyesebb, mint az azt megelőző; senki nincs biztonságban, még a legrátermettebbek és legképzettebbek is a halál árnyékában élnek."}]},
+			"body": {"key":"BFC_34_BODY","values":[	{"lang":"Polish", "val":"Każdy gracz rzuca kością swojej postaci. W wypadku braku sukcesu odnosi 1 [Wound]."},
+													{"lang":"English","val":"Minden hős dob a hős-​kockájával. Amelyik hős nem dob sikert, szerez 1 [Wound]-t."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action": "dispatch",
+			"params": {
+				"characterMode": "ALL",
+				"description":{
+					"title": {"key":"BFC_34_TITLE_1","values":[{"lang":"Polish","val":"Niebezpieczne czasy"},
+													 {"lang":"English","val":"Vészterhes idők"}]},
+					"body": {"key":"BFC_34_BODY_1","values":[	{"lang":"Polish", "val":"Rzuć kością swojej postaci. W wypadku braku sukcesu odnosisz 1 [Wound]."},
+													{"lang":"English","val":"Dobj a hős-kockáddal! Ha nem dobsz sikert, szerzel 1 [Wound]-t."}]}
+				},
+				"task": {
+					"action": "success_roll",
+					"params": {
+						"condition": ["character"],
+						"characterOnly": true 
+					},
+					"fail": {
+						"action": "place_wound",
+						"params": {
+							"amount": 1,
+							"wound": 1
+						}
+					}
+				}
+			}		
+		}],"------------------":"------------------------"	
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_35",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"BFC_35_IMAGE"},
+			"title": {"key":"BFC_35_TITLE","values":[{"lang":"Polish","val":"Atak z ukrycia"},
+													 {"lang":"English","val":"Kelepcébe sétálva!"}]},
+			"subheader": {"key":"BFC_35_SUBHEADER","values":[{"lang":"Polish", "val":"Jeszcze nie oddaliłeś się od miasta, a już wyrastają przed tobą ludzie Dijkstry. Czas zdecydować, czy zdradzisz im, co wiesz, czy staniesz do walki."},
+															 {"lang":"English","val":"Még szinte el sem hagytad a városkát, Dijkstra emberei máris eléd toppannak. Ideje eldönteni, hogy elmondod, amit tudsz, vagy keresztülverekszed magad rajtuk!"}]},
+			"body": {"key":"BFC_35_BODY","values":[	{"lang":"Polish", "val":"Oddaj 2 [ClueMarkerGray], albo stocz walkę!\nWróg: 3 [Sword].\nNieudany [Sword]: oddaj 2 [ClueMarkerGray] i opóźnij działania."},
+													{"lang":"English","val":"Költs 2 [ClueMarkerGray]-ot, vagy harcolj!\n\nEllenfél: 3 [Sword]\n\n[Sword] bukás: veszítesz 2 [ClueMarkerGray]-ot, és fel is tartóztatnak."}]}
+		},
+		"ai":{
+			"sword": 3
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action": "test",
+			"params": {
+				"Lead": 2
+			},
+			"success": {
+				"action": "confirm",
+					"params": {
+						"titleKey": "BFC_35_TITLE",
+						"contentKey": "BFC_35_BODY",
+						"confirm": {"key":"BFC_35_CONFIRM","values":[{"lang":"Polish", "val":"Oddaj [ClueMarkerGrayWhite]"},{"lang":"English","val":"Elköltök 2 [ClueMarkerGrayWhite]-ot"}]},	
+						"cancel": {"key":"BFC_35_CANCEL","values":[{"lang":"Polish", "val":"Walcz"},{"lang":"English","val":"Harcolok!"}]}
+					},
+				"success": [{
+					"action": "select_leads",
+					"params": {
+						"Lead": -1,
+						"random": false
+					}
+				},{
+					"action": "test",
+					"params": {
+						"Lead": 1
+					},
+					"success": {
+						"action": "select_leads",
+						"params": {
+							"Lead": -1,
+							"random": false
+						}
+					}
+				}],
+				"fail": {
+					"action":"battle",
+					"params": {
+						"attack": {
+							"condition":["sword", "sword", "sword"],
+							"fail": [{
+								"action": "select_leads",
+								"params": {
+									"Lead": -1,
+									"random": false
+								}
+							},{
+								"action": "test",
+								"params": {
+									"Lead": 1
+								},
+								"success": {
+									"action": "select_leads",
+									"params": {
+										"Lead": -1,
+										"random": false
+									}
+								}
+							},{
+								"action":"delay_action"
+							}]
+						}
+					}
+				}
+			},
+			"fail": {
+				"action":"battle",
+				"params": {
+					"attack": {
+						"condition":["sword", "sword", "sword"],
+						"fail": [{
+							"action": "select_leads",
+							"params": {
+								"Lead": -1,
+								"random": false
+							}
+						},{
+							"action": "test",
+							"params": {
+								"Lead": 1
+							},
+							"success": {
+								"action": "select_leads",
+								"params": {
+									"Lead": -1,
+									"random": false
+								}
+							}
+						},{
+							"action":"delay_action"
+						}]
+					}
+				}
+			}
+		}],"------------------":"------------------------"	
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_36",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"BFC_36_IMAGE"},
+			"title": {"key":"BFC_36_TITLE","values":[{"lang":"Polish","val":"Czas ucieka"},
+													 {"lang":"English","val":"Kifutsz az időből"}]},
+			"subheader": {"key":"BFC_36_SUBHEADER","values":[{"lang":"Polish", "val":"Gdy twoi przyjaciele i sprzymie- rzeńcy cierpią, uświadamiasz sobie, że nie masz czasu na kaprysy. Musisz przeć do celu."},
+															 {"lang":"English","val":"Miközben a barátaid és a szövetségeseid szenvednek, rájössz, hogy nincs már lehetőség a visszatáncolásra; tovább kell törnöd előre, a célod felé."}]},
+			"body": {"key":"BFC_36_BODY","values":[	{"lang":"Polish", "val":"Kiedy zakończysz zadanie główne, tracisz 3 PZ jeśli masz 1 ukończone zad. poboczne, lub 2 PZ jeśli masz ukończone 2 zad. poboczne (jeśli nie masz ukończonych zad. pobocznych, odrzuć tę kartę)."}, 
+													{"lang":"English","val":"A főküldetés teljesítésekor: ha 1 teljesített mellékküldetésed van, veszítesz 3 DP-ot, ha 2, akkor pedig 2 DP-ot. Ha nincs egyetlen teljesített mellékküldetésed sem, dobd el ezt a lapot!"}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "BeforeQuestComplete",
+				"mode": "EXECUTE",
+				"condition":{
+					"roll": false,
+					"beforeMainQuestCompleted": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card",
+			"params": "FateBad"	
+		},{
+			"action":"resource",
+			"params": {
+				"VictoryPoints": {
+					"variable_amount": "SIDE_QUEST_PENALTY"
+				}
+			}
+		}],"------------------":"------------------------"	
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_37",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"BFC_37_IMAGE"},
+			"title": {"key":"BFC_37_TITLE","values":[{"lang":"Polish","val":"Niespodziewany wróg"},
+													 {"lang":"English","val":"Egy váratlan ellenfél"}]},
+			"subheader": {"key":"BFC_37_SUBHEADER","values":[{"lang":"Polish", "val":"Gdy już myślisz, że dawne konflikty poszły w niepamięć, pojawia się nowy wróg, by popsuć ci szyki."},
+															 {"lang":"English","val":"Mikor már azt gondolod, minden múltbéli nézeteltérést elsimítottál, akkor tűnik fel a színen egy új ellenfél, csak hogy keresztülhúzza a számításaidat."}]},
+			"body": {"key":"BFC_37_BODY","values":[	{"lang":"Polish", "val":"Przy najbliższej okazji, gdy powinieneś pobrać kartę dobrego losu, nie pobierasz jej, a zamiast tego odrzucasz tę kartę."},
+													{"lang":"English","val":"Amikor legközelebb jószerencse-​kártyát húznál, ne húzz, hanem dobd el ezt a lapot helyette!"}]}
+		},
+		"drawTask":[{
+			"event": "CardDraw",
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition":{"OnDrawCard": "FateGood"}
+			} 
+		},{ 
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card",
+			"params": "FateBad"	
+		},{
+			"action": "draw_card_block",
+			"params": {
+				"deck": "FateGood"
+			} 
+		}],"------------------":"------------------------"	
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_38",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"BFC_38_IMAGE"},
+			"title": {"key":"BFC_38_TITLE","values":[{"lang":"Polish","val":"Rozpacz"},
+													 {"lang":"English","val":"Kétségbeesés"}]},
+			"subheader": {"key":"BFC_38_SUBHEADER","values":[{"lang":"Polish", "val":"Lud szeptem i drżącym głosem powtarza sobie złe wieści, a ty zaczynasz wątpić w szanse na zwycięstwo."},
+															 {"lang":"English","val":"A népek elfojtott hangon, remegőn suttogva adják tovább a rossz hírt, és te egyre inkább kételkedsz abban, hogy valaha is győzedelmeskedhetsz."}]},
+			"body": {"key":"BFC_38_BODY","values":[	{"lang":"Polish", "val":"Tracisz 2 PZ. Następnie gracz z największą liczbą PZ traci 2 PZ."},
+													{"lang":"English","val":"Veszítesz 2 DP-ot.\n\nEzután a legtöbb DP-ot birtokló játékos veszít 2 DP-ot."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action": "resource",
+			"params": {
+				"VictoryPoints": -2
+			}
+		},{
+			"action": "dispatch",
+			"params": {
+				"characterMode": "MOST_VP",
+				"description":{
+					"title": {"key":"BFC_38_TITLE_1","values":[{"lang":"Polish","val":"Rozpacz"},
+													 {"lang":"English","val":"Kétségbeesés"}]},
+					"body": {"key":"BFC_38_BODY_1","values":[	{"lang":"Polish", "val":"Tracisz 2 PZ."},
+													{"lang":"English","val":"Veszítesz 2 DP-ot!"}]}
+				},
+				"task": {
+					"action": "resource",
+					"params": {
+						"VictoryPoints": -2
+					}
+				}
+			}
+		}],"------------------":"------------------------"	
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_39",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"BFC_39_IMAGE"},
+			"title": {"key":"BFC_39_TITLE","values":[{"lang":"Polish","val":"Bezsenna noc"},
+													 {"lang":"English","val":"Álmatlan éjszakák"}]},
+			"subheader": {"key":"BFC_39_SUBHEADER","values":[{"lang":"Polish", "val":"Niespokojne myśli zatruwają ci zmęczony umysł. W nocy udaje ci się przespać tylko parę chwil."},
+															 {"lang":"English","val":"Zavaros gondolatok keringenek megfáradt elmédben, és csak pár percnyi nyugodt alvás adatik meg neked ezen az éjszakán."}]},
+			"body": {"key":"BFC_39_BODY","values":[	{"lang":"Polish", "val":"Podczas następnej akcji odpoczynku nie wykonuj jej, a zamiast tego odrzuć tę kartę."},
+													{"lang":"English","val":"Legközelebb, amikor pihenés-​akciót hajtanál végre, nem teheted, hanem ezt a kártyát kell eldobnod helyette!"}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition":{"OnActionSubmit": "Heal"}
+			} 
+		},{ 
+			"action":"kill_card_inventory"
+		},{
+			"action": "set_property",
+			"params": {
+				"BreakRestAction": true
+			}
+		}],
+		"useTask": [{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action": "set_property",
+			"params": {
+				"BreakRestAction": false
+			}
+		}],"------------------":"------------------------"	
+	},{
+		"------------------":"------------------------",
+		"type":"FateBad",
+		"id":"BFC_40",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"BFC_40_IMAGE"},
+			"title": {"key":"BFC_40_TITLE","values":[{"lang":"Polish","val":"Porażka"},
+													 {"lang":"English","val":"Kudarc"}]},
+			"subheader": {"key":"BFC_40_SUBHEADER","values":[{"lang":"Polish", "val":"Choć się starałeś, misja zakończyła się niepowodzeniem. Teraz wszyscy ucierpią."},
+															 {"lang":"English","val":"Minden erőfeszítésed dacára elbukod a küldetésed. Ezt mindenki megsínyli majd."}]},
+			"body": {"key":"BFC_40_BODY","values":[	{"lang":"Polish", "val":"Tracisz 2 PZ. Każdy z pozostałych graczy musi albo stracić 1 PZ, albo otrzymać 1 [BadFateMarker]"},
+													{"lang":"English","val":"Veszítesz 2 DP-ot.\n\nA többi játékos mind veszít 1 DP-ot, vagy szerez 1 [BadFateMarker]-t."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "FateBad"
+		},{
+			"action": "resource",
+			"params": {
+				"VictoryPoints": -2
+			}
+		},{
+			"action": "dispatch",
+			"params": {
+				"characterMode": "OTHERS",
+				"description":{
+					"title": {"key":"BFC_40_TITLE_1","values":[{"lang":"Polish","val":"Rozpacz"},
+													 {"lang":"English","val":"Kudarc"}]},
+					"body": {"key":"BFC_40_BODY_1","values":[	{"lang":"Polish", "val":"Tracisz 1 PZ, albo otrzymujesz 1 [BadFateMarker]"},
+													{"lang":"English","val":"Veszítesz 1 DP-ot, vagy szerzel 1 [BadFateMarker]-t!"}]}
+				},
+				"task": {
+					"action": "test",
+					"params": {
+						"VictoryPoints": 1
+					},
+					"success": {
+						"action": "test",
+						"params": {
+							"placeBadFate": 1
+						},
+						"success": {
+							"action":"confirm",
+							"params": {							
+								"titleKey": "BFC_40_TITLE",
+								"content": {"key":"BFC_40_CONFIRM_BODY","values":[	{"lang":"Polish", "val":"Tracisz 1 PZ, albo otrzymujesz 1 [BadFateMarker]"},
+																						{"lang":"English","val":"Veszítesz 1 DP-ot, vagy szerzel 1 [BadFateMarker]-t!"}]},
+								"confirm": {"key":"BFC_40_CONFIRM","values":[{"lang":"Polish", "val":"Tracisz 1 PZ "},{"lang":"English","val":"Veszítek 1 DP-ot"}]},	
+								"cancel": {"key":"BFC_40_CANCEL","values":[{"lang":"Polish", "val":"Otrzymaj 1 [BadFateMarkerColor]"},{"lang":"English","val":"1 [BadFateMarkerColor] szerzek"}]}				
+							},
+							"success": {
+								"action": "resource",
+								"params": {
+									"VictoryPoints": -1
+								}
+							},
+							"fail": {
+								"action": "place_bad_fate",
+								"params": {
+									"amount": 1
+								}
+							}
+						},
+						"fail": {
+							"action": "resource",
+							"params": {
+								"VictoryPoints": -1
+							}
+						}
+					},
+					"fail": {
+						"action": "place_bad_fate",
+						"params": {
+							"amount": 1
+						}
+					}
+				}
+			}
+		}],"------------------":"------------------------"	
+	}]
+}

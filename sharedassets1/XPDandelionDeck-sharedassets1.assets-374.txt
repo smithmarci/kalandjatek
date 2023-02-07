@@ -1,0 +1,761 @@
+{
+	"defalutDescription":{
+		"ribbon": {"key":"XPDC_RIBBON","values":[{"lang":"Polish", "val":"JASKIER"},
+										 		{"lang":"English","val":"KÖKÖRCSIN"}]},
+		"front": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Front-XP"},
+		"flag": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Flag-XP-Dandelion"},
+		"back": {"atlas":"Atlases/Atlas-Card-Backgrounds_003", "sprite":"Card-Reverse-XP-Dandelion"}
+	},
+	"cards":[{
+		"------------------":"------------------------",
+		"type":"XPDandelionFriend",
+		"id":"XPDC_1",
+		"chargeable": true,
+		"chargeAmount": 1,
+		"description":{
+			"title": {"key":"XPDC_1_TITLE","values":[{"lang":"Polish", "val":"Vincent Meis"},
+													{"lang":"English","val":"Vincent Meis"}]},
+			"subheader": {"key":"XPDC_1_SUBHEADER","values":[{"lang":"Polish", "val":"Przyjaciel"},
+															{"lang":"English","val":"barát"}]},
+			"body": {"key":"XPDC_1_BODY","values":[	{"lang":"Polish", "val":"Możesz zapłacić 1 [GoldCoin], by położyć 1 [Charge] na tej karcie.\n\nPodczas walki możesz zużyć 1 [Charge] z tej karty, by uzyskać 1 [Shield]."},
+													{"lang":"English","val":"Költhetsz 1 [GoldCoin]-at 1 [Charge] elhelyezéséhez ezen a kártyán.\n\nHarc során elkölthetsz 1 [Charge]-t a kártyáról 1 [Shield] eredményért."}]}
+		},
+		"ai":{
+			"shield": 1,
+			"chargePriority":10
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResult": true,
+					"charge": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"produce": ["shield"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPDandelionFriend",
+		"id":"XPDC_2",
+		"chargeable": true,
+		"dischargeOnUseLock": true,
+		"chargeAmount": 1,
+		"description":{
+			"title": {"key":"XPDC_2_TITLE","values":[{"lang":"Polish", "val":"Codringher"},
+													{"lang":"English","val":"Codringher"}]},
+			"subheader": {"key":"XPDC_2_SUBHEADER","values":[{"lang":"Polish", "val":"Przyjaciel"},
+															{"lang":"English","val":"barát"}]},
+			"body": {"key":"XPDC_2_BODY","values":[{"lang":"Polish", "val":"Możesz zapłacić 1 [GoldCoin], by położyć 1 [Charge] na tej karcie.\n\nPodczas wykonywania akcji śledztwa możesz zużyć 1 [Charge] z tej karty, by pobrać 1 dodatkową kartę śledztwa. Wybierz 1 kartę do rozpatrzenia, a resztę odrzuć."},
+													{"lang":"English","val":"Költhetsz 1 [GoldCoin]-at 1 [Charge] elhelyezéséhez ezen a kártyán.\n\nKörönként egyszer, amikor nyomkeresés-akciót hajtasz végre, elkölthetsz 1 [Charge]-t a kártyáról további 1 nyomkeresés-kártya húzására. Válassz 1 kártyát, oldd meg, a többit pedig dobd el!"}]}
+		},
+		"ai":{
+			"chargePriority":0
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionSubmit",
+				"mode": "EXECUTE",
+				"condition":{
+					"charge": true,
+					"useOncePerTurn": true,
+					"OnActionSubmit": "Investigation"
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "kill_card_inventory"
+		},{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionSubmit",
+				"mode": "EXECUTE",
+				"condition":{
+					"charge": true,
+					"useOncePerTurn": true,
+					"OnActionSubmit": "Investigation"
+				}
+			}
+		},{
+			"action": "confirm",
+			"params": {
+				"titleKey": "XPDC_2_TITLE",
+				"content": {"key":"XPDC_2_DECISION","values":[{"lang":"Polish", "val":"Podczas wykonywania akcji śledztwa możesz zużyć 1 [Charge] z tej karty, by pobrać 1 dodatkową kartę śledztwa. Wybierz 1 kartę do rozpatrzenia, a resztę odrzuć."},
+															  {"lang":"English","val":"Körönként egyszer, amikor nyomkeresés-akciót hajtasz végre, elkölthetsz 1 [Charge]-t a kártyáról további 1 nyomkeresés-kártya húzására. Válassz 1 kártyát, oldd meg, a többit pedig dobd el!"}]},
+				"confirm": {"key":"XPDC_2_CONFIRM","values":[{"lang":"Polish", "val":"Użyj kartę"},{"lang":"English","val":"Elköltöm"}]},	
+				"cancel": {"key":"XPDC_2_CANCEL","values":[{"lang":"Polish", "val":"Nie używaj"},{"lang":"English","val":"Nem költöm el"}]}
+			},
+			"success": [{
+				"action": "charge",
+				"params": {
+					"removeCharge": true
+				}
+			},{
+				"action": "set_property",
+				"params": {
+					"drawAdditionalInvestigation": 1
+				}
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPDandelionFriend",
+		"id":"XPDC_3",
+		"chargeable": true,
+		"chargeAmount": 1,
+		"description":{
+			"title": {"key":"XPDC_3_TITLE","values":[{"lang":"Polish", "val":"Cahir"},
+													{"lang":"English","val":"Cahir"}]},
+			"subheader": {"key":"XPDC_3_SUBHEADER","values":[{"lang":"Polish", "val":"Przyjaciel"},
+															{"lang":"English","val":"barát"}]},
+			"body": {"key":"XPDC_3_BODY","values":[{"lang":"Polish", "val":"Możesz zapłacić 1 [GoldCoin] by położyć 1 [Charge] na tej karcie.\n\nPodczas walki możesz zużyć 1 [Charge] z tej karty, by uzyskać 1 [Sword]."},
+													{"lang":"English","val":"Költhetsz 1 [GoldCoin]-at 1 [Charge] elhelyezéséhez ezen a kártyán.\n\nHarc során elkölthetsz 1 [Charge]-t a kártyáról 1 [Sword] eredményért."}]}
+		},
+		"ai":{
+			"sword": 1,
+			"chargePriority":9
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResult": true,
+					"charge": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"produce": ["sword"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPDandelionFriend",
+		"id":"XPDC_4",
+		"chargeable": true,
+		"chargeAmount": 1,
+		"description":{
+			"title": {"key":"XPDC_4_TITLE","values":[{"lang":"Polish", "val":"Blasco Grant"},
+													{"lang":"English","val":"Blasco Grant"}]},
+			"subheader": {"key":"XPDC_4_SUBHEADER","values":[{"lang":"Polish", "val":"Przyjaciel"},
+															{"lang":"English","val":"barát"}]},
+			"body": {"key":"XPDC_4_BODY","values":[{"lang":"Polish", "val":"Możesz zapłacić 1 [GoldCoin] by położyć 1 [Charge] na tej karcie.\n\nGdy napotykasz przeszkody pod koniec swojej kolejki, możesz zużyć 1 [Charge] z tej karty, by zignorować wszystkie [EnemyMarker] swoim regionie. (Dalej musisz rozpatrzyć [BadFateMarker] w tym regionie)"}, 
+													{"lang":"English","val":"Költhetsz 1 [GoldCoin]-at 1 [Charge] elhelyezéséhez ezen a kártyán.\n\nAmikor a köröd végén akadályba ütközöl, elkölthetsz 1 [Charge]-t a kártyáról minden [EnemyMarker] figyelmen kívül hagyására.\n\n(Ettől függetlenül a régiódban balsors még érhet!)"}]}
+		},
+		"ai":{
+			"chargePriority":11
+		},
+		"drawTask": [{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",				
+				"condition":{
+					"useOncePerTurn": true,
+					"charge": true,
+					"beforeObstaclesResolve": true,
+					"currentRegionEnemy": true
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "kill_card_inventory"
+		},{
+			"action": "ignore_obstacles",
+			"params": {
+				"ignoreEnemy": true,
+				"ignoreFate": false 
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPDandelionFriend",
+		"id":"XPDC_5",
+		"chargeable": true,
+		"chargeAmount": 1,
+		"dischargeOnUseLock": true,
+		"description":{
+			"title": {"key":"XPDC_5_TITLE","values":[{"lang":"Polish", "val":"Vernon Roche"},
+													{"lang":"English","val":"Vernon Roche"}]},
+			"subheader": {"key":"XPDC_5_SUBHEADER","values":[{"lang":"Polish", "val":"Przyjaciel"},
+															{"lang":"English","val":"barát"}]},
+			"body": {"key":"XPDC_5_BODY","values":[{"lang":"Polish", "val":"Możesz zapłacić 1 [GoldCoin] by położyć 1 [Charge] na tej karcie.\n\nPobierając karty misji, możesz zużyć 1 [Charge] tej karty, by pobrać 1 dodatkową kartę misji. Wybierz 1 kartę, którą zachowasz, a pozostałe odrzuć."},
+													{"lang":"English","val":"Költhetsz 1 [GoldCoin]-at 1 [Charge] elhelyezéséhez ezen a kártyán.\n\nKüldetés-kártya húzásakor elkölthetsz 1 [Charge]-t erről a kártyáról további 1 küldetés-kártya húzására. Tarts meg 1 kártyát, a többit pedig dobd el!"}]}
+		},
+		"ai":{
+			"chargePriority":0
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "QuestDraw",
+				"mode": "EXECUTE",
+				"condition":{
+					"charge": true
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "kill_card_inventory"
+		},{
+			"action":"bind_task",
+			"params": {
+				"event": "QuestDraw",
+				"mode": "EXECUTE",
+				"condition":{
+					"charge": true
+				}
+			}
+		},{
+			"action": "confirm",
+			"params": {
+				"titleKey": "XPDC_5_TITLE",
+				"content": {"key":"XPDC_5_DECISION","values":[{"lang":"Polish", "val":"Pobierając karty misji, możesz zużyć 1 [Charge] tej karty, by pobrać 1 dodatkową kartę misji. Wybierz 1 kartę, którą zachowasz, a pozostałe odrzuć."},
+															  {"lang":"English","val":"Küldetés-kártya húzásakor elkölthetsz 1 [Charge]-t erről a kártyáról további 1 küldetés-kártya húzására. Tarts meg 1 kártyát, a többit pedig dobd el!"}]},
+				"confirm": {"key":"XPDC_5_CONFIRM","values":[{"lang":"Polish", "val":"Użyj kartę"},{"lang":"English","val":"Elköltöm"}]},	
+				"cancel": {"key":"XPDC_5_CANCEL","values":[{"lang":"Polish", "val":"Nie używaj"},{"lang":"English","val":"Nem költöm el"}]}
+			},
+			"success": [{
+				"action": "charge",
+				"params": {
+					"removeCharge": true
+				}
+			},{
+				"action": "set_property",
+				"params": {
+					"drawAdditionalQuest": 1
+				}
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPDandelionFriend",
+		"id":"XPDC_6",
+		"chargeable": true,
+		"chargeAmount": 1,
+		"description":{
+			"title": {"key":"XPDC_6_TITLE","values":[{"lang":"Polish", "val":"Bernie Hofmeier"},
+													{"lang":"English","val":"Bernie Hofmeier"}]},
+			"subheader": {"key":"XPDC_6_SUBHEADER","values":[{"lang":"Polish", "val":"Przyjaciel"},
+															{"lang":"English","val":"barát"}]},
+			"body": {"key":"XPDC_6_BODY","values":[{"lang":"Polish", "val":"Możesz zapłacić 1 [GoldCoin] by położyć 1 [Charge] na tej karcie.\n\nRaz na kolejkę możesz zużyć 1 [Charge] z tej karty by wykonać jedną misję wsparcia innej postaci w swoim regionie (a nie lokacji)."},
+													{"lang":"English","val":"Költhetsz 1 [GoldCoin]-at 1 [Charge] elhelyezéséhez ezen a kártyán.\n\nKörönként egyszer elkölthetsz 1 [Charge]-t erről a kártyáról egy másik hős támogatás-küldetésének megoldására a régiódban (és nem pedig helyszínen!)."}]}
+		},
+		"ai":{
+			"chargePriority":1
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"useOncePerTurn": true,
+					"charge": true,
+					"roll": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"set_property",
+			"params": {
+				"SupportMatchByRegion": true
+			}	
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPDandelionFriend",
+		"id":"XPDC_7",
+		"chargeable": true,
+		"chargeAmount": 1,
+		"description":{
+			"title": {"key":"XPDC_7_TITLE","values":[{"lang":"Polish", "val":"Carmen"},
+													{"lang":"English","val":"Carmen"}]},
+			"subheader": {"key":"XPDC_7_SUBHEADER","values":[{"lang":"Polish", "val":"Przyjaciel"},
+															{"lang":"English","val":"barát"}]},
+			"body": {"key":"XPDC_7_BODY","values":[{"lang":"Polish", "val":"Możesz zapłacić 1 [GoldCoin] by położyć 1 [Charge] na tej karcie.\n\nGdy inna postać odrzuca kartę dobrego losu, możesz zużyć 1 [Charge] z tej karty, by wziąć tę kartę dobrego losu ze stosu kart odrzuconych."},
+													{"lang":"English","val":"Költhetsz 1 [GoldCoin]-at 1 [Charge] elhelyezéséhez ezen a kártyán.\n\nAmikor egy másik hős eldob egy jószerencse-​kártyát, elkölthetsz 1 [Charge]-t erről a kártyáról ama eldobott jószerencse-​kártya megszerzéséhez."}]}
+		},
+		"ai":{
+			"chargePriority":0
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"avaiableFateGoodCardDiscardedByNotDandelion": true,
+					"roll": false,
+					"charge": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1,
+				"drawGoodFateCardDiscardedByNotDandelion": true
+			}			
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPDandelionSkill",
+		"id":"XPDC_8",
+		"description":{
+			"title": {"key":"XPDC_8_TITLE","values":[{"lang":"Polish", "val":"Czarujący głos"},
+													{"lang":"English","val":"Elbűvölő hang"}]},
+			"subheader": {"key":"XPDC_8_SUBHEADER","values":[{"lang":"Polish", "val":"Umiejętność"},
+															{"lang":"English","val":"jártasság"}]},
+			"body": {"key":"XPDC_8_BODY","values":[{"lang":"Polish", "val":"Podczas akcji śpiewu możesz otrzymać 1 niebieski [ClueMarkerGray] zamiast 2 [GoldCoin]."},
+													{"lang":"English","val":"Amikor dalolás-akciót hajtasz végre, szerezhetsz 1 kék [ClueMarkerGray]-ot 2 [GoldCoin] helyett."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionExecute",
+				"mode": "Execute",
+				"condition":{
+					"OnActionSubmit": "Special"
+				}
+			}
+		},{
+			"action": "set_property",
+			"params": {
+				"BreakSpecialAction": true
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action": "kill_card_inventory"
+		},{
+			"action": "confirm",
+			"params": {
+				"titleKey": "XPDC_8_TITLE",
+				"content": {"key":"XPDC_8_DECISION","values":[{"lang":"Polish", "val":"Możesz otrzymać 1 niebieski [ClueMarkerGray] zamiast 2 [GoldCoin]."},
+															  {"lang":"English","val":"Szerezhetsz 1 kék [ClueMarkerGray]-ot 2 [GoldCoin] helyett."}]},
+				"confirm": {"key":"XPDC_8_CONFIRM","values":[{"lang":"Polish", "val":"Otrzymaj 1 [ClueMarkerBlue]"},{"lang":"English","val":"1 [ClueMarkerBlue]-ot szerzek"}]},	
+				"cancel": {"key":"XPDC_8_CANCEL","values":[{"lang":"Polish", "val":"Otrzymaj 2 [GoldCoinColor]"},{"lang":"English","val":"2 [GoldCoinColor]-at szerzek"}]}
+			},
+			"success": {
+				"action": "resource",
+				"params": {
+					"MagicLead": 1
+				}
+			},
+			"fail": {
+				"action": "resource",
+				"params": {
+					"Gold": 2
+				}
+			}
+		},{
+			"action": "set_property",
+			"params": {
+				"BreakSpecialAction": true
+			}
+		},{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionExecute",
+				"mode": "Execute",
+				"condition":{
+					"OnActionSubmit": "Special"
+				}
+			}
+		}],
+		"discardTask":{
+			"action": "set_property",
+			"params": {
+				"BreakSpecialAction": false
+			}
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPDandelionFriend",
+		"id":"XPDC_9",
+		"chargeable": true,
+		"chargeAmount": 1,
+		"description":{
+			"title": {"key":"XPDC_9_TITLE","values":[{"lang":"Polish", "val":"Myhrman"},
+													{"lang":"English","val":"Myhrman"}]},
+			"subheader": {"key":"XPDC_9_SUBHEADER","values":[{"lang":"Polish", "val":"Przyjaciel"},
+															{"lang":"English","val":"barát"}]},
+			"body": {"key":"XPDC_9_BODY","values":[{"lang":"Polish", "val":"Możesz zapłacić 1 [GoldCoin] by położyć 1 [Charge] na tej karcie.\n\nRaz na kolejkę możesz zużyć 1 [Charge] z tej karty, by usunąć 1 [BadFateMarker] z karty swojej postaci i sprawić, że inna postać w twoim regionie otrzyma 1 [BadFateMarker]."},
+													{"lang":"English","val":"Költhetsz 1 [GoldCoin]-at 1 [Charge] elhelyezéséhez ezen a kártyán.\n\nKörönként egyszer elkölthetsz 1 [Charge]-t erről a kártyáról, ezáltal 1 [BadFateMarker]-t eltávolíthatsz a karakter-​lapodról egy másik, a régiódban tartózkodó hős kárára, aki így 1 [BadFateMarker]-t szerez."}]}
+		},
+		"ai":{
+			"chargePriority":8
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"useOncePerTurn": true,
+					"charge": true,
+					"roll": false,
+					"hasBadFate": true,
+					"othersInRegion": true
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"remove_bad_fate",
+			"params": {
+				"amount": 1
+			}	
+		},{
+			"action":"dispatch",
+			"params": {
+				"characterMode": "SELECT",
+				"characterFilter": "IN_REGION",
+				"description":{
+					"title": {"key":"XPDC_9_TITLE_1","values":[	{"lang":"Polish","val":"Myhrman"},
+																{"lang":"English","val":"Myhrman"}]},
+					"body": {"key":"XPDC_9_BODY_1","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 [BadFateMarker]."},
+																{"lang":"English","val":"Szereztél 1 [BadFateMarker]-t!"}]}
+				},
+				"task": {
+					"action":"place_bad_fate",
+					"params": {
+						"amount": 1
+					}
+				}
+			}	
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPDandelionFriend",
+		"id":"XPDC_10",
+		"chargeable": true,
+		"chargeAmount": 1,
+		"description":{
+			"title": {"key":"XPDC_10_TITLE","values":[{"lang":"Polish", "val":"Shani"},
+													{"lang":"English","val":"Shani"}]},
+			"subheader": {"key":"XPDC_10_SUBHEADER","values":[{"lang":"Polish", "val":"Przyjaciel"},
+															{"lang":"English","val":"barát"}]},
+			"body": {"key":"XPDC_10_BODY","values":[{"lang":"Polish", "val":"Możesz zapłacić 1 [GoldCoin] by położyć 1 [Charge] na tej karcie.\n\nRaz na kolejkę możesz zużyć 1 [Charge] z tej karty, by usunąć 1 [Wound] lub 1 [WoundSevere] ze swojej karty postaci."},
+													{"lang":"English","val":"Költhetsz 1 [GoldCoin]-at 1 [Charge] elhelyezéséhez ezen a kártyán.\n\nKörönként egyszer elkölthetsz 1 [Charge]-t erről a kártyáról 1 [Wound] vagy 1 [WoundSevere] eltávolításához a karakterlapodról."}]}
+		},
+		"ai":{
+			"chargePriority":3
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"roll": false,
+					"wounded": true,
+					"charge": true,
+					"useOncePerTurn": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"heal",
+			"params": {
+				"wound_amount": 1, 
+				"or": true,
+				"severe_wound_amount": 1
+			}	
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPDandelionSkill",
+		"id":"XPDC_11",
+		"description":{
+			"title": {"key":"XPDC_11_TITLE","values":[{"lang":"Polish", "val":"Epicka ballada"},
+													{"lang":"English","val":"Csodás ballada"}]},
+			"subheader": {"key":"XPDC_11_SUBHEADER","values":[{"lang":"Polish", "val":"Umiejętność"},
+															{"lang":"English","val":"jártasság"}]},
+			"body": {"key":"XPDC_11_BODY","values":[{"lang":"Polish", "val":"Gdy inna postać w twoim regionie pokona złotego [EnemyMarker], otrzymujesz 2 PZ.\n\nGdy inna postać w twoim regionie pokona srebrnego [EnemyMarker], otrzymujesz 1 PZ."},
+													{"lang":"English","val":"Amikor a régiódban egy másik hős legyőz 1 arany [EnemyMarker]-et, kapsz 2 DP-ot.\n\nAmikor a régiódban egy másik hős legyőz 1 ezüst [EnemyMarker]-et, kapsz 1 DP-ot."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "RollEnd",
+				"character": "OTHERS",
+				"mode": "EXECUTE_SHADOW",
+				"condition":{
+					"CharaterLocation": {"sameRegion": true},
+					"EnemySlain": ["EnemyBig", "EnemyMedium"]
+				}
+			}
+		},{		
+			"action":"kill_card_inventory",
+			"params": {
+				"character": "DANDELION"
+			}
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory",
+			"params": {
+				"character": "DANDELION"
+			}
+		},{
+			"action": "test",
+			"params": {
+				"EnemySlain": "EnemyBig"
+			},
+			"success": {
+				"action": "dispatch",
+				"params": {
+					"characterMode": "NAME",
+					"character": "DANDELION",
+					"description":{
+						"title": {"key":"XPDC_11_TITLE_1","values":[{"lang":"Polish","val":"Epicka ballada"},
+														 {"lang":"English","val":"Csodás ballada"}]},
+						"body": {"key":"XPDC_11_BODY_1","values":[	{"lang":"Polish", "val":"Inna postać w twoim regionie pokonała złotego [EnemyMarker], otrzymujesz 2 PZ."},
+														{"lang":"English","val":"Egy másik hős legyőzött 1 arany [EnemyMarker]-et a régiódban; kapsz 2 DP-ot."}]}
+					},
+					"task": {
+						"action":"resource",
+						"params": {
+							"VictoryPoints": 2
+						}
+					}
+				}
+			},
+			"fail": {
+				"action": "dispatch",
+				"params": {
+					"characterMode": "NAME",
+					"character": "DANDELION",
+					"description":{
+						"title": {"key":"XPDC_11_TITLE_2","values":[{"lang":"Polish","val":"Epicka ballada"},
+														 {"lang":"English","val":"Csodás ballada"}]},
+						"body": {"key":"XPDC_11_BODY_2","values":[	{"lang":"Polish", "val":"Inna postać w twoim regionie pokonała srebrnego [EnemyMarker], otrzymujesz 1 PZ."},
+														{"lang":"English","val":"Egy másik hős legyőzött 1 ezüst [EnemyMarker]-et a régiódban; kapsz 1 DP-ot."}]}
+					},
+					"task": {
+						"action":"resource",
+						"params": {
+							"VictoryPoints": 1
+						}
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPDandelionSkill",
+		"id":"XPDC_12",
+		"description":{
+			"title": {"key":"XPDC_12_TITLE","values":[{"lang":"Polish", "val":"Pół wieku poezji"},
+													{"lang":"English","val":"Fél évszázad költészete"}]},
+			"subheader": {"key":"XPDC_12_SUBHEADER","values":[{"lang":"Polish", "val":"Umiejętność"},
+															{"lang":"English","val":"jártasság"}]},
+			"body": {"key":"XPDC_12_BODY","values":[{"lang":"Polish", "val":"Jeśli inny gracz w twoim regionie ukończy misję dodatkową, misję wsparcia lub misję główną, otrzymujesz 1 PZ."},
+													{"lang":"English","val":"Amikor a régiódban egy másik hős teljesít vagy egy mellékküldetést, vagy egy támogatás-küldetést, vagy főküldetést, kapsz 1 DP-ot."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "AnyQuestComplete",
+				"character": "OTHERS",
+				"mode": "EXECUTE_SHADOW",
+				"condition":{
+					"CharaterLocation": {"sameRegion": true},
+					"anyQuestCompleted": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory",
+			"params": {
+				"character": "DANDELION"
+			}
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory",
+			"params": {
+				"character": "DANDELION"
+			}
+		},{
+			"action": "dispatch",
+			"params": {
+				"characterMode": "NAME",
+				"character": "DANDELION",
+				"description":{
+					"title": {"key":"XPDC_12_TITLE_1","values":[{"lang":"Polish","val":"Pół wieku poezji"},
+													 {"lang":"English","val":"Fél évszázad költészete"}]},
+					"body": {"key":"XPDC_12_BODY_1","values":[	{"lang":"Polish", "val":"Inna postać w twoim regionie ukończyła misję dodatkową, misję wsparcia lub misję główną, otrzymujesz 1 PZ."},
+													{"lang":"English","val":"Egy másik hős a régiódban teljesített vagy egy mellékküldetést, vagy egy támogatás-küldetést, vagy főküldetést; kapsz 1 DP-ot."}]}
+				},
+				"task": {
+					"action":"resource",
+					"params": {
+						"VictoryPoints": 1
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPDandelionSkill",
+		"id":"XPDC_13",
+		"description":{
+			"title": {"key":"XPDC_13_TITLE","values":[{"lang":"Polish", "val":"Sprytny minstrel"},
+													{"lang":"English","val":"Eszes trubadúr"}]},
+			"subheader": {"key":"XPDC_13_SUBHEADER","values":[{"lang":"Polish", "val":"Umiejętność"},
+															{"lang":"English","val":"jártasság"}]},
+			"body": {"key":"XPDC_13_BODY","values":[{"lang":"Polish", "val":"Podczas walki możesz raz zużyć 1 [Dodge], by otrzymać 2 [Shield]."},
+													{"lang":"English","val":"Harconként egyszer 1 [Dodge]-t felhasználhatsz 2 [Shield] eredményre."}]}
+		},
+		"ai":{
+			"dodge": -1,
+			"shield": 2,
+			"once": true
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"useOnceBattle": true,
+					"battle": true,
+					"rollResultMatch": ["dodge"]
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"spend": "dodge",
+				"produce": ["shield", "shield"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPDandelionSkill",
+		"id":"XPDC_14",
+		"description":{
+			"title": {"key":"XPDC_14_TITLE","values":[{"lang":"Polish", "val":"Złotousty"},
+													{"lang":"English","val":"Dalos pacsirta"}]},
+			"subheader": {"key":"XPDC_14_SUBHEADER","values":[{"lang":"Polish", "val":"Umiejętność"},
+															{"lang":"English","val":"jártasság"}]},
+			"body": {"key":"XPDC_14_BODY","values":[{"lang":"Polish", "val":"Raz na kolejkę możesz wydać 5 [GoldCoin] by otrzymać 1 fioletowy dowód."},
+													{"lang":"English","val":"Körönként egyszer 5 [GoldCoin] elköltésével szerezhetsz 1 lila bizonyítékot."}]}
+		},
+		"ai":{
+			"EvidenceDiplomacy": 1,
+			"Gold" : -5
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"roll": false,
+					"useOncePerTurn": true,
+					"Gold": 5
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"Gold": -5
+			}
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyEvidence": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPDandelionSkill",
+		"id":"XPDC_15",
+		"description":{
+			"title": {"key":"XPDC_15_TITLE","values":[{"lang":"Polish", "val":"Czarujący uśmiech"},
+													{"lang":"English","val":"Megnyerő mosoly"}]},
+			"subheader": {"key":"XPDC_15_SUBHEADER","values":[{"lang":"Polish", "val":"Umiejętność"},
+															{"lang":"English","val":"jártasság"}]},
+			"body": {"key":"XPDC_15_BODY","values":[{"lang":"Polish", "val":"Po ukończeniu misji dodatkowej, misji wsparcia lub misji głównej otrzymujesz 1 [GoldCoin]."},
+													{"lang":"English","val":"Amikor mellékküldetést, támogatás-küldetést vagy főküldetést teljesítesz, kapsz 1 [GoldCoin]-at is."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "AnyQuestComplete",
+				"mode": "EXECUTE",
+				"condition":{
+					"roll": false,
+					"anyQuestCompleted": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"bind_task",
+			"params": {
+				"event": "AnyQuestComplete",
+				"mode": "EXECUTE",
+				"condition":{
+					"roll": false,
+					"anyQuestCompleted": true
+				}
+			}
+		},{
+			"action":"resource",
+			"params": {
+				"Gold": 1
+			}
+		}],"------------------":"------------------------"
+	}]
+}

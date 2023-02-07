@@ -1,0 +1,793 @@
+{
+	"defalutDescription":{
+		"ribbon": {"key":"XPYC_RIBBON","values":[{"lang":"Polish", "val":"YARPEN"},
+										 		{"lang":"English","val":"YARPEN"}]},
+		"front": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Front-XP"},
+		"flag": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Flag-XP-Yarpen"},
+		"back": {"atlas":"Atlases/Atlas-Card-Backgrounds_003", "sprite":"Card-Reverse-XP-Yarpen"}
+	},
+	"cards":[{
+		"------------------":"------------------------",
+		"type":"XPYarpenArmor",
+		"id":"XPYC_1",
+		"chargeable": true,
+		"description":{
+			"title": {"key":"XPYC_1_TITLE","values":[{"lang":"Polish", "val":"Hełm z dwimerytu"},
+													{"lang":"English","val":"Dimeritium sisak"}]},
+			"subheader": {"key":"XPYC_1_SUBHEADER","values":[{"lang":"Polish", "val":"Zbroja"},
+															{"lang":"English","val":"páncél"}]},
+			"body": {"key":"XPYC_1_BODY","values":[	{"lang":"Polish", "val":"Podczas walki możesz raz zużyć 1 [Charge] z tej karty, by uzyskać 1 [Shield] i 1 [Special]."},
+													{"lang":"English","val":"Harconként egyszer elkölthetsz 1 [Charge]-t erről a kártyáról 1 [Shield] és 1 [Special] eredményhez."}]}
+		},
+		"ai":{
+			"shield": 2,
+			"once": true,
+			"chargePriority":12		
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResult": true,
+					"charge": true,
+					"useOnceBattle": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"produce": ["shield", "special"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPYarpenArmor",
+		"id":"XPYC_2",
+		"chargeable": true,
+		"description":{
+			"title": {"key":"XPYC_2_TITLE","values":[{"lang":"Polish", "val":"Duża tarcza"},
+													{"lang":"English","val":"Nagy pajzs"}]},
+			"subheader": {"key":"XPYC_2_SUBHEADER","values":[{"lang":"Polish", "val":"Zbroja"},
+															{"lang":"English","val":"páncél"}]},
+			"body": {"key":"XPYC_2_BODY","values":[	{"lang":"Polish", "val":"Podczas walki możesz zużyć 1 [Charge] z tej karty, by uzyskać 2 [Shield]."},
+													{"lang":"English","val":"Harconként egyszer elkölthetsz 1 [Charge]-t erről a kártyáról 2 [Shield] eredményhez."}]}
+		},
+		"ai":{
+			"shield": 2,
+			"once": true,
+			"chargePriority":9		
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResult": true,
+					"charge": true,
+					"useOnceBattle": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"produce": ["shield", "shield"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPYarpenArmor",
+		"id":"XPYC_3",
+		"chargeable": true,
+		"description":{
+			"title": {"key":"XPYC_3_TITLE","values":[{"lang":"Polish", "val":"Krasnoludzka \nkolczuga"},
+													{"lang":"English","val":"Törp láncing"}]},
+			"subheader": {"key":"XPYC_3_SUBHEADER","values":[{"lang":"Polish", "val":"Zbroja"},
+															{"lang":"English","val":"páncél"}]},
+			"body": {"key":"XPYC_3_BODY","values":[	{"lang":"Polish", "val":"Podczas walki możesz raz zużyć 1 [Charge] z tej karty, by zapobiec 1 [Wound] lub 1 [WoundSevere], którą odniesiesz."},
+													{"lang":"English","val":"Harconként egyszer elkölthetsz 1 [Charge]-t erről a kártyáról 1 [Wound] vagy 1 [WoundSevere] hárításához."}]}
+		},
+		"chargeable": true,
+		"ai":{
+			"woundSelect": true,
+			"prevent_wound": true,
+			"wound": -1,
+			"severe_wound": -1,
+			"once": true,
+			"chargePriority":8
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition": { 
+					"battle": true,
+					"rollResult": false,
+					"rolling": false,
+					"roll": true,
+					"charge": true,
+					"useOnceBattle": true
+				}
+			} 
+		},{
+			"action": "kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "kill_card_inventory"
+		},{
+			"action": "confirm",
+			"params": {
+				"titleKey": "XPYC_3_TITLE",
+				"contentKey": "XPYC_3_BODY",	
+				"confirm": {"key":"XPYC_3_CONFIRM","values":[{"lang":"Polish", "val":"Zapobiegnij 1 [WoundColor]"},{"lang":"English","val":"1 [WoundColor] hárítása"}]},	
+				"cancel": {"key":"XPYC_3_CANCEL","values":[{"lang":"Polish", "val":"Zapobiegnij 1 [WoundSevereColor]"},{"lang":"English","val":"1 [WoundSevereColor] hárítása"}]}
+			},
+			"success": {
+				"action": "prevent_wound",
+				"params": {
+					"wound_amount": 1
+				}
+			},
+			"fail": {
+				"action": "prevent_wound",
+				"params": {
+					"severe_wound_amount": 1
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPYarpenWeapon",
+		"id":"XPYC_4",
+		"chargeable": true,
+		"description":{
+			"title": {"key":"XPYC_4_TITLE","values":[{"lang":"Polish", "val":"Młot bojowy z Mahakamu"},
+													{"lang":"English","val":"Mahakami csatakalapács"}]},
+			"subheader": {"key":"XPYC_4_SUBHEADER","values":[{"lang":"Polish", "val":"Broń"},
+															{"lang":"English","val":"fegyver"}]},
+			"body": {"key":"XPYC_4_BODY","values":[	{"lang":"Polish", "val":"Podczas walki możesz raz zużyć 1 [Charge] z tej karty, by uzyskać 1 [Sword] lub 2 [Shield]."},
+													{"lang":"English","val":"Harconként egyszer elkölthetsz 1 [Charge]-t erről a kártyáról 1 [Sword] vagy 2 [Shield] eredményhez."}]}
+		},
+		"ai":{
+			"diceSelect": true,
+			"sword": 1,
+			"shield": 2,
+			"once": true,
+			"chargePriority":10
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResult": true,
+					"charge": true,
+					"useOnceBattle": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action": "confirm",
+				"params": {
+					"titleKey": "XPYC_4_TITLE",
+					"contentKey": "XPYC_4_BODY",	
+					"confirm": {"key":"XPYC_4_CONFIRM","values":[{"lang":"Polish", "val":"Uzyskaj 1 [SwordWhite]"},{"lang":"English","val":"1 [SwordWhite] választása"}]},	
+					"cancel": {"key":"XPYC_4_CANCEL","values":[{"lang":"Polish", "val":"Uzyskaj 2 [ShieldWhite]"},{"lang":"English","val":"2 [ShieldWhite] választása"}]}
+				},
+				"success": {
+					"action":"roll_result_modifier",
+					"params": {
+						"produce": ["sword"]
+					}
+				},
+				"fail": {
+					"action":"roll_result_modifier",
+					"params": {
+						"produce": ["shield", "shield"]
+					}
+				}
+			
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPYarpenWeapon",
+		"id":"XPYC_5",
+		"chargeable": true,
+		"description":{
+			"title": {"key":"XPYC_5_TITLE","values":[{"lang":"Polish", "val":"Topór z Mahakamu"},
+													{"lang":"English","val":"Mahakami harci balta"}]},
+			"subheader": {"key":"XPYC_5_SUBHEADER","values":[{"lang":"Polish", "val":"Broń"},
+															{"lang":"English","val":"fegyver"}]},
+			"body": {"key":"XPYC_5_BODY","values":[	{"lang":"Polish", "val":"Podczas walki możesz raz zużyć 1 [Charge] z tej karty, by uzyskać 2 [Sword]."},
+													{"lang":"English","val":"Harconként egyszer elkölthetsz 1 [Charge]-t erről a kártyáról 2 [Sword] eredményhez."}]}
+		},
+		"ai":{
+			"sword": 2,
+			"once": true,
+			"chargePriority":13
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResult": true,
+					"charge": true,
+					"useOnceBattle": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"produce": ["sword", "sword"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPYarpenWeapon",
+		"id":"XPYC_6",
+		"chargeable": true,
+		"description":{
+			"title": {"key":"XPYC_6_TITLE","values":[{"lang":"Polish", "val":"D'yaebl"},
+													{"lang":"English","val":"D'yaebl"}]},
+			"subheader": {"key":"XPYC_6_SUBHEADER","values":[{"lang":"Polish", "val":"Broń"},
+															{"lang":"English","val":"fegyver"}]},
+			"body": {"key":"XPYC_6_BODY","values":[	{"lang":"Polish", "val":"Podczas walki możesz raz zużyć 1 [Charge] z tej karty, by uzyskać 1 [Sword] i 1 [Shield]."},
+													{"lang":"English","val":"Harconként egyszer elkölthetsz 1 [Charge]-t erről a kártyáról 1 [Sword] és 1 [Shield] eredményhez."}]}
+		},
+		"ai":{
+			"shield": 1,
+			"sword": 1,
+			"once": true,
+			"chargePriority":11
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResult": true,
+					"charge": true,
+					"useOnceBattle": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"produce": ["sword", "shield"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPYarpenWeapon",
+		"id":"XPYC_7",
+		"chargeable": true,
+		"description":{
+			"title": {"key":"XPYC_7_TITLE","values":[{"lang":"Polish", "val":"G'valchir"},
+													{"lang":"English","val":"G'valchir"}]},
+			"subheader": {"key":"XPYC_7_SUBHEADER","values":[{"lang":"Polish", "val":"Broń"},
+															{"lang":"English","val":"fegyver"}]},
+			"body": {"key":"XPYC_7_BODY","values":[	{"lang":"Polish", "val":"Podczas walki możesz raz zużyć 1 [Charge] z tej karty, by uzyskać 2 [Sword] lub 1 [Shield]."},
+													{"lang":"English","val":"Harconként egyszer elkölthetsz 1 [Charge]-t erről a kártyáról 2 [Sword] vagy 1 [Shield] eredményhez."}]}
+		},
+		"ai":{
+			"diceSelect": true,
+			"sword": 2,
+			"shield": 1,
+			"once": true,
+			"chargePriority":14			
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResult": true,
+					"charge": true,
+					"useOnceBattle": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action": "confirm",
+				"params": {
+					"titleKey": "XPYC_7_TITLE",
+					"contentKey": "XPYC_7_BODY",	
+					"confirm": {"key":"XPYC_7_CONFIRM","values":[{"lang":"Polish", "val":"Uzyskaj 2 [SwordWhite]"},{"lang":"English","val":"2 [SwordWhite] választása"}]},	
+					"cancel": {"key":"XPYC_7_CANCEL","values":[{"lang":"Polish", "val":"Uzyskaj 1 [ShieldWhite]"},{"lang":"English","val":"1 [ShieldWhite] választása"}]}
+				},
+				"success": {
+					"action":"roll_result_modifier",
+					"params": {
+						"produce": ["sword", "sword"]
+					}
+				},
+				"fail": {
+					"action":"roll_result_modifier",
+					"params": {
+						"produce": ["shield"]
+					}
+				}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPYarpenWeapon",
+		"id":"XPYC_8",
+		"chargeable": true,
+		"description":{
+			"title": {"key":"XPYC_8_TITLE","values":[{"lang":"Polish", "val":"Temerski sztylet"},
+													{"lang":"English","val":"Temeriai tőr"}]},
+			"subheader": {"key":"XPYC_8_SUBHEADER","values":[{"lang":"Polish", "val":"Broń"},
+															{"lang":"English","val":"fegyver"}]},
+			"body": {"key":"XPYC_8_BODY","values":[	{"lang":"Polish", "val":"Podczas walki możesz raz zużyć 1 [Charge] z tej karty, by ponownie rzucić wszystkimi pustymi kośćmi walki."},
+													{"lang":"English","val":"Harconként egyszer elkölthetsz 1 [Charge]-t erről a kártyáról minden eredménytelen harc-kocka újradobásához."}]}
+		},
+		"ai":{
+			"reroll": "ALL_EMPTY",
+			"once": true,
+			"chargePriority":5
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResult": true,
+					"charge": true,
+					"useOnceBattle": true,
+					"reroll": false,
+					"rollResultMatch": ["empty"],
+					"rollResultSuccess": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_reroll",
+			"params": {
+				"mode": "UNIVERSAL",
+				"match": "empty",
+				"all": true
+			}	
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPYarpenItem",
+		"id":"XPYC_9",
+		"chargeable": true,
+		"description":{
+			"title": {"key":"XPYC_9_TITLE","values":[{"lang":"Polish", "val":"Antałek"},
+													{"lang":"English","val":"Söröshordócska"}]},
+			"subheader": {"key":"XPYC_9_SUBHEADER","values":[{"lang":"Polish", "val":"Przedmiot"},
+															{"lang":"English","val":"tárgy"}]},
+			"body": {"key":"XPYC_9_BODY","values":[	{"lang":"Polish", "val":"Raz na kolejkę możesz zużyć 1 [Charge] z tej karty, by usunąć 1 [Wound] ze swojej karty postaci."},
+													{"lang":"English","val":"Körönként egyszer elkölthetsz 1 [Charge]-t erről a kártyáról 1 [Wound] eltávolításához a karakterlapodról."}]}
+		},
+		"ai":{
+			"chargePriority":7	
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"roll": false,
+					"woundedRegular": true,
+					"charge": true,
+					"useOncePerTurn": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"heal",
+			"params": {
+				"wound_amount": 1
+			}	
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPYarpenItem",
+		"id":"XPYC_10",
+		"chargeable": true,
+		"description":{
+			"title": {"key":"XPYC_10_TITLE","values":[{"lang":"Polish", "val":"Krasnoludzki amulet"},
+													{"lang":"English","val":"Törp amulett"}]},
+			"subheader": {"key":"XPYC_10_SUBHEADER","values":[{"lang":"Polish", "val":"Przedmiot"},
+															{"lang":"English","val":"tárgy"}]},
+			"body": {"key":"XPYC_10_BODY","values":[{"lang":"Polish", "val":"Podczas walki możesz raz zużyć 1 [Charge] z tej karty, by uzyskać 1 [Special]."},
+													{"lang":"English","val":"Harconként egyszer elkölthetsz 1 [Charge]-t erről a kártyáról 1 [Special] eredményhez."}]}
+		},
+		"ai":{
+			"special": 1,
+			"once": true,
+			"chargePriority":4
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"rollResult": true,
+					"charge": true,
+					"useOnceBattle": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"produce": ["special"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPYarpenItem",
+		"id":"XPYC_11",
+		"chargeable": true,
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_XPYarpen001", "sprite":"XPYC_2_IMAGE"},
+			"title": {"key":"XPYC_11_TITLE","values":[{"lang":"Polish", "val":"List żelazny"},
+													{"lang":"English","val":"Diplomáciai mentesség"}]},
+			"subheader": {"key":"XPYC_11_SUBHEADER","values":[{"lang":"Polish", "val":"Przedmiot"},
+															{"lang":"English","val":"tárgy"}]},
+			"body": {"key":"XPYC_11_BODY","values":[{"lang":"Polish", "val":"Podczas wykonywania akcji możesz zużyć 1 [Charge] z tej karty, by zignorować wszystkie [BadFateMarker] na swojej karcie postaci. \n\nGdy napotykasz przeszkody pod koniec swojej kolejki, możesz zużyć 1 [Charge] z tej karty, by zignorować wszystkie [BadFateMarker] w swoim regionie."},
+													{"lang":"English","val":"Akció végrehajtásakor elkölthetsz 1 [Charge]-t erről a kártyáról a hőslapodon található összes [BadFateMarker] figyelmen kívül hagyásához.\n\nAmikor a köröd végén akadályba ütközöl, elkölthetsz 1 [Charge]-t erről a kártyáról a régiódban lévő [BadFateMarker] figyelmen kívül hagyásához."}]}
+		},
+		"ai":{
+			"chargePriority":3	
+		},
+		"dischargeOnUseLock": true,
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionBadFateOrBeforeObstaclesResolve",
+				"mode": "EXECUTE",
+				"condition":{
+					"hasBadFateOnLastActionOrBeforeObstacleResolve": true,
+					"charge": true
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "kill_card_inventory"
+		},{
+			"action": "test",
+			"params": {
+				"OnLastAction": "FastMove",
+				"hasBadFateOnLastAction": true,
+				"isOr": true
+			},
+			"success": [{
+				"action": "confirm",
+				"params": {
+					"titleKey": "XPYC_11_TITLE",
+					"content": {"key":"XPYC_11_DECISION","values":[	{"lang":"Polish", "val":"Podczas wykonywania akcji możesz zużyć 1 [Charge] z tej karty, by zignorować wszystkie [BadFateMarker] na swojej karcie postaci."},
+																	{"lang":"English","val":"Akció végrehajtásakor elkölthetsz 1 [Charge]-t erről a kártyáról a karakterlapodon található összes [BadFateMarker] figyelmen kívül hagyásához."}]},
+					"confirm": {"key":"XPYC_11_CONFIRM","values":[{"lang":"Polish", "val":"Zużyj"},{"lang":"English","val":"Elköltöm"}]},	
+					"cancel": {"key":"XPYC_11_CANCEL","values":[{"lang":"Polish", "val":"Nie zużywaj"},{"lang":"English","val":"Nem költöm el"}]}
+				},
+				"success": [{
+					"action": "charge",
+					"params": {
+						"removeCharge": true
+					}
+				},{
+					"action": "ignore_bad_fate_action"
+				}]
+			},{
+				"action":"bind_task",
+				"params": {
+					"event": "ActionBadFateOrBeforeObstaclesResolve",
+					"mode": "EXECUTE",
+					"condition":{
+						"hasBadFateOnLastActionOrBeforeObstacleResolve": true,
+						"charge": true
+					}
+				}
+			}]
+		},{
+			"action": "test",
+			"params": {
+				"beforeObstaclesResolve": true,
+				"currentRegionBadFate": true
+			},
+			"success": [{
+				"action": "confirm",
+				"params": {
+					"titleKey": "XPYC_11_TITLE",
+					"content": {"key":"XPYC_11_DECISION_1","values":[	{"lang":"Polish", "val":"Gdy napotykasz przeszkody pod koniec swojej kolejki, możesz zużyć 1 [Charge] z tej karty, by zignorować wszystkie [BadFateMarker] w swoim regionie."},
+																	{"lang":"English","val":"Amikor a köröd végén akadályba ütközöl, elkölthetsz 1 [Charge]-t erről a kártyáról a régiódban lévő [BadFateMarker] figyelmen kívül hagyásához."}]},
+					"confirm": {"key":"XPYC_11_CONFIRM","values":[{"lang":"Polish", "val":"Zużyj"},{"lang":"English","val":"Elköltöm"}]},	
+					"cancel": {"key":"XPYC_11_CANCEL","values":[{"lang":"Polish", "val":"Nie zużywaj"},{"lang":"English","val":"Nem költöm el"}]}
+				},
+				"success": [{
+					"action": "charge",
+					"params": {
+						"removeCharge": true
+					}
+				},{
+					"action": "ignore_obstacles",
+					"params": {
+						"ignoreEnemy": false,
+						"ignoreFate": true 
+					}
+				}]
+			},{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionExecuteOrBeforeObstaclesResolve",
+				"mode": "EXECUTE",
+				"condition":{
+					"hasBadFateOnLastActionOrBeforeObstacleResolve": true,
+					"charge": true,
+					"useOncePerTurn": true
+				}
+			}
+		}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPYarpenItem",
+		"id":"XPYC_12",
+		"chargeable": true,
+		"description":{
+			"title": {"key":"XPYC_12_TITLE","values":[{"lang":"Polish", "val":"Krasnoludzka chorągiew"},
+													{"lang":"English","val":"Törp lobogó"}]},
+			"subheader": {"key":"XPYC_12_SUBHEADER","values":[{"lang":"Polish", "val":"Przedmiot"},
+															{"lang":"English","val":"tárgy"}]},
+			"body": {"key":"XPYC_12_BODY","values":[{"lang":"Polish", "val":"Podczas akcji komendy możesz zużyć 1 [Charge] tej karty, by użyć 1 dodatkowego kompana. Wolno ci użyć dwa razy tego samego kompana."},
+													{"lang":"English","val":"Amikor vezényszó-akciót hajtasz végre, elkölthetsz 1 [Charge]-t erről a kártyáról további 1 bajtárs utasításához.\n\nUgyanazt a bajtársat kétszer is utasíthatod!"}]}
+		},
+		"dischargeOnUseLock": true,
+		"ai":{
+			"chargePriority":6	
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionEnd",
+				"mode": "EXECUTE",
+				"condition":{
+					"OnAction": "Special",
+					"roll": false,
+					"charge": true
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "kill_card_inventory"
+		},{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionEnd",
+				"mode": "EXECUTE",
+				"condition":{
+					"OnAction": "Special",
+					"roll": false,
+					"charge": true
+				}
+			}
+		},{
+			"action": "confirm",
+			"params": {
+				"titleKey": "XPYC_12_TITLE",
+				"content": {"key":"XPYC_12_DECISION","values":[	{"lang":"Polish", "val":"Możesz zużyć 1 [Charge] z tej karty, by użyć 1 dodatkowego kompana. (Wolno ci użyć dwa razy tego samego kompana)."},
+																{"lang":"English","val":"Elkölthetsz 1 [Charge]-t a kártyáról további 1 bajtárs utasításához. (Ugyanazt a bajtársat kétszer is utasíthatod!)"}]},
+				"confirm": {"key":"XPYC_12_CONFIRM","values":[{"lang":"Polish", "val":"Zużyj"},{"lang":"English","val":"Elköltöm"}]},	
+				"cancel": {"key":"XPYC_12_CANCEL","values":[{"lang":"Polish", "val":"Nie zużywaj"},{"lang":"English","val":"Nem költöm el"}]}
+			},
+			"success": [{
+				"action": "charge",
+				"params": {
+					"removeCharge": true
+				}
+			},{
+				"action": "addition_companion"
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPYarpenItem",
+		"id":"XPYC_13",
+		"chargeable": true,
+		"dischargeOnUseLock": true,
+		"description":{
+			"title": {"key":"XPYC_13_TITLE","values":[{"lang":"Polish", "val":"Krasnoludzkie mapy"},
+													{"lang":"English","val":"Törp térkép"}]},
+			"subheader": {"key":"XPYC_13_SUBHEADER","values":[{"lang":"Polish", "val":"Przedmiot"},
+															{"lang":"English","val":"tárgy"}]},
+			"body": {"key":"XPYC_13_BODY","values":[{"lang":"Polish", "val":"Podczas pobierania kart misji możesz zużyć 1 [Charge] z tej karty, by pobrać 1 dodatkową kartę misji. Wybierz jedną i zachowaj, a pozostałe odrzuć."},
+													{"lang":"English","val":"Küldetés-kártyák húzásakor elkölthetsz 1 [Charge]-t erről a kártyáról további 1 küldetés-kártya húzásához. Tarts meg 1 kártyát, a többit pedig dobd el!"}]}
+		},
+		"ai":{
+			"chargePriority":2	
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "QuestDraw",
+				"mode": "EXECUTE",
+				"condition":{
+					"charge": true
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "kill_card_inventory"
+		},{
+			"action":"bind_task",
+			"params": {
+				"event": "QuestDraw",
+				"mode": "EXECUTE",
+				"condition":{
+					"charge": true
+				}
+			}
+		},{
+			"action": "confirm",
+			"params": {
+				"titleKey": "XPYC_13_TITLE",
+				"content": {"key":"XPYC_13_DECISION","values":[{"lang":"Polish", "val":"Pobierając karty misji, możesz zużyć 1 [Charge] tej karty, by pobrać 1 dodatkową kartę misji. Wybierz 1 kartę, którą zachowasz, a pozostałe odrzuć."},
+															  {"lang":"English","val":"Küldetés-kártyák húzásakor elkölthetsz 1 [Charge]-t erről a kártyáról további 1 küldetés-kártya húzásához. Tarts meg 1 kártyát, a többit pedig dobd el!"}]},
+				"confirm": {"key":"XPYC_13_CONFIRM","values":[{"lang":"Polish", "val":"Użyj kartę"},{"lang":"English","val":"Elköltöm"}]},	
+				"cancel": {"key":"XPYC_13_CANCEL","values":[{"lang":"Polish", "val":"Nie używaj"},{"lang":"English","val":"Nem költöm el"}]}
+			},
+			"success": [{
+				"action": "charge",
+				"params": {
+					"removeCharge": true
+				}
+			},{
+				"action": "set_property",
+				"params": {
+					"drawAdditionalQuest": 1
+				}
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPYarpenItem",
+		"id":"XPYC_14",
+		"chargeable": true,
+		"description":{
+			"title": {"key":"XPYC_14_TITLE","values":[{"lang":"Polish", "val":"Starożytny sygnet"},
+													{"lang":"English","val":"Ősi pecsét"}]},
+			"subheader": {"key":"XPYC_14_SUBHEADER","values":[{"lang":"Polish", "val":"Przedmiot"},
+															{"lang":"English","val":"tárgy"}]},
+			"body": {"key":"XPYC_14_BODY","values":[{"lang":"Polish", "val":"Raz na kolejkę możesz zużyć 1 [Charge] z tej karty, by podejrzeć 2 karty z wierzchu talii złego losu albo dobrego losu. Odłóż obie karty na wierzch talii."},
+													{"lang":"English","val":"Körönként egyszer elkölthetsz 1 [Charge]-t erről a kártyáról a jószerencse- vagy a balsors-pakli két legfelső lapjának megnézéséhez. Mindkét lap visszakerül a paklik tetejére!"}]}
+		},
+		"ai":{
+			"chargePriority":0	
+		},
+		"drawTask": [{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"useOncePerTurn": true,
+					"charge": true,
+					"roll": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "kill_card_inventory"
+		},{
+			"action":"preview_card",
+			"params": {
+				"deck": "SELECT_Fate",
+				"amount": 2,
+				"discardAll": false,
+				"dontDiscardSetbeks": false
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPYarpenItem",
+		"id":"XPYC_15",
+		"chargeable": true,
+		"description":{
+			"title": {"key":"XPYC_15_TITLE","values":[{"lang":"Polish", "val":"Krasnoludzka kronika"},
+													{"lang":"English","val":"Törp kódex"}]},
+			"subheader": {"key":"XPYC_15_SUBHEADER","values":[{"lang":"Polish", "val":"Przedmiot"},
+															{"lang":"English","val":"tárgy"}]},
+			"body": {"key":"XPYC_15_BODY","values":[{"lang":"Polish", "val":"Gdy wypełnisz misję główną, możesz zużyć 1 [Charge] z tej karty, by otrzymać 1 PZ za każdą misję dodatkową i misję wsparcia, oznaczoną na tej karcie jako ukończona."}, 
+													{"lang":"English","val":"Főküldetés teljesítésekor elkölthetsz 1 [Charge]-t erről a kártyáról 1 DP szerzéséhez minden teljesített mellék- és támogatás-küldetésed után."}]}
+		},
+		"ai":{
+			"chargePriority":1	
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "BeforeQuestComplete",
+				"mode": "EXECUTE",
+				"condition":{
+					"roll": false,
+					"beforeMainQuestCompleted": true,
+					"charge": true,
+					"anySideOrSupportOnQuestCompleted": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"bind_task",
+			"params": {
+				"event": "BeforeQuestComplete",
+				"mode": "EXECUTE",
+				"condition":{
+					"roll": false,
+					"beforeMainQuestCompleted": true,
+					"charge": true,
+					"anySideOrSupportOnQuestCompleted": true
+				}
+			}
+		},{
+			"action":"resource",
+			"params": {
+				"VictoryPoints": {
+					"variable_amount": "QUEST"
+				}
+			}
+		}],"------------------":"------------------------"
+	}]
+}

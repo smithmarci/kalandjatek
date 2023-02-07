@@ -1,0 +1,689 @@
+{
+	"defalutDescription":{
+		"ribbon": {"key":"XPTC_RIBBON","values":[{"lang":"Polish", "val":"TRISS"},
+										 		{"lang":"English","val":"TRISS"}]},
+		"front": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Front-XP"},
+		"flag": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Flag-XP-Triss"},
+		"back": {"atlas":"Atlases/Atlas-Card-Backgrounds_003", "sprite":"Card-Reverse-XP-Triss"}
+	},
+	"cards":[{
+		"------------------":"------------------------",
+		"type":"XPTrissSpell",
+		"id":"XPTC_1",
+		"maxUseCount": 1,
+		"chargeable": true,
+		"chargeAmount": 1,
+		"description":{
+			"title": {"key":"XPTC_1_TITLE","values":[{"lang":"Polish", "val":"Całun kruka"},
+													{"lang":"English","val":"Varjak Árnya"}]},
+			"subheader": {"key":"XPTC_1_SUBHEADER","values":[{"lang":"Polish", "val":"Zaklęcie"},
+															{"lang":"English","val":"varázsige"}]},
+			"body": {"key":"XPTC_1_BODY","values":[	{"lang":"Polish", "val":"Gdy ta karta wchodzi do gry, połóż na niej 1 [Charge].\n\nGdy napotykasz przeszkody pod koniec swojej kolejki, możesz zużyć 1 [Charge] z tej karty, by zignorować wszystkie przeszkody w swoim regionie."},
+													{"lang":"English","val":"Amikor ez a kártya játékba jön, helyezz el rajta 1 [Charge]-t!\n\nAmikor a köröd végén akadályba ütközöl, elkölthetsz 1 [Charge]-t a kártyáról, hogy minden akadályt figyelmen kívül hagyhass a régiódban."}]}
+		},
+		"ai":{
+			"chargePriority":6	
+		},
+		"drawTask": [{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"useOncePerTurn": true,
+					"charge": true,
+					"roll": false,
+					"beforeObstaclesResolve": true
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "kill_card_inventory"
+		},{
+			"action": "ignore_obstacles"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPTrissSpell",
+		"id":"XPTC_2",
+		"maxUseCount": 1,
+		"chargeable": true,
+		"chargeAmount": 1,
+		"description":{
+			"title": {"key":"XPTC_2_TITLE","values":[{"lang":"Polish", "val":"Aenye"},
+													{"lang":"English","val":"Aenye"}]},
+			"subheader": {"key":"XPTC_2_SUBHEADER","values":[{"lang":"Polish", "val":"Zaklęcie"},
+															{"lang":"English","val":"varázsige"}]},
+			"body": {"key":"XPTC_2_BODY","values":[{"lang":"Polish", "val":"Gdy ta karta wchodzi do gry, połóż na niej 1 [Charge].\n\nMożesz zużyć 1 [Charge] z tej karty, by usunąć wszystkie [BadFateMarker] ze swojej karty postaci"}, 
+													{"lang":"English","val":"Amikor ez a kártya játékba jön, helyezz el rajta 1 [Charge]-t!\n\nElkölthetsz 1 [Charge]-t a kártyáról, hogy minden [BadFateMarker]-t eltávolíthass a karakterlapodról."}]}
+		},
+		"ai":{
+			"chargePriority":7	
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"charge": true,
+					"hasBadFate": true,
+					"roll": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "kill_card_inventory"
+		},{
+			"action": "remove_bad_fate",
+			"params": {
+				"all": true
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPTrissSpell",
+		"id":"XPTC_3",
+		"maxUseCount": 1,
+		"chargeable": true,
+		"chargeAmount": 1,
+		"description":{
+			"title": {"key":"XPTC_3_TITLE","values":[{"lang":"Polish", "val":"Gradobicie"},
+													{"lang":"English","val":"Jégeső"}]},
+			"subheader": {"key":"XPTC_3_SUBHEADER","values":[{"lang":"Polish", "val":"Zaklęcie"},
+															{"lang":"English","val":"varázsige"}]},
+			"body": {"key":"XPTC_3_BODY","values":[{"lang":"Polish", "val":"Gdy ta karta wchodzi do gry, połóż na niej 1 [Charge].\n\nPodczas walki możesz zużyć 1 [Special] i [Charge] z tej karty, by otrzymać 2 [Sword] i 2 [Shield]."},
+													{"lang":"English","val":"Amikor ez a kártya játékba jön, helyezz el rajta 1 [Charge]-t!\n\nHarc során felhasználhatsz 1 [Special]-t és elkölthetsz 1 [Charge]-t erről a kártyáről 2 [Sword] és 2 [Shield] eredményért."}]}
+		},
+		"ai":{
+			"sword": 2,
+			"shield": 2,
+			"special": -1,
+			"chargePriority":10	
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResultMatch": ["special"],
+					"charge": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"spend": "special",
+				"produce": ["shield","shield","sword","sword"]
+			}
+		}],"------------------":"------------------------"
+
+	},{
+		"------------------":"------------------------",
+		"type":"XPTrissSpell",
+		"id":"XPTC_4",
+		"maxUseCount": 1,
+		"chargeable": true,
+		"chargeAmount": 1,
+		"description":{
+			"title": {"key":"XPTC_4_TITLE","values":[{"lang":"Polish", "val":"Piorun Alzura"},
+													{"lang":"English","val":"Alzur Villáma"}]},
+			"subheader": {"key":"XPTC_4_SUBHEADER","values":[{"lang":"Polish", "val":"Zaklęcie"},
+															{"lang":"English","val":"varázsige"}]},
+			"body": {"key":"XPTC_4_BODY","values":[{"lang":"Polish", "val":"Gdy ta karta wchodzi do gry, połóż na niej 1 [Charge].\n\nPodczas walki możesz zużyć 1 [Special] i [Charge] z tej karty, by otrzymać 4 [Sword]."},
+													{"lang":"English","val":"Amikor ez a kártya játékba jön, helyezz el rajta 1 [Charge]-t!\n\nHarc során felhasználhatsz 1 [Special]-t és elkölthetsz 1 [Charge]-t erről a kártyáról 4 [Sword] eredményért."}]}
+		},
+		"ai":{
+			"sword": 4,
+			"special": -1,
+			"chargePriority":9			
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResultMatch": ["special"],
+					"charge": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"spend": "special",
+				"produce": ["sword","sword","sword","sword"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPTrissSpell",
+		"id":"XPTC_5",
+		"maxUseCount": 1,
+		"chargeable": true,
+		"chargeAmount": 1,
+		"description":{
+			"title": {"key":"XPTC_5_TITLE","values":[{"lang":"Polish", "val":"Tarcza Alzura"},
+													{"lang":"English","val":"Alzur Pajzsa"}]},
+			"subheader": {"key":"XPTC_5_SUBHEADER","values":[{"lang":"Polish", "val":"Zaklęcie"},
+															{"lang":"English","val":"varázsige"}]},
+			"body": {"key":"XPTC_5_BODY","values":[{"lang":"Polish", "val":"Gdy ta karta wchodzi do gry, połóż na niej 1 [Charge].\n\nPodczas walki możesz zużyć 1 [Special] i [Charge] z tej karty, by otrzymać 4 [Shield]."},
+													{"lang":"English","val":"Amikor ez a kártya játékba jön, helyezz el rajta 1 [Charge]-t!\n\nHarc során felhasználhatsz 1 [Special]-t és elkölthetsz 1 [Charge]-t erről a kártyáról 4 [Shield] eredményért."}]}
+		},
+		"ai":{
+			"shield": 4,
+			"special": -1,
+			"chargePriority":9			
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResultMatch": ["special"],
+					"charge": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"spend": "special",
+				"produce": ["shield","shield","shield","shield"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPTrissSpell",
+		"id":"XPTC_6",
+		"maxUseCount": 1,
+		"chargeable": true,
+		"dischargeOnUseLock": true,
+		"chargeAmount": 1,
+		"description":{
+			"title": {"key":"XPTC_6_TITLE","values":[{"lang":"Polish", "val":"Teleportacja"},
+													{"lang":"English","val":"Teleportáció"}]},
+			"subheader": {"key":"XPTC_6_SUBHEADER","values":[{"lang":"Polish", "val":"Zaklęcie"},
+															{"lang":"English","val":"varázsige"}]},
+			"body": {"key":"XPTC_6_BODY","values":[{"lang":"Polish", "val":"Gdy ta karta wchodzi do gry, połóż na niej 1 [Charge].\n\nWykonując akcję podróży, możesz zużyć 1 [Charge] z tej karty, by pokonać 1 lub 2 dodatkowe szlaki. Jeśli to zrobisz, przesuń w przód znacznik na torze wojny."}, 
+													{"lang":"English","val":"Amikor ez a kártya játékba jön, helyezz el rajta 1 [Charge]-t!\n\nUtazás-akció során elkölthetsz 1 [Charge]-t erről a kártyáról további 1 vagy 2 út megtételéhez.\n\nAmennyiben így teszel, mozdítsd előre a háború menetét!"}]}
+		},
+		"ai":{
+			"chargePriority":5	
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionEnd",
+				"mode": "EXECUTE",
+				"condition":{
+					"roll": false,
+					"OnAction": "AnyMove",
+					"charge": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionEnd",
+				"mode": "EXECUTE",
+				"condition":{
+					"roll": false,
+					"OnAction": "AnyMove",
+					"charge": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		},{
+			"action": "confirm",
+			"params": {
+				"titleKey": "XPTC_6_TITLE",
+				"content": {"key":"XPTC_6_DECISION","values":[	{"lang":"Polish", "val":"Możesz zużyć 1 [Charge] z tej karty, by pokonać 1 lub 2 dodatkowe szlaki. Jeśli to zrobisz, przesuń w przód znacznik na torze wojny."},
+																{"lang":"English","val":"Elkölthetsz 1 [Charge]-t további 1 vagy 2 út megtételéhez. Ezzel előmozdítod a háború menetét!"}]},
+				"confirm": {"key":"XPTC_6_CONFIRM","values":[{"lang":"Polish", "val":"Ruszaj"},{"lang":"English","val":"Továbbhaladok"}]},	
+				"cancel": {"key":"XPTC_6_CANCEL","values":[{"lang":"Polish", "val":"Nie ruszaj się"},{"lang":"English","val":"Nem haladok tovább"}]}
+			},
+			"success": [{
+				"action": "charge",
+				"params": {
+					"removeCharge": true
+				}
+			},{
+				"action": "move",
+				"params": {
+					"radius": 2
+				}
+			},{
+				"action": "advance_war_track"				
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPTrissSpell",
+		"id":"XPTC_7",
+		"maxUseCount": 1,
+		"chargeable": true,
+		"chargeAmount": 1,
+		"description":{
+			"title": {"key":"XPTC_7_TITLE","values":[{"lang":"Polish", "val":"Ściana płomieni"},
+													{"lang":"English","val":"Tűzfal"}]},
+			"subheader": {"key":"XPTC_7_SUBHEADER","values":[{"lang":"Polish", "val":"Zaklęcie"},
+															{"lang":"English","val":"varázsige"}]},
+			"body": {"key":"XPTC_7_BODY","values":[{"lang":"Polish", "val":"Gdy ta karta wchodzi do gry, połóż na niej 1 [Charge].\n\nPodczas walki możesz raz zużyć 1 [Charge] z tej karty, by otrzymać 1 [Sword] i 1 [Shield]."}, 
+													{"lang":"English","val":"Amikor ez a kártya játékba jön, helyezz el rajta 1 [Charge]-t!\n\nHarconként egyszer elkölthetsz 1 [Charge]-t erről a kártyáról 1 [Sword] és 1 [Shield] eredményért."}]}
+		},
+		"ai":{
+			"sword": 2,
+			"once": true,
+			"chargePriority":8
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"useOnceBattle": true,
+					"charge": true,
+					"rollResult": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"produce": ["sword","shield"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPTrissSpell",
+		"id":"XPTC_8",
+		"maxUseCount": 1,
+		"chargeable": true,
+		"chargeAmount": 1,
+		"description":{
+			"title": {"key":"XPTC_8_TITLE","values":[{"lang":"Polish", "val":"Miejsce mocy"},
+													{"lang":"English","val":"Hatalom Forrása"}]},
+			"subheader": {"key":"XPTC_8_SUBHEADER","values":[{"lang":"Polish", "val":"Zaklęcie"},
+															{"lang":"English","val":"varázsige"}]},
+			"body": {"key":"XPTC_8_BODY","values":[{"lang":"Polish", "val":"Gdy ta karta wchodzi do gry, połóż na niej 1 [Charge].\n\nRaz na kolejkę możesz zużyć 1 [Charge] z tej karty, by uzyskać 1 [Special]."},
+													{"lang":"English","val":"Amikor ez a kártya játékba jön, helyezz el rajta 1 [Charge]-t!\n\nHarconként egyszer elkölthetsz 1 [Charge]-t erről a kártyáról 1 [Special] eredményért."}]}
+		},
+		"ai":{
+			"special": 1,
+			"once": true,
+			"chargePriority":4			
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"useOnceBattle": true,
+					"charge": true,
+					"rollResult": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"produce": ["special"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPTrissSpell",
+		"id":"XPTC_9",
+		"maxUseCount": 1,
+		"chargeable": true,
+		"chargeAmount": 1,
+		"description":{
+			"title": {"key":"XPTC_9_TITLE","values":[{"lang":"Polish", "val":"Wróżba"},
+													{"lang":"English","val":"Jövőbelátás"}]},
+			"subheader": {"key":"XPTC_9_SUBHEADER","values":[{"lang":"Polish", "val":"Zaklęcie"},
+															{"lang":"English","val":"varázsige"}]},
+			"body": {"key":"XPTC_9_BODY","values":[{"lang":"Polish", "val":"Gdy ta karta wchodzi do gry, połóż na niej 1 [Charge].\n\nMożesz zużyć 1 [Charge] z tej karty, by podejrzeć 2 karty z wierzchu dowolnej talii śledztwa. Umieść 1 z tych kart z powrotem na wierzchu, a drugą wsuń pod spód."},
+													{"lang":"English","val":"Amikor ez a kártya játékba jön, helyezz el rajta 1 [Charge]-t!\n\nElkölthetsz 1 [Charge]-t erről a kártyáról bármely nyom-​keresés-​pakli 2 legfelső lapjának megtekintéséhez. Aztán az egyik lapot helyezd vissza a pakli tetejére, a másikat pedig az aljára!"}]}
+		},
+		"ai":{
+			"chargePriority":3	
+		},
+		"drawTask": [{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"charge": true,
+					"roll": false,
+					"action": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "kill_card_inventory"
+		},{
+			"action":"preview_card",
+			"params": {
+				"deck": "SELECT_Investigation",
+				"amount": 2,
+				"discardAll": true,
+				"selectOne": true
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPTrissMagicalObject",
+		"id":"XPTC_10",
+		"description":{
+			"title": {"key":"XPTC_10_TITLE","values":[{"lang":"Polish", "val":"Amulet \nUroborosa"},
+													{"lang":"English","val":"Dimeritium amulett"}]},
+			"subheader": {"key":"XPTC_10_SUBHEADER","values":[{"lang":"Polish", "val":"Przedmiot"},
+															{"lang":"English","val":"mágikus tárgy"}]},
+			"body": {"key":"XPTC_10_BODY","values":[{"lang":"Polish", "val":"Raz podczas walki możesz zużyć 1 [Special] by uzyskać 1 [Sword], 1 [Shield], lub 2 [Special]."},
+													{"lang":"English","val":"Harconként egyszer felhasználhatsz 1 [Special]-t vagy 1 [Sword], vagy 1 [Shield], vagy 2 [Special] eredményért."}]}
+		},
+		"ai":{
+			"diceSelect": true,
+			"sword": 1,
+			"shield": 1,
+			"special": 2,
+			"once": true			
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"useOnceBattle": true,
+					"rollResultMatch": ["special"],
+					"rollResult": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"spend": "special",
+				"select": {
+					"first":["sword"],
+					"secound":["shield"],
+					"third":["special","special"]
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPTrissMagicalObject",
+		"id":"XPTC_11",
+		"description":{
+			"title": {"key":"XPTC_11_TITLE","values":[{"lang":"Polish", "val":"Magiczna księga"},
+													{"lang":"English","val":"Varázskönyv"}]},
+			"subheader": {"key":"XPTC_11_SUBHEADER","values":[{"lang":"Polish", "val":"Przedmiot"},
+															{"lang":"English","val":"mágikus tárgy"}]},
+			"body": {"key":"XPTC_11_BODY","values":[{"lang":"Polish", "val":"Podczas akcji przygotowania, połóż 1 dodatkowy [Charge] na wybranej karcie."}, 
+													{"lang":"English","val":"Amikor felkészülés-akciót hajtasz végre, helyezz el további 1 [Charge]-t a választott varázsige-kártyán!"}]}
+		},
+		"ai":{
+			"chargePriority":0	
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionExecute",
+				"mode": "Execute",
+				"condition":{
+					"OnActionSubmit": "Special"
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "kill_card_inventory"
+		},{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionExecute",
+				"mode": "Execute",
+				"condition":{
+					"OnActionSubmit": "Special"
+				}
+			}
+		},{
+			"action": "set_property",
+			"params": {
+				"additionalCharge": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPTrissMagicalObject",
+		"id":"XPTC_12",
+		"description":{
+			"title": {"key":"XPTC_12_TITLE","values":[{"lang":"Polish", "val":"Kryształowa kula"},
+													{"lang":"English","val":"Kristálygömb"}]},
+			"subheader": {"key":"XPTC_12_SUBHEADER","values":[{"lang":"Polish", "val":"Przedmiot"},
+															{"lang":"English","val":"mágikus tárgy"}]},
+			"body": {"key":"XPTC_12_BODY","values":[{"lang":"Polish", "val":"Pobierając karty misji, pobierz 1 dodatkową kartę misji. Wybierz 1 kartę, którą zachowasz, a pozostałe odrzuć."},
+													{"lang":"English","val":"Amikor küldetés-kártyát húzol, húzz további 1 küldetés-kártyát! Tarts meg közülük 1 kártyát, a többit pedig dobd el!"}]}
+		},
+		"ai":{
+			"chargePriority":0	
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "QuestDraw",
+				"mode": "EXECUTE",
+				"condition":{}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "kill_card_inventory"
+		},{
+			"action":"bind_task",
+			"params": {
+				"event": "QuestDraw",
+				"mode": "EXECUTE",
+				"condition":{}
+			}
+		},{
+			"action": "set_property",
+			"params": {
+				"drawAdditionalQuest": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPTrissMagicalObject",
+		"id":"XPTC_13",
+		"chargeable": true,
+		"description":{
+			"title": {"key":"XPTC_13_TITLE","values":[{"lang":"Polish", "val":"Różdżka"},
+													{"lang":"English","val":"Vízkereső vessző"}]},
+			"subheader": {"key":"XPTC_13_SUBHEADER","values":[{"lang":"Polish", "val":"Przedmiot"},
+															{"lang":"English","val":"mágikus tárgy"}]},
+			"body": {"key":"XPTC_13_BODY","values":[{"lang":"Polish", "val":"Gdy ta karta wchodzi do gry, połóż na niej 3 [Charge].\n\nPodczas wykonywania akcji śledztwa możesz zużyć 1 [Charge] z tej karty, by rzucić kością swojej postaci. W wypadku sukcesu otrzymujesz 2 [GoldCoin]."}, 
+													{"lang":"English","val":"Amikor ez a kártya játékba jön, helyezz el rajta 3 [Charge]-t!\n\nAmikor nyomkeresés-​akciót hajtasz végre, elkölthetsz 1 [Charge]-t egy hős-​kockáddal való dobáshoz. Sikeres dobás esetén kapsz 2 [GoldCoin]-at."}]}
+		},
+		"maxUseCount": 3,
+		"dischargeOnUseLock": true,
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionEnd",
+				"mode": "EXECUTE",
+				"condition":{
+					"OnAction": "Investigation",
+					"roll": false,
+					"charge": true
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "confirm",
+			"params": {
+				"titleKey": "XPTC_13_TITLE",
+				"content": {"key":"XPTC_13_DECISION","values":[	{"lang":"Polish", "val":"Możesz zużyć 1 [Charge] z tej karty, by rzucić kością swojej postaci. W wypadku sukcesu otrzymujesz 2 [GoldCoin]."},
+																{"lang":"English","val":"Elkölthetsz 1 [Charge]-t egy hős-kockáddal való dobáshoz. Sikeres dobás esetén kapsz 2 [GoldCoin]-at."}]},
+				"confirm": {"key":"XPTC_13_CONFIRM","values":[{"lang":"Polish", "val":"Zużyj"},{"lang":"English","val":"Elköltöm"}]},	
+				"cancel": {"key":"XPTC_13_CANCEL","values":[{"lang":"Polish", "val":"Nie zużywaj"},{"lang":"English","val":"Nem költöm el"}]}
+			},
+			"success": [{
+				"action": "charge",
+				"params": {
+					"removeCharge": true
+				}
+			},{
+				"action": "success_roll",
+				"params": {
+					"condition": ["character"],
+					"characterOnly": true
+				},
+				"success": {
+					"action": "resource",
+					"params": {
+						"Gold": 2
+					}
+				}
+			}]
+		},{
+			"action": "kill_card_inventory"
+		},{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionEnd",
+				"mode": "EXECUTE",
+				"condition":{
+					"OnAction": "Investigation",
+					"roll": false,
+					"charge": true
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPTrissMagicalObject",
+		"id":"XPTC_14",
+		"description":{
+			"title": {"key":"XPTC_14_TITLE","values":[{"lang":"Polish", "val":"Amulet mocy"},
+													{"lang":"English","val":"Hatalom amulettje"}]},
+			"subheader": {"key":"XPTC_14_SUBHEADER","values":[{"lang":"Polish", "val":"Przedmiot"},
+															{"lang":"English","val":"mágikus tárgy"}]},
+			"body": {"key":"XPTC_14_BODY","values":[{"lang":"Polish", "val":"Gdy ta karta wchodzi do gry, połóż na niej 3 [Charge].\n\nPodczas bitwy możesz raz zużyć 1 [Charge] z tej karty, by uzyskać 1 [Special]."}, 
+													{"lang":"English","val":"Amikor ez a kártya játékba jön, helyezz el rajta 3 [Charge]-t!\n\nHarconként egyszer elkölthetsz 1 [Charge]-t erről a kártyáról 1 [Special] eredményért."}]}
+		},
+		"chargeable": true,
+		"maxUseCount": 3,
+		"ai":{
+			"special": 1,
+			"once": true
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"useOnceBattle": true,
+					"charge": true,
+					"rollResult": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"produce": ["special"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPTrissMagicalObject",
+		"id":"XPTC_15",
+		"description":{
+			"title": {"key":"XPTC_15_TITLE","values":[{"lang":"Polish", "val":"Pierścień loży"},
+													{"lang":"English","val":"A Páholy gyűrűje"}]},
+			"subheader": {"key":"XPTC_15_SUBHEADER","values":[{"lang":"Polish", "val":"Przedmiot"},
+															{"lang":"English","val":"mágikus tárgy"}]},
+			"body": {"key":"XPTC_15_BODY","values":[{"lang":"Polish", "val":"Gdy ta karta wchodzi do gry, połóż na niej 3 [Charge].\n\nMożesz przełożyć 1 [Charge] z tej karty na dowolną kartę Zaklęcią jaką posiadasz. Nie można używać jej podczas rzutów."}, 
+													{"lang":"English","val":"Amikor ez a kártya játékba jön, helyezz el rajta 3 [Charge]-t!\n\nElkölthetsz róla 1 [Charge]-t, hogy elhelyezhess 1 [Charge]-t bármely varázsigéden. Dobás során ezt nem teheted meg!"}]}
+		},
+		"chargeable": true,
+		"maxUseCount": 3,
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"roll": false,
+					"charge": true,
+					"InventoryCardType": {
+						"type": "XPTrissSpell", 
+						"amount": 1
+					}
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"select_inventory_card",
+			"params": {
+				"filter": "XPTrissSpell",
+				"amount": 1,
+				"mode": "CHARGE_ADD"
+			}
+		}],"------------------":"------------------------"
+	}]
+}

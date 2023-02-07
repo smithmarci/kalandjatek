@@ -1,0 +1,675 @@
+{
+	"defalutDescription":{
+		"ribbon": {"key":"XPGC_RIBBON","values":[{"lang":"Polish", "val":"GERALT"},
+										 		{"lang":"English","val":"GERALT"}]},
+		"front": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Front-XP"},
+		"flag": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Flag-XP-Geralt"},
+		"back": {"atlas":"Atlases/Atlas-Card-Backgrounds_003", "sprite":"Card-Reverse-XP-Geralt"}
+	},
+	"cards":[{
+		"------------------":"------------------------",
+		"type":"XPGeraltSign",
+		"id":"XPGC_1",
+		"description":{
+			"title": {"key":"XPGC_1_TITLE","values":[{"lang":"Polish", "val":"Quen"},
+													{"lang":"English","val":"Quen"}]},
+			"subheader": {"key":"XPGC_1_SUBHEADER","values":[{"lang":"Polish", "val":"Znak"},
+															{"lang":"English","val":"vajákjel"}]},
+			"body": {"key":"XPGC_1_BODY","values":[	{"lang":"Polish", "val":"Podczas walki możesz raz zużyć 1 [Sign] by uzyskać 2 [Shield]."},
+													{"lang":"English","val":"Harc során egyszer elkölthetsz 1 [Sign]-et 2 [Shield] eredményért."}]}
+		},
+		"ai":{
+			"sign": -1,
+			"shield": 2,
+			"once": true
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"useOnceBattle": true,
+					"battle": true,
+					"rollResultMatch": ["sign"]
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"spend": "sign",
+				"produce": ["shield", "shield"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPGeraltSign",
+		"id":"XPGC_2",
+		"description":{
+			"title": {"key":"XPGC_2_TITLE","values":[{"lang":"Polish", "val":"Igni"},
+													{"lang":"English","val":"Igni"}]},
+			"subheader": {"key":"XPGC_2_SUBHEADER","values":[{"lang":"Polish", "val":"Znak"},
+															{"lang":"English","val":"vajákjel"}]},
+			"body": {"key":"XPGC_2_BODY","values":[{"lang":"Polish", "val":"Podczas walki możesz raz zużyć 1 [Sign] by uzyskać 2 [Sword]."},
+													{"lang":"English","val":"Harc során egyszer elkölthetsz 1 [Sign]-et 2 [Sword] eredményért."}]}
+		},
+		"ai":{
+			"sign": -1,
+			"sword": 2,
+			"once": true
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"useOnceBattle": true,
+					"battle": true,
+					"rollResultMatch": ["sign"]
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"spend": "sign",
+				"produce": ["sword", "sword"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPGeraltSign",
+		"id":"XPGC_3",
+		"description":{
+			"title": {"key":"XPGC_3_TITLE","values":[{"lang":"Polish", "val":"Heliotrop"},
+													{"lang":"English","val":"Heliotróp"}]},
+			"subheader": {"key":"XPGC_3_SUBHEADER","values":[{"lang":"Polish", "val":"Znak"},
+															{"lang":"English","val":"vajákjel"}]},
+			"body": {"key":"XPGC_3_BODY","values":[{"lang":"Polish", "val":"Podczas walki możesz raz zużyć 1 [Sign] by każda [Shield] doliczała do wyniku 1 dodatkową [Shield]."},
+													{"lang":"English","val":"Harc során egyszer elkölthetsz 1 [Sign]-et, hogy minden [Shield] további 1 [Shield]-ot eredményezzen."}]}
+		},
+		"ai":{
+			"sign": -1,
+			"shield": 1,
+			"foreach": "shield",
+			"once": true
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"useOnceBattle": true,
+					"battle": true,
+					"rollResultMatch": ["sign"],
+					"rollResultMatchAny": ["shield"]
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"spend": "sign",
+				"produce": ["shield"],
+				"foreach": "shield"
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPGeraltSign",
+		"id":"XPGC_4",
+		"description":{
+			"title": {"key":"XPGC_4_TITLE","values":[{"lang":"Polish", "val":"Yrden"},
+													{"lang":"English","val":"Yrden"}]},
+			"subheader": {"key":"XPGC_4_SUBHEADER","values":[{"lang":"Polish", "val":"Znak"},
+															{"lang":"English","val":"vajákjel"}]},
+			"body": {"key":"XPGC_4_BODY","values":[{"lang":"Polish", "val":"Podczas walki możesz raz zużyć 1 [Sign] by uzyskać 1 [Special]."},
+													{"lang":"English","val":"Harc során egyszer elkölthetsz 1 [Sign]-et 1 [Special] eredményért."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"useOnceBattle": true,
+					"battle": true,
+					"rollResultMatch": ["sign"]
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"ai":{
+			"sign": -1,
+			"special": 1,
+			"once": true
+		},
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"spend": "sign",
+				"produce": ["special"],
+				"amount": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPGeraltSign",
+		"id":"XPGC_5",
+		"description":{
+			"title": {"key":"XPGC_5_TITLE","values":[{"lang":"Polish", "val":"Aard"},
+													{"lang":"English","val":"Aard"}]},
+			"subheader": {"key":"XPGC_5_SUBHEADER","values":[{"lang":"Polish", "val":"Znak"},
+															{"lang":"English","val":"vajákjel"}]},
+			"body": {"key":"XPGC_5_BODY","values":[{"lang":"Polish", "val":"Podczas walki możesz raz zużyć 1 [Sign] by każdy [Sword] doliczał do wyniku 1 dodatkowy [Sword]."},
+													{"lang":"English","val":"Harc során egyszer elkölthetsz 1 [Sign]-et, hogy minden [Sword] további 1 [Sword]-ot eredményezzen."}]}
+		},
+		"ai":{
+			"sign": -1,
+			"sword": 1,
+			"foreach": "sword",
+			"once": true
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"useOnceBattle": true,
+					"battle": true,
+					"rollResultMatch": ["sign"],
+					"rollResultMatchAny": ["sword"]
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"spend": "sign",
+				"produce": ["sword"],
+				"foreach": "sword"
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPGeraltSign",
+		"id":"XPGC_6",
+		"description":{
+			"title": {"key":"XPGC_6_TITLE","values":[{"lang":"Polish", "val":"Axii"},
+													{"lang":"English","val":"Axii"}]},
+			"subheader": {"key":"XPGC_6_SUBHEADER","values":[{"lang":"Polish", "val":"Znak"},
+															{"lang":"English","val":"vajákjel"}]},
+			"body": {"key":"XPGC_6_BODY","values":[{"lang":"Polish", "val":"Podczas walki możesz raz zużyć 1 [Sign] by każda [Shield] doliczała do wyniku 1 dodatkowy [Sword]."},
+													{"lang":"English","val":"Harconként egyszer elkölthetsz 1 [Sign]-et, hogy minden [Shield] további 1 [Sword]-ot eredményezzen."}]}
+		},
+		"ai":{
+			"sign": -1,
+			"sword": 1,
+			"foreach": "shield",
+			"once": true
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"useOnceBattle": true,
+					"battle": true,
+					"rollResultMatch": ["sign"],
+					"rollResultMatchAny": ["shield"]
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"spend": "sign",
+				"produce": ["sword"],
+				"foreach": "shield"
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPGeraltPotion",
+		"id":"XPGC_7",
+		"description":{
+			"title": {"key":"XPGC_7_TITLE","values":[{"lang":"Polish", "val":"Zamieć"},
+													{"lang":"English","val":"Hóvihar"}]},
+			"subheader": {"key":"XPGC_7_SUBHEADER","values":[{"lang":"Polish", "val":"Eliksir"},
+															{"lang":"English","val":"főzet"}]},
+			"body": {"key":"XPGC_7_BODY","values":[{"lang":"Polish", "val":"Na początku walki możesz zużyć 1 [Charge] z tej karty, by do końca tej walki ignorować wszystkie efekty „przed rzutem kośćmi”."},
+													{"lang":"English","val":"A harc megkezdése előtt elkölthetsz 1 [Charge]-t erről a kártyáról, hogy a harc hátralevő részére figyelmen kívül hagyhass minden “dobás előtt” hatást."}]}
+		},
+		"chargeable": true,
+		"dischargeOnUseLock": true,
+		"ai":{
+			"ignoreBeforeRoll": true
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "EnemyFight",
+				"mode": "EXECUTE",
+				"condition":{
+					"charge": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"bind_task",
+			"params": {
+				"event": "EnemyFight",
+				"mode": "EXECUTE",
+				"condition":{
+					"charge": true
+				}
+			}
+		},{
+			"action": "confirm",
+			"params": {
+				"titleKey": "XPGC_7_TITLE",
+				"contentKey": "XPGC_7_BODY",
+				"confirm": {"key":"XPGC_7_CONFIRM","values":[{"lang":"Polish", "val":"Użyj kartę"},{"lang":"English","val":"Elköltöm"}]},	
+				"cancel": {"key":"XPGC_7_CANCEL","values":[{"lang":"Polish", "val":"Nie używaj"},{"lang":"English","val":"Nem költöm el"}]}
+			},
+			"success": [{
+				"action": "charge",
+				"params": {
+					"removeCharge": true
+				}
+			},{
+				"action": "set_property",
+				"params": {
+					"ignoreBeforeRoll": true
+				}
+			}]		
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPGeraltPotion",
+		"id":"XPGC_8",
+		"description":{
+			"title": {"key":"XPGC_8_TITLE","values":[{"lang":"Polish", "val":"Borsuk"},
+													{"lang":"English","val":"Borz"}]},
+			"subheader": {"key":"XPGC_8_SUBHEADER","values":[{"lang":"Polish", "val":"Eliksir"},
+															{"lang":"English","val":"főzet"}]},
+			"body": {"key":"XPGC_8_BODY","values":[{"lang":"Polish", "val":"Na początku walki możesz zużyć 1 [Charge] z tej karty, by podczas walki raz uzyskać ponowny rzut dowolną liczbą kości walki."},
+													{"lang":"English","val":"A harc megkezdése előtt elkölthetsz 1 [Charge]-t erről a kártyáról, hogy a harc során egyszer tetszőleges számú harc-kockát újradobhass."}]}
+		},
+		"chargeable": true,
+		"ai":{
+			"reroll": "OPTIONAL",
+			"once": true
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResult": false,
+					"rolling": false,
+					"roll": true,
+					"reroll": false,
+					"charge": true,
+					"useOnceBattle": true,
+					"potionLockPerRoll": "REGULAR"
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"set_potion_lock_per_roll",
+			"params": {
+				"lockType": "REGULAR"
+			}
+		},{
+			"action":"roll_result_reroll",
+			"params": {
+				"mode": "UNIVERSAL",
+				"orMore": true,
+				"amount": 0
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPGeraltPotion",
+		"id":"XPGC_9",
+		"description":{
+			"title": {"key":"XPGC_9_TITLE","values":[{"lang":"Polish", "val":"Filtr Petriego"},
+													{"lang":"English","val":"Petri szűrete"}]},
+			"subheader": {"key":"XPGC_9_SUBHEADER","values":[{"lang":"Polish", "val":"Eliksir"},
+															{"lang":"English","val":"főzet"}]},
+			"body": {"key":"XPGC_9_BODY","values":[{"lang":"Polish", "val":"Na początku walki możesz zużyć 1 [Charge] z tej karty, by uzyskać 1 [Sign]."},
+													{"lang":"English","val":"A harc elején elkölthetsz 1 [Charge]-t erről a kártyáról 1 [Sign] eredményért."}]}
+		},
+		"chargeable": true,
+		"ai":{
+			"sign": 1,
+			"once": true
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResult": false,
+					"rolling": false,
+					"roll": true,
+					"charge": true,
+					"useOnceBattle": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_producer",
+			"params": {
+				"produce": ["sign"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPGeraltPotion",
+		"id":"XPGC_10",
+		"description":{
+			"title": {"key":"XPGC_10_TITLE","values":[{"lang":"Polish", "val":"Las Mariborski"},
+													{"lang":"English","val":"Maribor Erdeje"}]},
+			"subheader": {"key":"XPGC_10_SUBHEADER","values":[{"lang":"Polish", "val":"Eliksir"},
+															{"lang":"English","val":"főzet"}]},
+			"body": {"key":"XPGC_10_BODY","values":[{"lang":"Polish", "val":"Na początku walki możesz zużyć 1 [Charge] z tej karty, by uzyskać 1 [Sword], 1 [Shield], albo 1 [Sign]."}, 
+													{"lang":"English","val":"A harc elején elkölthetsz 1 [Charge]-t erről a kártyáról vagy 1 [Sword], vagy 1 [Shield], vagy 1 [Sign] eredményért."}]}
+		},
+		"chargeable": true,
+		"ai":{
+			"diceSelect": true,
+			"sword": 1,
+			"shield": 1,
+			"sign": 1,
+			"once": true
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResult": false,
+					"rolling": false,
+					"roll": true,
+					"charge": true,
+					"useOnceBattle": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_producer",
+			"params": {
+				"select": {
+					"first":["sword"],
+					"secound":["shield"],
+					"third":["sign"]
+				}
+			}
+		}]
+	},{
+		"------------------":"------------------------",
+		"type":"XPGeraltPotion",
+		"id":"XPGC_11",
+		"description":{
+			"title": {"key":"XPGC_11_TITLE","values":[{"lang":"Polish", "val":"Wywar de Vries"},
+													{"lang":"English","val":"De Vries kivonata"}]},
+			"subheader": {"key":"XPGC_11_SUBHEADER","values":[{"lang":"Polish", "val":"Eliksir"},
+															{"lang":"English","val":"főzet"}]},
+			"body": {"key":"XPGC_11_BODY","values":[{"lang":"Polish", "val":"Na początku walki możesz zużyć 1 [Charge] z tej karty, by uzyskać 2 [Special]."},
+													{"lang":"English","val":"A harc elején elkölthetsz 1 [Charge]-t erről a kártyáról 2 [Special] eredményért."}]}
+		},
+		"chargeable": true,
+		"ai":{
+			"diceSelect": true,
+			"sword": 1,
+			"shield": 1,
+			"special": 2,
+			"once": true
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResult": false,
+					"rolling": false,
+					"roll": true,
+					"charge": true,
+					"useOnceBattle": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"roll_result_producer",
+			"params": {
+				"produce": ["special","special"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPGeraltPotion",
+		"id":"XPGC_12",
+		"description":{
+			"title": {"key":"XPGC_12_TITLE","values":[{"lang":"Polish", "val":"Dekokt \nRaffarda Białego"},
+													{"lang":"English","val":"Fehér Raffard párlata"}]},
+			"subheader": {"key":"XPGC_12_SUBHEADER","values":[{"lang":"Polish", "val":"Eliksir"},
+															{"lang":"English","val":"főzet"}]},
+			"body": {"key":"XPGC_12_BODY","values":[{"lang":"Polish", "val":"Na początku walki możesz zużyć 1 [Charge] z tej karty, by zapobiec wszystkim [Wound] (ale nie [WoundSevere]), które odniesiesz w tej walce."},
+													{"lang":"English","val":"A harc elején elkölthetsz 1 [Charge]-t erről a kártyáról, hogy egészen a harc végéig ellenállj minden [Wound]-t (de nem [WoundSevere]-t) okozó hatásnak."}]}
+		},
+		"chargeable": true,
+		"ai":{
+			"prevent_wound": true,
+			"wound": -1,
+			"once": true
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResult": false,
+					"rolling": false,
+					"roll": true,
+					"charge": true,
+					"useOnceBattle": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action": "prevent_wound",
+			"params": {
+				"wound_amount": -1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPGeraltPotion",
+		"id":"XPGC_13",
+		"description":{
+			"title": {"key":"XPGC_13_TITLE","values":[{"lang":"Polish", "val":"Jad Zeugla"},
+													{"lang":"English","val":"Zeugl Ereje"}]},
+			"subheader": {"key":"XPGC_13_SUBHEADER","values":[{"lang":"Polish", "val":"Eliksir"},
+															{"lang":"English","val":"főzet"}]},
+			"body": {"key":"XPGC_13_BODY","values":[{"lang":"Polish", "val":"Na początku walki możesz zużyć 1 [Charge] z tej karty, by podczas walki raz uzyskać ponowny rzut dowolną liczbą kości walki."},
+													{"lang":"English","val":"A harc elején elkölthetsz 1 [Charge]-t erről a kártyáról, hogy a küzdelem során egyszer tetszőleges számú harc-​kockát újradobhass."}]}
+		},
+		"chargeable": true,
+		"ai":{
+			"reroll": "OPTIONAL",
+			"once": true
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResult": false,
+					"rolling": false,
+					"roll": true,
+					"reroll": false,
+					"charge": true,
+					"useOnceBattle": true,
+					"potionLockPerRoll": "REGULAR"
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action":"set_potion_lock_per_roll",
+			"params": {
+				"lockType": "REGULAR"
+			}
+		},{
+			"action":"roll_result_reroll",
+			"params": {
+				"mode": "UNIVERSAL",
+				"orMore": true,
+				"amount": 0
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPGeraltMedallion",
+		"id":"XPGC_14",
+		"description":{
+			"title": {"key":"XPGC_14_TITLE","values":[{"lang":"Polish", "val":"Amulet Wiedźmina"},
+													{"lang":"English","val":"Farkasmedál"}]},
+			"subheader": {"key":"XPGC_14_SUBHEADER","values":[{"lang":"Polish", "val":"Sprzęt"},
+															{"lang":"English","val":"felszerelés"}]},
+			"body": {"key":"XPGC_14_BODY","values":[{"lang":"Polish", "val":"Raz podczas walki możesz otrzymać 1 [BadFateMarker] by uzyskać 1 [Sign]."},
+													{"lang":"English","val":"Harc során egyszer 1 [BadFateMarker] szerzése árán 1 [Sign]-et nyerhetsz."}]}
+		},
+		"ai":{
+			"sign": 1,
+			"once": true
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"useOnceBattle": true,
+					"battle": true,
+					"rollResult": true
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action": "place_bad_fate",
+			"params": {
+				"amount": 1
+			}
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"produce": ["sign"]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPGeraltMedallion",
+		"id":"XPGC_15",
+		"description":{
+			"title": {"key":"XPGC_15_TITLE","values":[{"lang":"Polish", "val":"Świętokradca"},
+													{"lang":"English","val":"Anathéma"}]},
+			"subheader": {"key":"XPGC_15_SUBHEADER","values":[{"lang":"Polish", "val":"Sprzęt"},
+															{"lang":"English","val":"vajákkard"}]},
+			"body": {"key":"XPGC_15_BODY","values":[{"lang":"Polish", "val":"Podczas walki możesz raz odnieść 1 [Wound], by uzyskać 2 [Sword]."},
+													{"lang":"English","val":"Harconként egyszer 1 [Wound] szerzése árán 2 [Sword]-ot nyerhetsz."}]}
+		},
+		"ai":{
+			"sword": 2,
+			"wound": 1,
+			"once": true
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"useOnceBattle": true,
+					"battle": true,
+					"rollResult": true
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		},{
+			"action": "place_wound",
+			"params": {
+				"wound": 1,
+				"amount": 1
+			}
+		},{
+			"action":"roll_result_modifier",
+			"params": {
+				"produce": ["sword","sword"]
+			}
+		}],"------------------":"------------------------"
+	}]
+}

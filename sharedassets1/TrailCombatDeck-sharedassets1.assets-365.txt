@@ -1,0 +1,1889 @@
+{
+	"defalutDescription":{
+		"ribbon": {"key":"TCD_RIBBON","values":[{"lang":"Polish", "val":"ŚLEDZTWO"},
+										 		{"lang":"English","val":"NYOMKERESÉS"}]},
+		"front": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Front-Investigation"},
+		"flag": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Flag-Investigation-Combat"},
+		"back": {"atlas":"Atlases/Atlas-Card-Backgrounds_003", "sprite":"Card-Reverse-Investigation-Combat"}
+	},
+	"cards":[{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_1",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_1_IMAGE"},
+			"title": {"key":"TCD_1_TITLE","values":[{"lang":"Polish", "val":"Nieprzewidziane kłopoty"},
+													{"lang":"English","val":"Váratlan probléma"}]},
+			"subheader": {"key":"TCD_1_SUBHEADER","values":[{"lang":"Polish", "val":"Nagle dobiega cię rozpaczliwe wołanie kobiety o pomoc. Biegniesz w tamtą stronę, by po chwili stanąć oko w oko z bandą zbójów. To powinno być łatwe."},
+															{"lang":"English","val":"Egy nő segélykiáltására leszel figyelmes. A hang irányába iramodsz, csak hogy egy csapat girhes banditával találd szembe magad. Könnyebb nem is lehetne."}]},
+			"body": {"key":"TCD_1_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 czerwony [ClueMarkerGray] po czym toczysz walkę.\n\nWróg: 2 [Sword] 2 [Shield].\nUdany [Sword]: pobierz 1 kartę dobrego losu.\nNieudana [Shield]: zużywasz 1 czerwony [ClueMarkerGray]."},
+													{"lang":"English","val":"Kapsz 1 vörös [ClueMarkerGray]-ot. Küzdj meg a banditákkal!\n\nEllenfél: 2 [Sword] 2 [Shield]\n\nSikeres [Sword]: húzz 1 jószerencse-​kártyát!\n\nSikertelen [Shield]: költs 1 vörös [ClueMarkerGray]-ot!"}]}
+		},
+		"ai":{
+			"sword": 2,
+			"shield": 2
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1
+			}
+		},{
+			"action":"battle",
+			"params": {
+				"attack": {
+					"condition":["sword", "sword"],
+					"success": {
+						"action":"draw_card",
+						"params": {
+							"deck": "FateGood",
+							"amount": 1
+						}
+					}
+				},
+				"defense": {
+					"condition":["shield", "shield"],
+					"fail": {
+						"action":"resource",
+						"params": {
+							"CombatLead": -1
+						}
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_2",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_2_IMAGE"},
+			"title": {"key":"TCD_2_TITLE","values":[{"lang":"Polish", "val":"Potwór w okolicy"},
+													{"lang":"English","val":"Az elszabadult szörny"}]},
+			"subheader": {"key":"TCD_2_SUBHEADER","values":[{"lang":"Polish", "val":"Dochodzą cię słuchy o bestii grasującej w okolicy i oczywiście stajesz jej na drodze."},
+															{"lang":"English","val":"Mendemondákat hallottál egy, a környéken bujkáló szörnyről. Persze, hogy egyenesen belebotlasz!"}]},
+			"body": {"key":"TCD_2_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 czerwony [ClueMarkerGray], po czym toczysz walkę!\n\nWróg: 3 [Sword] 3 [Shield].\nUdany [Sword]: pobierz 1 kartę rozwoju.\nNieudany [Sword]: połóż w swoim regionie 1 srebrnego [EnemyMarker].\nUdana [Shield]: otrzymujesz 1 czerwony [ClueMarkerGray]."},
+													{"lang":"English","val":"Kapsz 1 vörös [ClueMarkerGray]-ot. Küzdj meg a szörnnyel!\n\nEllenfél: 3 [Sword] 3 [Shield]\n\nSikeres [Sword]: húzz 1 fejlesztés-​kártyát!\n\nSikertelen [Sword]: helyezz le 1 ezüst [EnemyMarker]-et a régiódban!\n\nSikeres [Shield]: kapsz 1 vörös [ClueMarkerGray]-ot."}]}
+		},
+		"ai":{
+			"sword": 3,
+			"shield": 3
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1
+			}
+		},{
+			"action":"battle",
+			"params": {
+				"attack": {
+					"condition":["sword", "sword", "sword"],
+					"success": {
+						"action": "draw_card",
+						"params": {
+							"deck": "XP",
+							"amount": 1
+						}
+					},
+					"fail": {
+						"action":"place_enemy",
+						"params": {
+							"amount": 1,
+							"type": "EnemyMedium"
+						}
+					}
+				},
+				"defense": {
+					"condition":["shield", "shield", "shield"],
+					"success": {
+						"action":"resource",
+						"params": {
+							"CombatLead": 1
+						}
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatTrap",
+		"id":"TCD_3",
+		"description":{
+		   "ribbon": {"key":"TCD_3_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_3_IMAGE"},
+			"title": {"key":"TCD_3_TITLE","values":[{"lang":"Polish", "val":"Osuwisko!"},
+													{"lang":"English","val":"Földcsuszamlás!"}]},
+			"subheader": {"key":"TCD_3_SUBHEADER","values":[{"lang":"Polish", "val":"Spoglądasz na szczyt. Jesteś prawie na miejscu. Stawiasz kolejny krok i ziemia osuwa ci się spod nóg. Spadasz z góry wśród deszczu kamieni i błota. Przeklęte osuwisko!"},
+															{"lang":"English","val":"Felnézel a csúcsra. Már majdnem felértél. Még egy lépés, és a talaj kicsúszik a lábad alól. Kövek és sár kíséretében bucskázol le a hegyoldalon. Telibetúrt földcsuszamlás!"}]},
+			"body": {"key":"TCD_3_BODY","values":[	{"lang":"Polish", "val":"Odnosisz 1 [Wound] albo opóźniasz działania."},
+													{"lang":"English","val":"Szerzel 1 [Wound]-t, vagy vesztegelsz."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "confirm",
+				"params": {
+					"titleKey": "TCD_3_TITLE",
+					"contentKey": "TCD_3_BODY",
+					"confirm": {"key":"TCD_3_CONFIRM","values":[{"lang":"Polish", "val":"Odnosisz 1 [WoundColor]"},{"lang":"English","val":"Szerzek 1 [WoundColor]-t"}]},	
+					"cancel": {"key":"TCD_3_CANCEL","values":[{"lang":"Polish", "val":"Opóźniasz działania"},{"lang":"English","val":"Veszteglek"}]}
+				},
+				"success": {
+					"action": "place_wound",
+					"params": {
+						"wound": 1,
+						"amount": 1
+					}
+				},
+				"fail": {
+					"action": "delay_action"
+				}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_4",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_4_IMAGE"},
+			"title": {"key":"TCD_4_TITLE","values":[{"lang":"Polish", "val":"Wędrowny handlarz"},
+													{"lang":"English","val":"A vándorkereskedő"}]},
+			"subheader": {"key":"TCD_4_SUBHEADER","values":[{"lang":"Polish", "val":"Gdy handlarz dostrzega zasadzkę, jest już za późno, ma jednak szczęście, bo jesteś w pobliżu i możesz zmierzyć się z bandziorami. Oby zaproponował ci nagrodę, gdy będzie po wszystkim."},
+															{"lang":"English","val":"A kereskedő csak akkor veszi észre a rajtaütést, amikor már túl késő. De szerencséjére épp a közelben jársz, hogy leverhesd az útonállókat. Jobban teszi, ha megjutalmaz, miután végeztél velük."}]},
+			"body": {"key":"TCD_4_BODY","values":[	{"lang":"Polish", "val":"Toczysz walkę!\n\nWróg: : 2 [Sword].\n\nUdany [Sword]: otrzymujesz 1 czerwony [ClueMarkerGray] and 2 [GoldCoin].\n\nNieudany [Sword]: wydaj 1 [GoldCoin]."},
+													{"lang":"English","val":"Küzdj meg velük!\n\nEllenfél: 2 [Sword]\n\nSikeres [Sword]: kapsz 1 vörös [ClueMarkerGray]-ot és 2 [GoldCoin]-at.\n\nSikertelen [Sword]: költs 1 [GoldCoin]-at!"}]}
+		},
+		"ai":{
+			"sword": 2
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"battle",
+			"params": {
+				"attack": {
+					"condition":["sword", "sword"],
+					"success": {
+						"action":"resource",
+						"params": {
+							"CombatLead": 1,
+							"Gold": 2
+						}
+					},
+					"fail": {
+						"action": "resource",
+						"params": {
+							"Gold": -1
+						}
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_5",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_5_IMAGE"},
+			"title": {"key":"TCD_5_TITLE","values":[{"lang":"Polish", "val":"Bestia na wzgórzach"},
+													{"lang":"English","val":"Bestia a dombok között"}]},
+			"subheader": {"key":"TCD_5_SUBHEADER","values":[{"lang":"Polish", "val":"Miejscowi powiadają, że na pobliskich wzgórzach czai się bestia, która pożera owce i napada na pasterzy. Zebrali trochę grosza i proszą cię o pomoc."},
+															{"lang":"English","val":"Egy bestia portyázik a közeli dombok között, felfalja a birkákat, megtámadja a pásztorokat - panaszolják a helyiek. Összekuporgattak némi pénzt, és most a segítségedért könyörögnek."}]},
+			"body": {"key":"TCD_5_BODY","values":[	{"lang":"Polish", "val":"Możesz opóźnić działania, by stoczyć walkę.\n\nWróg: 4 [Sword] 3 [Shield].\n\nUdany [Sword]: otrzymujesz 1 PZ i 3 [GoldCoin] i pobierasz 1 kartę dobrego losu.\nNieudana [Shield]: odnosisz 1[WoundSevere] za każdą brakującą [Shield]."},
+													{"lang":"English","val":"A harc feltartóztat!\nEllenfél: 4 [Sword] 3 [Shield]\n\nSikeres [Sword]: kapsz 3 [GoldCoin]-at, 1 DP-ot és 1 jószerencse-​kártyát.\n\nSikertelen [Shield]: szerzel 1 [WoundSevere]-t minden hiányzó [Shield] után."}]}
+		},
+		"ai":{
+			"severe_wound" : 3,
+			"sword": 4,
+			"shield": 3
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "confirm",
+				"params": {
+					"titleKey": "TCD_5_TITLE",
+					"contentKey": "TCD_5_BODY",
+					"confirm": {"key":"TCD_5_CONFIRM","values":[{"lang":"Polish", "val":"Walcz"},{"lang":"English","val":"Harcolok"}]},	
+					"cancel": {"key":"TCD_5_CANCEL","values":[{"lang":"Polish", "val":"Zrezygnuj z walki"},{"lang":"English","val":"Nem harcolok"}]}
+				},
+				"success": [{
+					"action":"delay_action"
+				},{
+					"action":"battle",
+					"params": {
+						"attack": {
+							"condition":["sword", "sword", "sword","sword"],
+							"success": [{
+								"action":"resource",
+								"params": {
+									"VictoryPoints": 1,
+									"Gold": 3
+								}
+							},{
+								"action":"draw_card",
+								"params": {
+									"deck": "FateGood",
+									"amount": 1
+								}
+							}]
+						},
+						"defense": {
+							"condition":["shield","shield","shield"],
+							"fail":{
+								"action": "place_wound",
+								"params": {
+									"variable_amount": "DEFENCE_SHORT",
+									"wound": 2
+								}
+							}
+						}
+					}
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_6",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_6_IMAGE"},
+			"title": {"key":"TCD_6_TITLE","values":[{"lang":"Polish", "val":"Burda w gospodzie"},
+													{"lang":"English","val":"Kocsmai verekedés"}]},
+			"subheader": {"key":"TCD_6_SUBHEADER","values":[{"lang":"Polish", "val":"Marzył ci się jedynie miły, odprężający wieczór w ulubionej gospodzie, ale jacyś przeklęci żołnierze musieli rozgłaszać plotki o tobie i twoich przyjaciołach."},
+															{"lang":"English","val":"Te csak egy szép, nyugodt estét szerettél volna a kedvenc fogadódban, de néhány szájbatúrt katona elkezd pocskondiázni téged és a barátaidat."}]},
+			"body": {"key":"TCD_6_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 czerwony [ClueMarkerGray]. Następnie albo otrzymujesz 1 [BadFateMarker] albo toczysz walkę.\n\nWróg: 3 [Sword] 2 [Shield].\n\nUdany [Sword]: pobierz 1 kartę dobrego losu.\nNieudana [Shield]: odnosisz 1 [Wound] i otrzymujesz 1 [BadFateMarker]."},
+													{"lang":"English","val":"Kapsz 1 vörös [ClueMarkerGray]-ot. Ezután szerzel 1 [BadFateMarker]-t, vagy harcolsz!\n\nEllenfél: 3 [Sword] 2 [Shield]\n\nSikeres [Sword]: húzz 1 jószerencse-​kártyát!\n\nSikertelen [Shield]: szerzel 1 [Wound]-t és 1 [BadFateMarker]-t."}]}
+		},
+		"ai":{
+			"wound" : 1,
+			"sword": 3,
+			"shield": 2
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1				
+			}
+		},{
+			"action": "test",
+			"params": {
+				"placeBadFate": 1
+			},
+			"success": {
+				"action":"confirm",
+				"params": {
+					"titleKey": "TCD_6_TITLE",
+					"contentKey": "TCD_6_BODY",
+					"confirm": {"key":"TCD_6_CONFIRM","values":[{"lang":"Polish", "val":"Otrzymaj [BadFateMarkerColor]"},{"lang":"English","val":"1 [BadFateMarkerColor]-t szerzek"}]},	
+					"cancel": {"key":"TCD_6_CANCEL","values":[{"lang":"Polish", "val":"Walcz"},{"lang":"English","val":"Harcolok"}]}
+				},
+				"success": {
+					"action": "place_bad_fate",
+					"params": {
+						"amount": 1 
+					}
+				},
+				"fail": [{
+					"action":"battle",
+					"params": {
+						"attack": {
+							"condition":["sword", "sword", "sword"],
+							"success":{
+								"action":"draw_card",
+								"params": {
+									"deck": "FateGood",
+									"amount": 1
+								}
+							}
+						},
+						"defense": {
+							"condition":["shield","shield"],
+							"fail": [{
+								"action": "place_wound",
+								"params": {
+									"amount": 1,
+									"wound": 1
+								}
+							}, {
+								"action": "place_bad_fate",
+								"params": {
+									"amount": 1
+								}
+							}]
+						}
+					}
+				}]
+			},
+			"fail": [{
+				"action":"delay_action"
+			},{
+				"action":"battle",
+				"params": {
+					"attack": {
+						"condition":["sword", "sword", "sword"],
+						"success": [{
+							"action":"resource",
+							"params": {
+								"CombatLead": 1
+							}
+						}, {
+							"action":"draw_card",
+							"params": {
+								"deck": "FateGood",
+								"amount": 1
+							}
+						}]
+					},
+					"defense": {
+						"condition":["shield","shield"],
+						"fail": [{
+							"action": "place_wound",
+							"params": {
+								"amount": 1,
+								"wound": 1
+							}
+						}, {
+							"action": "place_bad_fate",
+							"params": {
+								"amount": 1
+							}
+						}]
+					}
+				}
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_7",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_7_IMAGE"},
+			"title": {"key":"TCD_7_TITLE","values":[{"lang":"Polish", "val":"Rozmowa ze strażą miejską"},
+													{"lang":"English","val":"Csevej a városőrséggel"}]},
+			"subheader": {"key":"TCD_7_SUBHEADER","values":[{"lang":"Polish", "val":"Wyjątkowo strażnicy odnoszą się do ciebie w miarę uprzejmie. Nie dokuczają ci, nie nazywają cudakiem. Proszą za to, byś pomógł im rozprawić się z bestią, która ciemną nocą grasuje po ulicach."},
+															{"lang":"English","val":"Most az egyszer civilizáltak veled az őrök; nem komiszkodnak, nem hívnak mutánsnak. Helyette azt akarják, segíts nekik leölni egy, éjszakánként az utcákon prédára vadászó bestiát."}]},
+			"body": {"key":"TCD_7_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 czerwony [ClueMarkerGray]. Następnie możesz opóźnić działania, by stoczyć walkę!\nWróg: 3 [Sword] 3 [Shield].\n\nUdany [Sword]: otrzymujesz 2 PZ. Nieudana [Shield]: odnosisz 1 [Wound] za każdą brakującą [Shield]."},
+													{"lang":"English","val":"Kapsz 1 vörös [ClueMarkerGray]-ot. Ezután feltartóztathatnak a harc idejére!\n\nEllenfél: 3 [Sword] 3 [Shield]\n\nSikeres [Sword]: kapsz 2 DP-ot. \n\nSikertelen [Shield]: szerzel 1 [Wound]-t minden hiányzó [Shield] után."}]}
+		},
+		"ai":{
+			"wound" : 2,
+			"sword": 3,
+			"shield": 2
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1				
+				}
+		},{
+			"action": "confirm",
+			"params": {
+				"titleKey": "TCD_7_TITLE",
+				"contentKey": "TCD_7_BODY",
+				"confirm": {"key":"TCD_7_CONFIRM","values":[{"lang":"Polish", "val":"Walcz"},{"lang":"English","val":"Harcolok"}]},	
+				"cancel": {"key":"TCD_7_CANCEL","values":[{"lang":"Polish", "val":"Zrezygnuj z walki"},{"lang":"English","val":"Nem harcolok"}]}
+			},
+			"success": [{
+				"action":"delay_action"
+			},{
+				"action":"battle",
+				"params": {
+					"attack": {
+						"condition":["sword", "sword", "sword"],
+						"success": {
+							"action": "resource",
+							"params": {
+								"VictoryPoints": 2
+							}
+						}
+					},
+					"defense": {
+						"condition":["shield", "shield"],
+						"fail": {
+							"action": "place_wound",
+							"params": {
+								"variable_amount": "DEFENCE_SHORT",
+								"wound": 1
+							}
+						}
+					}
+				}
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_8",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_8_IMAGE"},
+			"title": {"key":"TCD_8_TITLE","values":[{"lang":"Polish", "val":"Haniebna propozycja"},
+													{"lang":"English","val":"Egy nemtelen ajánlat"}]},
+			"subheader": {"key":"TCD_8_SUBHEADER","values":[{"lang":"Polish", "val":"Dobrze odziany mężczyzna zaprasza cię do swojego luksusowego domu i oferuje kilka pękatych sakiewek orenów za dopuszczenie się określonych łajdactw w jego imieniu."},
+															{"lang":"English","val":"Egy jól öltözött úriember a pazar otthonába invitál, és jó néhány erszénnyi orent ajánl azért, hogy a ő érdekében hitvány dolgokat cselekedj."}]},
+			"body": {"key":"TCD_8_BODY","values":[	{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu; albo pobierz 4 [GoldCoin] i kartę złego losu."},
+													{"lang":"English","val":"Húzz 1 jószerencse-kártyát, vagy kapsz 4 [GoldCoin]-at és húzol 1 balsors-kártyát."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "confirm",
+			"params": {
+				"titleKey": "TCD_8_TITLE",
+				"contentKey": "TCD_8_BODY",
+				"confirm": {"key":"TCD_8_CONFIRM","values":[{"lang":"Polish", "val":"Pobierz kartę dobrego losu"},{"lang":"English","val":"Húzok 1 jószerencse-kártyát"}]},	
+				"cancel": {"key":"TCD_8_CANCEL","values":[{"lang":"Polish", "val":"Pobierz [GoldCoinColor]"},{"lang":"English","val":"4 [GoldCoinColor]-at szerzek"}]}
+			},
+			"success": {
+				"action": "draw_card",
+				"params": {
+					"deck": "FateGood",
+					"amount": 1
+				}
+			},
+			"fail": [{
+				"action":"delay_action"
+			},{
+				"action": "resource",
+				"params": {
+					"Gold": 4
+				}
+			},{
+				"action": "draw_card",
+				"params": {
+					"deck": "FateBad",
+					"amount": 1
+				}
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_9",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_9_IMAGE"},
+			"title": {"key":"TCD_9_TITLE","values":[{"lang":"Polish", "val":"Intratne zlecenie"},
+													{"lang":"English","val":"Egy jövedelmező kontraktus"}]},
+			"subheader": {"key":"TCD_9_SUBHEADER","values":[{"lang":"Polish", "val":"Dziwne stwory atakują kupców na pobliskim trakcie. Gildia kupiecka oferuje bardzo kuszącą nagrodę."},
+															{"lang":"English","val":"Furcsa teremtmények támadják az utakat róvó kereskedőket a közelben. Egy helyi kereskedés vezetője visszautasíthatatlan ajánlatot tesz a szolgálataidra."}]},
+			"body": {"key":"TCD_9_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 czerwony [ClueMarkerGray]. Następnie możesz opóźnić działania, by stoczyć walkę!\n\nWróg: 3 [Sword] 3 [Shield].\n\nUdany [Sword]: otrzymujesz 5 [GoldCoin].\n\nNieudana [Shield]: odnosisz 1 [Wound] za każdą brakującą [Shield]."},
+													{"lang":"English","val":"Kapsz 1 vörös [ClueMarkerGray]-ot. Ezután feltartóztathatnak a harc idejére!\n\nEllenfél: 3 [Sword] 3 [Shield]\n\nSikeres [Sword]: kapsz 5 [GoldCoin]-at.\n\nSikertelen [Shield]: minden hiányzó [Shield] után szerzel 1 [Wound]-t."}]}
+		},
+		"ai":{
+			"wound" : 3,
+			"sword": 3,
+			"shield": 3
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "resource",
+			"params": {
+				"CombatLead": 1
+			}
+		},{
+			"action": "confirm",
+			"params": {
+				"titleKey": "TCD_9_TITLE",
+				"contentKey": "TCD_9_BODY",
+				"confirm": {"key":"TCD_9_CONFIRM","values":[{"lang":"Polish", "val":"Walcz"},{"lang":"English","val":"Harcolok"}]},	
+				"cancel": {"key":"TCD_9_CANCEL","values":[{"lang":"Polish", "val":"Zrezygnuj z walki"},{"lang":"English","val":"Nem harcolok"}]}
+			},
+			"success": [{
+				"action":"delay_action"
+			},{
+				"action":"battle",
+				"params": {
+					"attack": {
+						"condition":["sword", "sword", "sword"],
+						"success": {
+							"action": "resource",
+							"params": {
+								"Gold": 5
+							}
+						}
+					},
+					"defense": {
+						"condition":["shield","shield","shield"],
+						"fail": {
+							"action": "place_wound",
+							"params": {
+								"variable_amount": "DEFENCE_SHORT",
+								"wound": 1
+							}
+						}
+					}
+				}
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_10",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_10_IMAGE"},
+			"title": {"key":"TCD_10_TITLE","values":[{"lang":"Polish", "val":"Tajemnicze ruiny"},
+													{"lang":"English","val":"Rejtélyes romok"}]},
+			"subheader": {"key":"TCD_10_SUBHEADER","values":[{"lang":"Polish", "val":"Miejscowi mówią, że w ruinach zalęgło się najstraszniejsze zło. Porywa zwierzęta i pożera stare baby. Nie jesteś pewien, jaki stwór zamieszkał w ruinach, ale dowiesz się tego tylko w jeden sposób."},
+															{"lang":"English","val":"A helyiek szerint szörnyűséges gonosz vert tanyát az öreg romok között. Elorozza a lábasjószágot, a vénasszonyokat meg felfalja. Csak egy módja van, hogy kiderítsd, miféle kreatúra húzta meg magát az omladékok mélyén."}]},
+			"body": {"key":"TCD_10_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 czerwony[ClueMarkerGray]. Następnie możesz opóźnić działania, by stoczyć walkę!\n\nWróg: 2 [Sword] 3 [Shield].\n\nUdany [Sword]: Otrzymujesz 1 czerwony [ClueMarkerGray] i 1 niebieski [ClueMarkerGray].\nNieudana [Shield]: odnosisz 2 [Wound]."},
+													{"lang":"English","val":"Kapsz 1 vörös [ClueMarkerGray]-ot. A harc feltartóztathat!\nEllenfél: 2 [Sword] 3 [Shield]\n\nSikeres [Sword]: kapsz 1 vörös [ClueMarkerGray]-ot és 1 kék [ClueMarkerGray]-ot.\n\nSikertelen [Shield]: szerzel 2 [Wound]-t."}]}
+		},
+		"ai":{
+			"wound" : 2,
+			"sword": 2,
+			"shield": 3
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "resource",
+			"params": {
+				"CombatLead": 1
+			}
+		},{
+			"action": "confirm",
+			"params": {
+				"titleKey": "TCD_10_TITLE",
+				"contentKey": "TCD_10_BODY",
+				"confirm": {"key":"TCD_10_CONFIRM","values":[{"lang":"Polish", "val":"Walcz"},{"lang":"English","val":"Harcolok"}]},	
+				"cancel": {"key":"TCD_10_CANCEL","values":[{"lang":"Polish", "val":"Zrezygnuj z walki"},{"lang":"English","val":"Nem harcolok"}]}
+			},
+			"success": [{
+				"action":"delay_action"
+			},{
+				"action":"battle",
+				"params": {
+					"attack": {
+						"condition":["sword", "sword"],
+						"success": {
+							"action": "resource",
+							"params": {
+								"CombatLead": 1,
+								"MagicLead": 1
+							}
+						}
+					},
+					"defense": {
+						"condition":["shield","shield","shield"],
+						"fail": {
+							"action": "place_wound",
+							"params": {
+								"amount": 2,
+								"wound": 1
+							}
+						}
+					}
+				}
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_11",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_11_IMAGE"},
+			"title": {"key":"TCD_11_TITLE","values":[{"lang":"Polish", "val":"Przez kręte uliczki"},
+													{"lang":"English","val":"Kanyargós utcákon át"}]},
+			"subheader": {"key":"TCD_11_SUBHEADER","values":[{"lang":"Polish", "val":"Wiesz, że gdzieś w tym labiryncie pełnym sypiących się budynków i skorych do rewolty mieszczan kryje się informacja, której potrzebujesz."},
+															{"lang":"English","val":"Tudod, hogy eme nyakatekert utcákkal átszőtt, pusztuló épülethalom és makacs lakói között ott van valahol az információ, amit keresel."}]},
+			"body": {"key":"TCD_11_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 czerwony [ClueMarkerGray].\n\n Możesz opóźnić działania, by pobrać 5 kart z 1 talii śledztwa i wybrać 1 kartę do rozpatrzenia.\n\n Odrzuć pozostałe karty."},
+													{"lang":"English","val":"Kapsz 1 vörös [ClueMarkerGray]-ot.\n\nFeltartóztatnak, majd fedj fel 5 kártyát 1 nyomkeresés-pakliból, amely kártyák közül egyet oldj is meg. A többi lapot dobd el!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "resource",
+			"params": {
+				"CombatLead": 1
+			}
+		},{
+			"action": "confirm",
+			"params": {
+				"titleKey": "TCD_11_TITLE",
+				"contentKey": "TCD_11_BODY"
+			},
+			"success": [{
+				"action":"delay_action"
+			},{
+				"action": "draw_card",
+				"params": {
+					"deck": "Investigation",
+					"amount": 5 
+				}
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_12",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_12_IMAGE"},
+			"title": {"key":"TCD_12_TITLE","values":[{"lang":"Polish", "val":"Przygotowania do bitwy"},
+													{"lang":"English","val":"Készülj a harcra!"}]},
+			"subheader": {"key":"TCD_12_SUBHEADER","values":[{"lang":"Polish", "val":"Wszystkie znaki zwiastują nieuchronną bitwę. Lepiej trochę odetchnąć i przygotować się do walki."},
+															{"lang":"English","val":"Minden jel arra mutat, hogy itt bizony harc lesz; bölcs dolog volna szusszani egyet, és felkészülni a küzdelemre."}]},
+			"body": {"key":"TCD_12_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 czerwony [ClueMarkerGray].\n\nRzuć kością swojej postaci. Jeśli odniesiesz sukces, pobierz 3 karty rozwoju. 1 z nich wybierz i zachowaj, a pozostałe odrzuć."},
+													{"lang":"English","val":"Kapsz 1 vörös [ClueMarkerGray]-ot.\n\nDobj a hős-kockáddal!\n\nHa sikeres a dobás, húzz 3 fejlesztés-kártyát, tarts meg 1-et, a többit pedig dobd el!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "resource",
+			"params": {
+				"CombatLead": 1
+			}
+		},{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"success": {
+				"action": "draw_card",
+				"params": {
+					"deck": "XP",
+					"amount": 3
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_13",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_13_IMAGE"},
+			"title": {"key":"TCD_13_TITLE","values":[{"lang":"Polish", "val":"Obrońca ludu"},
+													{"lang":"English","val":"Az emberek védelmezője"}]},
+			"subheader": {"key":"TCD_13_SUBHEADER","values":[{"lang":"Polish", "val":"W tych niespokojnych czasach najbardziej cierpią najsłabsi. Może nadeszła pora, by ktoś wstawił się za biednymi."},
+															{"lang":"English","val":"Vészterhes időkben a gyengék szenvednek a legtöbbet. Talán itt volna az ideje, hogy valaki kiálljon a gyámolatlanokért és a szegényekért."}]},
+			"body": {"key":"TCD_13_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 czerwony [ClueMarkerGray] i toczysz walkę!\n\nWróg: 2 [Sword].\nUdany [Sword]: za każdy [Sword] powyżej 2 pobierz 1 kartę dobrego losu. Zachowaj 1 wybraną kartę, a pozostałe odrzuć."},
+													{"lang":"English","val":"Kapsz 1 vörös [ClueMarkerGray]-ot, aztán harcolj!\n\nEllenfél: 2 [Sword]\n\nSikeres [Sword]: minden, a 2-nél több [Sword] eredmény után húzz 1 jószerencse-kártyát! Egy kártyát tarts meg, a többit dob el!"}]}
+		},
+		"ai":{
+			"sword": 2
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "resource",
+			"params": {
+				"CombatLead": 1
+			}
+		},{
+			"action":"battle",
+			"params": {
+				"attack": {
+					"condition":["sword", "sword"],
+					"success": {
+						"action":"draw_card",
+						"params": {
+							"deck": "FateGood",
+							"variable_amount": "ATTACK_ABOVE"
+						}
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_14",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_14_IMAGE"},
+			"title": {"key":"TCD_14_TITLE","values":[{"lang":"Polish", "val":"Gorączkowa kontemplacja"},
+													{"lang":"English","val":"Lázas elmélkedés"}]},
+			"subheader": {"key":"TCD_14_SUBHEADER","values":[{"lang":"Polish", "val":"Twoim myślom ciążą ukryte spiski i enigmatyczne zagadki. Może jeśli dasz umysłowi czas na odpoczynek, zdołasz rozplątać gmatwaninę, w której się znalazłeś."},
+															{"lang":"English","val":"Gondolataid rejtett cselszövésektől és titokzatos talányoktól terheltek. Talán egy kiadós pihenés után jobban átlátod majd a kalamajkát, amibe csöppentél."}]},
+			"body": {"key":"TCD_14_BODY","values":[	{"lang":"Polish", "val":"Zadanie: wykonaj akcję odpoczynku i zużyj 1 [ClueMarkerGray] dowolnego koloru.\n\nNagroda: otrzymujesz 3 czerwone [ClueMarkerGray]."},
+													{"lang":"English","val":"Feladat: Hajts végre pihenés-\nakciót, és költs 1 [ClueMarkerGray]-ot!\n\nJutalom: Kapsz 3 vörös [ClueMarkerGray]-ot."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionEnd",
+				"mode": "EXECUTE",
+				"condition": { 
+					"roll": false, 
+					"OnAction": "Heal",
+					"Lead": 1
+				}
+			}
+		},{ 
+			"action": "kill_card_inventory"
+		}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "select_leads",
+			"params": {
+				"Lead": -1,
+				"random": false
+			}
+		},{
+			"action": "resource",
+			"params": {
+			"CombatLead": 3
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_15",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_15_IMAGE"},
+			"title": {"key":"TCD_15_TITLE","values":[{"lang":"Polish", "val":"Odwrócenie sytuacji"},
+													{"lang":"English","val":"A besült terv"}]},
+			"subheader": {"key":"TCD_15_SUBHEADER","values":[{"lang":"Polish", "val":"Wpadłeś w zasadzkę, lecz spodziewałeś się jej i byłeś gotowy. Kilka prostych sztychów i herszt już był nabity na twoją klingę, martwy – tak jak spisek, który prześladował cię od kilku miesięcy."},
+															{"lang":"English","val":"Tudod, hogy rajtaütés vár, és jó előre felkészülsz. Néhány gyors csapással kardélre hányod a vezérüket. Vége - akár csak az összeesküvésnek, ami már hónapok óta nyomasztott."}]},
+			"body": {"key":"TCD_15_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 czerwony [ClueMarkerGray].\n\nRzuć kością swojej postaci. Jeśli uzyskasz sukces, pobierz 1 czerwony [ClueMarkerGray] i usuń 1 [BadFateMarker] ze swojej karty postaci."},
+													{"lang":"English","val":"Kapsz 1 vörös [ClueMarkerGray]-ot.\n\nDobj a hős-kockáddal!\n\nHa sikert dobsz, kapsz 1 vörös [ClueMarkerGray]-ot, és eltávolíthatsz 1 [BadFateMarker]-t a hőslapodról."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "resource",
+			"params": {
+				"CombatLead": 1
+			}
+		},{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"success": [{
+				"action": "resource",
+				"params": {
+					"CombatLead": 1
+				}
+			},{
+				"action": "remove_bad_fate",
+				"params": {
+					"amount": 1
+				}
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_16",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_16_IMAGE"},
+			"title": {"key":"TCD_16_TITLE","values":[{"lang":"Polish", "val":"Pościg"},
+													{"lang":"English","val":"Hajsza"}]},
+			"subheader": {"key":"TCD_16_SUBHEADER","values":[{"lang":"Polish", "val":"Mężczyzna na moście mówi ci, że twój cel przechodził tędy ledwie godzinę temu. Jeśli się pospieszysz, dopadniesz zbója przed zmierzchem"},
+															{"lang":"English","val":"A hídon a férfi azt mondja, a kérdéses figura alighogy egy órája haladt át arra. Ha igyekszel, még napnyugta előtt beérheted a haramiát."}]},
+			"body": {"key":"TCD_16_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 czerwony [ClueMarkerGray].\n\nZadanie: Wykonaj akcję Szybka podróż.\n\nNagroda: Otrzymujesz 2 czerwone [ClueMarkerGray]."},
+													{"lang":"English","val":"Kapsz 1 vörös [ClueMarkerGray]-ot.\n\nFeladat: Hajts végre gyorsutazás-\nakciót!\n\nJutalom: Kapsz 2 vörös [ClueMarkerGray]-ot."}]}
+		},
+		"drawTask":[{
+			"action": "bind_task",
+			"params": {
+				"event": "ActionEnd",
+				"mode": "EXECUTE",
+				"condition": { "OnActionSubmit": "FastMove" }
+			}
+		},{
+			"action": "resource",
+			"params": {
+				"CombatLead": 1
+			}
+		},{
+			"action": "kill_card_inventory"
+		}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "resource",
+			"params": {
+				"CombatLead": 2
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_17",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_17_IMAGE"},
+			"title": {"key":"TCD_17_TITLE","values":[{"lang":"Polish", "val":"Lokalne śledztwo"},
+													{"lang":"English","val":"Helybeni vizsgálódás"}]},
+			"subheader": {"key":"TCD_17_SUBHEADER","values":[{"lang":"Polish", "val":"Często najlepszy sposób na zdobycie informacji to postawienie kilku kolejek w miejscowej karczmie."},
+															 {"lang":"English","val":"Gyakran az információszerzés legjobb módja a helyi csapszékben fizetett néhány kör ital."}]},
+			"body": {"key":"TCD_17_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 czerwony [ClueMarkerGray].\n\nMożesz wydać do 3 [GoldCoin]. Za każdą wydaną [GoldCoin] otrzymujesz 1 czerwony [ClueMarkerGray]."},
+													{"lang":"English","val":"Kapsz 1 vörös [ClueMarkerGray]-ot.\n\nKölthetsz legfeljebb 3 [GoldCoin]-at.\n\nMinden elköltött [GoldCoin] után 1 vörös [ClueMarkerGray]-ot kapsz."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "resource",
+			"params": {
+				"CombatLead": 1
+			}
+		},{
+			"action": "test",
+			"params": {
+				"Gold": 1
+			},
+			"success": [{
+				"action": "confirm",
+				"params": {
+					"titleKey": "TCD_17_TITLE",
+					"content": {"key":"TCD_17_DECISION1","values":[	{"lang":"Polish", "val":"Możesz wydać do 3 [GoldCoin]. Za każdą wydaną [GoldCoin] otrzymujesz 1 czerwony [ClueMarkerGray]."},
+																								{"lang":"English","val":"1 [GoldCoin]-at elkölthetsz erre: [ClueMarkerGray]; ezt még kétszer megteheted."}]}
+				},
+				"success": [{
+					"action": "resource",
+					"params": {
+						"Gold": -1,
+						"CombatLead": 1
+					}
+				}]
+			},{
+				"action": "test",
+				"params": {
+					"Gold": 1
+				},
+				"success": [{
+					"action": "confirm",
+					"params": {
+						"titleKey": "TCD_17_TITLE",
+						"content": {"key":"TCD_17_DECISION2","values":[	{"lang":"Polish", "val":"Możesz wydać do 3 [GoldCoin]. Za każdą wydaną [GoldCoin] otrzymujesz 1 czerwony [ClueMarkerGray]."},
+																					{"lang":"English","val":"1 [GoldCoin]-at elkölthetsz erre: [ClueMarkerGray]; ezt még egyszer megteheted."}]}
+					},
+					"success": [{
+						"action": "resource",
+						"params": {
+							"CombatLead": 1,
+							"Gold": -1
+						}
+					}]
+				},{
+					"action": "test",
+					"params": {
+						"Gold": 1
+					},
+					"success": {
+						"action": "confirm",
+						"params": {
+							"titleKey": "TCD_17_TITLE",
+							"content": {"key":"TCD_17_DECISION3","values":[	{"lang":"Polish", "val":"Możesz wydać do 3 [GoldCoin]. Za każdą wydaną [GoldCoin] otrzymujesz 1 czerwony [ClueMarkerGray]."},
+																		{"lang":"English","val":"1 [GoldCoin]-at elkölthetsz erre: [ClueMarkerGray]."}]}
+						},
+						"success": [{
+							"action": "resource",
+							"params": {
+								"CombatLead": 1,
+								"Gold": -1
+							}
+						}]
+					}
+				}]
+			}]
+			
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_18",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_18_IMAGE"},
+			"title": {"key":"TCD_18_TITLE","values":[{"lang":"Polish", "val":"Królewska pomoc"},
+													{"lang":"English","val":"Királyi segítségnyújtás"}]},
+			"subheader": {"key":"TCD_18_SUBHEADER","values":[{"lang":"Polish", "val":"Opowieści o twoich wyczynach dotarły do najlepiej urodzonych. Ci, którzy są u władzy, chętnie udzielą ci informacji o swoich wrogach w nadziei, że staną się oni także twoimi wrogami."},
+															{"lang":"English","val":"A tetteidről szóló mondák még a főnemesség körébe is eljutottak. Azon urak, akik közel ülnek a tűzhöz, buzgón vágynak ellenségeikről információkkal ellátni téged, hátha ezáltal a te ellenségeiddé is tehetik őket."}]},
+			"body": {"key":"TCD_18_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 2 czerwone [ClueMarkerGray] lub 2 fioletowe [ClueMarkerGray]."},
+													{"lang":"English","val":"Kapsz 2 vörös [ClueMarkerGray]-ot vagy 2 lila [ClueMarkerGray]-ot."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "confirm",
+				"params": {
+					"titleKey": "TCD_18_TITLE",
+					"contentKey": "TCD_18_BODY",
+					"confirm": {"key":"TCD_18_CONFIRM","values":[{"lang":"Polish", "val":"Otrzymaj 2 czerwone [ClueMarkerRed]"},{"lang":"English","val":"2 [ClueMarkerRed]-t kérek"}]},	
+					"cancel": {"key":"TCD_18_CANCEL","values":[{"lang":"Polish", "val":"Otrzymaj 2 [ClueMarkerPurple]"},{"lang":"English","val":"2 [ClueMarkerPurple]-t kérek"}]}
+				},
+				"success": {
+					"action": "resource",
+					"params": {
+						"CombatLead": 2
+					}
+				},
+				"fail": {
+					"action": "resource",
+					"params": {
+						"DiplomacyLead": 2
+					}
+				}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_19",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_19_IMAGE"},
+			"title": {"key":"TCD_19_TITLE","values":[{"lang":"Polish", "val":"Wyraźny ślad"},
+													{"lang":"English","val":"Egy tiszta nyom"}]},
+			"subheader": {"key":"TCD_19_SUBHEADER","values":[{"lang":"Polish", "val":"Ślady stwora są wyraźnie widoczne. Jak tak dalej pójdzie, stwór będzie martwy przed zmrokiem."},
+															{"lang":"English","val":"A teremtmény nyomai tisztán láthatóak. Ilyen iram mellett a szörny alkonyatra halott lesz."}]},
+			"body": {"key":"TCD_19_BODY","values":[	{"lang":"Polish", "val":"Możesz rzucić kością swojej postaci maksymalnie 3 razy. Za każdy sukces otrzymujesz 1 czerwony [ClueMarkerGray]. W wypadku braku jakiegokolwiek sukcesu odnosisz 2 [Wound]."},
+													{"lang":"English","val":"Dobj 3 alkalommal a hős-kockáddal!\n\nAhányszor sikert dobsz, annyiszor 1 vörös [ClueMarkerGray]-ot kapsz.\n\nHa nem dobsz legalább egyszer sikert, 2 [Wound]-t szerzel."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat", "*********** TODO ":"optimalize for rolling up to 3 times"
+		},{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"success": [{
+				"action": "resource",
+				"params": {
+					"CombatLead": 1
+				}
+			},{
+				"action": "success_roll",
+				"params": {
+					"condition": ["character"],
+					"characterOnly": true
+				},
+				"success": {
+					"action": "resource",
+					"params": {
+						"CombatLead": 1
+					}
+				}
+			},{
+				"action": "success_roll",
+				"params": {
+					"condition": ["character"],
+					"characterOnly": true
+				},
+				"success": {
+					"action": "resource",
+					"params": {
+						"CombatLead": 1
+					}
+				}
+			}],
+			"fail": [{
+				"action": "success_roll",
+				"params": {
+					"condition": ["character"],
+					"characterOnly": true
+				},
+				"fail": [{
+					"action": "success_roll",
+					"params": {
+						"condition": ["character"],
+						"characterOnly": true
+					},
+					"fail": {
+						"action": "place_wound",
+						"params": {
+							"amount": 2,
+							"wound": 1
+						}
+					},
+					"success": {
+						"action": "resource",
+						"params": {
+							"CombatLead": 1
+						}
+					}
+				}],
+				"success": [{
+					"action": "resource",
+					"params": {
+						"CombatLead": 1
+					}
+				},{
+					"action": "success_roll",
+					"params": {
+						"condition": ["character"],
+						"characterOnly": true
+					},
+					"success": {
+						"action": "resource",
+						"params": {
+							"CombatLead": 1
+						}
+					}
+				}]
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_20",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_20_IMAGE"},
+			"title": {"key":"TCD_20_TITLE","values":[{"lang":"Polish", "val":"Legenda o cmentarnym ptaszniku"},
+													{"lang":"English","val":"A temetői tarantula legendája"}]},
+			"subheader": {"key":"TCD_20_SUBHEADER","values":[{"lang":"Polish", "val":"Podsłuchałeś ciekawą legendę o nocnym potworze, od wielu lat siejącym postrach w tej okolicy. Wyruszasz o zmierzchu, licząc, że bestia stanie ci na drodze."},
+															{"lang":"English","val":"Fél füllel meghallasz egy érdekfeszítő legendát egy, a környéket évek óta rettegésben tartó éjszakai bestiáról. Szürkületkor indulsz neki, hátha a bestia keresztezi az utadat."}]},
+			"body": {"key":"TCD_20_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 czerwony [ClueMarkerGray]. Następnie połóż 1 złotego [EnemyMarker] w dowolnym regionie."},
+													{"lang":"English","val":"Kapsz 1 vörös [ClueMarkerGray]-ot, és helyezz le 1 arany [EnemyMarker]-et bármely régióra."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1
+			}
+		},{
+			"action": "place_enemy",
+			"params": {
+				"amount": 1,
+				"type": "EnemyBig",
+				"direction":"ANY"
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_21",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_21_IMAGE"},
+			"title": {"key":"TCD_21_TITLE","values":[{"lang":"Polish", "val":"Trening łuczniczy"},
+													{"lang":"English","val":"Íjász képzés"}]},
+			"subheader": {"key":"TCD_21_SUBHEADER","values":[{"lang":"Polish", "val":"Musiałeś być wyjątkowo pijany, gdy wyzwałeś Milvę na łuczniczy pojedynek. Zamiast tego proponuje ci trochę ćwiczeń i mówi, żebyś wrócił po kilku dziesiątkach lat treningu, gdybyś chciał znowu rzucić jej wyzwanie."},
+															{"lang":"English","val":"Iszonyatosan be lehettél rúgva, amikor Milvát hívtad ki célbalövő vetélkedésre. Inkább tanulást ajánl helyette, aztán azt mondja, térjetek vissza a kérdésre néhány évtizednyi gyakorlás után, ha akkor még mindig ki akarod majd hívni."}]},
+			"body": {"key":"TCD_21_BODY","values":[	{"lang":"Polish", "val":"Rzuć kośćmi walki. Za każdy uzyskany [Sword], otrzymujesz 1 czerwony [ClueMarkerGray]."},
+													{"lang":"English","val":"Dobj a harc-kockákkal!\n\nMinden [Sword] eredmény után kapsz 1 vörös [ClueMarkerGray]-ot."}]}
+		},
+		"ai":{
+			"sword": 3
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"battle",
+			"params": {
+				"battleOnly": true,
+				"attack": {
+					"condition":["sword","sword","sword"],
+					"anyMatchSuccess": true,
+					"success": {
+						"action":"resource",
+						"params": {
+							"CombatLead": {
+								"variable_amount": "ATTACK"
+							}
+						}
+					}									
+				}				
+			}			
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_22",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_22_IMAGE"},
+			"title": {"key":"TCD_22_TITLE","values":[{"lang":"Polish", "val":"Dykteryjki Zoltana"},
+													{"lang":"English","val":"Zoltán anekdotái"}]},
+			"subheader": {"key":"TCD_22_SUBHEADER","values":[{"lang":"Polish", "val":"Zoltan ma w zanadrzu wiele opowieści o swoich licznych doświadczeniach zawodowych. Był przedsiębiorcą, jubilerem, kupcem – a to tylko kilka przykładów. Ale najciekawsze są historie o wojnie i jego życiu żołnierza podczas drugiej wojny z Nilfgaardem."},
+															{"lang":"English","val":"Zoltán rengeteget tud mesélni mindazon foglalkozásokról, amiket űzött: volt ő már üzletember, ékszerész, kereskedő, csak hogy néhányat említsünk. De minden története közül a legérdekesebbek azok, amelyek a Második Nilfgaardi-Északi Háború során megélt katonaéveiről szólnak."}]},
+			"body": {"key":"TCD_22_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 czerwony [ClueMarkerGray] oraz 1 [ClueMarkerGray] w dowolnym kolorze."},
+													{"lang":"English","val":"Kapsz 1 [ClueMarkerGray]-ot és 1 vörös [ClueMarkerGray]-ot."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"select_leads", 
+			"params": {
+				"DiplomacyLead": 1,
+				"CombatLead": 1,
+				"MagicLead": 1
+			}
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_23",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_23_IMAGE"},
+			"title": {"key":"TCD_23_TITLE","values":[{"lang":"Polish", "val":"Legowisko bestii"},
+													{"lang":"English","val":"A csend hangja"}]},
+			"subheader": {"key":"TCD_23_SUBHEADER","values":[{"lang":"Polish", "val":"Słyszysz pogłoski o straszliwym stworze, żyjacym w ruinach wieży, z dala od cywilizacji. Natychmiast ruszasz i nie potrzebujesz żadnej innej nagrody poza świadomością, że na świecie będzie o jednego potwora mniej."},
+															{"lang":"English","val":"Egy elhagyatott, holdfényben fürdő hegytetőn találod magad, távol a város utcáinak zsongás-bongásától. Leülsz, és csendben meditálsz, olyan mélyebb értelmű dolgokat és erőket érezve át, amiket csak tökéletes nyugalomban lehet."}]},
+			"body": {"key":"TCD_23_BODY","values":[	{"lang":"Polish", "val":"Zadanie: pokonaj 1 [EnemyMarker].\n\nNagroda: otrzymujesz 1 czerwony [ClueMarkerGray] i pobierasz 1 kartę rozwoju."},
+													{"lang":"English","val":"Feladat: Győzz le 1 [EnemyMarker]-et!\n\nJutalom: Kapsz 1 vörös [ClueMarkerGray]-ot, és húzhatsz 1 fejlesztés-kártyát."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition": { "EnemySlain":  "Enemy" }
+			}
+		},{ 
+			"action": "kill_card_inventory"
+		}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1
+			}
+		},{
+			"action":"draw_card",
+			"params": {
+				"deck": "XP",
+				"amount": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_24",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TCD_24_IMAGE"},
+			"title": {"key":"TCD_24_TITLE","values":[{"lang":"Polish", "val":"Opowieści strażnika\nz lochów"},
+													{"lang":"English","val":"A tömlöc őrének meséi"}]},
+			"subheader": {"key":"TCD_24_SUBHEADER","values":[{"lang":"Polish", "val":"Starzec, czekający na rogatkach, wspomina, że kiedyś był strażnikiem w miejskich lochach. Kupujesz mu posiłek, a on opowiada o najbardziej osławionych przestępcach kontynentu."},
+															{"lang":"English","val":"Miközben az átkelési díj megfizetésére várakozol, egy öregember megemlíti, hogy egykor a város börtönének őre volt. Meghívod egy ebédre, ő pedig közben a kontinens leghirhedtebb gaztevőiről mesél neked."}]},
+			"body": {"key":"TCD_24_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 czerwony [ClueMarkerGray]."},
+													{"lang":"English","val":"Kapsz 1 vörös [ClueMarkerGray]-ot."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_25",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TCD_25_IMAGE"},
+			"title": {"key":"TCD_25_TITLE","values":[{"lang":"Polish", "val":"Wieczór z Regisem"},
+													{"lang":"English","val":"Egy este Regis-szel"}]},
+			"subheader": {"key":"TCD_25_SUBHEADER","values":[{"lang":"Polish", "val":"Przypadkowe spotkanie przy straganie z ziołami przeradza się w długi wieczór przy dobrym winie i opowieściach o potworach. Regis informuje cię o potworach w okolicy, które mogą cię zainteresować."},
+															{"lang":"English","val":"A gyógynövényárus standjánál történt véletlen találkozás egy szörnyhistóriákkal átszőtt, és jó pár pohár borral átitatott hosszú éjszakába torkollik. Regis beszámol a te érdeklődésedre is számot tartó, környéken kószáló bestiákról."}]},
+			"body": {"key":"TCD_25_BODY","values":[	{"lang":"Polish", "val":"Zadanie: pokonaj 1 brązowego [EnemyMarker].\n\nNagroda: otrzymujesz 1 PZ i 1 czerwony [ClueMarkerGray]."},
+													{"lang":"English","val":"Feladat: Győzz le 1 bronz [EnemyMarker]-et!\n\nJutalom: Kapsz 1 DP-ot és 1 vörös [ClueMarkerGray]-ot."}]}
+		},
+		"drawTask":[{
+				"action": "bind_task",
+				"params": {
+					"mode": "EXECUTE",
+					"condition": { "EnemySlain":  "EnemySmall" }
+				}
+			},{
+				"action": "kill_card_inventory"
+			}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"resource",
+			"params": {
+				"VictoryPoints": 1
+			}
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_26",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TCD_26_IMAGE"},
+			"title": {"key":"TCD_26_TITLE","values":[{"lang":"Polish", "val":"Spotkanie z łowcą nagród"},
+													{"lang":"English","val":"Találkozás a fejvadásszal"}]},
+			"subheader": {"key":"TCD_26_SUBHEADER","values":[{"lang":"Polish", "val":"On łowi ludzi, a ty potwory. Zdobycz jest inna, ale łączy was polowanie. Czasem spotykacie się i wymieniacie informacjami. Tym razem daje ci cynk o dzikiej bestii, która czyha w pobliskich górach."},
+															{"lang":"English","val":"Ő emberekre vadászik, te szörnyekre. A préda más, de a vadászat összehoz benneteket. Időről időre összefuttok, hogy értesüléseket cseréljetek. Ezúttal egy, a közeli hegyekben bujkáló ádáz bestiáról ad neked értékes tippet."}]},
+			"body": {"key":"TCD_26_BODY","values":[	{"lang":"Polish", "val":"Zadanie: pokonaj 1 srebrnego [EnemyMarker].\n\nNagroda: otrzymujesz 1 PZ i 1 czerwone [ClueMarkerGray]."},
+													{"lang":"English","val":"Feladat: Győzz le 1 ezüst [EnemyMarker]-et!\n\nJutalom: Kapsz 1 DP-ot és 1 vörös [ClueMarkerGray]-ot."}]}
+		},
+		"drawTask":[{
+				"action": "bind_task",
+				"params": {
+					"mode": "EXECUTE",
+					"condition": { "EnemySlain":  "EnemyMedium" }
+				}
+			},{
+				"action": "kill_card_inventory"
+			}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"resource",
+			"params": {
+				"VictoryPoints": 1
+			}
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_27",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TCD_27_IMAGE"},
+			"title": {"key":"TCD_27_TITLE","values":[{"lang":"Polish", "val":"Spotkanie z Toruviel"},
+													{"lang":"English","val":"Találkozás Toruviellel"}]},
+			"subheader": {"key":"TCD_27_SUBHEADER","values":[{"lang":"Polish", "val":"Wasze drogi znowu się krzyżują. Toruviel jest w trasie z jakąś tajną misją, ale ma dość czasu, by ostrzec cię przed czyhającym w pobliżu niebezpieczeństwem."},
+															{"lang":"English","val":"Útjaitok újfent keresztezik egymást. Toruviel épp valamiféle titkos küldetésre tart, ám annyi időre megáll, míg egy, a közelben egyre növekvő fenyegetésről beszámol neked."}]},
+			"body": {"key":"TCD_27_BODY","values":[	{"lang":"Polish", "val":"Zadanie: pokonaj 1 srebrnego [EnemyMarker].\n\nNagroda: otrzymujesz 2 PZ i 1 czerwony [ClueMarkerGray]."},
+													{"lang":"English","val":"Feladat: Győzz le 1 ezüst [EnemyMarker]-et!\n\nJutalom: Kapsz 1 vörös [ClueMarkerGray]-ot és 2 DP-ot."}]}
+		},
+		"drawTask":[{
+				"action": "bind_task",
+				"params": {
+					"mode": "EXECUTE",
+					"condition": { "EnemySlain":  "EnemyMedium" }
+				}
+			},{
+				"action": "kill_card_inventory"
+			}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"resource",
+			"params": {
+				"VictoryPoints": 2
+			}
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_28",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TCD_28_IMAGE"},
+			"title": {"key":"TCD_28_TITLE","values":[{"lang":"Polish", "val":"Spotkanie z Lambertem"},
+													{"lang":"English","val":"Találkozás Lamberttel"}]},
+			"subheader": {"key":"TCD_28_SUBHEADER","values":[{"lang":"Polish", "val":"Młody wiedźmin wraca do Kaer Morhen. Nie udało mu się zabić niezwykle groźnej bestii na bagnach Ysgith. Dochodzisz do wniosku, że dobrze byłoby dokończyć tę misję za niego."},
+															{"lang":"English","val":"Miután kudarcot vall egy megátalkodott bestia legyőzésében az Ysgith-mocsárban, a fiatal vaják visszafelé tart Kaer Morhen falai közé. Úgy döntesz, segítesz neki befejezni a munkát."}]},
+			"body": {"key":"TCD_28_BODY","values":[	{"lang":"Polish", "val":"Zadanie: pokonaj 1 złotego [EnemyMarker].\n\nNagroda: otrzymujesz 3 PZ i 2 czerwone [ClueMarkerGray]."},
+													{"lang":"English","val":"Feladat: Győzz le 1 arany [EnemyMarker]-et!\n\nJutalom: Kapsz 3 DP-ot és 2 vörös [ClueMarkerGray]-ot."}]}
+		},
+		"drawTask":[{
+				"action": "bind_task",
+				"params": {
+					"mode": "EXECUTE",
+					"condition": { "EnemySlain":  "EnemyBig" }
+				}
+			},{
+				"action": "kill_card_inventory"
+			}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"resource",
+			"params": {
+				"VictoryPoints": 3
+			}
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 2
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_29",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TCD_29_IMAGE"},
+			"title": {"key":"TCD_29_TITLE","values":[{"lang":"Polish", "val":"Wyprawa do Kaer Morhen"},
+													{"lang":"English","val":"Úton Kaer Morhenbe"}]},
+			"subheader": {"key":"TCD_29_SUBHEADER","values":[{"lang":"Polish", "val":"Dostajesz pilny list od Vesemira. Ma ważne informacje, przeznaczone tylko dla twoich uszu"},
+															{"lang":"English","val":"Sürgős üzenetet kapsz Vesemirtől. Olyan fontos értesülései vannak, amik csak és kizárólag rád tartoznak."}]},
+			"body": {"key":"TCD_29_BODY","values":[	{"lang":"Polish", "val":"Zadanie: udaj się do Kaer Morhen.\nNagroda: otrzymujesz 1 czerwony [ClueMarkerGray] i pobierasz 1 kartę rozwoju"},
+													{"lang":"English","val":"Feladat: Menj Kaer Morhenbe!\n\nJutalom: Kapsz 1 vörös [ClueMarkerGray]-ot, és húzhatsz 1 fejlesztés-kártyát."}]}
+		},
+		"drawTask":[{
+			"action": "bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition": { "location": "Kaer Morhen"  }
+			}
+		},{
+			"action": "kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1
+			}
+		},{
+			"action": "draw_card",
+			"params": {
+				"deck": "XP",
+				"amount": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_30",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TCD_30_IMAGE"},
+			"title": {"key":"TCD_30_TITLE","values":[{"lang":"Polish", "val":"Sny o przeszłości"},
+													{"lang":"English","val":"Álmok a múltról"}]},
+			"subheader": {"key":"TCD_30_SUBHEADER","values":[{"lang":"Polish", "val":"Budzisz się z koszmaru i próbujesz złapać oddech. Dopiero gdy resztki snu ulatują, uświadamiasz sobie, że widziałeś we śnie coś ważnego, o czym już dawno zapomniałeś."},
+															{"lang":"English","val":"Lélegzet után kapkodva, zihálva ébredsz egy rémálomból. Ahogy az álom köde eloszlik, rádöbbensz, hogy a felidézhető foszlányokban egy rég elfeledett élet töredékei villannak fel."}]},
+			"body": {"key":"TCD_30_BODY","values":[	{"lang":"Polish", "val":"Zadanie: udaj się do Rivii.\nNagroda: otrzymujesz 1 czerwony [ClueMarkerGray] i pobierasz 1 kartę dobrego losu."},
+													{"lang":"English","val":"Feladat: Menj Ríviába!\n\nJutalom: Kapsz 1 vörös [ClueMarkerGray]-ot, és húzhatsz 1 jószerencse-kártyát."}]}
+		},
+		"drawTask":[{
+			"action": "bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition": { "location": "Rivia"  }
+			}
+		},{
+			"action": "kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1
+			}
+		},{
+			"action": "draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatTrap",
+		"id":"TCD_31",
+		"description":{
+			"ribbon": {"key":"TCD_31_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},			
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TCD_31_IMAGE"},
+			"title": {"key":"TCD_31_TITLE","values":[{"lang":"Polish", "val":"Jadowite ukąszenie"},
+													{"lang":"English","val":"Mérgező harapás"}]},
+			"subheader": {"key":"TCD_31_SUBHEADER","values":[{"lang":"Polish", "val":"Łażenie po tych wszystkich ruinach, zagajnikach i innych dziurach to proszenie się o kłopoty."},
+															{"lang":"English","val":"Aki ősi romok között, végtelen erdők mélyén és ember által nem járt helyeken bolyong, könnyen kihívja maga ellen a sorsot."}]},
+			"body": {"key":"TCD_31_BODY","values":[	{"lang":"Polish", "val":"Stocz walkę!\n\nWróg: 3 [Shield].\n\nNieudana [Shield]: odnosisz 1 [WoundSevere]."},
+													{"lang":"English","val":"Harcolj!\n\nEllenfél: 3 [Shield]\n\nSikertelen [Shield]: szenvedsz 1 [WoundSevere]-t."}]}
+		},
+		"ai":{
+			"severe_wound" : 1,
+			"shield": 3
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"battle",
+			"params": {
+				"defense": {
+						"condition": ["shield", "shield", "shield"],
+						"fail": {
+							"action": "place_wound",
+							"params": {
+								"amount": 1,
+								"wound": 2
+						}
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatTrap",
+		"id":"TCD_32",
+		"description":{
+			"ribbon": {"key":"TCD_32_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},			
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TCD_32_IMAGE"},
+			"title": {"key":"TCD_32_TITLE","values":[{"lang":"Polish", "val":"Fałszywy trop"},
+													{"lang":"English","val":"Téves értesülés"}]},
+			"subheader": {"key":"TCD_32_SUBHEADER","values":[{"lang":"Polish", "val":"Przez kilka godzin przeczesywałeś popioły i gruzy, aż w końcu doszedłeś do wniosku, że tego, czego szukasz, nigdy tu nie było."},
+															{"lang":"English","val":"Órákon keresztül túrod a hamut és a törmeléket, mire ráeszmélsz, hogy amit keresel, az - valószínűleg - soha nem is volt itt."}]},
+			"body": {"key":"TCD_32_BODY","values":[	{"lang":"Polish", "val":"Zużyj 1 czerwony [ClueMarkerGray] albo opóźnij działania."},
+													{"lang":"English","val":"Költesz 1 vörös [ClueMarkerGray]-ot, vagy vesztegelsz."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "test",
+			"params": {
+				"CombatLead": 1
+			},
+			"success": {
+				"action": "confirm",
+					"params": {
+						"titleKey": "TCD_32_TITLE",
+						"contentKey": "TCD_32_BODY",
+						"confirm": {"key":"TCD_32_CONFIRM","values":[{"lang":"Polish", "val":"Zużyj 1 [ClueMarkerRed]"},{"lang":"English","val":"Elköltök 1 [ClueMarkerRed]-ot"}]},	
+						"cancel": {"key":"TCD_32_CANCEL","values":[{"lang":"Polish", "val":"Opóźnij działania"},{"lang":"English","val":"Inkább vesztegelek"}]}
+					},
+					"success": {
+					"action": "resource",
+						"params": {
+							"CombatLead": -1
+							}						
+					},
+					"fail": {
+						"action":"delay_action"
+					}
+			},
+			"fail": {
+				"action":"delay_action"
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatTrap",
+		"id":"TCD_33",
+		"description":{
+			"ribbon": {"key":"TCD_33_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},			
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TCD_33_IMAGE"},
+			"title": {"key":"TCD_33_TITLE","values":[{"lang":"Polish", "val":"Kłamstwa i oszczerstwa"},
+													{"lang":"English","val":"Hazugság és rágalom"}]},
+			"subheader": {"key":"TCD_33_SUBHEADER","values":[{"lang":"Polish", "val":"Piękna kobieta prosi cię o rozprawę z grupką żołnierzy, którzy jej się narzucali. Po walce zdajesz sobie sprawę, że wykorzystała cię, by zaszkodzić swoim rywalom i wpędzić cię w kłopoty."},
+															{"lang":"English","val":"Egy gyönyörű nő könyörög neked azért, hogy leszámolj az őt zaklató katonák kompániájával. A harc után döbbensz rá, hogy a nő csak kihasznált, hogy a riválisainak keresztbe tegyen, és téged bajba keverjen."}]},
+			"body": {"key":"TCD_33_BODY","values":[	{"lang":"Polish", "val":"Opóźnij działania lub stocz walkę!\nWróg: 4 [Sword] 3 [Shield].\nNieudany [Sword]: pobierz 1 kartę złego losu i opóźnij działania.\nUdana [Shield]: otrzymujesz 1 fioletowy [ClueMarkerGray]."},
+													{"lang":"English","val":"Vesztegelj vagy harcolj!\n\nEllenfél: 4 [Sword] 3 [Shield]\n\nSikertelen [Sword]: húzol 1 balsors-\nkártyát, és fel is tartóztatnak.\n\nSikeres [Shield]: kapsz 1 lila [ClueMarkerGray]-ot."}]}
+		},
+		"ai":{
+			"sword": 4,
+			"shield": 3
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "confirm",
+			"params": {
+					"titleKey": "TCD_33_TITLE",
+					"contentKey": "TCD_33_BODY",
+					"confirm": {"key":"TCD_33_CONFIRM","values":[{"lang":"Polish", "val":"Opóźnij akcję"},{"lang":"English","val":"Veszteglek"}]},	
+					"cancel": {"key":"TCD_33_CANCEL","values":[{"lang":"Polish", "val":"Walcz"},{"lang":"English","val":"Harcolok"}]}
+			},
+			"success": {
+				"action":"delay_action"
+			},
+			"fail":{
+				"action": "battle",
+				"params": {
+					"attack": {
+						"condition":["sword", "sword", "sword", "sword"],
+							"fail": [{
+								"action": "draw_card",
+								"params": {
+									"deck": "FateBad",
+									"amount": 1
+								}
+							},{
+								"action":"delay_action"
+							}]
+						},
+					"defense": {
+						"condition":["shield", "shield", "shield"],
+						"success": {
+							"action": "resource",
+							"params": {
+								"DiplomacyLead": 1
+							}
+						}
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatTrap",
+		"id":"TCD_34",
+		"description":{
+			"ribbon": {"key":"TCD_34_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},			
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TCD_34_IMAGE"},
+			"title": {"key":"TCD_34_TITLE","values":[{"lang":"Polish", "val":"Kłopoty ze strażą"},
+													{"lang":"English","val":"Az őrök rosszallása"}]},
+			"subheader": {"key":"TCD_34_SUBHEADER","values":[{"lang":"Polish", "val":"Nie jesteś zaskoczony, gdy widzisz zbliżających się strażników – w końcu masz zakrwawione odzienie. Kilka orenów powinno załatwić sprawę... aż do następnego razu."},
+															{"lang":"English","val":"Még nedvesen csillog a kiontott vér az öltözékeden, így nem is csodálkozol, hogy jó néhány őr megindul feléd. Néhány oren elegendő lesz, persze, a gondok elsimítására - legalábbis a következő alkalomig."}]},
+			"body": {"key":"TCD_34_BODY","values":[	{"lang":"Polish", "val":"Zapłać 2 [GoldCoin] albo opóźnij działania."},
+													{"lang":"English","val":"Költs 2 [GoldCoin]-at, vagy feltartóztatnak!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "test",
+			"params": {
+				"Gold": 2
+			},
+			"success": {
+				"action": "confirm",
+					"params": {
+						"titleKey": "TCD_34_TITLE",
+						"contentKey": "TCD_34_BODY",
+						"confirm": {"key":"TCD_34_CONFIRM","values":[{"lang":"Polish", "val":"Zapłać 2 [GoldCoinColor]"},{"lang":"English","val":"2 [GoldCoinColor]-at költök"}]},	
+						"cancel": {"key":"TCD34_CANCEL","values":[{"lang":"Polish", "val":"Opóźnij działania"},{"lang":"English","val":"Veszteglek inkább"}]}
+					},
+					"success": {
+						"action": "resource",
+						"params": {
+							"Gold": -2
+						}
+					},
+					"fail": {
+						"action":"delay_action"
+					}
+				},
+				"fail": {
+					"action":"delay_action"
+				}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatTrap",
+		"id":"TCD_35",
+		"description":{
+			"ribbon": {"key":"TCD_35_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},			
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TCD_35_IMAGE"},
+			"title": {"key":"TCD_35_TITLE","values":[{"lang":"Polish", "val":"Cienie przeszłości"},
+													{"lang":"English","val":"A múlt árnyai"}]},
+			"subheader": {"key":"TCD_35_SUBHEADER","values":[{"lang":"Polish", "val":"Narobiłeś sobie w życiu wielu wrogów – dokądkolwiek się ruszysz, zawsze ktoś szuka zwady."},
+															{"lang":"English","val":"Életed során sokakat ellenségeddé tettél - bárhová is mész, mindig lesz valaki, akinek viszketni kezd a tenyere, amikor meglát téged."}]},
+			"body": {"key":"TCD_35_BODY","values":[	{"lang":"Polish", "val":"Wróg: 4 [Shield].\n\nNieudana [Shield]: połóż 1 [Wound] na swoim polu akcji podróży, o ile to możliwe."},
+													{"lang":"English","val":"Harcolj!\n\nEllenfél: 4 [Shield]\n\nSikertelen [Shield]: helyezz el 1 [Wound]-t az utazás-akciódon, ha tudsz!"}]}
+		},
+		"ai":{
+			"wound" : 1,
+			"shield": 4
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "battle",
+			"params": {
+				"defense": {
+					"condition":["shield", "shield", "shield", "shield"],
+					"fail": {
+						"action":"place_wound",
+						"params": {
+							"actionTag": "Move",
+							"ifAble": true,
+							"wound": 1
+						}
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatTrap",
+		"id":"TCD_36",
+		"description":{
+			"ribbon": {"key":"TCD_36_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},			
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TCD_36_IMAGE"},
+			"title": {"key":"TCD_36_TITLE","values":[{"lang":"Polish", "val":"Obolałe stawy"},
+													{"lang":"English","val":"Fájó izületek"}]},
+			"subheader": {"key":"TCD_36_SUBHEADER","values":[{"lang":"Polish", "val":"Czas nie obszedł się z tobą łaskawie, tym bardziej że wiedziesz takie surowe życie."},
+															{"lang":"English","val":"Az idő és az öregedés nem volt kegyes hozzád; nem is csoda, amilyen kemény életet élsz..."}]},
+			"body": {"key":"TCD_36_BODY","values":[	{"lang":"Polish", "val":"Podczas walki zmniejsz liczbę kością swojej postaci o 1. Gdy wypełnisz misję dodatkową, misję wsparcia lub misję główną, odrzuć tę kartę."},
+													{"lang":"English","val":"Harc közben 1-gyel kevesebb hős-kockával dobsz.\n\nEgy mellék-, támogatás- vagy főküldetés teljesítése után dobd el ezt a kártyát!"}]}
+		},
+		"drawTask":[{
+			"action": "bind_task",
+			"params": {
+				"event": "RollStartOrAnyQuestComplete",
+				"mode": "EXECUTE",
+				"condition": { 
+					"useOnceBattle": true,
+					"anyQuestCompleted": true,
+					"isOr": true 
+				}
+			}
+		},{
+			"action": "kill_card_inventory" 
+		}],
+		"useTask": [{
+			"action":"test",
+			"params": {
+				"battle": true
+			},
+			"success":{
+				"action": "battle_character_dice_block"
+			}
+		},{
+			"action":"test",
+			"params": {
+				"anyQuestCompleted": true
+			},
+			"success":{
+				"action":"kill_card",
+				"params": "TrailCombat"
+			},
+			"fail": [{
+				"action": "bind_task",
+				"params": {
+					"event": "RollStartOrAnyQuestComplete",
+					"mode": "EXECUTE",
+					"condition": { 
+						"useOnceBattle": true,
+						"anyQuestCompleted": true,
+						"isOr": true 
+					}
+				}
+			},{
+				"action": "kill_card_inventory" 
+			}]		
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatTrap",
+		"id":"TCD_37",
+		"description":{
+			"ribbon": {"key":"TCD_37_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},			
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TCD_37_IMAGE"},
+			"title": {"key":"TCD_37_TITLE","values":[{"lang":"Polish", "val":"Zbiry Dijkstry"},
+													{"lang":"English","val":"Dijkstra bérencei"}]},
+			"subheader": {"key":"TCD_37_SUBHEADER","values":[{"lang":"Polish", "val":"It makes no difference to them who you are or what you know. All five advance at one, heavy clubs at the ready."},
+															{"lang":"English","val":"Nem számít ezeknek, hogy ki vagy, vagy hogy mit tudsz. Nehéz bunkósbotjaikkal mind az öten egyszerre rontanak rád."}]},
+			"body": {"key":"TCD_37_BODY","values":[	{"lang":"Polish", "val":"Stocz walkę!\n\nWróg: 4 [Sword].\n\nNieudany [Sword]: odnosisz 1 [Wound] oraz usuwasz wszystkie [Charge] ze swoich kart rozwoju."},
+													{"lang":"English","val":"Küzdj meg velük!\n\nEllenfél: 4 [Sword]\n\nSikertelen [Sword]: szerzel 1 [Wound]-t, és távolíts el minden [Charge]-t az összes fejlesztés-kártyádról!"}]}
+		},
+		"ai":{
+			"wound" : 1,
+			"sword": 4
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"battle",
+			"params": {
+				"attack": {
+					"condition":["sword", "sword", "sword", "sword"],
+					"fail": [{
+						"action": "place_wound",
+						"params": {
+							"amount": 1,
+							"wound": 1
+						}
+					},{
+						"action": "select_inventory_card",
+						"params": {
+							"filter": "XP",
+							"mode": "CHARGE_REMOVE_ALL"
+						}
+					}]
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatTrap",
+		"id":"TCD_38",
+		"description":{
+			"ribbon": {"key":"TCD_38_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},			
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TCD_38_IMAGE"},
+			"title": {"key":"TCD_38_TITLE","values":[{"lang":"Polish", "val":"Pijaczyna"},
+													{"lang":"English","val":"A nyomorult iszákos"}]},
+			"subheader": {"key":"TCD_38_SUBHEADER","values":[{"lang":"Polish", "val":"Dureń jest tak pijany, że nie wie, co czyni. Wymachuje rękoma, wykrzykuje bluzgi, a w końcu rzuca się na ciebie z pięściami. Później strażnicy aresztują wszystkich uczestników zajścia, chociaż pijak był sam sobie winien, że skończył z dwiema złamanymi rękami."},
+															{"lang":"English","val":"Az ostoba fickó annyira részeg, hogy fogalma sincs, mit csinál. Ész nélkül hadonászik a karjaival, trágárságokat ordibál, és még egy ütést is bevisz neked. Végül az őrök minden érintettet letartóztatnak, függetlenül attól, hogy az iszákos a saját hibájából nyert két törött kart magának."}]},
+			"body": {"key":"TCD_38_BODY","values":[	{"lang":"Polish", "val":"Zużyj 1 fioletowy [ClueMarkerGray] albo opóźnij działania."},
+													{"lang":"English","val":"Költs 1 lila [ClueMarkerGray]-ot, vagy feltartóztatnak!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action": "test",
+			"params": {
+				"DiplomacyLead": 1
+			},
+			"success": {
+				"action":"confirm",
+				"params": {
+					"titleKey": "TCD_38_TITLE",
+					"contentKey": "TCD_38_BODY",
+					"confirm": {"key":"TCD_38_CONFIRM","values":[{"lang":"Polish", "val":"Zużyj 1 [ClueMarkerPurple]"},{"lang":"English","val":"1 [ClueMarkerPurple]-t költök"}]},	
+					"cancel": {"key":"TCD_38_CANCEL","values":[{"lang":"Polish", "val":"Opóźnij działania"},{"lang":"English","val":"Veszteglek inkább"}]}
+				},
+				"success": {
+					"action": "resource",
+					"params": {
+						"DiplomacyLead": -1
+					}
+				},
+				"fail": {
+					"action":"delay_action"
+				}
+			},
+			"fail": {
+				"action":"delay_action"
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatTrap",
+		"id":"TCD_39",
+		"description":{
+			"ribbon": {"key":"TCD_39_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},			
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TCD_39_IMAGE"},
+			"title": {"key":"TCD_39_TITLE","values":[{"lang":"Polish", "val":"Niebezpieczna wędrówka"},
+													{"lang":"English","val":"Veszélyes utazás"}]},
+			"subheader": {"key":"TCD_39_SUBHEADER","values":[{"lang":"Polish", "val":"Choć droga przez bagno bywa najszybsza, nie zawsze jest najlepsza"},
+															{"lang":"English","val":"Lehet, hogy néha a mocsáron való átkelés tűnik a leggyorsabb útvonalnak - de sohasem az a legjobb útvonal."}]},
+			"body": {"key":"TCD_39_BODY","values":[	{"lang":"Polish", "val":"Podczas następnej akcji podróży stocz walkę, zanim ruszysz w drogę!\n\nWróg: 3 [Sword].\n\nNieudany [Sword]: nie wykonujesz ruchu. Połóż 1 [WoundSevere] na swojej akcji podróży, o ile to możliwe."},
+													{"lang":"English","val":"Amikor legközelebb utazás-akciót hajtasz végre, előtte harcolnod kell!\n\nEllenfél: 3 [Sword]\n\nSikertelen [Sword]: vesztegelni kényszerülsz. Helyezz el 1 [WoundSevere]-t az utazás-akciódon, ha tudsz!"}]}
+		},
+		"ai":{
+			"severe_wound" : 1,
+			"sword": 3
+		},
+		"drawTask":[{
+			"action": "bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition": { "OnActionSubmit": "Move" }
+			}
+		},{
+			"action": "kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"battle",
+			"params": {
+				"attack": {
+					"condition":["sword", "sword", "sword"],
+					"fail": [{
+						"action":"place_wound",
+						"params": {
+							"actionTag": "Move",
+							"ifAble": true,
+							"wound": 2
+						}
+					},{
+						"action":"break_move"
+					}]
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"TrailCombatInvestigation",
+		"id":"TCD_40",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TCD_40_IMAGE"},
+			"title": {"key":"TCD_40_TITLE","values":[{"lang":"Polish", "val":"Dzikie bestie"},
+													{"lang":"English","val":"Ádáz teremtmény"}]},
+			"subheader": {"key":"TCD_40_SUBHEADER","values":[{"lang":"Polish", "val":"Nieważne, z iloma walczysz, nieważne, ile zabijesz – zawsze znajdą się kolejne potwory, które dybią na twoje życie"},
+															{"lang":"English","val":"Mindegy, hogy mennyit harcolsz, ahogy az sem számít, mennyit ölsz le közülük; mindig lesznek szörnyek, amik a véredre szomjaznak."}]},
+			"body": {"key":"TCD_40_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 czerwony [ClueMarkerGray] za każdego [EnemyMarker] twoim regionie. Następnie połóż 1 brązowego [EnemyMarker], 1 srebrnego [EnemyMarker] lub 1 złotego [EnemyMarker] w dowolnym regionie."},
+													{"lang":"English","val":"Kapsz 1 vörös [ClueMarkerGray]-ot a régiódban minden [EnemyMarker] után.\n\nEzután helyezz le 1 bronz [EnemyMarker]-et, 1 ezüst [EnemyMarker]-et és 1 arany [EnemyMarker]-et bármely régióra!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailCombat"
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": {
+					"variable_amount":"ENEMY"
+				}
+			}
+		},{
+			"action": "place_enemy",
+			"params": {
+				"amount": 1,
+				"direction":"ANY"
+			}
+		}],"------------------":"------------------------"
+	}]
+}

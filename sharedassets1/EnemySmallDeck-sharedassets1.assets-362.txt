@@ -1,0 +1,557 @@
+{
+	"defalutDescription":{
+		"ribbon": {"key":"ESC_RIBBON","values":[{"lang":"Polish", "val":"WRÓG MAŁY"},
+										 		{"lang":"English","val":"KISEBB SZÖRNY"}]},
+		"front": {"atlas":"Atlases/Atlas-Card-Backgrounds_002", "sprite":"Card-Front-EnemySmall"},
+		"back": {"atlas":"Atlases/Atlas-Card-Backgrounds_002", "sprite":"Card-Reverse-EnemySmall"}
+	},
+	"cards":[{
+		"------------------":"------------------------",
+		"type":"EnemySmall",
+		"id":"ESC_1",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_003", "sprite":"ESC_1_IMAGE"},
+			"title": {"key":"ESC_1_TITLE","values":[{"lang":"Polish","val":"Ghul"},
+													 {"lang":"English","val":"Ghúl"}]},
+			"body": {"key":"ESC_1_BODY","values":[	{"lang":"Polish", "val":"Udany [Sword]: otrzymujesz 1 czerwony [ClueMarkerGray].\nNieudany [Sword]: obróć 1 [Wound] na swoim arkuszu na [WoundSevere]."},
+													{"lang":"English","val":"[Sword] siker: szerzel 1 vörös [ClueMarkerGray]-ot,\n[Sword] bukás: fordíts át 1 [Wound]-t erre: [WoundSevere]"}]}
+		},
+		"enemy": {
+			"attack": 3,
+			"defense": 0
+		},
+		"ai":{
+			"sword": 3
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition":["sword","sword","sword"],
+					"success": {
+						"action":"resource",
+						"params": {
+							"CombatLead": 1
+						}
+					},
+					"fail": {
+						"action":"place_posine_wound",
+						"params": {
+							"amount": 1
+						}
+					}
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemySmall"
+			}
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"EnemySmall",
+		"id":"ESC_2",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_003", "sprite":"ESC_2_IMAGE"},
+			"title": {"key":"ESC_2_TITLE","values":[{"lang":"Polish", "val":"Utopiec"},
+													{"lang":"English","val":"Vízbefúlt"}]},
+			"body": {"key":"ESC_2_BODY","values":[	{"lang":"Polish", "val":"Przed rzutem: odnosisz 1 [Wound]. Udany [Sword]: otrzymujesz 1 PZ. Nieudany [Sword]: przenieś tego stwora do sąsiedniego regionu."},
+													{"lang":"English","val":"Dobás előtt: szerzel 1 [Wound]-t.\n[Sword] siker: kapsz 1 DP-ot,\n[Sword] bukás: helyezd át a szörnyet egy szomszédos régióra"}]}
+		},
+		"enemy": {
+			"attack": 2,
+			"defense": 0
+		},
+		"ai":{
+			"wound": 1,
+			"beforeRoll": true,
+			"sword": 2,
+			"victoryPoints": 1
+		},
+		"drawTask":{
+			"action": "place_wound",
+			"params": {
+				"amount": 1,
+				"wound": 1
+			}
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition": ["sword","sword"],
+					"success": {
+						"action": "resource",
+						"params": {
+							"VictoryPoints": 1
+						}
+					},
+					"fail": {
+						"action": "move_enemy",
+						"params": {
+							"direction": "NEIGHBOURS"
+						}
+					}
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemySmall"
+			}
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"EnemySmall",
+		"id":"ESC_3",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_003", "sprite":"ESC_3_IMAGE"},
+			"title": {"key":"ESC_3_TITLE","values":[{"lang":"Polish","val":"Nilfgaardczyk"},
+													 {"lang":"English","val":"Nilfgaardi"}]},
+			"body": {"key":"ESC_3_BODY","values":[	{"lang":"Polish", "val":"Przed rzutem: przesuń w przód znacznik na torze wojny. Udany [Sword]: otrzymujesz 1 PZ. Nieudana [Shield]: odnosisz 1 [Wound]."},
+													{"lang":"English","val":"Dobás előtt:\nháború menetét előmozdít.\n[Sword] siker: kapsz 1 DP-ot,\n[Shield] bukás: szerzel 1 [Wound]-t."}]}
+		},
+		"enemy": {
+			"attack": 3,
+			"defense": 2
+		},
+		"ai":{
+			"wound": 1,
+			"beforeRoll": true,
+			"sword": 3,
+			"shield": 2,
+			"victoryPoints": 1
+		},
+		"drawTask":{
+			"action":"advance_war_track"
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition":["sword", "sword","sword"],
+					"success": {
+						"action":"resource",
+						"params": {
+							"VictoryPoints": 1
+						}
+					}
+				},
+				"defense": {
+					"condition":["shield", "shield"],
+					"fail": {
+						"action": "place_wound",
+						"params": {
+							"amount": 1,
+							"wound": 1
+						}
+					}
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemySmall"
+			}
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"EnemySmall",
+		"id":"ESC_4",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_003", "sprite":"ESC_4_IMAGE"},
+			"title": {"key":"ESC_4_TITLE","values":[{"lang":"Polish", "val":"Bandyta"},
+													{"lang":"English","val":"Útonálló"}]},
+			"body": {"key":"ESC_4_BODY","values":[	{"lang":"Polish", "val":"Przed rzutem: tracisz 1 [GoldCoin].\nUdany [Sword]: otrzymujesz 1 [GoldCoin].\nNieudana [Shield]: odnosisz 1 [Wound]."},
+													{"lang":"English","val":"Dobás előtt: költs 1 [GoldCoin]-at.\n[Sword] siker: kapsz 1 [GoldCoin]-at,\n[Shield] bukás: szerzel 1 [Wound]-t"}]}
+		},
+		"enemy": {
+			"attack": 2,
+			"defense": 1
+		},
+		"ai":{
+			"wound": 1,
+			"beforeRoll": true,
+			"sword": 2,
+			"shield": 1
+		},
+		"drawTask":{
+			"action": "resource",
+			"params": {
+				"Gold": -1
+			}
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition":["sword", "sword"],
+					"success": {
+						"action":"resource",
+						"params": {
+							"Gold": 1
+						}
+					}
+				},
+				"defense": {
+					"condition":["shield"],
+					"fail": {
+						"action": "place_wound",
+						"params": {
+							"amount": 1,
+							"wound": 1
+						}
+					}
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemySmall"
+			}	
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"EnemySmall",
+		"id":"ESC_5",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_003", "sprite":"ESC_5_IMAGE"},
+			"title": {"key":"ESC_5_TITLE","values":[{"lang":"Polish","val":"Echinops"},
+													 {"lang":"English","val":"Ekhinopsz"}]},
+			"body": {"key":"ESC_5_BODY","values":[	{"lang":"Polish", "val":"Nieudana [Shield]: odnosisz 1 [Wound]."},
+													{"lang":"English","val":"[Shield] bukás: szerzel 1 [Wound]-t"}]}
+		},
+		"enemy": {
+			"attack": 1,
+			"defense": 3
+		},
+		"ai":{
+			"wound": 1,
+			"sword": 1,
+			"shield": 3
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition": [ "sword" ]
+				},
+				"defense": {
+					"condition":["shield", "shield", "shield"],
+					"fail": {
+						"action": "place_wound",
+						"params": {
+							"amount": 1,
+							"wound": 1
+						}
+					}
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemySmall"
+			}	
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"EnemySmall",
+		"id":"ESC_6",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_003", "sprite":"ESC_6_IMAGE"},
+			"title": {"key":"ESC_6_TITLE","values":[{"lang":"Polish","val":"Zjawa"},
+													 {"lang":"English","val":"Árny"}]},
+			"body": {"key":"ESC_6_BODY","values":[	{"lang":"Polish", "val":"Przed rzutem: otrzymujesz 1 [BadFateMarker].\nUdane [Special]: otrzymujesz 1 PZ."},
+													{"lang":"English","val":"Dobás előtt: szerzel 1 [BadFateMarker]-t.\n[Special] siker: kapsz 1 DP-ot"}]}
+		},
+		"enemy": {
+			"special": 1,
+			"defense": 0
+		},
+		"ai":{
+			"special": 1,
+			"beforeRoll": true,
+			"victoryPoints": 1
+		},
+		"drawTask":{
+			"action":"place_bad_fate",
+			"params": {
+				"amount": 1
+			}
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"special": {
+					"condition": [ "special" ],
+					"success": [{
+						"action": "resource",
+						"params": {
+							"VictoryPoints": 1
+						}
+					},{
+						"action":"kill_card",
+						"params":"EnemySmall"
+					}]
+				}
+			}
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"EnemySmall",
+		"id":"ESC_7",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_003", "sprite":"ESC_7_IMAGE"},
+			"title": {"key":"ESC_7_TITLE","values":[{"lang":"Polish", "val":"Wilk"},
+													{"lang":"English","val":"Farkas"}]},
+			"body": {"key":"ESC_7_BODY","values":[	{"lang":"Polish", "val":"Przed rzutem: przesuń w przód znacznik na torze wojny. Nieudany [Sword]: odnosisz 1 [BadFateMarker]. Nieudana [Shield]: odnosisz 1 [Wound]."},
+													{"lang":"English","val":"Dobás előtt:\nháború menetét előmozdít.\n[Sword] bukás: szerzel 1 [BadFateMarker]-t,\n[Shield] bukás: szerzel 1 [Wound]-t."}]}
+		},
+		"enemy": {
+			"attack": 2,
+			"defense": 1
+		},
+		"ai":{
+			"wound": 1,
+			"beforeRoll": true,
+			"sword": 2,
+			"shield": 1
+		},
+		"drawTask":{
+			"action":"advance_war_track"
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition":["sword", "sword"],
+					"fail": {
+						"action": "place_bad_fate",
+						"params": {
+							"amount": 1
+						}
+					}
+				},
+				"defense": {
+					"condition":["shield"],
+					"fail": {
+						"action": "place_wound",
+						"params": {
+							"wound": 1,
+							"amount": 1
+						}
+					}
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemySmall"
+			}	
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"EnemySmall",
+		"id":"ESC_8",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"ESC_8_IMAGE"},
+			"title": {"key":"ESC_8_TITLE","values":[{"lang":"Polish", "val":"Kuroliszek"},
+													{"lang":"English","val":"Kukorix"}]},
+			"body": {"key":"ESC_8_BODY","values":[	{"lang":"Polish", "val":"Udany [Sword]: otrzymujesz 1 [GoldCoin].\nNieudany [Sword]: opóźnij działania. Nieudany [Shield]: opóźnij działania."},
+													{"lang":"English","val":"[Sword] siker: kapsz 1 [GoldCoin]-at,\n[Sword] bukás: feltartóztatnak,\n[Shield] bukás: feltartóztatnak"}]}
+		},
+		"enemy": {
+			"attack": 2,
+			"defense": 1
+		},
+		"ai":{
+			"sword": 2,
+			"shield": 1
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition":["sword", "sword"],
+					"success": {
+						"action": "resource",
+						"params": {
+							"Gold": 1
+						}
+					},
+					"fail": {
+						"action":"delay_action"
+					}
+				},
+				"defense": {
+					"condition":["shield"],
+					"fail": {
+						"action":"delay_action"
+					}
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemySmall"
+			}
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"EnemySmall",
+		"id":"ESC_9",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"ESC_9_IMAGE"},
+			"title": {"key":"ESC_9_TITLE","values":[{"lang":"Polish", "val":"Niedźwiedź"},
+													{"lang":"English","val":"Medve"}]},
+			"body": {"key":"ESC_9_BODY","values":[	{"lang":"Polish", "val":"Udany [Sword]: usuń 1 [Wound] ze swojego arkusza.\nNieudana [Shield]: odnosisz 1 [Wound]."},
+													{"lang":"English","val":"[Sword] siker: végy le 1 [Wound]-t a karakterlapodról,\n[Shield] bukás: szerzel 1 [Wound]-t"}]}
+		},
+		"enemy": {
+			"attack": 3,
+			"defense": 2
+		},
+		"ai":{
+			"wound": 1,
+			"sword": 3,
+			"shield": 2
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition":["sword", "sword", "sword"],
+					"success": {
+						"action":"heal",
+						"params": {
+							"wound_amount": 1
+						}
+					}
+				},
+				"defense": {
+					"condition":["shield", "shield"],
+					"fail": {
+						"action":"place_wound",
+						"params": {
+							"amount": 1,
+							"wound": 1
+						}
+					}
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemySmall"
+			}	
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"EnemySmall",
+		"id":"ESC_10",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"ESC_10_IMAGE"},
+			"title": {"key":"ESC_10_TITLE","values":[{"lang":"Polish", "val":"Nekker"},
+													{"lang":"English","val":"Nekker"}]},
+			"body": {"key":"ESC_10_BODY","values":[	{"lang":"Polish", "val":"Udany [Sword]: otrzymujesz 1 [GoldCoin]. Nieudany [Sword]: połóż 1 srebrnego [EnemyMarker] w tym regionie. Nieudana [Shield]: odnosisz 1 [Wound]."},
+													{"lang":"English","val":"[Sword] siker: kapsz 1 [GoldCoin]-at,\n[Sword] bukás: helyezz le 1 ezüst [EnemyMarker]-et ebben a régióban,\n[Shield] bukás: szerzel 1 [Wound]-t"}]}
+		},
+		"enemy": {
+			"attack": 2,
+			"defense": 2
+		},
+		"ai":{
+			"wound": 1,
+			"sword": 2,
+			"shield": 2
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition":["sword", "sword"],
+					"success": {
+						"action":"resource",
+						"params": {
+							"Gold": 1
+						}
+					},
+					"fail": {
+						"action": "place_enemy",
+						"params": {
+							"amount": 1,
+							"type": "EnemyMedium",
+							"direction": "THIS"
+						}
+					}
+				},
+				"defense": {
+					"condition":["shield", "shield"],
+					"fail": {
+						"action":"place_wound",
+						"params": {
+							"amount": 1,
+							"wound": 1
+						}
+					}
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemySmall"
+			}	
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"EnemySmall",
+		"id":"ESC_11",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"ESC_11_IMAGE"},
+			"title": {"key":"ESC_11_TITLE","values":[{"lang":"Polish", "val":"Szubrawiec"},
+													{"lang":"English","val":"Haramiák"}]},
+			"body": {"key":"ESC_11_BODY","values":[	{"lang":"Polish", "val":"Przed rzutem: tracisz 1 [GoldCoin].\nUdany [Sword]: otrzymujesz 1 [GoldCoin].\nNieudana [Sword]: odnosisz 1 [BadFateMarker]."},
+													{"lang":"English","val":"Dobás előtt: költs 1 [GoldCoin]-at.\n[Sword] siker: kapsz 1 [GoldCoin]-at,\n[Sword] bukás: szerzel 1 [BadFateMarker]-t"}]}
+		},
+		"enemy": {
+			"attack": 3,
+			"defense": 0
+		},
+		"ai":{
+			"beforeRoll": true,
+			"sword": 3
+		},
+		"drawTask":{
+			"action": "resource",
+			"params": {
+				"Gold": -1
+			}
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition":["sword", "sword", "sword"],
+					"success": {
+						"action":"resource",
+						"params": {
+							"Gold": 1
+						}
+					},
+					"fail": {
+						"action": "place_bad_fate",
+						"params": {
+							"amount": 1
+						}
+					}
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemySmall"
+			}	
+		},"------------------":"------------------------"
+	}]
+}

@@ -1,0 +1,2258 @@
+{
+	"defalutDescription":{
+		"ribbon": {"key":"TMD_RIBBON","values":[{"lang":"Polish", "val":"ŚLEDZTWO"},
+										 		{"lang":"English","val":"NYOMKERESÉS"}]},
+		"front": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Front-Investigation"},
+		"flag": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Flag-Investigation-Magic"},
+		"back": {"atlas":"Atlases/Atlas-Card-Backgrounds_003", "sprite":"Card-Reverse-Investigation-Magic"}
+	},
+	"cards":[{
+		"type":"TrailMagicInvestigationLodgeOfSorceresses",
+		"id":"TMD_1",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_1_IMAGE"},
+			"title": {"key":"TMD_1_TITLE","values":[{"lang":"Polish", "val":"Tajemnice Loży"},
+													{"lang":"English","val":"A Páholy titkai"}]},
+			"subheader": {"key":"TMD_1_SUBHEADER","values":[{"lang":"Polish", "val":"Wyciągnięcie cennych informacji od wiedźm może być trudniejsze niż wyrwanie zębów bazyliszkowi, nawet jeśli te wiedźmy nazywają siebie twoimi przyjaciółkami."},
+															{"lang":"English","val":"Varázslónőkből titkokat kicsikarni nagyságrendekkel nehezebb, mint akár csak egy fogat is kihúzni egy baziliszkusz pofájából; még akkor is, ha azok a boszorkák történetesen a barátodnak nevezik magukat."}]},
+			"body": {"key":"TMD_1_BODY","values":[	{"lang":"Polish", "val":"Rzuć kością swojej postaci. Jeśli odniesiesz sukces, otrzymujesz 1 niebieski [ClueMarkerGray] za każdą posiadaną kartę Loży czarodziejek."},
+													{"lang":"English","val":"Dobj a hős-kockáddal!\n\nHa sikert dobsz, kapsz 1 kék [ClueMarkerGray]-ot minden egyes »Varázslónők Páholya« kártyádért."}]},
+			"subtype": {"key":"TMD_1_SUBTYPE","values":[{"lang":"Polish", "val":"Loża czarodziejek"},
+														{"lang":"English","val":"Varázslónők Páholya"}]}
+		},
+		"drawTask":[{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"success": {
+				"action":"resource",
+				"params": {
+					"MagicLead": {
+						"variable_amount": "CARD",
+						"params": "TrailMagicInvestigationLodgeOfSorceresses",
+						"additional_amount": 1
+					}
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":{
+			"action":"kill_card_inventory"
+		},"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigationLodgeOfSorceresses",
+		"id":"TMD_2",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_2_IMAGE"},
+			"title": {"key":"TMD_2_TITLE","values":[{"lang":"Polish", "val":"Spotkanie z Filippą Eilhart"},
+													{"lang":"English","val":"Találkozó Filippa Eilharttal"}]},
+			"subheader": {"key":"TMD_2_SUBHEADER","values":[{"lang":"Polish", "val":"Jeśli ktokolwiek wie, co się dzieje, to przywódczyni Loży..."},
+															{"lang":"English","val":"Ha valaki tudja, egyáltalán mi folyik itt, akkor az a Páholy vezetője..."}]},
+			"body": {"key":"TMD_2_BODY","values":[	{"lang":"Polish", "val":"Zadanie: udaj się do Wyzimy. \n\nNagroda: otrzymujesz 2 niebieskie i pobierasz 1 kartę dobrego losu."},
+													{"lang":"English","val":"Feladat: Menj Vizimába!\n\nJutalom: Kapsz 2 kék [ClueMarkerGray]-ot, és húzhatsz 1 jószerencse-kártyát."}]},
+			"subtype": {"key":"TMD_2_SUBTYPE","values":[{"lang":"Polish", "val":"Loża czarodziejek"},
+														{"lang":"English","val":"Varázslónők Páholya"}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition":{"location": "Wyzima","roll": false}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"MagicLead": 2
+			}
+		},{		
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "complete_task"
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigationLodgeOfSorceresses",
+		"id":"TMD_3",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_3_IMAGE"},
+			"title": {"key":"TMD_3_TITLE","values":[{"lang":"Polish", "val":"Biblioteka Loży"},
+													{"lang":"English","val":"A Páholy könyvtára"}]},
+			"subheader": {"key":"TMD_3_SUBHEADER","values":[{"lang":"Polish", "val":"Jesteś pewien, że tajemnice, których szukasz, można znaleźć gdzieś w starożytnych księgach z biblioteki Loży."},
+															{"lang":"English","val":"Biztos vagy benne, hogy azok a titkok, amiket kutatsz, a Páholy nagykönyvtárának ősi fóliánsai között keresendők."}]},
+			"body": {"key":"TMD_3_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 niebieski [ClueMarkerGray] za każdą posiadaną kartę loży czarodziejek."},
+													{"lang":"English","val":"Kapsz 1 kék [ClueMarkerGray]-ot minden »Varázslónők Páholya« kártyád után."}]},
+			"subtype": {"key":"TMD_3_SUBTYPE","values":[{"lang":"Polish", "val":"Loża czarodziejek"},
+														{"lang":"English","val":"Varázslónők Páholya"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"MagicLead": {
+					"variable_amount": "CARD",
+					"params": "TrailMagicInvestigationLodgeOfSorceresses"
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigationLodgeOfSorceresses",
+		"id":"TMD_4",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_4_IMAGE"},
+			"title": {"key":"TMD_4_TITLE","values":[{"lang":"Polish", "val":"Konferencja Loży"},
+													{"lang":"English","val":"A Páholy összeül"}]},
+			"subheader": {"key":"TMD_4_SUBHEADER","values":[{"lang":"Polish", "val":"Gdy cała Loża jest w jednym miejscu, masz wreszcie szansę uzyskać potrzebne odpowiedzi."},
+															{"lang":"English","val":"Most, hogy a Páholy minden tagja jelen van, végre van esélyed válaszokat kapni a kérdéseidre."}]},
+			"body": {"key":"TMD_4_BODY","values":[	{"lang":"Polish", "val":"Za każdą posiadaną kartę loży czarodziejek otrzymujesz 1 niebieski [ClueMarkerGray] lub kładziesz 1 [Charge] na 1 ze swoich kart rozwoju."},
+													{"lang":"English","val":"Kapsz 1 kék [ClueMarkerGray]-ot, vagy helyezz el annyi [Charge]-t a fejlesztés-​kártyáidon, ahány »Varázslónők Páholya« kártyád van."}]},
+			"subtype": {"key":"TMD_4_SUBTYPE","values":[{"lang":"Polish", "val":"Loża czarodziejek"},
+														{"lang":"English","val":"Varázslónők Páholya"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action": "test",
+			"params": {
+				"InventoryCardType": {
+					"amount": 1,
+					"type": "XP" 
+				}
+			},			
+			"success": {
+				"action": "confirm",
+				"params": {
+					"titleKey": "TMD_4_TITLE",
+					"contentKey": "TMD_4_BODY",
+					"confirm": {"key":"TMD_4_CONFIRM","values":[{"lang":"Polish", "val":"Otrzymaj 1 [ClueMarkerBlue]"},{"lang":"English","val":"1 [ClueMarkerBlue]-ot kérek"}]},	
+					"cancel": {"key":"TMD_4_CANCEL","values":[{"lang":"Polish", "val":"Otrzymaj [ChargeWhite]"},{"lang":"English","val":"[ChargeWhite]-t kérek"}]}
+				},
+				"success": {
+					"action":"resource",
+					"params": {
+						"MagicLead": {
+							"variable_amount": "CARD",
+							"params": "TrailMagicInvestigationLodgeOfSorceresses"
+						}
+					}
+				},
+				"fail": {
+					"action":"select_inventory_card",
+					"params": {
+						"filter": "XP",
+						"mode": "CHARGE",
+						"variable_amount": "CARD",
+						"params": "TrailMagicInvestigationLodgeOfSorceresses" 
+					}
+				}
+			},
+			"fail": {
+				"action":"resource",
+				"params": {
+					"MagicLead": {
+						"variable_amount": "CARD",
+						"params": "TrailMagicInvestigationLodgeOfSorceresses"
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigationLodgeOfSorceresses",
+		"id":"TMD_5",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_5_IMAGE"},
+			"title": {"key":"TMD_5_TITLE","values":[{"lang":"Polish", "val":"Pogawędka z Keirą"},
+													{"lang":"English","val":"Csevej Keirával"}]},
+			"subheader": {"key":"TMD_5_SUBHEADER","values":[{"lang":"Polish", "val":"Byłeś pewien, że Keira zna odpowiedzi, których szukasz, ale doczekałeś się tylko zawoalowanych aluzji i chytrych uśmieszków."},
+															{"lang":"English","val":"Szinte biztos vagy benne, hogy Keira válaszokat adhat a kérdéseidre, de csak ködös utalásokat és ravasz mosolyt ejt meg feléd."}]},
+			"body": {"key":"TMD_5_BODY","values":[	{"lang":"Polish", "val":"Za każdą posiadaną kartę loży czarodziejek pobierz 1 niebieski [ClueMarkerGray] . Jeśli masz 3 lub więcej kart loży czarodziejek, pobierz 1 kartę z niebieskiej talii śledztwa."},
+													{"lang":"English","val":"Kapsz 1 kék [ClueMarkerGray]-ot minden egyes »Varázslónők Páholya« kártyád után.\n\nHa 3 vagy több »Varázslónők Páholya« kártyád van, húzz 1 lapot a kék nyomkeresés-pakliból."}]},
+			"subtype": {"key":"TMD_5_SUBTYPE","values":[{"lang":"Polish", "val":"Loża czarodziejek"},
+														{"lang":"English","val":"Varázslónők Páholya"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"MagicLead": {
+					"variable_amount": "CARD",
+					"params": "TrailMagicInvestigationLodgeOfSorceresses"
+				}
+			}
+		},{
+			"action": "test",
+			"params": {
+				"InventoryCardType": {
+					"amount": 3,
+					"type": "TrailMagicInvestigationLodgeOfSorceresses" 
+				}
+			},			
+			"success": {
+				"action": "draw_card",
+				"params": {
+					"deck": "TrailMagic",
+					"amount": 1
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigationLodgeOfSorceresses",
+		"id":"TMD_6",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_6_IMAGE"},
+			"title": {"key":"TMD_6_TITLE","values":[{"lang":"Polish", "val":"Wiadomość od Sabriny Glevissig"},
+													{"lang":"English","val":"Üzenet Sabrina Glevissigtől"}]},
+			"subheader": {"key":"TMD_6_SUBHEADER","values":[{"lang":"Polish", "val":"Sabrina uwielbia szyfry i musisz teraz poświęcić cenny czas na odcyfrowanie wiadomości."},
+															{"lang":"English","val":"Sabrina imádja a kis rejtjeleit, ezért most értékes időt vagy kénytelen elvesztegetni a megfejtésükkel."}]},
+			"body": {"key":"TMD_6_BODY","values":[	{"lang":"Polish", "val":"Zadanie: wykonaj akcję rozwoju. \n\nNagroda: rzuć kością postaci. W wypadku sukcesu otrzymujesz 3 niebieskie [ClueMarkerGray]."},
+													{"lang":"English","val":"Feladat: Hajts végre fejlesztés-\nakciót!\n\nJutalom: Dobj a hős-kockáddal! Ha sikert dobsz, kapsz 3 kék [ClueMarkerGray]-ot."}]},
+			"subtype": {"key":"TMD_6_SUBTYPE","values":[{"lang":"Polish", "val":"Loża czarodziejek"},
+														{"lang":"English","val":"Varázslónők Páholya"}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionEnd",
+				"mode": "EXECUTE",
+				"condition":{
+					"OnAction": "Development",
+					"roll": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"success": {
+				"action":"resource",
+				"params": {
+					"MagicLead": 3
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		},{
+			"action": "complete_task"
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigationNilfgaard",
+		"id":"TMD_7",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_7_IMAGE"},
+			"title": {"key":"TMD_7_TITLE","values":[{"lang":"Polish", "val":"Rada z południa"},
+													{"lang":"English","val":"A Dél Tanácsa"}]},
+			"subheader": {"key":"TMD_7_SUBHEADER","values":[{"lang":"Polish", "val":"Wiedza magów z południa byłaby ci bardzo pomocna."},
+															{"lang":"English","val":"A nilfgaardi varázslók tudása még hasznosnak bizonyulhat."}]},
+			"body": {"key":"TMD_7_BODY","values":[	{"lang":"Polish", "val":"Rzuć kością swojej postaci. W wypadku sukcesu otrzymujesz 1 niebieski [ClueMarkerGray] oraz 1 dodatkowy niebieski [ClueMarkerGray] za każdą posiadaną kartę nilfgaardu."},
+													{"lang":"English","val":"Dobj a hős-kockáddal!\n\nHa sikert dobsz, kapsz 1 kék [ClueMarkerGray]-ot minden egyes »Nilfgaard« kártyádért."}]},
+			"subtype": {"key":"TMD_7_SUBTYPE","values":[{"lang":"Polish", "val":"Nilfgaard"},
+														{"lang":"English","val":"Nilfgaard"}]}
+		},
+		"drawTask":[{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"success": {
+				"action":"resource",
+				"params": {
+					"MagicLead": {
+						"variable_amount": "CARD",
+						"params": "TrailMagicInvestigationNilfgaard",
+						"additional_amount": 1
+					}
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card_inventory"
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigationNilfgaard",
+		"id":"TMD_8",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_8_IMAGE"},
+			"title": {"key":"TMD_8_TITLE","values":[{"lang":"Polish", "val":"Historie z Nilfgaardu"},
+													{"lang":"English","val":"Nilfgaardi mesék"}]},
+			"subheader": {"key":"TMD_8_SUBHEADER","values":[{"lang":"Polish", "val":"Napotkany podróżny opowiada ci ciekawe historie o działaniach Nilfgaardu w Cintrze."},
+															{"lang":"English","val":"Egy utazótól érdekes történeteket hallasz a nilfgaardiak Cintrában zajló tevékenységeiről."}]},
+			"body": {"key":"TMD_8_BODY","values":[	{"lang":"Polish", "val":"Zadanie: udaj się do Cintry. \n\nNagroda: weź 2 niebieski  [ClueMarkerGray] oraz pobierz 1 kartę dobrego losu."},
+													{"lang":"English","val":"Feladat: Menj Cintrába!\n\nJutalom: Kapsz 2 kék [ClueMarkerGray]-ot, és húzhatsz 1 jószerencse-kártyát."}]},
+			"subtype": {"key":"TMD_8_SUBTYPE","values":[{"lang":"Polish", "val":"Nilfgaard"},
+														{"lang":"English","val":"Nilfgaard"}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition":{"location": "Cintra","roll": false}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"MagicLead":2
+			}
+		},{		
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "complete_task"
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigationNilfgaard",
+		"id":"TMD_9",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_9_IMAGE"},
+			"title": {"key":"TMD_9_TITLE","values":[{"lang":"Polish", "val":"Kupcy z południa"},
+													{"lang":"English","val":"Délről jött kereskedők"}]},
+			"subheader": {"key":"TMD_9_SUBHEADER","values":[{"lang":"Polish", "val":"Pomimo groźby wojny, kupcy dalej pływają na północ, przywożąc plotki i tajemnic."},
+															{"lang":"English","val":"A háborús fenyegetés ellenére továbbra is kereskedők karavánjai áramlanak Északnak, az áruik mellett híreszteléseket és titkokat szállítva magukkal."}]},
+			"body": {"key":"TMD_9_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 niebieski [ClueMarkerGray] za każdą posiadaną kartę Nilfgaardu."},
+													{"lang":"English","val":"Kapsz 1 kék [ClueMarkerGray]-ot minden »Nilfgaard« kártyád után."}]},
+			"subtype": {"key":"TMD_9_SUBTYPE","values":[{"lang":"Polish", "val":"Nilfgaard"},
+														{"lang":"English","val":"Nilfgaard"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+				"params": {
+					"MagicLead": {
+						"variable_amount": "CARD",
+						"params": "TrailMagicInvestigationNilfgaard"
+					}
+				}
+		}],
+		"useTask": {
+			"action":"kill_card_inventory"
+		},"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigationNilfgaard",
+		"id":"TMD_10",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_10_IMAGE"},
+			"title": {"key":"TMD_10_TITLE","values":[{"lang":"Polish", "val":"Rozmowa z Fringillą Vigo"},
+													{"lang":"English","val":"Beszélgetés Fringilla Vigóval"}]},
+			"subheader": {"key":"TMD_10_SUBHEADER","values":[{"lang":"Polish", "val":"Jeśli potrzebujesz wiedzy na temat Nlfgaardu, niewiele jest lepszych źródeł informacji o Cesarstwie Nilfgaardu niż Fringilla. W końcu pochodzi z cesarstwa."},
+															{"lang":"English", "val":"Ha szeretnél többet megtudni Nilfgaardról, akkor a legjobb, ha Fringilla Vigót kérdezed. Végtére is, ő egy nilfgaardi varázslónő."}]},
+			"body": {"key":"TMD_10_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 niebieski [ClueMarkerGray] za każdą posiadaną kartę Nilfgaardu i Loży czarodziejek."},
+													{"lang":"English","val":"Kapsz 1 kék [ClueMarkerGray]-ot minden »Varázslónők Páholya« és minden »Nilfgaard« kártyád után."}]},
+			"subtype": {"key":"TMD_10_SUBTYPE","values":[{"lang":"Polish", "val":"Nilfgaard"},
+														{"lang":"English","val":"Nilfgaard"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+				"params": {
+					"MagicLead": {
+						"variable_amount": "CARD",
+						"params": "TrailMagicInvestigationLodgeOfSorceresses"
+					}
+				}
+		},{
+			"action":"resource",
+			"params": {
+				"MagicLead": {
+					"variable_amount": "CARD",
+					"params": "TrailMagicInvestigationNilfgaard"
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigationNilfgaard",
+		"id":"TMD_11",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_11_IMAGE"},
+			"title": {"key":"TMD_11_TITLE","values":[{"lang":"Polish", "val":"Przesyłka z Nilfgaardu"},
+													{"lang":"English","val":"Szállítmány Nilfgaardból"}]},
+			"subheader": {"key":"TMD_11_SUBHEADER","values":[{"lang":"Polish", "val":"Może znajdziesz jakieś odpowiedzi wśród tych wszystkich żeglarzy i ładunków."},
+															{"lang":"English","val":"Talán válaszra lelhetsz a matrózoknál, vagy a raktérben a rakomány között."}]},
+			"body": {"key":"TMD_11_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 niebieski [ClueMarkerGray] albo 1 [GoldCoin] za każdą posiadaną kartę Nilfgaardu."},
+													{"lang":"English","val":"Kapsz 1 kék [ClueMarkerGray]-ot, vagy 1 [GoldCoin]-at minden »Nilfgaard« kártyád után."}]},
+			"subtype": {"key":"TMD_11_SUBTYPE","values":[{"lang":"Polish", "val":"Nilfgaard"},
+														{"lang":"English","val":"Nilfgaard"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card_inventory"
+		},{		
+			"action": "confirm",
+				"params": {
+					"titleKey": "TMD_11_TITLE",
+					"content": {"key":"TMD_11_DECISION","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 niebieski [ClueMarkerGray] albo 1 [GoldCoin] za każdą posiadaną kartę Nilfgaardu."},
+																	{"lang":"English","val":"Minden »Nilfgaard« kártyád után kapsz 1 kék [ClueMarkerGray]-t vagy 1 [GoldCoin]-at."}]},
+					"confirm": {"key":"TMD_11_CONFIRM","values":[{"lang":"Polish", "val":"Otrzymaj 1 [ClueMarkerBlue]"},{"lang":"English","val":"1 [ClueMarkerBlue]-ot kérek"}]},	
+					"cancel": {"key":"TMD_11_CANCEL","values":[{"lang":"Polish", "val":"Otrzymaj 1 [GoldCoinColor]"},{"lang":"English","val":"1 [GoldCoinColor]-at kérek"}]}
+				},
+				"success": {
+					"action":"resource",
+					"params": {
+						"MagicLead": {
+							"variable_amount": "CARD",
+							"params": "TrailMagicInvestigationNilfgaard"		
+						}
+					}
+				},
+				"fail": {
+					"action":"resource",
+					"params": {
+						"Gold": {
+							"variable_amount": "CARD",
+							"params": "TrailMagicInvestigationNilfgaard"
+						}
+					}
+				}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigationNilfgaard",
+		"id":"TMD_12",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_12_IMAGE"},
+			"title": {"key":"TMD_12_TITLE","values":[{"lang":"Polish", "val":"Posłaniec z Nilfgaardu"},
+													{"lang":"English","val":"Nilfgaardi futár"}]},
+			"subheader": {"key":"TMD_12_SUBHEADER","values":[{"lang":"Polish", "val":"Nie znał wagi wiadomości, którą niósł, a i tobie jej odkrycie zajęło trochę czasu."},
+															{"lang":"English","val":"Nem volt tisztában a nála lévő üzenet fontosságával, és neked is időbe telt, amíg rájöttél, mi is van a futárnál."}]},
+			"body": {"key":"TMD_12_BODY","values":[	{"lang":"Polish", "val":"Zadanie: przeprowadź akcję śledztwa. Nagroda: rzuć kością swojej postaci. W wypadku sukcesu otrzymujesz 3 niebieskie [ClueMarkerGray]."},
+													{"lang":"English","val":"Feladat: Hajts végre nyomkeresés-​akciót!\n\nJutalom: Dobj a hős-kockáddal! Ha sikert dobsz, kapsz 3 kék [ClueMarkerGray]-ot."}]},
+			"subtype": {"key":"TMD_12_SUBTYPE","values":[{"lang":"Polish", "val":"Nilfgaard"},
+														{"lang":"English","val":"Nilfgaard"}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"delay": true,
+				"event": "ActionEnd",
+				"mode": "EXECUTE",
+				"condition":{
+					"OnAction": "Investigation",
+					"roll": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"success": {
+				"action":"resource",
+				"params": {
+					"MagicLead": 3
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		},{
+			"action": "complete_task"
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigationAenSeidhe",
+		"id":"TMD_13",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_13_IMAGE"},
+			"title": {"key":"TMD_13_TITLE","values":[{"lang":"Polish", "val":"Elfickie ruiny"},
+													{"lang":"English","val":"Tünde romok"}]},
+			"subheader": {"key":"TMD_13_SUBHEADER","values":[{"lang":"Polish", "val":"Po długich poszukiwaniach doszedłeś do przekonania, że w tych ruinach kryją się elfickie manuskrypty, zamknięte od stuleci."},
+															{"lang":"English","val":"Kutatásaid alapján erős a gyanúd, hogy ezek a romok a külvilágtól évszázadok óta elzárt tünde tekercseket rejtenek."}]},
+			"body": {"key":"TMD_13_BODY","values":[	{"lang":"Polish", "val":"Rzuć kością swojej postaci. W wypadku sukcesu otrzymujesz 1 niebieski [ClueMarkerGray] za każdą posiadaną kartę Aen seidhe."},
+													{"lang":"English","val":"Dobj a hős-kockáddal!\n\nHa sikert dobsz, kapsz 1 kék [ClueMarkerGray]-ot minden »Aen Seidhe« kártyád után."}]},
+			"subtype": {"key":"TMD_13_SUBTYPE","values":[{"lang":"Polish", "val":"Aen Seidhe"},
+														{"lang":"English","val":"Aen Seidhe"}]}
+		},
+		"drawTask":[{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"success": {
+				"action":"resource",
+				"params": {
+					"MagicLead": {
+						"variable_amount": "CARD",
+						"additional_amount": 1,
+						"params": "TrailMagicInvestigationAenSeidhe"
+					}
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigationAenSeidhe",
+		"id":"TMD_14",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_14_IMAGE"},
+			"title": {"key":"TMD_14_TITLE","values":[{"lang":"Polish", "val":"Legenda o Starszej Krwi"},
+													{"lang":"English","val":"Az Ősi Vér legendája"}]},
+			"subheader": {"key":"TMD_14_SUBHEADER","values":[{"lang":"Polish", "val":"Według elfickiej prorokini Ithlinne, dziecko Starszej Krwi ocali pewnego dnia Aen Seidhe przed całkowitym unicestwieniem."},
+															{"lang":"English","val":"Ithlinne, a tünde jós próféciája szerint egy nap az Ősi Vér gyermeke fogja megmenteni az Aen Seidhét a teljes kipusztulástól."}]},
+			"body": {"key":"TMD_14_BODY","values":[	{"lang":"Polish", "val":"Zadanie: udaj się do Shaerrawedd. Nagroda: otrzymujesz 2 niebieski [ClueMarkerGray] oraz 1 kartę rozwoju"},
+													{"lang":"English","val":"Feladat: Menj Shaerraweddbe!\n\nJutalom: Kapsz 2 kék [ClueMarkerGray]-ot, és húzhatsz 1 fejlesztés-kártyát."}]},
+			"subtype": {"key":"TMD_14_SUBTYPE","values":[{"lang":"Polish", "val":"Aen Seidhe"},
+														{"lang":"English","val":"Aen Seidhe"}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition":{"location": "Shaerrawedd","roll": false}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"MagicLead": 2
+			}
+		},{		
+			"action": "draw_card",
+			"params": {
+				"deck": "XP",
+				"amount": 1
+			}
+		},{
+			"action": "complete_task"
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigationAenSeidhe",
+		"id":"TMD_15",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_15_IMAGE"},
+			"title": {"key":"TMD_15_TITLE","values":[{"lang":"Polish", "val":"Prastare symbole"},
+													{"lang":"English","val":"Ősi jelek"}]},
+			"subheader": {"key":"TMD_15_SUBHEADER","values":[{"lang":"Polish", "val":"Lata nauki elfickiej mowy wreszcie się opłaciły, gdy pewien pomniejszy szlachcic zaprosił cię do swojej posiadłości, byś zbadał prastary elficki artefakt."},
+															{"lang":"English","val":"Végre kifizetődőnek tűnik az ősi nyelv tanulmányozásával töltött sok-sok év, amikor egy jelentéktelenebb családból származó lord meghív a birtokára, hogy egy ősi tünde leletet tanulmányozz."}]},
+			"body": {"key":"TMD_15_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 niebieski [ClueMarkerGray] za każdą posiadaną kartę Aen Seidhe."},
+													{"lang":"English","val":"Kapsz 1 kék [ClueMarkerGray]-ot minden »Aen Seidhe« kártyád után."}]},
+			"subtype": {"key":"TMD_15_SUBTYPE","values":[{"lang":"Polish", "val":"Aen Seidhe"},
+														{"lang":"English","val":"Aen Seidhe"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+				"params": {
+					"MagicLead": {
+						"variable_amount": "CARD",
+						"params": "TrailMagicInvestigationAenSeidhe"
+					}
+				}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigationAenSeidhe",
+		"id":"TMD_16",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_16_IMAGE"},
+			"title": {"key":"TMD_16_TITLE","values":[{"lang":"Polish", "val":"Echa przepowiedni"},
+													{"lang":"English","val":"Egy jövendölés visszhangjai"}]},
+			"subheader": {"key":"TMD_16_SUBHEADER","values":[{"lang":"Polish", "val":"Ithlinne przepowiedziała tę jatkę. Wiek miecza i topora, Czas Szaleństwa i Czas Pogardy, Tedd Deireádh, Czas Końca."},
+															{"lang":"English","val":"Ithlinne megjövendölte ezt a vérontást. A kard és a fejsze ideje, az őrület és a megvetés ideje, »Tedd Deireadh«, az Utolsó Kor."}]},
+			"body": {"key":"TMD_16_BODY","values":[	{"lang":"Polish", "val":"Za każdą posiadaną kartę Aen Seidhe pobierz 1 niebieski [ClueMarkerGray] albo przenieś 1 [BadFateMarker] ze swojej karty postaci do dowolnego regionu, o ile to możliwe."},
+													{"lang":"English","val":"Kapsz 1 kék [ClueMarkerGray]-ot, vagy minden »Aen Seidhe« kártyád után 1 [BadFateMarker]-t áthelyezhetsz a hőslapodról bármely régióra, ha tudsz."}]},
+			"subtype": {"key":"TMD_16_SUBTYPE","values":[{"lang":"Polish", "val":"Aen Seidhe"},
+														{"lang":"English","val":"Aen Seidhe"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action": "test",
+			"params": {
+				"hasBadFate": true,
+				"placeBadFateRegion": 1
+			},
+			"success": {
+				"action": "confirm",
+				"params": {
+					"titleKey": "TMD_16_TITLE",
+					"contentKey": "TMD_16_BODY",
+					"confirm": {"key":"TMD_16_CONFIRM","values":[{"lang":"Polish", "val":"Otrzymaj 1 [ClueMarkerBlue]"},{"lang":"English","val":"1 [ClueMarkerBlue]-ot kérek"}]},	
+					"cancel": {"key":"TMD_16_CANCEL","values":[{"lang":"Polish", "val":"Przenieś [BadFateMarkerColor]"},{"lang":"English","val":"[BadFateMarkerColor]-t helyezek át"}]}
+				},
+				"success": {
+					"action":"resource",
+					"params": {
+						"MagicLead": {
+							"variable_amount": "CARD",
+							"params": "TrailMagicInvestigationAenSeidhe"
+						}
+					}
+				},
+				"fail": [{ 
+					"action": "remove_bad_fate",
+					"params": {
+						"variable_amount": "CARD",
+						"params": "TrailMagicInvestigationAenSeidhe",
+						"bad_fate_free_region_clamp": true
+					}					
+				},{ 
+					"action": "place_bad_fate_region",
+					"params": {
+						"variable_amount": "CARD",
+						"params": "TrailMagicInvestigationAenSeidhe",
+						"direction": "ALL",
+						"clamp_to_bad_fate_on_action": true,
+						"if_possible": true
+					}
+				}]
+			},
+			"fail": {
+				"action":"resource",
+				"params": {
+					"MagicLead": {
+						"variable_amount": "CARD",
+						"params": "TrailMagicInvestigationAenSeidhe"
+					}
+				}
+			}
+		}],
+		"useTask":{
+			"action":"kill_card_inventory"
+		},"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigationAenSeidhe",
+		"id":"TMD_17",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_17_IMAGE"},
+			"title": {"key":"TMD_17_TITLE","values":[{"lang":"Polish", "val":"Droga Aen Seidhe"},
+													{"lang":"English","val":"Az Aen Seidhe útjai"}]},
+			"subheader": {"key":"TMD_17_SUBHEADER","values":[{"lang":"Polish", "val":"Elfickie trakty to najszybszy sposób podróżowania, o ile znasz odpowiednie sztuczki."},
+															{"lang":"English","val":"Az ősi tünde utak a leggyorsabb módja az utazásnak - már ha az ember ismeri a titkukat."}]},
+			"body": {"key":"TMD_17_BODY","values":[	{"lang":"Polish", "val":"Za każdą posiadaną kartę Aen Seidhe pobierz 1 niebieski [ClueMarkerGray]. Jeśli masz 3 lub więcej kart Aen Seidhe, możesz wykonać ruch po 1 lub 2 szlakach."},
+													{"lang":"English","val":"Kapsz 1 kék [ClueMarkerGray]-ot minden »Aen Seidhe« kártyád után.\n\nHa 3 vagy több »Aen Seidhe« kártyád van, haladhatsz további 1 vagy 2 útnyit is."}]},
+			"subtype": {"key":"TMD_17_SUBTYPE","values":[{"lang":"Polish", "val":"Aen Seidhe"},
+														{"lang":"English","val":"Aen Seidhe"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"MagicLead": {
+					"variable_amount": "CARD",
+					"params": "TrailMagicInvestigationAenSeidhe"
+				}
+			}
+		},{
+			"action": "test",
+			"params": {
+				"InventoryCardType": {
+					"type": "TrailMagicInvestigationAenSeidhe",
+					"amount": 3
+				}
+			},
+			"success": {					
+				"action": "move",
+				"params": {
+					"radius": 2
+				}
+			}
+		}],
+		"useTask":{
+			"action":"kill_card_inventory"
+		},"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigationAenSeidhe",
+		"id":"TMD_18",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_18_IMAGE"},
+			"title": {"key":"TMD_18_TITLE","values":[{"lang":"Polish", "val":"Elficki rytuał"},
+													{"lang":"English","val":"Tünde rituálé"}]},
+			"subheader": {"key":"TMD_18_SUBHEADER","values":[{"lang":"Polish", "val":"Liczysz, że ten rytuał odblokuje wiedzę, zarówno tajemną, jak i przyziemną."},
+															{"lang":"English","val":"Reméled, hogy ez a bonyolult rituálé misztikus és világi tudást egyaránt felfed előtted."}]},
+			"body": {"key":"TMD_18_BODY","values":[	{"lang":"Polish", "val":"Zadanie: wykonaj akcję odpoczynku. Nagroda: pobierz 3 niebieskie [ClueMarkerGray], albo 1 kartę rozwoju."},
+													{"lang":"English","val":"Feladat: Hajts végre pihenés-\nakciót!\n\nJutalom: Kapsz 3 kék [ClueMarkerGray]-ot, vagy húzhatsz 1 fejlesztés-kártyát."}]},
+			"subtype": {"key":"TMD_18_SUBTYPE","values":[{"lang":"Polish", "val":"Aen Seidhe"},
+														{"lang":"English","val":"Aen Seidhe"}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionEnd",
+				"mode": "EXECUTE",
+				"condition":{
+					"OnAction": "Heal",
+					"roll": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{		
+			"action": "confirm",
+			"params": {
+				"titleKey": "TMD_18_TITLE",
+				"content": {"key":"TMD_18_DECISION","values":[	{"lang":"Polish", "val":"Pobierz 3 niebieskie [ClueMarkerGray], albo 1 kartę rozwoju."},
+																{"lang":"English","val":"Kapsz 3 kék [ClueMarkerGray]-ot, vagy húzhatsz 1 fejlesztés-kártyát!"}]},
+				"confirm": {"key":"TMD_18_CONFIRM","values":[{"lang":"Polish", "val":"Otrzymaj 3 [ClueMarkerBlue]"},{"lang":"English","val":"3 [ClueMarkerBlue]-ot kérek"}]},	
+				"cancel": {"key":"TMD_18_CANCEL","values":[{"lang":"Polish", "val":"Pobierz kartę"},{"lang":"English","val":"Kártyát húzok"}]}
+			},
+			"success": {
+				"action": "resource",
+				"params": {
+					"MagicLead": 3	
+				}
+			},
+			"fail": {
+				"action": "draw_card",
+				"params": {
+					"deck": "XP",
+					"amount": 1
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		},{
+			"action": "complete_task"
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigation",
+		"id":"TMD_19",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_19_IMAGE"},
+			"title": {"key":"TMD_19_TITLE","values":[{"lang":"Polish", "val":"Przełom"},
+													{"lang":"English","val":"Áttörés!"}]},
+			"subheader": {"key":"TMD_19_SUBHEADER","values":[{"lang":"Polish", "val":"Wśród nadżartych przez kruki trupów znalazłeś to, czego szukałeś. Teraz pozostaje dopasować do siebie elementy układanki."},
+															{"lang":"English","val":"A hollócsipkedte holttestek között rálelsz arra, amit keresel. Most már csak a kirakós darabjait kell egymásba illesztened."}]},
+			"body": {"key":"TMD_19_BODY","values":[	{"lang":"Polish", "val":"Podczas wykonywania akcji rozwoju, rzuć kością swojej postaci. W wypadku sukcesu połóż 1 [Charge] na tej karcie. Jeśli masz na tej karcie 2 lub więcej [Charge], pobierz 2 niebieskie [ClueMarkerGray] i odrzuć tę kartę."},
+													{"lang":"English","val":"Amikor fejlesztés-akciót hajtasz végre, dobj a hős-kockáddal! Ha sikert dobsz, helyezz el 1 [Charge]-t ezen a kártyán.\n\nHa 2 vagy több [Charge] van ezen a kártyádon, kapsz 2 kék [ClueMarkerGray]-ot, majd dobd el ezt a lapot."}]}
+		},
+		"maxUseCount": 0,
+		"chargeable": true,
+		"dischargeOnUseLock": true,
+		"chargeAmount": 1,
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionEnd",
+				"mode": "EXECUTE",
+				"condition":{"OnAction": "Development","roll": false}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"success": {
+				"action": "charge",
+				"params": {
+					"showFx": true					
+				}
+			}
+		},{
+			"action": "test",
+			"params": {
+				"chargeAmount": 2
+			},
+			"success": [{
+				"action": "resource",
+				"params": {
+					"MagicLead": 2
+				}
+			},{
+				"action": "kill_card",
+				"params": "TrailMagic"
+			}],
+			"fail": [{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionEnd",
+				"mode": "EXECUTE",
+				"condition":{"OnAction": "Development","roll": false}
+			}
+			},{			
+				"action":"kill_card_inventory"
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigation",
+		"id":"TMD_20",
+		"maxUseCount": 0,
+		"chargeable": true,
+		"dischargeOnUseLock": true,
+		"chargeAmount": 1,
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_006", "sprite":"TMD_20_IMAGE"},
+			"title": {"key":"TMD_20_TITLE","values":[{"lang":"Polish", "val":"Pilny pościg"},
+													{"lang":"English","val":"Sietős üldözés"}]},
+			"subheader": {"key":"TMD_20_SUBHEADER","values":[{"lang":"Polish", "val":"Ścigany uniknął twojej sprytnej zasadzki i teraz musisz go dogonić, zanim znajdzie się poza twoim zasięgiem."},
+															{"lang":"English","val":"A zsákmányodnak sikerül kiszabadulni a furfangos csapdádból, ezért jobb, ha üldözőbe is veszed, még mielőtt végleg kereket old."}]},
+			"body": {"key":"TMD_20_BODY","values":[	{"lang":"Polish", "val":"Podczas wykonywania akcji podróży, rzuć kością swojej postaci. W wypadku sukcesu połóż 1 [Charge] na tej karcie. Jeśli masz na tej karcie 3 lub więcej [Charge], pobierz 1 niebieski [ClueMarkerGray] i odrzuć tę kartę."},
+													{"lang":"English","val":"Amikor utazás-akciót hajtasz végre, dobj a hős-kockáddal! Ha sikert dobsz, helyezz el 1 [Charge]-t ezen a kártyán.\n\nHa 3 [Charge] van rajta, kapsz 3 kék [ClueMarkerGray]-ot, majd dobd el ezt a lapot."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionEnd",
+				"mode": "EXECUTE",
+				"condition":{"OnAction": "Move","roll": false}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"success": {
+				"action": "charge",
+				"params": {
+					"showFx": true
+				}
+			}
+		},{
+			"action": "test",
+			"params": {
+				"chargeAmount": 3
+			},
+			"success": [{
+				"action": "resource",
+				"params": {
+					"MagicLead": 3
+				}
+			},{
+				"action": "kill_card",
+				"params": "TrailMagic"
+			}],
+			"fail": [{
+				"action":"bind_task",
+				"params": {
+					"event": "ActionEnd",
+					"mode": "EXECUTE",
+					"condition":{"OnAction": "Move","roll": false}
+			}
+				},{			
+					"action":"kill_card_inventory"
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigation",
+		"id":"TMD_21",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_21_IMAGE"},
+			"title": {"key":"TMD_21_TITLE","values":[{"lang":"Polish", "val":"Paniczne poszukiwania"},
+													{"lang":"English","val":"Elkeseredett kutatás"}]},
+			"subheader": {"key":"TMD_21_SUBHEADER","values":[{"lang":"Polish", "val":"Wpadasz w panikę i zaczynasz gorączkowo szukać informacji, zapominając o rozwadze."},
+															{"lang":"English","val":"Pánikba esel, és minden elővigyázatosságra fittyet hányva az információ megszállott keresésébe kezdesz."}]},
+			"body": {"key":"TMD_21_BODY","values":[	{"lang":"Polish", "val":"Pobierz 5 kart śledztwa z 1 stosu, wybierz jedną z nich i rozpatrz. Następnie rozpatrz wszystkie karty niepowodzenia. \n\nOdrzuć wszystkie pozostałe karty."},
+													{"lang":"English","val":"Fedj fel 5 kártyát 1 nyomkeresés-​pakliból, majd válassz 1‍-‍et a kártyák közül, és oldd meg!\n\nEzután az összes felfedett hátráltatás-kártyát is oldd meg!\nA többit dobd el!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action": "draw_card",
+				"params": {
+					"deck": "Investigation",
+					"amount": 5,
+					"discardAllRemaing": true,
+					"resolveAllRemaingSetback": true 
+				}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigation",
+		"id":"TMD_22",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_22_IMAGE"},
+			"title": {"key":"TMD_22_TITLE","values":[{"lang":"Polish", "val":"Nocne studia"},
+													{"lang":"English","val":"Tanulmányozással töltött éjszaka"}]},
+			"subheader": {"key":"TMD_22_SUBHEADER","values":[{"lang":"Polish", "val":"Noc jeszcze młoda – pora zakasać rękawy i zabrać się za księgi."},
+															{"lang":"English","val":"Fiatal még az éjszaka - ideje feltűrni az ingujjakat, és a könyvekbe mélyedni."}]},
+			"body": {"key":"TMD_22_BODY","values":[	{"lang":"Polish", "val":"Pobierz 5 kart śledztwa z niebieskiego stosu, wybierz jedną z nich i rozpatrz. Następnie rozpatrz jedną kartę niepowodzenia, o ile taką pobrałeś. \n\nOdrzuć wszystkie pozostałe karty."},
+													{"lang":"English","val":"Fedj fel 5 kártyát a kék nyomkeresés-pakliból, majd válassz 1-et, és oldd meg!\n\nEzután oldj meg 1 felfedett hátráltatás-kártyát, ha tudsz!\nA többit dobd el!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action": "draw_card",
+			"params": {
+				"deck": "TrailMagic",
+				"amount": 5,
+				"discardAllRemaing": true,
+				"resolveOneRemaingSetback": true 
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigation",
+		"id":"TMD_23",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_23_IMAGE"},
+			"title": {"key":"TMD_23_TITLE","values":[{"lang":"Polish", "val":"Łączność z umarłymi"},
+													{"lang":"English","val":"Társalgás egy élőholttal"}]},
+			"subheader": {"key":"TMD_23_SUBHEADER","values":[{"lang":"Polish", "val":"Niewielu zaryzykowałoby poszukiwanie drauga, a jeszcze mniej liczni spróbowaliby rozmawiać z tym nieumarłym stworem."},
+															{"lang":"English","val":"Kevesen vannak azok, akik egy draug felkutatásáért az életüket kockáztatnák, és még kevesebben, akik egyáltalán megpróbálnának szót érteni az élőholt teremtménnyel."}]},
+			"body": {"key":"TMD_23_BODY","values":[	{"lang":"Polish", "val":"Rzuć kością swojej postaci 3 razy. Za każdym razem, gdy odniesiesz sukces, otrzymujesz 1 niebieski [ClueMarkerGray] i przesuwasz w przód znacznik na torze wojny."},
+													{"lang":"English","val":"Dobj 3 alkalommal a hős-kockáddal!\n\nMinden egyes siker dobás után kapsz 1 kék [ClueMarkerGray]-ot, és előre mozdítod a háború menetét."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"success": [{
+				"action": "resource",
+				"params": {
+					"MagicLead": 1
+				}
+			},{
+				"action": "advance_war_track"
+			}]
+		},{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"success": [{
+				"action": "resource",
+				"params": {
+					"MagicLead": 1
+				}
+			},{
+				"action": "advance_war_track"
+			}]
+		},{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"success": [{
+				"action": "resource",
+				"params": {
+					"MagicLead": 1
+				}
+			},{
+				"action": "advance_war_track"
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigation",
+		"id":"TMD_24",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_24_IMAGE"},
+			"title": {"key":"TMD_24_TITLE","values":[{"lang":"Polish", "val":"Potajemne spotkanie"},
+													{"lang":"English","val":"Titkos találkozó"}]},
+			"subheader": {"key":"TMD_24_SUBHEADER","values":[{"lang":"Polish", "val":"Nie wiesz, kto chciał się z tobą spotkać, ale z listu, który otrzymałeś, wynika, że ten ktoś ma dostęp do wielu sekretów."},
+															{"lang":"English","val":"Nem tudod biztosan, ki az, aki találkozni akar veled, de a kapott üzenet alapján rengeteg olyan titok ismerője lehet, amikre a választ neked is meg kell tudnod."}]},
+			"body": {"key":"TMD_24_BODY","values":[	{"lang":"Polish", "val":"Pobierz 3 karty śledztwa z niebieskiego stosu, wybierz jedną z nich i rozpatrz. \n\nOdrzuć wszystkie pozostałe karty."},
+													{"lang":"English","val":"Húzz 3 kártyát a kék nyomkeresés-​pakliból, majd válassz 1‍-‍et, és oldd meg!\nA többi kártyát dobd el!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action": "draw_card",
+			"params": {
+				"deck": "TrailMagic",
+				"amount": 3
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigation",
+		"id":"TMD_25",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_25_IMAGE"},
+			"title": {"key":"TMD_25_TITLE","values":[{"lang":"Polish", "val":"Wizyta u antykwariusza"},
+													{"lang":"English","val":"Látogatás az antikváriusnál"}]},
+			"subheader": {"key":"TMD_25_SUBHEADER","values":[{"lang":"Polish", "val":"Księgarnie pełne są najróżniejszych ksiąg i zwojów, ale czasami najlepsze manuskrypty można znaleźć tylko w miejscowej dzielnicy kupieckiej za okrągłą sumkę."},
+															{"lang":"English","val":"Bár a könyvtárak rogyásig vannak mindenféle fóliánsokkal és jegyzőkönyvekkel, ám a legjobb kéziratokat gyakran egy antikváriumban leli fel az ember - busás összegekért cserébe, természetesen."}]},
+			"body": {"key":"TMD_25_BODY","values":[	{"lang":"Polish", "val":"Wydaj maksymalnie 3 [GoldCoin]. Za każde wydane 1 [GoldCoin] rzuć kością swojej postaci. W wypadku sukcesu otrzymujesz 1 niebieski [ClueMarkerGray]."},
+													{"lang":"English","val":"Költs legfeljebb 3 [GoldCoin]-at!\n\nAztán minden elköltött [GoldCoin] után dobj a hős-kockáddal! Ahányszor sikert dobsz, annyiszor 1 kék [ClueMarkerGray]-ot kapsz."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action": "test",
+			"params": {
+				"Gold": 1
+			},
+			"success": {
+				"action": "pay_gold",
+				"params": {
+					"amount": 1,
+					"message": {
+						"titleKey": "TMD_25_TITLE",
+						"content": {"key":"TMD_25_DECISION0","values":[	{"lang":"Polish", "val":"Wydaj maksymalnie 3 [GoldCoin]. Za każde wydane 1 [GoldCoin] rzuć kością swojej postaci. W wypadku sukcesu otrzymujesz 1 niebieski [ClueMarkerGray]."},
+																			{"lang":"English","val":"Dobj a hős-kockáddal 1 [GoldCoin] fejében!\nHa sikert dobsz, kapsz 1 kék [ClueMarkerGray]-ot. Ezt még három alkalommal teheted meg."}]}
+					}
+				},
+				"success": [{
+					"action": "success_roll",
+					"params": {
+						"condition": ["character"],
+						"characterOnly": true
+					},
+					"success": {
+						"action": "resource",
+						"params": {
+							"MagicLead": 1
+						}
+					}
+				},{
+					"action": "pay_gold",
+					"params": {
+						"amount": 1,
+						"message": {
+							"titleKey": "TMD_25_TITLE",
+							"content": {"key":"TMD_25_DECISION1","values":[	{"lang":"Polish", "val":"Wydaj maksymalnie 3 [GoldCoin]. Za każde wydane 1 [GoldCoin] rzuć kością swojej postaci. W wypadku sukcesu otrzymujesz 1 niebieski [ClueMarkerGray]."},
+																			{"lang":"English","val":"Dobj a hős-kockáddal 1 [GoldCoin] fejében!\nHa sikert dobsz, kapsz 1 kék [ClueMarkerGray]-ot. Ezt még két alkalommal teheted meg."}]}
+						}
+					},
+					"success": [{
+						"action": "success_roll",
+						"params": {
+							"condition": ["character"],
+							"characterOnly": true
+						},
+						"success": {
+							"action": "resource",
+							"params": {
+								"MagicLead": 1
+							}
+						}
+					},{
+						"action": "pay_gold",
+						"params": {
+							"amount": 1,
+							"message": {
+								"titleKey": "TMD_25_TITLE",
+								"content": {"key":"TMD_25_DECISION2","values":[	{"lang":"Polish", "val":"Wydaj maksymalnie 3 [GoldCoin]. Za każde wydane 1 [GoldCoin] rzuć kością swojej postaci. W wypadku sukcesu otrzymujesz 1 niebieski [ClueMarkerGray]."},
+																				{"lang":"English","val":"Dobj a hős-kockáddal 1 [GoldCoin] fejében!\nHa sikert dobsz, kapsz 1 kék [ClueMarkerGray]-ot. Ezt még három alkalommal teheted meg!"}]}
+							}
+						},
+						"success": {
+							"action": "success_roll",
+							"params": {
+								"condition": ["character"],
+								"characterOnly": true
+							},
+							"success": {
+								"action": "resource",
+								"params": {
+									"MagicLead": 1
+								}
+							}
+						}
+					}]
+				}]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigation",
+		"id":"TMD_26",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_26_IMAGE"},
+			"title": {"key":"TMD_26_TITLE","values":[{"lang":"Polish", "val":"Spotkanie z przyjacielem"},
+													{"lang":"English","val":"Találkozás egy baráttal"}]},
+			"subheader": {"key":"TMD_26_SUBHEADER","values":[{"lang":"Polish", "val":"Minęło zbyt wiele czasu, odkąd ostatni raz widziałeś się z przyjacielem. Może on wie coś o tym, co się dzieje."},
+															{"lang":"English","val":"Idejét sem tudod már, mikor találkoztál utoljára a barátoddal. Talán ő tud valamit arról, hogy mi folyik itt."}]},
+			"body": {"key":"TMD_26_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 niebieski [ClueMarkerGray].\n\nZadanie: Udaj się do Rivii.\n\nNagroda: Pobierz 1 czerwony i 1 kartę dobrego losu."},
+													{"lang":"English","val":"Kapsz 1 kék [ClueMarkerGray]-ot.\n\nFeladat: Menj Ríviába!\n\nJutalom: Kapsz 1 vörös [ClueMarkerGray]-ot, és húzhatsz 1 jószerencse-kártyát."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition":{"location": "Rivia","roll": false}
+			}
+		},{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"MagicLead": 1
+			}
+		}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1
+			}
+		},{		
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigation",
+		"id":"TMD_27",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_27_IMAGE"},
+			"title": {"key":"TMD_27_TITLE","values":[{"lang":"Polish", "val":"Trakt na wschód"},
+													{"lang":"English","val":"A keleti út"}]},
+			"subheader": {"key":"TMD_27_SUBHEADER","values":[{"lang":"Polish", "val":"Droga była długa i ciężka, ale ślady wskazują na Dol Blathanna, Dolinę Kwiatów, dom elfów."},
+															{"lang":"English","val":"Az út hosszú és viszontagságos, de minden nyom Dol Blathannába, a Virágok Völgyébe, a tündék ősi otthonába vezet."}]},
+			"body": {"key":"TMD_27_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 niebieski [ClueMarkerGray].\n\nZadanie: Udaj się do Dol Blathanna.\n\nNagroda: Pobierz 1 niebieski [ClueMarkerGray] i 1 kartę rozwoju."},
+													{"lang":"English","val":"Kapsz 1 kék [ClueMarkerGray]-ot.\n\nFeladat: Menj Dol Blathannába!\n\nJutalom: Kapsz 1 kék [ClueMarkerGray]-ot, és húzhatsz 1 fejlesztés-kártyát."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition":{"location": "Dol Blathanna","roll": false}
+			}
+		},{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"MagicLead": 1
+			}
+		}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action":"resource",
+			"params": {
+				"MagicLead": 1
+			}
+		},{		
+			"action":"draw_card",
+			"params": {
+				"deck": "XP",
+				"amount": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigation",
+		"id":"TMD_28",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_28_IMAGE"},
+			"title": {"key":"TMD_28_TITLE","values":[{"lang":"Polish", "val":"Wiedza wiedźminów"},
+													{"lang":"English","val":"A vajákok tudása"}]},
+			"subheader": {"key":"TMD_28_SUBHEADER","values":[{"lang":"Polish", "val":"Wiedźmin Vesemir ma ogromną wiedzę na wiele tematów. Może rozmowa z nim dobrze ci zrobi."},
+															{"lang":"English","val":"Az öreg vaják, Vesemir rengeteg dologban jártas, és még több dologról tud. Talán némi vele eltöltött idő neked sem válna károdra."}]},
+			"body": {"key":"TMD_28_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 niebieski [ClueMarkerGray].\n\nZadanie: Udaj się do Kaer Morhen.\n\nNagroda: Pobierz 1 czerwony [ClueMarkerGray] i usuń wszystkie [Wound] ze swojej karty postaci."},
+													{"lang":"English","val":"Kapsz 1 kék [ClueMarkerGray]-ot.\n\nFeladat: Menj Kaer Morhenbe!\n\nJutalom: Kapsz 1 vörös [ClueMarkerGray]-ot, és levehetsz minden [Wound]-t a hőslapodról."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition":{"location": "Kaer Morhen","roll": false}
+			}
+		},{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"MagicLead": 1
+			}
+		}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1
+			}
+		},{		
+			"action":"test",
+			"params": {
+				"woundedRegular": true
+			},
+			"success": {
+				"action":"heal",
+				"params": {
+					"wound_amount": -1
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigation",
+		"id":"TMD_29",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_29_IMAGE"},
+			"title": {"key":"TMD_29_TITLE","values":[{"lang":"Polish", "val":"Mądrość przyrody"},
+													{"lang":"English","val":"A természet bölcsessége"}]},
+			"subheader": {"key":"TMD_29_SUBHEADER","values":[{"lang":"Polish", "val":"Driady to skryta rasa, a przez to trudna do znalezienia i zarazem warta tego, by ją znaleźć."},
+															{"lang":"English","val":"A driádok egy rendkívül titokzatoskodó faj, ami egyrészt nagyon megnehezíti, másrészt bőségesen megéri a fellelésüket."}]},
+			"body": {"key":"TMD_29_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 niebieski [ClueMarkerGray].\n\nZadanie: Udaj się do Duén Canell.\n\nNagroda: Pobierz 1 fioletowy [ClueMarkerGray] i 1 kartę dobrego losu."},
+													{"lang":"English","val":"Kapsz 1 [ClueMarkerGray]-ot.\n\nFeladat: Menj Duén Canellbe!\n\nJutalom: Kapsz 1 lila [ClueMarkerGray]-ot, és húzhatsz 1 jószerencse-kártyát."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition":{"location": "Duén Canell","roll": false}
+			}
+		},{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"MagicLead": 1
+			}
+		}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		},{		
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicInvestigation",
+		"id":"TMD_30",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_30_IMAGE"},
+			"title": {"key":"TMD_30_TITLE","values":[{"lang":"Polish", "val":"Intrygi na północy"},
+													{"lang":"English","val":"Északi fondorlat"}]},
+			"subheader": {"key":"TMD_30_SUBHEADER","values":[{"lang":"Polish", "val":"Masz w Novigradzie paru bystrych i zamożnych przyjaciół. Ich pomoc i rada mogą rzucić trochę światła na twoje śledztwo."},
+															{"lang":"English","val":"Akad néhány agyafúrt és gazdag ismerősöd Novigrádban. A tanácsuk és közbenjárásuk minden bizonnyal segítene pár részletet feltárni a nyomozásoddal kapcsolatban."}]},
+			"body": {"key":"TMD_30_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 niebieski [ClueMarkerGray].\n\nZadanie: Udaj się do Novigradu.\n\nNagroda: Pobierz 1 [ClueMarkerGray] i 3 [GoldCoin]."},
+													{"lang":"English","val":"Kapsz 1 kék [ClueMarkerGray]-ot.\n\nFeladat: Menj Novigrádba!\n\nJutalom: Kapsz 1 választott színű [ClueMarkerGray]-ot és 3 [GoldCoin]-at."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition":{"location": "Novigrad","roll": false}
+			}
+		},{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"MagicLead": 1
+			}
+		}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action":"select_leads",
+			"params": {
+				"MagicLead": 1,
+				"DiplomacyLead": 1,
+				"CombatLead": 1
+			}
+		},{		
+			"action":"resource",
+			"params": {
+				"Gold": 3
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicTrap",
+		"id":"TMD_31",
+		"description":{
+			"ribbon": {"key":"TMD_31_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_31_IMAGE"},
+			"title": {"key":"TMD_31_TITLE","values":[{"lang":"Polish", "val":"Zerrikański zabójca"},
+													{"lang":"English","val":"Zerrikán orgyilkos"}]},
+			"subheader": {"key":"TMD_31_SUBHEADER","values":[{"lang":"Polish", "val":"Od pewnego czasu ktoś cię śledzi, by zaatakować pod osłoną ciemności!"},
+															{"lang":"English","val":"Egy ideje már a nyomodban van valaki, és az árnyékok álságos homályából támad rád!"}]},
+			"body": {"key":"TMD_31_BODY","values":[	{"lang":"Polish", "val":"Przesuń znacznik na torze wojny w przód i połóż 1 [BadFateMarker] na swoim polu akcji podróży, o ile to możliwe. Następnie stocz walkę. \n\nWróg: 2 [Sword] 2 [Shield].\n\nUdany [Sword]: otrzymujesz 1 czerwony [ClueMarkerGray].\n\nNieudany [Sword]: otrzymujesz 1 [BadFateMarker].\nNieudana [Shield]: odnosisz 1 [Wound]."},
+													{"lang":"English","val":"Előmozdítod a háború menetét,\naztán helyezz el 1 [BadFateMarker]-t az utazás-\nakciódon, ha tudsz. Ezután küzdj meg vele!\n\nEllenfél: 2 [Sword] 2 [Shield]\n\nSikeres [Sword]: kapsz 1 vörös [ClueMarkerGray]-ot.\n\nSikertelen [Sword]: szerzel 1 [BadFateMarker]-t.\n\nSikertelen [Shield]: szerzel 1 [Wound]-t."}]}
+		},
+		"ai": {
+			"wound" : 1,
+			"sword": 2,
+			"shield": 3
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action":"advance_war_track"
+		},{
+			"action":"place_bad_fate",
+			"params": {
+				"actionTag": "Move",
+				"ifAble": true
+			}			
+		},{
+			"action":"battle",
+			"params": {
+				"attack": {
+					"condition":["sword","sword"],
+					"success": {
+						"action": "resource",
+						"params": {
+							"CombatLead": 1
+						}
+					},
+					"fail": {
+						"action":"place_bad_fate",
+						"params": {
+							"amount": 1
+						}
+					}
+				},
+				"defense": {
+					"condition":["shield","shield"],
+					"fail": {
+						"action": "place_wound",
+						"params": {
+							"amount": 1,
+							"wound": 1
+						}
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{		
+		"type":"TrailMagicTrap",
+		"id":"TMD_32",
+		"description":{
+			"ribbon": {"key":"TMD_32_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_32_IMAGE"},
+			"title": {"key":"TMD_32_TITLE","values":[{"lang":"Polish", "val":"Pułapka z dwimerytu"},
+													{"lang":"English","val":"Dimeritium csapda"}]},
+			"subheader": {"key":"TMD_32_SUBHEADER","values":[{"lang":"Polish", "val":"Czułeś, jak twoja magia odpływa, i po chwili do ciebie dotarło: gdzieś blisko musi być dwimeryt!"},
+															{"lang":"English","val":"Érzed, amint a mágiád elapad, aztán hirtelen ráeszmélsz: dimeritiumnak kell lennie a közelben!"}]},
+			"body": {"key":"TMD_32_BODY","values":[	{"lang":"Polish", "val":"Rzuć 3 razy kością swojej postaci. Za każdy brak sukcesu odrzuć 1 ze swoich kart rozwoju. Jeśli jesteś Triss, musisz w pierwszej kolejności odrzucić karty Zaklęć."},
+													{"lang":"English","val":"Dobj 3 alkalommal a hős-kockáddal!\n\nMinden sikertelen dobás alkalmával dobd el 1 fejlesztés-​kártyádat!\n\nHa te vagy Triss, legelőször varázsige fejlesztés-kártyákat kell eldobnod."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action": "test",
+			"params": {
+				"InventoryCardType": {
+					"amount": 1,
+					"type": "XP"
+				}
+			},
+			"success": {
+				"action": "success_roll",
+				"params": {
+					"condition": ["character"],
+					"characterOnly": true
+				},
+				"fail": {
+					"action": "test",
+					"params": {
+						"InventoryCardType": {
+							"amount": 1,
+							"type": "XPTrissSpell"
+						}
+					},
+					"success": {
+						"action": "select_inventory_card",
+						"params": {
+							"filter": "XPTrissSpell",
+							"amount": 1,
+							"mode": "DISCARD"
+						}
+					},
+					"fail": {
+						"action": "select_inventory_card",
+						"params": {
+							"filter": "XP",
+							"amount": 1,
+							"mode": "DISCARD"
+						}
+					}
+				}
+			}
+		},{
+			"action": "test",
+			"params": {
+				"InventoryCardType": {
+					"amount": 1,
+					"type": "XP"
+				}
+			},
+			"success": {
+				"action": "success_roll",
+				"params": {
+					"condition": ["character"],
+					"characterOnly": true
+				},
+				"fail": {
+					"action": "test",
+					"params": {
+						"InventoryCardType": {
+							"amount": 1,
+							"type": "XPTrissSpell"
+						}
+					},
+					"success": {
+						"action": "select_inventory_card",
+						"params": {
+							"filter": "XPTrissSpell",
+							"amount": 1,
+							"mode": "DISCARD"
+						}
+					},
+					"fail": {
+						"action": "select_inventory_card",
+						"params": {
+							"filter": "XP",
+							"amount": 1,
+							"mode": "DISCARD"
+						}
+					}
+				}
+			}
+		},{
+			"action": "test",
+			"params": {
+				"InventoryCardType": {
+					"amount": 1,
+					"type": "XP"
+				}
+			},
+			"success": {
+				"action": "success_roll",
+				"params": {
+					"condition": ["character"],
+					"characterOnly": true
+				},
+				"fail": {
+					"action": "test",
+					"params": {
+						"InventoryCardType": {
+							"amount": 1,
+							"type": "XPTrissSpell"
+						}
+					},
+					"success": {
+						"action": "select_inventory_card",
+						"params": {
+							"filter": "XPTrissSpell",
+							"amount": 1,
+							"mode": "DISCARD"
+						}
+					},
+					"fail": {
+						"action": "select_inventory_card",
+						"params": {
+							"filter": "XP",
+							"amount": 1,
+							"mode": "DISCARD"
+						}
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicTrap",
+		"id":"TMD_33",
+		"description":{
+			"ribbon": {"key":"TMD_33_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_33_IMAGE"},
+			"title": {"key":"TMD_33_TITLE","values":[{"lang":"Polish", "val":"Straszne wieści"},
+													{"lang":"English","val":"Rettenetes hírek"}]},
+			"subheader": {"key":"TMD_33_SUBHEADER","values":[{"lang":"Polish", "val":"Dotarła do ciebie wiadomość, że kolejny z twoich kontaktów zniknął wśród panującej w krainie przemocy."},
+															{"lang":"English","val":"Arról értesülsz, hogy újabb kapcsolattartód tűnt el a vidéket sújtó erőszakos események közepette."}]},
+			"body": {"key":"TMD_33_BODY","values":[	{"lang":"Polish", "val":"Pobierz 1 czerwony [ClueMarkerGray], przesuń w przód znacznik na torze wojny i odrzuć 1 ze swoich kart śledztwa."},
+													{"lang":"English","val":"Kapsz 1 vörös [ClueMarkerGray]-ot, előmozdítod a háború menetét, aztán dobj el 1 nyomkeresés-​kártyát."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1
+			}
+		},{
+			"action": "advance_war_track"
+		},{
+			"action": "select_inventory_card",
+			"params": {
+				"filter": "Trail",
+				"amount": 1,
+				"mode": "DISCARD"
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicTrap",
+		"id":"TMD_34",
+		"description":{
+			"ribbon": {"key":"TMD_34_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_34_IMAGE"},
+			"title": {"key":"TMD_34_TITLE","values":[{"lang":"Polish", "val":"Magiczny atak"},
+													{"lang":"English","val":"Mágikus rajtaütés"}]},
+			"subheader": {"key":"TMD_34_SUBHEADER","values":[{"lang":"Polish", "val":"Płomienie ogarnęły cię w jednej chwili! Ledwie zdążyłeś z obroną, zanim otoczyło cię piekło."},
+															{"lang":"English","val":"Azonnal elborítanak a lángok! Épp csak van pillanatnyi időd és lélekjelenléted védővarázslatot idézni, mielőtt elemésztene az iszonytató tűz."}]},
+			"body": {"key":"TMD_34_BODY","values":[	{"lang":"Polish", "val":"Wróg: 2 [Shield] 2 [Special].\nUdana [Shield]: otrzymujesz 1 niebieski [ClueMarkerGray].\nNieudana [Shield]: odnosisz 1 [Wound].\nNieudana [Special]: odnosisz 2 [Wound] za każde brakujące [Special]."},
+													{"lang":"English","val":"Harcolj!\n\nEllenfél: 2 [Shield] 2 [Special]\n\nSikeres [Shield]: kapsz 1 kék [ClueMarkerGray]-ot.\n\nSikertelen [Shield]: szerzel 1 [Wound]-t.\n\nSikertelen [Special]: szerzel 2 [Wound]-t minden hiányzó [Special] után."}]}
+		},
+		"ai":{
+			"special": 2,
+			"wound" : 5,
+			"shield": 2
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action":"battle",
+			"params": {
+				"special": {
+					"condition":["special", "special"],
+					"fail": [{
+						"action": "place_wound",
+						"params": {
+							"variable_amount": "SPECIAL_SHORT",
+							"wound": 1,
+							"multiply_amount": 2
+						}
+					}]
+				},
+				"defense": {
+					"condition":["shield","shield"],
+					"success": {
+						"action":"resource",
+						"params": {
+							"MagicLead": 1
+						}
+					},
+					"fail": {
+						"action": "place_wound",
+						"params": {
+							"amount": 1,
+							"wound": 1
+						}
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicTrap",
+		"id":"TMD_35",
+		"description":{
+			"ribbon": {"key":"TMD_35_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_35_IMAGE"},
+			"title": {"key":"TMD_35_TITLE","values":[{"lang":"Polish", "val":"Ślepy zaułek"},
+													{"lang":"English","val":"Zsákutca"}]},
+			"subheader": {"key":"TMD_35_SUBHEADER","values":[{"lang":"Polish", "val":"Przyjaciółka, która ma ważne informacje, miała się tu z tobą spotkać, ale po wielu godzinach oczekiwania zastanawiasz się, czy w ogóle się zjawi."},
+															{"lang":"English","val":"Egy barátoddal kellett volna találkoznod ezen a helyen, de több órányi várakozás után azon morfondírozol, hogy ideje továbbállnod."}]},
+			"body": {"key":"TMD_35_BODY","values":[	{"lang":"Polish", "val":"Odrzucić 1 ze swoich kart śledztwa i otrzymujesz 1 [BadFateMarker]."},
+													{"lang":"English","val":"Dobd el 1 nyomkeresés-kártyádat, és szerzel 1 [BadFateMarker]-t."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action": "select_inventory_card",
+			"params": {
+				"filter": "Trail",
+				"amount": 1,
+				"mode": "DISCARD"
+			}
+		},{
+			"action":"place_bad_fate",
+			"params": {
+				"amount": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicTrap",
+		"id":"TMD_36",
+		"description":{
+			"ribbon": {"key":"TMD_36_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_36_IMAGE"},
+			"title": {"key":"TMD_36_TITLE","values":[{"lang":"Polish", "val":"Dziki Gon"},
+													{"lang":"English","val":"Zord Vadászok"}]},
+			"subheader": {"key":"TMD_36_SUBHEADER","values":[{"lang":"Polish", "val":"Złapali twój trop i nie odpuszczą, o ile nie pokażesz im, że nie jesteś łatwą zdobyczą."},
+															{"lang":"English","val":"Megérezték a szagodat, és addig hajtanak, űznek, amíg be nem látják, hogy nem vagy egy könnyű préda."}]},
+			"body": {"key":"TMD_36_BODY","values":[	{"lang":"Polish", "val":"Stocz walkę! \nWróg: 2 [Shield] 2 [Special].\nUdana [Shield]: otrzymujesz 1 niebieski [ClueMarkerGray].\nNieudana [Shield]: otrzymujesz 1 [BadFateMarker].\nNieudana [Special]: usuń 2 [Charge] ze swoich kart rozwoju za każde brakujące [Special]."},
+													{"lang":"English","val":"Harcolj!\n\nEllenfél: 2 [Shield] 2 [Special]\n\nSikeres [Shield]: kapsz 1 kék [ClueMarkerGray]-ot.\n\nSikertelen [Shield]: szerzel 1 [BadFateMarker]-t.\n\nSikertelen [Special]: vegyél le 2 [Charge]-t a fejlesztés-kártyáidról minden hiányzó [Special] után!"}]}
+		},
+		"ai":{
+			"special": 2,
+			"shield": 2
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action":"battle",
+			"params": {
+				"special": {
+					"condition":["special", "special"],
+					"fail": {
+						"action":"select_inventory_card",
+						"params": {
+							"filter": "XP",
+							"variable_amount": "SPECIAL_SHORT",
+							"mode": "CHARGE_REMOVE_TWO"
+						}
+					}
+				},
+				"defense": {
+					"condition":["shield", "shield"],
+					"success": {
+						"action": "resource",
+						"params": {
+							"MagicLead": 1
+						}
+					},
+					"fail": {
+						"action": "place_bad_fate",
+						"params": {
+							"amount": 1
+						}
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicTrap",
+		"id":"TMD_37",
+		"description":{
+			"ribbon": {"key":"TMD_37_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_37_IMAGE"},
+			"title": {"key":"TMD_37_TITLE","values":[{"lang":"Polish", "val":"Okultyści"},
+													{"lang":"English","val":"Okkultista"}]},
+			"subheader": {"key":"TMD_37_SUBHEADER","values":[{"lang":"Polish", "val":"Widocznie odkryłeś coś, czego bardzo pilnie strzegli..."},
+															{"lang":"English","val":"Úgy tűnik, olyasmibe tenyereltél, amit mindenáron titokban akarnak tartani..."}]},
+			"body": {"key":"TMD_37_BODY","values":[	{"lang":"Polish", "val":"Stocz walkę! \nWróg: 1 [Sword] 1 [Shield] 2 [Special].\nNieudana [Sword]: otrzymujesz 1 [BadFateMarker].\nNieudana [Shield]: odnosisz 1 [Wound].\nUdane [Special]: otrzymujesz 1 fioletowy [ClueMarkerGray].\nNieudane [Special]: odrzuć 1 ze swoich kart śledztwa."},
+													{"lang":"English","val":"Harcolj!\n\nEllenfél: 1 [Sword] 1 [Shield] 2 [Special]\n\nSikertelen [Sword]: szerzel 1 [BadFateMarker]-t.\n\nSikertelen [Shield]: szerzel 1 [Wound]-t.\n\nSikeres [Special]: kapsz 1 lila [ClueMarkerGray]-ot.\n\nSikertelen [Special]: dobd el 1 nyomkeresés-kártyádat!"}]}
+		},
+		"ai":{
+			"special": 2,
+			"wound" : 1,
+			"sword": 1,
+			"shield": 1
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action":"battle",
+				"params": {
+					"attack": {
+						"condition":["sword"],
+						"fail": {
+							"action": "place_bad_fate",
+							"params": {
+								"amount": 1
+							}
+						}
+					},
+					"defense": {
+						"condition":["shield"],
+						"fail": {
+							"action": "place_wound",
+							"params": {
+								"amount": 1,
+								"wound": 1
+							}
+						}
+					},
+					"special": {
+						"condition":["special","special"],
+						"success": {
+							"action": "resource",
+							"params": {
+								"DiplomacyLead": 1
+							}
+						},
+						"fail": {
+							"action": "select_inventory_card",
+							"params": {
+								"filter": "Trail",
+								"amount": 1,
+								"mode": "DISCARD"
+							}
+						}
+					}
+				}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicTrap",
+		"id":"TMD_38",
+		"description":{
+			"ribbon": {"key":"TMD_38_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_38_IMAGE"},
+			"title": {"key":"TMD_38_TITLE","values":[{"lang":"Polish", "val":"Savolla"},
+													{"lang":"English","val":"Savolla"}]},
+			"subheader": {"key":"TMD_38_SUBHEADER","values":[{"lang":"Polish", "val":"Masz rachunki do wyrównania z tym starym magikiem Salamandry."},
+															{"lang":"English","val":"Ideje rendezni a számlát ezzel a vén Szalamandra-varázslóval."}]},
+			"body": {"key":"TMD_38_BODY","values":[	{"lang":"Polish", "val":"Rzuć 3 razy kością swojej postaci. Za każdy brak sukcesu odrzuć 1 ze swoich kart śledztwa lub kart rozwoju."},
+													{"lang":"English","val":"Dobj 3 alkalommal a hős-kockáddal!\n\nMinden sikertelen dobásod után dobj el 1 nyomkeresés- vagy fejlesztés-kártyát!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailMagic"			
+		},{
+			"action": "test",
+			"params": {
+				"isOr": true,
+				"InventoryCardType": [{ "type": "XP", "amount": 1 	},{ "type": "Trail", "amount": 1 }]
+			},
+			"success": {
+				"action": "success_roll",
+				"params": {
+					"condition": ["character"],
+					"characterOnly": true
+				},
+				"fail": {
+					"action": "test",
+					"params": {
+						"InventoryCardType": {
+							"type": "XP",
+							"amount": 1
+							}
+						},
+						"success": {
+							"action": "test",
+							"params": {
+								"InventoryCardType": {
+									"type": "Trail",
+									"amount": 1
+								}
+							},
+							"success": {
+								"action": "confirm",
+								"params": {
+									"titleKey": "TMD_38_TITLE",
+									"contentKey": "TMD_38_BODY",
+									"confirm": {"key":"TMD_38_CONFIRM","values":[{"lang":"Polish", "val":"Odrzuć kartę śledztwa"},{"lang":"English","val":"Nyomkeresés-kártyát dobok el"}]},	
+									"cancel": {"key":"TMD_38_CANCEL","values":[{"lang":"Polish", "val":"Odrzuć kartę rozwoju"},{"lang":"English","val":"Fejlesztés-kártyát dobok el"}]}
+								},
+								"success": {
+									"action":"select_inventory_card",
+									"params": {
+										"filter": "Trail",
+										"amount": 1,
+										"mode": "DISCARD" 
+									}	
+								},
+								"fail": {
+									"action":"select_inventory_card",
+									"params": {
+										"filter": "XP",
+										"amount": 1,
+										"mode": "DISCARD" 
+									}	
+								}
+							},
+							"fail": {
+								"action":"select_inventory_card",
+								"params": {
+									"filter": "XP",
+									"amount": 1,
+									"mode": "DISCARD" 
+								}	
+							}
+						},
+						"fail": {
+							"action":"select_inventory_card",
+							"params": {
+								"filter": "Trail",
+								"amount": 1,
+								"mode": "DISCARD" 
+							}	
+						}
+					}
+				}
+		},{
+			"action": "test",
+			"params": {
+				"isOr": true,
+				"InventoryCardType": [{ "type": "XP", "amount": 1 	},{ "type": "Trail", "amount": 1 }]
+			},
+			"success": {
+				"action": "success_roll",
+				"params": {
+					"condition": ["character"],
+					"characterOnly": true
+				},
+				"fail": {
+					"action": "test",
+					"params": {
+						"InventoryCardType": {
+							"type": "XP",
+							"amount": 1
+							}
+						},
+						"success": {
+							"action": "test",
+							"params": {
+								"InventoryCardType": {
+									"type": "Trail",
+									"amount": 1
+								}
+							},
+							"success": {
+								"action": "confirm",
+								"params": {
+									"titleKey": "TMD_38_TITLE",
+									"contentKey": "TMD_38_BODY",
+									"confirm": {"key":"TMD_38_CONFIRM","values":[{"lang":"Polish", "val":"Odrzuć kartę śledztwa"},{"lang":"English","val":"Nyomkeresés-kártyát dobok el"}]},	
+									"cancel": {"key":"TMD_38_CANCEL","values":[{"lang":"Polish", "val":"Odrzuć kartę rozwoju"},{"lang":"English","val":"Fejlesztés-kártyát dobok el"}]}
+								},
+								"success": {
+									"action":"select_inventory_card",
+									"params": {
+										"filter": "Trail",
+										"amount": 1,
+										"mode": "DISCARD" 
+									}	
+								},
+								"fail": {
+									"action":"select_inventory_card",
+									"params": {
+										"filter": "XP",
+										"amount": 1,
+										"mode": "DISCARD" 
+									}	
+								}
+							},
+							"fail": {
+								"action":"select_inventory_card",
+								"params": {
+									"filter": "XP",
+									"amount": 1,
+									"mode": "DISCARD" 
+								}	
+							}
+						},
+						"fail": {
+							"action":"select_inventory_card",
+							"params": {
+								"filter": "Trail",
+								"amount": 1,
+								"mode": "DISCARD" 
+							}	
+						}
+					}
+				}
+		},{
+			"action": "test",
+			"params": {
+				"isOr": true,
+				"InventoryCardType": [{ "type": "XP", "amount": 1 	},{ "type": "Trail", "amount": 1 }]
+			},
+			"success": {
+				"action": "success_roll",
+				"params": {
+					"condition": ["character"],
+					"characterOnly": true
+				},
+				"fail": {
+					"action": "test",
+					"params": {
+						"InventoryCardType": {
+							"type": "XP",
+							"amount": 1
+							}
+						},
+						"success": {
+							"action": "test",
+							"params": {
+								"InventoryCardType": {
+									"type": "Trail",
+									"amount": 1
+								}
+							},
+							"success": {
+								"action": "confirm",
+								"params": {
+									"titleKey": "TMD_38_TITLE",
+									"contentKey": "TMD_38_BODY",
+									"confirm": {"key":"TMD_38_CONFIRM","values":[{"lang":"Polish", "val":"Odrzuć kartę śledztwa"},{"lang":"English","val":"Nyomkeresés-kártyát dobok el"}]},	
+									"cancel": {"key":"TMD_38_CANCEL","values":[{"lang":"Polish", "val":"Odrzuć kartę rozwoju"},{"lang":"English","val":"Fejlesztés-kártyát dobok el"}]}
+								},
+								"success": {
+									"action":"select_inventory_card",
+									"params": {
+										"filter": "Trail",
+										"amount": 1,
+										"mode": "DISCARD" 
+									}	
+								},
+								"fail": {
+									"action":"select_inventory_card",
+									"params": {
+										"filter": "XP",
+										"amount": 1,
+										"mode": "DISCARD" 
+									}	
+								}
+							},
+							"fail": {
+								"action":"select_inventory_card",
+								"params": {
+									"filter": "XP",
+									"amount": 1,
+									"mode": "DISCARD" 
+								}	
+							}
+						},
+						"fail": {
+							"action":"select_inventory_card",
+							"params": {
+								"filter": "Trail",
+								"amount": 1,
+								"mode": "DISCARD" 
+							}	
+						}
+					}
+				}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicTrap",
+		"id":"TMD_39",
+		"description":{
+			"ribbon": {"key":"TMD_39_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_39_IMAGE"},
+			"title": {"key":"TMD_39_TITLE","values":[{"lang":"Polish", "val":"Oszustwo"},
+													{"lang":"English","val":"Megtévesztve"}]},
+			"subheader": {"key":"TMD_39_SUBHEADER","values":[{"lang":"Polish", "val":"Myślałeś, że podążasz obiecującym tropem, ale teraz odkrywasz, że była to tylko okrutna i sprytna zasadzka."},
+															{"lang":"English","val":"Azt hitted, egy ígéretes nyomot követsz, de most már tudod, hogy ez egy okosan kitervelt, kegyetlen csapda."}]},
+			"body": {"key":"TMD_39_BODY","values":[	{"lang":"Polish", "val":"Rzuć 3 razy kością swojej postaci. Za każdy brak sukcesu zużyj 1 [ClueMarkerGray] albo odnieś 1 [Wound]."},
+													{"lang":"English","val":"Dobj 3 alkalommal a hős-kockáddal!\n\nMinden sikertelen dobásod alkalmával elköltesz 1 [ClueMarkerGray]-ot, vagy szerzel 1 [Wound]-t."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"fail": {
+			"action": "test",
+			"params": {
+				"Lead": 1
+			},
+			"success": {
+			"action": "confirm",
+				"params": {
+					"titleKey": "TMD_39_TITLE",
+					"content": {"key":"TMD_39_DECISION_0","values":[	{"lang":"Polish", "val":"Zużyj 1 [ClueMarkerGray] lub odnieś 1 [Wound]"},
+																		{"lang":"English","val":"Elköltesz 1 [ClueMarkerGray]-ot, vagy szerzel 1 [Wound]-t"}]},
+					"confirm": {"key":"TMD_39_CONFIRM","values":[{"lang":"Polish", "val":"Zużyj 1 [ClueMarkerGrayWhite]"},{"lang":"English","val":"1 [ClueMarkerGrayWhite]-ot költök"}]},	
+					"cancel": {"key":"TMD_39_CANCEL","values":[{"lang":"Polish", "val":"Odnieś 1 [WoundColor]"},{"lang":"English","val":"1 [WoundColor]-t szerzek"}]}
+				},
+				"success": {					
+					"action":"select_leads",
+					"params": {
+						"Lead": -1,
+						"random": false
+					}				
+				},
+				"fail": {
+					"action": "place_wound",
+					"params": {
+						"wound": 1,
+						"amount": 1
+						}
+					}
+				},
+				"fail": {
+					"action": "place_wound",
+					"params": {
+						"wound": 1,
+						"amount": 1
+					}
+				}
+			}
+		},{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"fail": {
+			"action": "test",
+			"params": {
+				"Lead": 1
+			},
+			"success": {
+			"action": "confirm",
+				"params": {
+					"titleKey": "TMD_39_TITLE",
+					"content": {"key":"TMD_39_DECISION_0","values":[	{"lang":"Polish", "val":"Zużyj 1 [ClueMarkerGray] lub odnieś 1 [Wound]"},
+																		{"lang":"English","val":"Elköltesz 1 [ClueMarkerGray]-ot, vagy szerzel 1 [Wound]-t"}]},
+					"confirm": {"key":"TMD_39_CONFIRM","values":[{"lang":"Polish", "val":"Zużyj 1 [ClueMarkerGrayWhite]"},{"lang":"English","val":"1 [ClueMarkerGrayWhite]-ot költök"}]},	
+					"cancel": {"key":"TMD_39_CANCEL","values":[{"lang":"Polish", "val":"Odnieś 1 [WoundColor]"},{"lang":"English","val":"1 [WoundColor]-t szerzek"}]}
+				},
+				"success": {					
+					"action":"select_leads",
+					"params": {
+						"Lead": -1,
+						"random": false
+					}				
+				},
+				"fail": {
+					"action": "place_wound",
+					"params": {
+						"wound": 1,
+						"amount": 1
+						}
+					}
+				},
+				"fail": {
+					"action": "place_wound",
+					"params": {
+						"wound": 1,
+						"amount": 1
+					}
+				}
+			}
+		},{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"fail": {
+			"action": "test",
+			"params": {
+				"Lead": 1
+			},
+			"success": {
+			"action": "confirm",
+				"params": {
+					"titleKey": "TMD_39_TITLE",
+					"content": {"key":"TMD_39_DECISION_0","values":[	{"lang":"Polish", "val":"Zużyj 1 [ClueMarkerGray] lub odnieś 1 [Wound]"},
+																		{"lang":"English","val":"Elköltesz 1 [ClueMarkerGray]-ot, vagy szerzel 1 [Wound]-t"}]},
+					"confirm": {"key":"TMD_39_CONFIRM","values":[{"lang":"Polish", "val":"Zużyj 1 [ClueMarkerGrayWhite]"},{"lang":"English","val":"1 [ClueMarkerGrayWhite]-ot költök"}]},	
+					"cancel": {"key":"TMD_39_CANCEL","values":[{"lang":"Polish", "val":"Odnieś 1 [WoundColor]"},{"lang":"English","val":"1 [WoundColor]-t szerzek"}]}
+				},
+				"success": {					
+					"action":"select_leads",
+					"params": {
+						"Lead": -1,
+						"random": false
+					}				
+				},
+				"fail": {
+					"action": "place_wound",
+					"params": {
+						"wound": 1,
+						"amount": 1
+						}
+					}
+				},
+				"fail": {
+					"action": "place_wound",
+					"params": {
+						"wound": 1,
+						"amount": 1
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailMagicTrap",
+		"id":"TMD_40",
+		"description":{
+			"ribbon": {"key":"TMD_40_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"TMD_40_IMAGE"},
+			"title": {"key":"TMD_40_TITLE","values":[{"lang":"Polish", "val":"Rience"},
+													{"lang":"English","val":"Rience"}]},
+			"subheader": {"key":"TMD_40_SUBHEADER","values":[{"lang":"Polish", "val":"Po tym, co o nim słyszałeś, nie chciałbyś, by ktoś taki cię śledził. Niestety, jesteś pewien, że pupilek Vilgeforta zaczai się gdzieś w pobliżu."},
+															{"lang":"English","val":"Ha a Rience-ről hallott történeteknek csak a fele is igaz, akkor egyáltalán nem szeretnéd, ha ő lenne a nyomodban. Ám sajnos biztos forrásból tudod, hogy Vilgefortz kis varázsló ölebe valahol a közelben ólálkodik."}]},
+			"body": {"key":"TMD_40_BODY","values":[	{"lang":"Polish", "val":"Rzuć 3 razy kością swojej postaci. Za każdy brak sukcesu wydaj 1 [GoldCoin] albo otrzymujesz 1 [BadFateMarker]."},
+													{"lang":"English","val":"Dobj 3 alkalommal a hős-kockáddal!\n\nMinden sikertelen dobásod alkalmával költs el 1 [GoldCoin]-at, vagy szerzel 1 [BadFateMarker]-t."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailMagic"
+		},{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"fail": {
+			"action": "test",
+			"params": {
+				"Gold": 1
+			},
+			"success": {
+				"action": "confirm",
+					"params": {
+						"titleKey": "TMD_40_TITLE",
+						"content": {"key":"TMD_40_DECISION_0","values":[{"lang":"Polish", "val":"Wydaj 1 [GoldCoin] albo otrzymujesz 1 [BadFateMarker]"},
+																		{"lang":"English","val":"Költs 1 [GoldCoin]-at, vagy szerzel 1 [BadFateMarker]-t"}]},
+						"confirm": {"key":"TMD_40_CONFIRM","values":[{"lang":"Polish", "val":"Wydaj 1 [GoldCoinColor]"},{"lang":"English","val":"1 [GoldCoinColor]-at költök"}]},	
+						"cancel": {"key":"TMD_40_CANCEL","values":[{"lang":"Polish", "val":"Otrzymaj 1 [BadFateMarkerColor]"},{"lang":"English","val":"1 [BadFateMarkerColor]-t szerzek"}]}
+					},
+					"success": {					
+						"action": "resource",
+						"params": {
+							"Gold": -1
+						}				
+					},
+					"fail": {
+						"action":"place_bad_fate",
+						"params": {
+							"amount": 1
+						}
+					}
+				},
+				"fail": {
+					"action":"place_bad_fate",
+					"params": {
+						"amount": 1
+					}
+				}
+			}
+		},{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"fail": {
+			"action": "test",
+			"params": {
+				"Gold": 1
+			},
+			"success": {
+				"action": "confirm",
+					"params": {
+						"titleKey": "TMD_40_TITLE",
+						"content": {"key":"TMD_40_DECISION_0","values":[{"lang":"Polish", "val":"Wydaj 1 [GoldCoin] albo otrzymujesz 1 [BadFateMarker]"},
+																		{"lang":"English","val":"Költs 1 [GoldCoin]-at, vagy szerzel 1 [BadFateMarker]-t"}]},
+						"confirm": {"key":"TMD_40_CONFIRM","values":[{"lang":"Polish", "val":"Wydaj 1 [GoldCoinColor]"},{"lang":"English","val":"1 [GoldCoinColor]-at költök"}]},	
+						"cancel": {"key":"TMD_40_CANCEL","values":[{"lang":"Polish", "val":"Otrzymaj 1 [BadFateMarkerColor]"},{"lang":"English","val":"1 [BadFateMarkerColor]-t szerzek"}]}
+					},
+					"success": {					
+						"action": "resource",
+						"params": {
+							"Gold": -1
+						}				
+					},
+					"fail": {
+						"action":"place_bad_fate",
+						"params": {
+							"amount": 1
+						}
+					}
+				},
+				"fail": {
+					"action":"place_bad_fate",
+					"params": {
+						"amount": 1
+					}
+				}
+			}
+		},{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"fail": {
+			"action": "test",
+			"params": {
+				"Gold": 1
+			},
+			"success": {
+				"action": "confirm",
+					"params": {
+						"titleKey": "TMD_40_TITLE",
+						"content": {"key":"TMD_40_DECISION_0","values":[{"lang":"Polish", "val":"Wydaj 1 [GoldCoin] albo otrzymujesz 1 [BadFateMarker]"},
+																		{"lang":"English","val":"Költs 1 [GoldCoin]-at, vagy szerzel 1 [BadFateMarker]-t"}]},
+						"confirm": {"key":"TMD_40_CONFIRM","values":[{"lang":"Polish", "val":"Wydaj 1 [GoldCoinColor]"},{"lang":"English","val":"1 [GoldCoinColor]-at költök"}]},	
+						"cancel": {"key":"TMD_40_CANCEL","values":[{"lang":"Polish", "val":"Otrzymaj 1 [BadFateMarkerColor]"},{"lang":"English","val":"1 [BadFateMarkerColor]-t szerzek"}]}
+					},
+					"success": {					
+						"action": "resource",
+						"params": {
+							"Gold": -1
+						}				
+					},
+					"fail": {
+						"action":"place_bad_fate",
+						"params": {
+							"amount": 1
+						}
+					}
+				},
+				"fail": {
+					"action":"place_bad_fate",
+					"params": {
+						"amount": 1
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	}]
+}

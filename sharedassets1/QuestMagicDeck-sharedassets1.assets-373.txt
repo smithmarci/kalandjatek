@@ -1,0 +1,2305 @@
+{
+	"defalutDescription":{
+		"ribbon": {"key":"QMC_RIBBON","values":[{"lang":"Polish", "val":"MAGIA"},
+										 		{"lang":"English","val":"MÁGIA"}]},
+		"front": {"atlas":"Atlases/Atlas-Card-Backgrounds_002", "sprite":"Card-Front-Quest"},
+		"flag": {"atlas":"Atlases/Atlas-Card-Backgrounds_002", "sprite":"Card-Flag-Quest-Magic"},
+		"flagMini": {"atlas":"Atlases/Atlas-Slate_001", "sprite":"QuestCardMini-Flag-Magic"},
+		"back": {"atlas":"Atlases/Atlas-Card-Backgrounds_003", "sprite":"Card-Reverse-Quest-Magic"}
+	},
+	"cards":[{
+		"------------------":"------------------------",
+		"type":"QuestMagic",
+		"id":"QMC_1",
+		"description":{
+			"title": {"key":"QMC_1_TITLE","values":[{"lang":"Polish", "val":"Błogosławieństwo dla ziemi"},
+													{"lang":"English","val":"Felszentelt föld"}]},
+			"subheader": {"key":"QMC_1_SUBHEADER","values":[{"lang":"Polish", "val":"Oddziały maruderów splądrowały świątynię w pobliży Wyzimy, kradnąc cenną relikwię, używaną w wiosennym obrzędzie obsadzania pól."},
+															{"lang":"English","val":"A tavaszi ültetés-rituálé közben portyázó katonák fosztanak ki egy templomot Vizima közelében, felbecsülhetetlen értékű vallási ereklyéket zsákmányolva."}]},
+			"body": {"key":"QMC_1_BODY","values":[	{"lang":"Polish", "val":"Wytrop złodziei i odzyskaj relikwię."},
+													{"lang":"English","val":"Kövesd a tolvajok nyomát, és szerezd vissza a relikviákat!"}]}
+		},
+		"ai":{
+			"EvidenceMagic": 1,
+			"EvidenceCombat" : 1
+		},
+		"quest":{
+			"locationCondition": "Vizima",
+			"resourceCondition": "1 [EvidenceCombat] 1 [EvidenceMagic]",
+			"victoryPoints": 16,
+			"payment": {"key":"QMC_1_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu, umieść 2 [Charge] na 1 swojej karcie rozwoju oraz przesuń dwukrotnie w przód znacznik na torze wojny."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, helyezz el 2 [Charge]-t egy fejlesztés-kártyádon, és kétszer mozdítsd előre a háború menetét!"}]},
+			"shortPayment": {"key":"QMC_1_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu, rozwoju. Przesuń znacznik na torze wojny."},
+															  {"lang":"English","val":"1 jószerencse, 2 [Charge] 1 fejlesztésen, háború menetét előmozdít."}]},
+			"paymentDescription": {"key":"QMC_1_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Choć odzyskujesz relikwię, większość żołnierzy unika twojego odwetu, by dalej siać zamęt."},
+															  				  {"lang":"English","val":"Bár visszaszerzed az ereklyéket, néhány katona kereket old, és folytatja a fosztogatást a környéken."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QMC_1_SQ1_BODY","values":[{"lang":"Polish", "val":"Złóż ofiarę za powodzenie obrzędu: 2 [GoldCoin]."},
+															 {"lang":"English","val":"Áldozz a rituálé sikeréért: költs 2 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QMC_1_SQ1_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "2 [GoldCoinColor]",
+				"victoryPoints": 2,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"Gold": 2,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"Gold": -2
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			},{
+				"fullBody": {"key":"QMC_1_SQ2_BODY","values":[{"lang":"Polish", "val":"Weź udział w obrzędzie: zużyj 2 niebieskie [ClueMarkerGray]."},
+															 {"lang":"English","val":"Vegyél részt a rituáléban: költs 2 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_1_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "2 [ClueMarkerBlue]",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"MagicLead": 2,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"MagicLead": -2
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QMC_1_SUP_BODY","values":[{"lang":"Polish", "val":"Przydałaby ci się pomoc w zapłacie za kolejne ofiary: wydaj 3 [GoldCoin]."},
+															  {"lang":"English","val":"Jól jönne további támogatás a felajánlásokhoz: költs 3 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QMC_1_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [GoldCoinColor]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"Gold": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"Gold": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+		   }			
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Wyzima",
+					"MagicEvidence": 1,
+					"CombatEvidence": 1,
+					"roll": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -1,
+				"CombatEvidence": -1
+			}
+		},{
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "select_inventory_card",
+			"params": {
+				"filter": "XP",
+				"mode" :"CHARGE_ADD_TWO" 
+			}
+		},{
+			"action":"advance_war_track"
+		},{
+			"action":"advance_war_track"
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestMagic",
+		"id":"QMC_2",
+		"description":{
+			"title": {"key":"QMC_2_TITLE","values":[{"lang":"Polish", "val":"Król szczurów"},
+													{"lang":"English","val":"A patkánykirály"}]},
+			"subheader": {"key":"QMC_2_SUBHEADER","values":[{"lang":"Polish", "val":"W kanałach pod miastem dzieją się ostatnio niezwykłe rzeczy. Ludzie mówią o groźnym królu szczurów, który porywa pijaków, włóczęgów i sieroty."},
+															{"lang":"English","val":"Furcsa dolgok történnek mostanában a város csatornahálózatában. Arról járja a szóbeszéd, hogy éjszakánként egy hatalmasra nőtt patkány ragad el részegeket, csavargókat és gyanútlanul kolduló árvákat."}]},
+			"body": {"key":"QMC_2_BODY","values":[	{"lang":"Polish", "val":"Staw czoło mocy króla szczurów."},
+													{"lang":"English","val":"Kerülj szembe a patkánykirállyal!"}]}
+		},
+		"ai":{
+			"EvidenceMagic": 1,
+			"EvidenceCombat" : 1
+		},
+		"quest":{
+			"locationCondition": "Tretogor",
+			"resourceCondition": "1 [EvidenceCombat] 1 [EvidenceMagic]",
+			"victoryPoints": 16,
+			"payment": {"key":"QMC_2_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i kartę rozwoju, umieść 1 [Charge] na 1 swojej karcie rozwoju, a następnie odwróć wszystkie swoje [Wound] na stronę [WoundSevere]. Jeśli nie masz żadnej [Wound], zamiast tego odnosisz 1 [Wound]."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, helyezz el 1 [Charge]-t egy fejlesztés-kártyádon, vételezz 2 [GoldCoin]-at, és fordíts át minden [Wound]-t a [WoundSevere] oldalára! Ha nincs [Wound]-ed, szerzel 1 [Wound]-t."}]},
+			"shortPayment": {"key":"QMC_2_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu, rozwoju Przerzuć wszystkie [Wound] na [WoundSevere]."},
+															  {"lang":"English","val":"1 jószerencse, 1 [Charge] egy fejlesztésre. Minden [Wound]-t átfordít erre: [WoundSevere]."}]},
+			"paymentDescription": {"key":"QMC_2_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Król szczurów był na ciebie gotowy i choć zdołałeś go pokonać, ta walka nie wyszła ci na dobre."},
+															  				  {"lang":"English","val":"A patkánykirály már vár rád, és bár sikerül elűznöd, az összecsapás nem a legjobban alakul számodra."}]},					
+			"sideQuests": [{
+				"fullBody": {"key":"QMC_2_SQ1_BODY","values":[{"lang":"Polish", "val":"Sprawdź legendy o podobnych wypadkach: udaj się do Oxenfurtu."},
+															 {"lang":"English","val":"Vesd össze a hasonló incidensekről szóló beszámolókat: menj Oxenfurtba! -"}]},
+				"shortBody": {"key":"QMC_2_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Oxenfurt"},
+															   {"lang":"English","val":"Menj Oxenfurtba!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Oxenfurt",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QMC_2_SQ2_BODY","values":[{"lang":"Polish", "val":"Opłać najemników, by pomogli ci w ewentualnej walce: wydaj 2 [GoldCoin]."},
+															 {"lang":"English","val":"Fogadj fel zsoldosokat a várható összecsapás esetére: költs 2 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QMC_2_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "2 [GoldCoinColor]",
+				"victoryPoints": 2,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"Gold": 2,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"Gold": -2
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QMC_2_SUP_BODY","values":[{"lang":"Polish", "val":"Przydałaby ci się wsparcie kogoś zaufanego: zużyj 3 czerwone [ClueMarkerGray]."},
+															  {"lang":"English","val":"Hasznát vennéd egy megbízható kardforgatónak: költs 3 vörös [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_2_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerRed]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"CombatLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"CombatLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+		   }				
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Tretogor",
+					"MagicEvidence": 1,
+					"CombatEvidence": 1,
+					"roll": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -1,
+				"CombatEvidence": -1
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "select_inventory_card",
+			"params": {
+				"filter": "XP",
+				"mode" :"CHARGE_ADD"
+			}
+		},{
+			"action": "test",
+			"params": {
+				"woundedRegular": true
+			},
+			"success": {
+				"action":"place_posine_wound",
+				"params": {
+					"all": true
+				}
+			},
+			"fail": {
+				"action": "place_wound",
+				"params": {
+					"wound": 1,
+					"amount": 1
+				}
+			}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestMagic",
+		"id":"QMC_3",
+		"description":{
+			"title": {"key":"QMC_3_TITLE","values":[{"lang":"Polish", "val":"Miłosne smutki"},
+													{"lang":"English","val":"Melankolikus szerelem"}]},
+			"subheader": {"key":"QMC_3_SUBHEADER","values":[{"lang":"Polish", "val":"Chory z miłości żak z Akademii został uwiedziony przez sukkuba. Uciekli razem, zabierając cenny manuskrypt."},
+															{"lang":"English","val":"Szukkubusz csábítja el az Akadémia egyik, szerelemittas hallgatóját, akinek aztán nyoma is veszik, egy rendkívül ritka és értékes kézirattal egyetemben."}]},
+			"body": {"key":"QMC_3_BODY","values":[	{"lang":"Polish", "val":"Uwolnij żaka z łap sukkuba i odzyskaj księgę."},
+													{"lang":"English","val":"Szabadítsd ki a tanulót a szukkubusz bűvöletéből, és szerezd vissza a könyvet!"}]}
+		},
+		"ai":{
+			"EvidenceMagic": 1,
+			"EvidenceDiplomacy" : 1
+		},
+		"quest":{
+			"locationCondition": "Oxenfurt",
+			"resourceCondition": "1 [EvidenceDiplomacy] 1 [EvidenceMagic]",
+			"victoryPoints": 12,
+			"payment": {"key":"QMC_3_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu, umieść 1 [Charge] na swojej karcie rozwoju."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, és helyezz el 1 [Charge]-t egy fejlesztés-kártyádon!"}]},
+			"shortPayment": {"key":"QMC_3_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. [Charge] na karcie rozwoju."},
+															  {"lang":"English","val":"1 jószerencse. 1 [Charge] egy fejlesztésen."}]},
+			"paymentDescription": {"key":"QMC_3_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Uwalniasz żaka, który w hańbie wraca do Akademii. Rektor osobiście dziękuje ci za odzyskanie starannie ilustrowanego traktatu o anatomii. Chce wesprzeć twoje działania całą swoją wiedzą."},
+															  				  {"lang":"English","val":"Megtöröd a szukkubusz bűbáját, így a diák - megszégyenülve bár, de - visszatér az Akadémiára. A dékán személyesen köszöni meg neked, hogy visszaszerezted a rendkívül szemléletes illusztrációkban gazdag anatómiai értekezést, és minden tudását latba veti, hogy a segítségedre legyen."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QMC_3_SQ1_BODY","values":[{"lang":"Polish", "val":"Przekonaj sukkuba do uwolnienia żaka: zużyj 3 fioletowe [ClueMarkerGray]."},
+															 {"lang":"English","val":"Győzd meg a szukkubuszt, hogy eressze el a diákot: költs 3 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_3_SQ1_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerPurple]",
+				"victoryPoints": 4,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"DiplomacyLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"DiplomacyLead": -3
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			},{
+				"fullBody": {"key":"QMC_3_SQ2_BODY","values":[{"lang":"Polish", "val":"Przygotuj zaklęcie ogłuszające: zużyj 2 niebieskie [ClueMarkerGray]."},
+															 {"lang":"English","val":"Készülj fel egy kábító-varázslatra: költs 2 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_3_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "2 [ClueMarkerBlue]",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"MagicLead": 2,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"MagicLead": -2
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QMC_3_SUP_BODY","values":[{"lang":"Polish", "val":"Przydadzą ci się słodkie słówka, by wyrwać żaka z magii sukkuba: zużyj 3 fioletowe [ClueMarkerGray]."},
+															  {"lang":"English","val":"Jól jönne néhány mézes-mázas szó a szukkubusz bűbájának megtöréséhez: költs 3 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_3_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerPurple]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"DiplomacyLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"DiplomacyLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+		   }				
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Oxenfurt",
+					"MagicEvidence": 1,
+					"DiplomacyEvidence": 1,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -1,
+				"DiplomacyEvidence": -1
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "select_inventory_card",
+			"params": {
+				"filter": "XP",
+				"mode": "CHARGE_ADD"
+			}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestMagic",
+		"id":"QMC_4",
+		"description":{
+			"title": {"key":"QMC_4_TITLE","values":[{"lang":"Polish", "val":"Mała syrenka"},
+													{"lang":"English","val":"A kis szirén"}]},
+			"subheader": {"key":"QMC_4_SUBHEADER","values":[{"lang":"Polish", "val":"To miała być miłość jak z baśni, ale książę szybko okazał się okrutny i władczy. Syrenka chce odzyskać ogon i wrócić na swobodę, do rzeki."},
+															{"lang":"English","val":"Igazi lovagregény-románcnak indul, ám a herceg hamar basáskodóvá és kegyetlenné válik. A szirén szeretné visszakapni az uszonyát, hogy visszatérhessen a szabadságot jelentő habokba."}]},
+			"body": {"key":"QMC_4_BODY","values":[	{"lang":"Polish", "val":"Namów wodną wiedźmę, by zmieniła nogi syrenki z powrotem w rybi ogon."},
+													{"lang":"English","val":"Győzz meg egy víziboszorkát, hogy változtassa vissza a szirén lábait uszonnyá!"}]}
+		},
+		"ai":{
+			"EvidenceMagic": 1,
+			"EvidenceDiplomacy" : 1
+		},
+		"quest":{
+			"locationCondition": "A Jaruga",
+			"resourceCondition": "1 [EvidenceDiplomacy] 1 [EvidenceMagic]",
+			"victoryPoints": 12,
+			"payment": {"key":"QMC_4_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i 3 [GoldCoin] oraz przesuń w przód znacznik na torze wojny."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, vételezz 3 [GoldCoin]-at, majd mozdítsd előre a háború menetét!"}]},
+			"shortPayment": {"key":"QMC_4_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu, 3 [GoldCoin]. Przesuń w przód znacznik na torze wojny."},
+															  {"lang":"English","val":"1 jószerencse, 3 [GoldCoin]. Háború menetét előmozdít."}]},
+			"paymentDescription": {"key":"QMC_4_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Syrena radośnie wraca do wody, a wściekły książę przeczesuje rzekę w poszukiwaniu małżonki, łamiąc kilka umów połowowych z Nilfgaardem"},
+															  				  {"lang":"English","val":"A kis szirén immár boldogan tér vissza a habokba, miután megajándékoz egy marék értékes igazgyönggyel. A feldühödött herceg tűvé teszi a folyót az arája után kutatva, ezzel egy sor, Nilfgaarddal kötött halászati egyezményt megszegve."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QMC_4_SQ1_BODY","values":[{"lang":"Polish", "val":"Dowiedz się od wiedźminów, jak przekonać wodną wiedźmę: udaj się do Kaer Morhen."},
+															 {"lang":"English","val":"Talán a vajákok tudják, miképp lehet meggyőzni egy víziboszorkát: menj Kaer Morhenbe! -"}]},
+				"shortBody": {"key":"QMC_4_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Kaer Morhen"},
+															   {"lang":"English","val":"Menj Kaer Morhenbe!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Kaer Morhen",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QMC_4_SQ2_BODY","values":[{"lang":"Polish", "val":"Przygotuj się na nieuniknioną zemstę księcia i jego rodziny: zużyj 3 czerwone [ClueMarkerGray]."},
+															 {"lang":"English","val":"Készülj fel a herceg és családja elkerülhetetlennek tűnő bosszújára: költs 3 vörös [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_4_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerRed]",
+				"victoryPoints": 4,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"CombatLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"CombatLead": -3
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QMC_4_SUP_BODY","values":[{"lang":"Polish", "val":"Przydałaby ci pomoc podczas rytuału przemiany: zużyj 3 niebieskie [ClueMarkerGray]."},
+															  {"lang":"English","val":"Hasznát vennéd segítségnek az átváltoztatás-rituáléhoz: költs 3 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_4_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerBlue]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"MagicLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"MagicLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+		   }												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Jaruga",
+					"MagicEvidence": 1,
+					"DiplomacyEvidence": 1,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -1,
+				"DiplomacyEvidence": -1
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "resource",
+			"params": {
+				"Gold": 3
+			}
+		},{
+			"action": "advance_war_track"
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestMagic",
+		"id":"QMC_5",
+		"description":{
+			"title": {"key":"QMC_5_TITLE","values":[{"lang":"Polish", "val":"Zaginione miasto Ys"},
+													{"lang":"English","val":"Ys elveszett városa"}]},
+			"subheader": {"key":"QMC_5_SUBHEADER","values":[{"lang":"Polish", "val":"Legendy o magicznej mapie, ukazujących umiejscowienie zatopionego miasta Ys, są na ustach wszystkich i zainteresowały także Dijkstrę."},
+															{"lang":"English","val":"Beszélnek egy legendáról, mely szerint létezik egy mágikus térkép, amelyen fel van tüntetve Ys elsüllyedt városának helye. Dijkstra is élénken érdeklődik eme térkép után."}]},
+			"body": {"key":"QMC_5_BODY","values":[	{"lang":"Polish", "val":"Jeśli ktokolwiek ma taką mapę, to wiedźmini. Może warto choć zajrzeć do ich biblioteki."}, 
+													{"lang":"English","val":"Ha valakik tudhatnak valamit egy ilyen térképről, akkor azok a vajákok. Talán egy bepillantás a könyvtárukba nem árthat..."}]}
+		},
+		"ai":{
+			"EvidenceMagic": 2
+		},
+		"quest":{
+			"locationCondition": "Kaer Morhen",
+			"resourceCondition": "2 [EvidenceMagic]",
+			"victoryPoints": 8,
+			"payment": {"key":"QMC_5_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu, otrzymujesz 1 [BadFateMarker] i przesuń w przód znacznik na torze wojny."},
+														{"lang":"English","val":"Húzz egy jószerencse-kártyát, szerzel 1 [BadFateMarker]-t, és mozdítsd előre a háború menetét!"}]},
+			"shortPayment": {"key":"QMC_5_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. 1 [BadFateMarker]. Przesuń w przód znacznik na torze wojny."},
+															  {"lang":"English","val":"1 jószerencse-kártya. 1 [BadFateMarker]. Háború menetét előmozdít."}]},
+			"paymentDescription": {"key":"QMC_5_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Pogłoski o mapie zawiodły cię w ślepy zaułek, ale teraz Dijkstra podejrzewa, że ty ją masz. Minie trochę czasu, zanim umkniesz przed jego czujnym wzrokiem."},
+															  				  {"lang":"English","val":"A térképről szóló pletykák zsákutcának bizonyulnak, viszont Dijkstra meg van győződve róla, hogy az mégis nálad van. Nem lesz könnyű levakarnod magadról sem őt, sem a bérenceit."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QMC_5_SQ1_BODY","values":[{"lang":"Polish", "val":"Poznaj bliżej legendy o zatopionym mieście: udaj się do Duén Canell."},
+															 {"lang":"English","val":"Egyesek szerint a város a Duén Canellhez közeli partoktól nem messze süllyedt el: menj Duén Canellbe! -"}]},
+				"shortBody": {"key":"QMC_5_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Duén Canell"},
+															   {"lang":"English","val":"Menj Duén Canellbe!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Duén Canell",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QMC_5_SQ2_BODY","values":[{"lang":"Polish", "val":"Zostaw fałszywy trop dla Dijkstry: zużyj 4 fioletowe [ClueMarkerGray]."},
+															 {"lang":"English","val":"Hagyj hamis nyomokat Dijkstra számára: költs 4 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_5_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "4 [ClueMarkerPurple]",
+				"victoryPoints": 5,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"DiplomacyLead": 4,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"DiplomacyLead": -4
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QMC_5_SUP_BODY","values":[{"lang":"Polish", "val":"Potrzebujesz kogoś, kto odwróci uwagę Dijkstry od twoich poszukiwań na północy: zużyj 3 fioletowe [ClueMarkerGray]."},
+															  {"lang":"English","val":"Jól jönne, ha valaki elterelné Dijkstra figyelmét a küldetésedről: költs 3 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_5_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerPurple]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"DiplomacyLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"DiplomacyLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+		   }													 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Kaer Morhen",
+					"MagicEvidence": 2,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -2
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "place_bad_fate",
+			"params": {
+				"amount": 1
+			}
+		},{
+			"action": "advance_war_track"
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestMagic",
+		"id":"QMC_6",
+		"description":{
+			"title": {"key":"QMC_6_TITLE","values":[{"lang":"Polish", "val":"Kontrakt dla wojska"},
+													{"lang":"English","val":"Védelmi szerződés"}]},
+			"subheader": {"key":"QMC_6_SUBHEADER","values":[{"lang":"Polish", "val":"Czarodziej Horst Yensen pokpił sprawę dostarczenia wojsku obiecanych zaklętych amuletów i teraz grozi mu egzekucja, jeśli ktoś mu nie pomoże."},
+															{"lang":"English","val":"A Horst Yensen nevű varázsló kudarcot vall a hadseregnek ígért bűvös amulettek megadott időre történő leszállításában, így kivégzés vár rá - hacsak valaki közbe nem avatkozik."}]},
+			"body": {"key":"QMC_6_BODY","values":[	{"lang":"Polish", "val":"Pomóż Horstowi dokończyć amulety na czas."},
+													{"lang":"English","val":"Segíts Horstnak időben befejezni az amuletteket!"}]}
+		},
+		"ai":{
+			"EvidenceMagic": 2
+		},
+		"quest":{
+			"locationCondition": "Ard Carraigh",
+			"resourceCondition": "2 [EvidenceMagic]",
+			"victoryPoints": 8,
+			"payment": {"key":"QMC_6_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i przesuń w przód znacznik na torze wojny."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, és mozdítsd előre a háború menetét!"}]},
+			"shortPayment": {"key":"QMC_6_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. Przesuń w przód znacznik na torze wojny."},
+															  {"lang":"English","val":"1 jószerencse-kártya. Háború menetét előmozdít."}]},
+			"paymentDescription": {"key":"QMC_6_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Amulety zostają dostarczone w ostatniej chwili i Horst uchodzi z życiem, choć nie ma już mowy o zapłacie, z której możesz coś wyciągnąć. Żołnierze zakładają amulety na szyje, przygotowując się do wojny."},
+															  				  {"lang":"English","val":"Még épp időben elkészültök az amulettekkel, így Horst is megússza ép bőrrel. Bár a fizetségetek a késedelem miatt mind elúszik. Háborúra készülő katonák sora akasztja nyakába az amuletteket."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QMC_6_SQ1_BODY","values":[{"lang":"Polish", "val":"Zdobądź listy żelazne dla Horsta, na wypadek, gdyby sprawy przybrały zły obrót: udaj się do Oxenfurtu."},
+															 {"lang":"English","val":"Biztosítsd Horst diplomáciai védettségét arra az esetre, ha valami balul sülne el: menj Oxenfurtba! -"}]},
+				"shortBody": {"key":"QMC_6_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Oxenfurt"},
+															   {"lang":"English","val":"Menj Oxenfurtba!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Oxenfurt",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QMC_6_SQ2_BODY","values":[{"lang":"Polish", "val":"Użyj swojej magii i przekonaj oficerów, by dali Horstowi więcej czasu: zużyj 4 niebieskie [ClueMarkerGray]."},
+															 {"lang":"English","val":"Használd a mágiádat a tisztek meggyőzésére, hogy haladékot adjanak: költs 4 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_6_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "4 [ClueMarkerBlue]",
+				"victoryPoints": 5,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"MagicLead": 4,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"MagicLead": -4
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QMC_6_SUP_BODY","values":[{"lang":"Polish", "val":"Trochę złota w kieszeni właściwego oficera uspokoi sytuację: wydaj 3 [GoldCoin]."},
+															  {"lang":"English","val":"Egy kevéske arany a megfelelő katonatiszt zsebébe csúsztatva segíthet a kedélyek lecsillapításában: költs 3 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QMC_6_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [GoldCoinColor]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"Gold": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"Gold": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+		   }													 											 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Ard Carraigh",
+					"MagicEvidence": 2,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -2
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "advance_war_track"
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestMagic",
+		"id":"QMC_7",
+		"description":{
+			"title": {"key":"QMC_7_TITLE","values":[{"lang":"Polish", "val":"Zaklęta biżuteria"},
+													{"lang":"English","val":"Elátkozott ékszer"}]},
+			"subheader": {"key":"QMC_7_SUBHEADER","values":[{"lang":"Polish", "val":"Odkrywasz, że ktoś posłał dwórce w Cintrze kolię z zaklętych bursztynów. Kto wie, jakie straszne rzeczy mogą się zdarzyć, jeśli ją włoży"},
+															{"lang":"English","val":"Felfedezed, hogy a cintrai udvar egyik udvarhölgyének valaki egy elátkozott gyöngyökből álló nyakéket küld. Ki tudja, miféle szörnyűségek történnének, ha a hölgynek netalántán viselni támadna kedve!"}]},
+			"body": {"key":"QMC_7_BODY","values":[	{"lang":"Polish", "val":"Odszukaj posłańca ze szkatułą i zdejmij zaklęcie z bursztynów."},
+													{"lang":"English","val":"Találd meg a küldöncöt, aki az ékszeres dobozt hozta, és semlegesítsd az átkot!"}]}
+		},
+		"ai":{
+			"EvidenceMagic": 2
+		},
+		"quest":{
+			"locationCondition": "Cintra",
+			"resourceCondition": "2 [EvidenceMagic]",
+			"victoryPoints": 8,
+			"payment": {"key":"QMC_7_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu. Następnie wszyscy gracze rzucają swoimi kośćmi. W razie braku sukcesu dany gracz odnosi 1 [Wound]."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát! Ezután minden hős dob a hős-kockájával: minden sikertelen eredményt dobó hős szerez 1 [Wound]-t."}]},
+			"shortPayment": {"key":"QMC_7_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. Rzuć kością by uniknąć [Wound]."},
+															  {"lang":"English","val":"1 jószerencse. Hős-kockával dobás a [Wound] elkerüléséhez."}]},
+			"paymentDescription": {"key":"QMC_7_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Ten, kto podarował zaklętą kolię, nie był zadowolony, że coś się nie powiodło, i od razu podejmuje kroki przeciwko tobie i twoim towarzyszom."},
+															  				  {"lang":"English","val":"Bárki is áll az elátkozott nyaklánccal kapcsolatos machináció mögött, most bizony nem repes az örömtől, és azon nyomban válaszlépéseket foganatosít ellened."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QMC_7_SQ1_BODY","values":[{"lang":"Polish", "val":"Zdobądź zastępczą kolię: udaj się do Mahakamu."},
+															 {"lang":"English","val":"Helyettesítsd a nyakláncot egy hű másolattal: menj Mahakamba! -"}]},
+				"shortBody": {"key":"QMC_7_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Mahakam"},
+															   {"lang":"English","val":"Menj Mahakamba!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Mahakam",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QMC_7_SQ2_BODY","values":[{"lang":"Polish", "val":"Poznaj dokładną trasę posłańca: zużyj 4 fioletowe [ClueMarkerGray]."},
+															 {"lang":"English","val":"Derítsd ki, milyen utat járt be a küldönc: költs 4 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_7_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "4 [ClueMarkerPurple]",
+				"victoryPoints": 5,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"DiplomacyLead": 4,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"DiplomacyLead": -4
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QMC_7_SUP_BODY","values":[{"lang":"Polish", "val":"Byłoby łatwiej, gdyby ktoś po prostu przekupił posłańca: wydaj 3 [GoldCoin]."},
+															  {"lang":"English","val":"Minden simábban alakulna, ha valaki egyszerűen csak lefizetné a küldöncöt: költs 3 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QMC_7_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [GoldCoinColor]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"Gold": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"Gold": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+		   }												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Cintra",
+					"MagicEvidence": 2,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -2
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "dispatch",
+			"params": {
+				"characterMode": "ALL",
+				"description":{
+					"title": {"key":"QMC_7_TITLE_1","values":[{"lang":"Polish","val":"Zaklęta biżuteria"},
+													 {"lang":"English","val":"Elátkozott ékszer"}]},
+					"body": {"key":"QMC_7_BODY_1","values":[	{"lang":"Polish", "val":"Rzucasz swoimi koścmi. W razie braku sukcesu odnosisz 1 [Wound]."},
+													{"lang":"English","val":"Dobj a hős-kockáddal! Amennyiben nem lesz sikeres a dobás, szerzel 1 [Wound]-t."}]}
+				},
+				"task": {
+					"action": "success_roll",
+					"params": {
+						"condition": ["character"],
+						"characterOnly": true
+					},
+					"fail": {
+						"action": "place_wound",
+						"params": {
+							"amount": 1,
+							"wound": 1
+						}
+					}
+				}
+			}			
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestMagic",
+		"id":"QMC_8",
+		"description":{
+			"title": {"key":"QMC_8_TITLE","values":[{"lang":"Polish", "val":"Krasnoludzki starosta"},
+													{"lang":"English","val":"A törp elöljáró"}]},
+			"subheader": {"key":"QMC_8_SUBHEADER","values":[{"lang":"Polish", "val":"Po ogłoszeniu, że mieszek z gałęzi jeżyn to nienaruszalny krasnoludzki zwyczaj, Brouver Hoog, starosta Mahakamu, uczcił ten fakt zjedzeniem beczki giczy wieprzowych i się rozchorował. Wezwano cię, byś go wyleczył."},
+															{"lang":"English","val":"Miután a gatyapőc viselését sérthetetlen törp szokásnak nyilvánítják, Brouver Hoog, Mahakam elöljárója ágynak esik az ünnepség során elfogyasztott hordónyi disznócsülöktől. Téged kéretnek, hogy kigyógyítsd a nyavalyából."}]},
+			"body": {"key":"QMC_8_BODY","values":[	{"lang":"Polish", "val":"Krzywonogie krasnoludy z Mahakamu dają wyraźnie do zrozumienia, że nie spieszy im się ze stawianiem tradycjonalistycznego starosty na nogi"},
+													{"lang":"English","val":"A karikalábú törpök világosan értésedre adják, hogy nem kell nagyon kapkodnod a túlságosan is hagyománytisztelő elöljáró kikúrálásával."}]}
+		},
+		"ai":{
+			"EvidenceMagic": 1,
+			"EvidenceDiplomacy" : 1
+		},
+		"quest":{
+			"locationCondition": "Mahakam",
+			"resourceCondition": "1 [EvidenceDiplomacy] 1 [EvidenceMagic]",
+			"victoryPoints": 12,
+			"payment": {"key":"QMC_8_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu, umieść 1 [Charge] na swojej karcie rozwoju a następnie opóźnij działania."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, helyezz el 1 [Charge]-t egy fejlesztés-kártyádon, és vesztegelj!"}]},
+			"shortPayment": {"key":"QMC_8_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. 1 [Charge]. Opóźnij działania."},
+															  {"lang":"English","val":"1 jószerencse. 1 [Charge] egy fejlesztésre. Feltartóztatnak."}]},
+			"paymentDescription": {"key":"QMC_8_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Mimo twoich najgorszych starań, Brouver cudownie wraca do zdrowia. „Wdzięczne” krasnoludy nalegają, byś przyjęła zapłatę w postaci 10 skrzyń rudy żelaza, które znacznie cię obciążają."},
+															  				  {"lang":"English","val":"Leggyengébb erőfeszítéseid ellenére Brouver csodával határos módon felépül. Ezért törp társai ragaszkodnak hozzá, hogy 10 ládányi vassal hálálhassák meg szolgálataidat."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QMC_8_SQ1_BODY","values":[{"lang":"Polish", "val":"Kup trochę oleju wężowego, który z pewnością nie zadziała: udaj się do Novigradu."},
+															 {"lang":"English","val":"Vásárolj garantáltan hatástalan kígyóolajat: menj Novigrádba! -"}]},
+				"shortBody": {"key":"QMC_8_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Novigrad"},
+															   {"lang":"English","val":"Menj Novigrádba!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Novigrad",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QMC_8_SQ2_BODY","values":[{"lang":"Polish", "val":"Zbadaj sposoby ulżenia wzdętym trzewiom starego krasnoluda: zużyj 3 fioletowe [ClueMarkerGray]."},
+															 {"lang":"English","val":"Derítsd ki, mivel csillapíthatnád az öreg törp beleinek háborgását: költs 3 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_8_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerPurple]",
+				"victoryPoints": 4,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"DiplomacyLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"DiplomacyLead": -3
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QMC_8_SUP_BODY","values":[{"lang":"Polish", "val":"Składniki fałszywego toniku są dość kosztowne: wydaj 3 [GoldCoin]."},
+															  {"lang":"English","val":"A hamis tinktúra elkészítése rendkívül drága. Kérj kölcsön: költs 3 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QMC_8_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [GoldCoinColor]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"Gold": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"Gold": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+		   }												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Mahakam",
+					"MagicEvidence": 1,
+					"DiplomacyEvidence": 1,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -1,
+				"DiplomacyEvidence": -1
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "select_inventory_card",
+			"params": {
+				"filter": "XP",
+				"mode": "CHARGE_ADD"
+			}
+		},{
+			"action":"delay_action"
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestMagic",
+		"id":"QMC_9",
+		"description":{
+			"title": {"key":"QMC_9_TITLE","values":[{"lang":"Polish", "val":"Marynarski zwiad"},
+													{"lang":"English","val":"Tengeri felderítés"}]},
+			"subheader": {"key":"QMC_9_SUBHEADER","values":[{"lang":"Polish", "val":"Wkrótce zacznie się ceremonia wodowania nowego okrętu flagowego cesarza o nazwie Nauzicaa. To świetna okazja, by sprawdzić jego magiczne zabezpieczenia i znaleźć słabe punkty."},
+															{"lang":"English","val":"Hamarosan sor kerül a Nauzicaának, a császár új zászlóshajójának vízrebocsátására. Itt a tökéletes alkalom a hajó mágikus védelmének próbára tételére, és az esetleges gyenge pontjainak felderítésére."}]},
+			"body": {"key":"QMC_9_BODY","values":[	{"lang":"Polish", "val":"Weź udział w uroczystości i dyskretnie zbadaj okręt."},
+													{"lang":"English","val":"Vegyél részt a ceremónián, és közben titokban vizsgáld meg a hajót!"}]}
+		},
+		"ai":{
+			"EvidenceMagic": 1,
+			"EvidenceCombat" : 1
+		},
+		"quest":{
+			"locationCondition": "Cintra",
+			"resourceCondition": "1 [EvidenceCombat] 1 [EvidenceMagic]",
+			"victoryPoints": 16,
+			"payment": {"key":"QMC_9_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i 1 kartę śledztwa; następnie otrzymujesz 2 [BadFateMarker]."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, húzz 1 nyomkeresés-kártyát, és szenvedj el 2 [BadFateMarker]-t!"}]},
+			"shortPayment": {"key":"QMC_9_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu, śledztwa. 2 [BadFateMarker]."},
+															  {"lang":"English","val":"1 jószerencse, 1 nyomkeresés. 2 [BadFateMarker]."}]},
+			"paymentDescription": {"key":"QMC_9_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Zbierasz wiele informacji o nilfgaardzkiej flocie, ale musisz uciekać, bo kilku cesarskich agentów przyłapuje cię na węszeniu."},
+															  				  {"lang":"English","val":"Rengeteg hasznos dolgot megtudsz a nilfgaardi flottáról, de kénytelen vagy felkötni a nyúlcipőt, amikor néhány birodalmi ügynök rajtakap a vizsgálódáson."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QMC_9_SQ1_BODY","values":[{"lang":"Polish", "val":"Skonsultuj się z doświadczonym szkutnikiem: udaj się do Novigradu."},
+															 {"lang":"English","val":"Beszélj egy tapasztalt hajóáccsal: menj Novigrádba! -"}]},
+				"shortBody": {"key":"QMC_9_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Novigrad"},
+															   {"lang":"English","val":"Menj Novigrádba!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Novigrad",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QMC_9_SQ2_BODY","values":[{"lang":"Polish", "val":"Poznaj dokładną funkcję bojową okrętu: zużyj 2 czerwone [ClueMarkerGray]."},
+															 {"lang":"English","val":"Derítsd ki, mi is pontosan a hajó szerepe a nilfgaardi hadműveletekben: költs 2 vörös [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_9_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "2 [ClueMarkerRed]",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"CombatLead": 2,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"CombatLead": -2
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QMC_9_SUP_BODY","values":[{"lang":"Polish", "val":"Dobrze byłoby mieć tam przyjaciela do pomocy: zużyj 3 fioletowe [ClueMarkerGray]."},
+															  {"lang":"English","val":"Jó volna, ha lenne kivel táncolnod a ceremónia után: költs 3 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_9_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerPurple]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"DiplomacyLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"DiplomacyLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+		   }						 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Cintra",
+					"MagicEvidence": 1,
+					"CombatEvidence": 1,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -1,
+				"CombatEvidence": -1
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "draw_card",
+			"params": {
+				"deck": "Investigation",
+				"amount": 1
+			}
+		},{
+			"action":"place_bad_fate",
+			"params": {
+				"amount": 2
+			}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestMagic",
+		"id":"QMC_10",
+		"description":{
+			"title": {"key":"QMC_10_TITLE","values":[{"lang":"Polish", "val":"Ciało w kamień"},
+													{"lang":"English","val":"Húsból kő"}]},
+			"subheader": {"key":"QMC_10_SUBHEADER","values":[{"lang":"Polish", "val":"Gdy czarodziejka Keira Metz podróżowała przez głuszę Brokilonu, ktoś przemienił ją w misterną, piękną figurkę i pozostawił pośrodku lasu."},
+															{"lang":"English","val":"Miközben Keira Metz átutazik Brokilon ősi erdejein, valaki vagy valami egy tökéletesen faragott szoborrá változtatja, majd otthagyja a vadon kellős közepén."}]},
+			"body": {"key":"QMC_10_BODY","values":[	{"lang":"Polish", "val":"Odczyń zaklęcie i przywróć Keirę do zwykłej postaci."},
+													{"lang":"English","val":"Fordítsd vissza a varázslatot, és változtasd vissza Keirát!"}]}
+		},
+		"ai":{
+			"EvidenceMagic": 2
+		},
+		"quest":{
+			"locationCondition": "Brokilon",
+			"resourceCondition": "2 [EvidenceMagic]",
+			"victoryPoints": 8,
+			"enemyTaps": ["EnemyType1", "EnemyType2"],
+			"payment": {"key":"QMC_10_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i odrzuć 1 ze swoich kart śledztwa."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, és dobd el 1 nyomkeresés-kártyádat!"}]},
+			"shortPayment": {"key":"QMC_10_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. Odrzuć 1 kartę śledztwa."},
+															  {"lang":"English","val":"1 jószerencsét húzz. 1 nyomkeresést dobj el."}]},
+			"paymentDescription": {"key":"QMC_10_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Uratowana Keira raz po raz ci dziękuje a jej oczy błyszczą żądzą zemsty. W ciągu kolejnych dni słyszysz doniesienia o różnych urzędnikach i dygnitarzach, zaczepianych przez ognistą jasnowłosą czarodziejkę. To utrudni ci śledztwo."},
+															  				  {"lang":"English","val":"Keira nem győz hálálkodni neked. Érzed, hogy fűti a bosszúvágy. Az elkövetkező napok híradásai egy felbőszült szőke varázslónőtől, és az általa megvádolt tisztviselőktől és méltóságoktól hangosak. Ez eléggé megnehezíti a te nyomozásodat is."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QMC_10_SQ1_BODY","values":[{"lang":"Polish", "val":"Spytaj driad, czy wiedzą, co się stało: zużyj 4 fioletowe [ClueMarkerGray]."},
+															 {"lang":"English","val":"Kérdezd meg a driádokat, tudnak-e valamit a történtekről: költs 4 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_10_SQ1_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "4 [ClueMarkerPurple]",
+				"victoryPoints": 5,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"DiplomacyLead": 4,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"DiplomacyLead": -4
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			},{
+				"fullBody": {"key":"QMC_10_SQ2_BODY","values":[{"lang":"Polish", "val":"Kup eliksir wzmacniający, by pomóc Keirze po odczarowaniu: wydaj 4 [GoldCoin]."},
+															 {"lang":"English","val":"Vásárolj erősítő-elixírt, ezzel is segítve Keirának a bűbáj megtörése után: költs 4 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QMC_10_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "4 [GoldCoinColor]",
+				"victoryPoints": 4,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"Gold": 4,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"Gold": -4
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QMC_10_SUP_BODY","values":[{"lang":"Polish", "val":"Przydałby ci się ktoś znający ten rodzaj magii do pomocy w zdjęciu zaklęcia: zużyj 3 niebieskie [ClueMarkerGray]."},
+															  {"lang":"English","val":"Nagy hasznát vennéd valakinek, aki jártas a visszafordító varázslatokban: költs 3 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_10_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerBlue]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"MagicLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"MagicLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+		   }												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Brokilon",
+					"MagicEvidence": 2,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -2
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "select_inventory_card",
+			"params": {
+				"filter": "Trail",
+				"mode": "DISCARD",
+				"amount": 1
+			}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestMagic",
+		"id":"QMC_11",
+		"description":{
+			"title": {"key":"QMC_11_TITLE","values":[{"lang":"Polish", "val":"Źródło fisstechu"},
+													{"lang":"English","val":"A fisztek forrása"}]},
+			"subheader": {"key":"QMC_11_SUBHEADER","values":[{"lang":"Polish", "val":"Pojawiły się doniesienia o Scoia'tael, wytwarzających i rozprowadzających fisstech w pobliżu Dol Blathanna. Ktoś chyba powinien położyć temu kres."},
+															{"lang":"English","val":"Dol Blathanna közelében fiszteket készítő és terjesztő tündékről érkeznek beszámolók. Ideje volna véget vetni a bódítószert előállítók ténykedéseinek."}]},
+			"body": {"key":"QMC_11_BODY","values":[	{"lang":"Polish", "val":"Zbierz dowody na temat fisstechu w okolicy."},
+													{"lang":"English","val":"Gyűjts fisztek jelenlétére utaló bizonyítékokat a környékből!"}]}
+		},
+		"ai":{
+			"EvidenceMagic": 1,
+			"EvidenceCombat" : 1
+		},
+		"quest":{
+			"locationCondition": "Dol Blathanna",
+			"resourceCondition": "1 [EvidenceCombat] 1 [EvidenceMagic]",
+			"victoryPoints": 16,
+			"payment": {"key":"QMC_11_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i 1 [ClueMarkerGray], oraz przesuń w przód znacznik na torze wojny."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, vételezz 1 [ClueMarkerGray]-ot, mozdítsd előre a háború menetét!"}]},
+			"shortPayment": {"key":"QMC_11_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. 1 [ClueMarkerGray]. Przesuń w przód znacznik na torze wojny."},
+															  {"lang":"English","val":"1 jószerencse, 1 [ClueMarkerGray], és háború menetét előmozdít."}]},
+			"paymentDescription": {"key":"QMC_11_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Przekazujesz dowody miejscowym władzom, które szybko kładą kres procederowi. Elfy są wściekłe z powodu twoich działań na ich terenie i wkrótce zaczynają sprawiać kłopoty."},
+															  				  {"lang":"English","val":"Bemutatod a hatóságoknak az általad gyűjtött bizonyítékokat, így hamar felszámolják a bűnbandát. A Scoia'tael rendkívül dühös, amiért elvágtad a fisztek utánpótlásukat, és rendbontásba kezd a környező területeken."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QMC_11_SQ1_BODY","values":[{"lang":"Polish", "val":"Przepytaj informatorów z komand Scoia'tael: udaj się do Brokilonu."},
+															 {"lang":"English","val":"Szerezz értesüléseket a Scoia'tael besúgóidtól: menj Brokilonba! -"}]},
+				"shortBody": {"key":"QMC_11_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Brokilon"},
+															   {"lang":"English","val":"Menj Brokilonba!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Brokilon",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QMC_11_SQ2_BODY","values":[{"lang":"Polish", "val":"Rozpraw się z kilkoma dostawcami: zużyj 2 czerwone [ClueMarkerGray]."},
+															 {"lang":"English","val":"Számolj le néhány beszállítóval: költs 2 vörös [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_11_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "2 [ClueMarkerRed]",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"CombatLead": 2,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"CombatLead": -2
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QMC_11_SUP_BODY","values":[{"lang":"Polish", "val":"Przydałaby ci się pomoc w infiltracji siatki dystrybucyjnej: zużyj 3 fioletowe [ClueMarkerGray]."},
+															  {"lang":"English","val":"Jól jönne némi segítség a bódítószert terjesztő hálózat felszámolásához: költs 3 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_11_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerPurple]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"DiplomacyLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"DiplomacyLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+		   }												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Dol Blathanna",
+					"MagicEvidence": 1,
+					"CombatEvidence": 1,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -1,
+				"CombatEvidence": -1
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action":"select_leads", 
+			"params": {
+				"DiplomacyLead": 1,
+				"CombatLead": 1,
+				"MagicLead": 1
+			}
+		},{
+			"action": "advance_war_track"
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestMagic",
+		"id":"QMC_12",
+		"description":{
+			"title": {"key":"QMC_12_TITLE","values":[{"lang":"Polish", "val":"Zagadka stali"},
+													{"lang":"English","val":"Az acél titkai"}]},
+			"subheader": {"key":"QMC_12_SUBHEADER","values":[{"lang":"Polish", "val":"Syn marnotrawny gnoma Marcela Schultza popadł w tarapaty w półświatku. Młody, zadłużony gnom może zechcieć sprzedać sekret stali ojca – o ile go odnajdziesz."},
+															{"lang":"English","val":"Marcel Schultz, a gnóm tékozló fia bajba keveredett alvilági körökben. A fiatal, eladósodott gnóm talán hajlandó volna eladni az apja által készített acél titkát - már ha rátalálsz azelőtt, hogy az alvilág söpredéke bukkanna a nyomára."}]},
+			"body": {"key":"QMC_12_BODY","values":[	{"lang":"Polish", "val":"Za pomocą magii ustal miejsce, gdzie ukrywa się syn Marcela."},
+													{"lang":"English","val":"Használj mágiát a fiú búvóhelyének megtalálásához!"}]}
+		},
+		"ai":{
+			"EvidenceMagic": 2
+		},
+		"quest":{
+			"locationCondition": "Shaerrawedd",
+			"resourceCondition": "2 [EvidenceMagic]",
+			"victoryPoints": 8,
+			"enemyTaps": ["EnemyType1", "EnemyType2"],
+			"payment": {"key":"QMC_12_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu, a następnie odnosisz 2 [Wound]."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, és szenvedj el 2 [Wound]-t!"}]},
+			"shortPayment": {"key":"QMC_12_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. 2 [Wound]."},
+															  {"lang":"English","val":"1 jószerencse. 2 [Wound]."}]},
+			"paymentDescription": {"key":"QMC_12_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Zaklęcie poszukiwawcze prowadzi cię do ruin Shaerrawedd, gdzie zastajesz syna Marcela, walczącego o życie. Próbujesz mu pomóc, lecz ginie, zanim może przekazać sekret stali swojego ojca, i jedyne, co z tego masz, to paskudna rana."},
+															  				  {"lang":"English","val":"A fürkész-bűbáj Shaerrawedd romjaihoz vezet, ahol Marcel fia épp az életéért küzd. A segítségére sietsz, de még azelőtt megölik, hogy apja acéljának a titkát megoszthatná veled. Így mindössze csak egy nagyon csúnya sebesüléssel leszel gazdagabb."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QMC_12_SQ1_BODY","values":[{"lang":"Polish", "val":"Zdobądź rodowe pamiątki, by skupić swoją magię poszukiwawczą: udaj się do Mahakamu."},
+															 {"lang":"English","val":"Szerezz személyes tárgyakat a fürkész-bűbáj fókuszálásához: menj Mahakamba! -"}]},
+				"shortBody": {"key":"QMC_12_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Mahakam"},
+															   {"lang":"English","val":"Menj Mahakamba!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Mahakam",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QMC_12_SQ2_BODY","values":[{"lang":"Polish", "val":"Dowiedz się więcej o tej niezwykłej stali: zużyj 4 czerwone [ClueMarkerGray]."},
+															 {"lang":"English","val":"Tudj meg többet a különleges acélról: költs 4 vörös [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_12_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "4 [ClueMarkerRed]",
+				"victoryPoints": 5,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"CombatLead": 4,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"CombatLead": -4
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QMC_12_SUP_BODY","values":[{"lang":"Polish", "val":"Przyda ci się pomoc w spłacie długów chłopaka: wydaj 3 [GoldCoin]."},
+															  {"lang":"English","val":"Jól jönne némi segítség a fiú adósságának kifizetéséhez: költs 3 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QMC_12_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [GoldCoinColor]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"Gold": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"Gold": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]	
+			}				
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Shaerrawedd",
+					"MagicEvidence": 2,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -2
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action":"place_wound",
+			"params": {
+				"amount": 2,
+				"wound": 1
+			}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestMagic",
+		"id":"QMC_13",
+		"description":{
+			"title": {"key":"QMC_13_TITLE","values":[{"lang":"Polish", "val":"Pilnie strzeżony sekret"},
+													{"lang":"English","val":"Egy jól őrzött titok"}]},
+			"subheader": {"key":"QMC_13_SUBHEADER","values":[{"lang":"Polish", "val":"Pojawiły się doniesienia, że Margarita Laux-Antille nabyła coś o magicznej mocy i schowała to przed innymi członkiniami Loży w osobistej skrytce w banku Vivaldich."},
+															{"lang":"English","val":"Úgy hírlik, Margarita Laux-Antille birtokába került egy rendkívüli jelentőséggel bíró mágikus tárgy, aminek a tényét valahogy elfelejtette a Páholy tagjainak a tudtára adni, és amit a Vivaldi Bankban található széfjében rejtett el."}]},
+			"body": {"key":"QMC_13_BODY","values":[	{"lang":"Polish", "val":"Dowiedz się, co ukrywa Margarita."},
+													{"lang":"English","val":"Derítsd ki, mit rejteget Margarita!"}]}
+		},
+		"ai":{
+			"EvidenceMagic": 1,
+			"EvidenceDiplomacy" : 1
+		},
+		"quest":{
+			"locationCondition": "Maribor",
+			"resourceCondition": "1 [EvidenceDiplomacy] 1 [EvidenceMagic]",
+			"victoryPoints": 12,
+			"enemyTaps": ["EnemyType1", "EnemyType2"],
+			"payment": {"key":"QMC_13_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i 1 kartę śledztwa; otrzymujesz 2 [BadFateMarker] i wszyscy pozostali gracze otrzymują po 1 [BadFateMarker]."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, húzz 1 nyomkeresés-\nkártyát, elszenvedsz 2 [BadFateMarker]-t, és minden hős elszenved 1 [BadFateMarker]-t."}]},
+			"shortPayment": {"key":"QMC_13_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu, sledztwa. 2 [BadFateMarker]."},
+															  {"lang":"English","val":"1 jószerencse, 1 nyomkeresés. 2 [BadFateMarker]."}]},
+			"paymentDescription": {"key":"QMC_13_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Choć ze wszystkich sił starasz się być subtelny, docierasz tylko do drzwi skrytki, zanim Margarita dowiaduje się o twoich działaniach i musisz uciekać, zanim dotrze tam ze swoimi strażnikami. Ale nie puszcza ci tego płazem i poprzysięga zemstę tobie i twoim przyjaciołom."},
+															  				  {"lang":"English","val":"Legjobb erőfeszítéseid dacára sem jutsz túl sokra, mielőtt Margarita megneszeli, miben sántikálsz. Kénytelen vagy menekülőre fogni a dolgot, még azelőtt, hogy megérkezne az őreivel együtt. Megfogadja, hogy ezt nem fogod megúszni büntetlenül, és bosszút forral ellened."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QMC_13_SQ1_BODY","values":[{"lang":"Polish", "val":"Sfałszuj pełnomocnictwo, które da ci dostęp do skrytki: udaj się do Novigradu."},
+															 {"lang":"English","val":"Hamisíts papírokat, amik hozzáférést biztosíthatnak a széfhez: menj Novigrádba! -"}]},
+				"shortBody": {"key":"QMC_13_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Novigrad"},
+															   {"lang":"English","val":"Menj Novigrádba!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Novigrad",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QMC_13_SQ2_BODY","values":[{"lang":"Polish", "val":"Prześledź ostatnie kontakty Margarity: zużyj 2 niebieskie [ClueMarkerGray]."},
+															 {"lang":"English","val":"Kövesd Margarita legutóbbi kapcsolatait: költs 2 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_13_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "2 [ClueMarkerBlue]",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"MagicLead": 2,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"MagicLead": -2
+					}
+				},{
+					"action":"complete_side_quest"
+				}]				
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QMC_13_SUP_BODY","values":[{"lang":"Polish", "val":"Przydałaby ci się pomoc negocjacjach z bankierami: zużyj 3 fioletowe [ClueMarkerGray]."},
+															  {"lang":"English","val":"Hasznát vennéd segítségnek a bankárokkal való tárgyalásban: költs 3 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_13_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerPurple]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"DiplomacyLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"DiplomacyLead": -3
+					}
+				},{
+				 	"action":"complete_support_quest"
+				}]
+			}											 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Maribor",
+					"MagicEvidence": 1,
+					"DiplomacyEvidence": 1,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -1,
+				"DiplomacyEvidence": -1
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "draw_card",
+			"params": {
+				"deck": "Investigation",
+				"amount": 1
+			}
+		},{
+			"action": "place_bad_fate",
+			"params": {
+				"amount": 2
+			}		
+		},{
+			"action": "dispatch",
+			"params": {
+				"characterMode": "OTHERS",
+				"description":{
+					"title": {"key":"QMC_13_TITLE_1","values":[{"lang":"Polish","val":"Pilnie strzeżony sekret"},
+													 {"lang":"English","val":"Egy jól őrzött titok"}]},
+					"body": {"key":"QMC_13_BODY_1","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 [BadFateMarker]."},
+													{"lang":"English","val":"Szereztél 1 [BadFateMarker]-t!"}]}
+				},
+				"task": {
+					"action": "place_bad_fate",
+					"params": {
+						"amount": 1
+					}		
+				}
+			}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestMagic",
+		"id":"QMC_14",
+		"description":{
+			"title": {"key":"QMC_14_TITLE","values":[{"lang":"Polish", "val":"Łaska Melitele"},
+													{"lang":"English","val":"Melitele kegyelméből"}]},
+			"subheader": {"key":"QMC_14_SUBHEADER","values":[{"lang":"Polish", "val":"Jeden z najlepszych redańskich szpiegów został raniony zatrutym sztyletem. Nieznany jad go sparaliżował i nikt nie zna lekarstwa. Teraz jego jedyna nadzieja to kapłanki Melitele."},
+															{"lang":"English","val":"Redánia egyik legjobb ügynökét mérgezett tőrrel szúrják le. Az ismeretlen kígyóméreg teljesen lebénítja, és senki nem ismeri az ellenszerét. Melitele papnői az ő végső reménysége."}]},
+			"body": {"key":"QMC_14_BODY","values":[	{"lang":"Polish", "val":"Pozyskaj odtrutkę od kapłanek Melitele."},
+													{"lang":"English","val":"Szerezd meg a méreg ellenszerét Melitele papnőitől!"}]}
+		},
+		"ai":{
+			"EvidenceMagic": 1,
+			"EvidenceDiplomacy" : 1
+		},
+		"quest":{
+			"locationCondition": "Ellander",
+			"resourceCondition": "1 [EvidenceDiplomacy] 1 [EvidenceMagic]",
+			"victoryPoints": 12,
+			"payment": {"key":"QMC_14_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i 1 kartę śledztwa a następnie połóż 1 [BadFateMarker] w swoim regionie."}, 
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, húzz 1 nyomkeresés-kártyát, és helyezz le 1 [BadFateMarker]-t a régiódban!"}]},
+			"shortPayment": {"key":"QMC_14_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu, śledztwa. 1 [BadFateMarker] w swoim regionie."},
+															  {"lang":"English","val":"1 jószerencse, 1 nyomkeresés. 1 [BadFateMarker] a régiódra."}]},
+			"paymentDescription": {"key":"QMC_14_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Kapłanki z ociąganiem zgadzają się ci pomóc, ale proszą, by w przyszłości nie mieszać ich do szpiegowskich intryg i polityki. Posługując się alchemią, udaje ci się zsyntetyzować odtrutkę i ocalić szpiega."},
+															  				  {"lang":"English","val":"A papnők, vonakodva ugyan, de beleegyeznek, hogy segítenek neked, és rendelkezésedre bocsájtják az ellenszer elkészítéséhez szükséges alapanyagokat. Cserébe megkérnek, hogy a jövőben ne rángasd bele őket se politikai, se kémjátszmákba. Némi alkímiai kísérletezés után sikerül előállítanod a szérumot, és megmenteni a kémet."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QMC_14_SQ1_BODY","values":[{"lang":"Polish", "val":"Zdobądź dar dla kapłanek Melitele: udaj się do Duén Canell."},
+															 {"lang":"English","val":"Szerezz Melitele papnőihez méltó ajándékot: menj Duén Canellbe! -"}]},
+				"shortBody": {"key":"QMC_14_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Duén Canell"},
+															   {"lang":"English","val":"Menj Duén Canellbe!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Duén Canell",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QMC_14_SQ2_BODY","values":[{"lang":"Polish", "val":"Znajdź pewne rzadkie ingrediencje: zużyj 3 niebieskie [ClueMarkerGray]."},
+															 {"lang":"English","val":"Kutass fel néhány igen ritka hozzávalót: költs 3 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_14_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerBlue]",
+				"victoryPoints": 4,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"MagicLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"MagicLead": -3
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QMC_14_SUP_BODY","values":[{"lang":"Polish", "val":"Przydałaby ci się pomoc w negocjacjach z kapłankami: zużyj 3 fioletowe [ClueMarkerGray]."},
+															  {"lang":"English","val":"Jól jönne némi segítség a papnőkkel való egyezkedés során: költs 3 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_14_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerPurple]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"DiplomacyLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"DiplomacyLead": -3
+					}
+				},{
+				 	"action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Ellander",
+					"MagicEvidence": 1,
+					"DiplomacyEvidence": 1,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -1,
+				"DiplomacyEvidence": -1
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "draw_card",
+			"params": {
+				"deck": "Investigation",
+				"amount": 1
+			}
+		},{
+			"action": "place_bad_fate_region",
+			"params": {
+				"amount": 1
+			}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestMagic",
+		"id":"QMC_15",
+		"description":{
+			"title": {"key":"QMC_15_TITLE","values":[{"lang":"Polish", "val":"Zaklęta w sokoła"},
+													{"lang":"English","val":"A sólyom"}]},
+			"subheader": {"key":"QMC_15_SUBHEADER","values":[{"lang":"Polish", "val":"Baron Lambert Hus-Roy twierdzi, iż jego żona została przemieniona w sokoła, którego trzyma w wieży. Wszyscy mówią, że baron zwariował, lecz on błaga cię, byś dowiódł, że mówi prawdę."},
+															{"lang":"English","val":"Lambert Hus-Roy báró váltig állítja, hogy a kastélya tornyában őrzött sólyom az ő elbájolt felesége. Az emberek úgy vélik, a bárónak megzápult az agya, ő viszont könyörögve kér, bizonyítsd be a kétkedőknek, hogy az igazat mondja."}]},
+			"body": {"key":"QMC_15_BODY","values":[	{"lang":"Polish", "val":"Odpraw rytuał nad sokołem z zamkowej wieży."},
+													{"lang":"English","val":"Végezd el a rituálét a kastélytoronyban őrzött madáron!"}]}
+		},
+		"ai":{
+			"EvidenceMagic": 2
+		},
+		"quest":{
+			"locationCondition": "Vengerberg",
+			"resourceCondition": "2 [EvidenceMagic]",
+			"victoryPoints": 8,
+			"payment": {"key":"QMC_15_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu. Następnie otrzymujesz 3 [GoldCoin]."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, és vételezz 3 [GoldCoin]-at!"}]},
+			"shortPayment": {"key":"QMC_15_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. 3 [GoldCoin]."},
+															  {"lang":"English","val":"1 jószerencse-kártya. 3 [GoldCoin]."}]},
+			"paymentDescription": {"key":"QMC_15_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Odprawiasz rytuał, który dowodzi, że ptak to w istocie baronowa, ale nie znasz sposobu, by przywrócić jej dawną postać. Baron jest ci bardzo wdzięczny, że dowiodłeś jego prawdomówności. Ofiaruje ci nagrodę i obiecuje, że dostaniesz więcej, jeśli znajdziesz kiedyś sposób, by przywrócić jego żonie dawną postać."},
+															  				  {"lang":"English","val":"Végrehajtod a rituálét, és láss csodát, a sólyom valóban a báróné. De úgy látod, nincs rá mód, hogy visszanyerje emberi alakját. A Báró kimondhatatlanul hálás, hogy bizonyítottad az igazát. Megjutalmaz, majd közli, hogy ha valaha is megtalálnád a bűbájt visszafordító formulát, és visszaváltoztatod a feleségét, gazdaggá tesz."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QMC_15_SQ1_BODY","values":[{"lang":"Polish", "val":"Przeczytaj traktat o polimorfii: udaj się do Oxenfurtu."},
+															 {"lang":"English","val":"Olvass el egy alakváltoztatásról szóló értekezést: menj Oxenfurtba! -"}]},
+				"shortBody": {"key":"QMC_15_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Oxenfurt"},
+															   {"lang":"English","val":"Menj Oxenfurtba!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Oxenfurt",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QMC_15_SQ2_BODY","values":[{"lang":"Polish", "val":"Sprawdź prawdomówność barona: zużyj 4 fioletowe [ClueMarkerGray]."},
+															 {"lang":"English","val":"Vesd próba alá a báró szavahihetőségét: költs 4 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_15_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "4 [ClueMarkerPurple]",
+				"victoryPoints": 5,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"DiplomacyLead": 4,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"DiplomacyLead": -4
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QMC_15_SUP_BODY","values":[{"lang":"Polish", "val":"Przyda ci się pomoc, by wkraść się w łaski barona i jego dworu: zużyj 3 fioletowe [ClueMarkerGray]."},
+															  {"lang":"English","val":"Hasznát tudnád venni valakinek, aki be tud ajánlani a Bárónál és udvartartásánál: költs 3 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_15_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerPurple]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"DiplomacyLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"DiplomacyLead": -3
+					}
+				},{
+				 	"action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Vengerberg",
+					"MagicEvidence": 2,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -2
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "resource",
+			"params": {
+				"Gold": 3
+			}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestMagic",
+		"id":"QMC_16",
+		"description":{
+			"title": {"key":"QMC_16_TITLE","values":[{"lang":"Polish", "val":"Ostatnie życzenie"},
+													{"lang":"English","val":"Az utolsó kívánság"}]},
+			"subheader": {"key":"QMC_16_SUBHEADER","values":[{"lang":"Polish", "val":"Powietrzny dżin szaleje na niebie nad Tretogorem, wściekły, że nieznany właściciel życzenia zbyt długo trzyma go na służbie. Nie przestanie, dopóki nie spełni trzeciego i ostatniego życzenia."},
+															{"lang":"English","val":"Egy légdzsinn őrjöng Tretogor egén, és hatalmas pusztítást végez afölötti dühében, hogy gazdája, három kívánság tulajdonosa oly sokáig a szolgálatába kényszeríti. Addig biztosan nem áll le, amíg az ismeretlen ki nem mondja harmadik, egyben utolsó kívánságát."}]},
+			"body": {"key":"QMC_16_BODY","values":[	{"lang":"Polish", "val":"Odkryj, komu przysługuje ostatnie życzenie, i przekonaj go, by je wykorzystał."},
+													{"lang":"English","val":"Derítsd ki, kié az utolsó kívánság, és vedd rá, hogy kimondja!"}]}
+		},
+		"ai":{
+			"EvidenceMagic": 1,
+			"EvidenceDiplomacy" : 1
+		},
+		"quest":{
+			"locationCondition": "Tretogor",
+			"resourceCondition": "1 [EvidenceDiplomacy] 1 [EvidenceMagic]",
+			"victoryPoints": 12,
+			"payment": {"key":"QMC_16_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 2 karty dobrego losu następnie usuń [BadFateMarker] z każdego regionu."},
+														{"lang":"English","val":"Húzz 2 jószerencse-kártyát, és vedd le a [BadFateMarker]-ket minden régióról!"}]},
+			"shortPayment": {"key":"QMC_16_SPAYMENT","values":[{"lang":"Polish", "val":"Pobierz 2 karty dobrego losu. Usuń [BadFateMarker]."},
+															  {"lang":"English","val":"2 jószerencse. Összes [BadFateMarker]-t levesz."}]},
+			"paymentDescription": {"key":"QMC_16_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Posiadaczką życzenia okazuje się dobroduszna matrona, zdenerwowana chaosem, który pośrednio wywołała. Wypowiada ostatnie życzenie, prosząc o błogosławieństwo dla całej krainy. Dżin spełnia je, po czym znika, nareszcie wolny."},
+															  				  {"lang":"English","val":"A kívánság tulajdonosa egy jólelkű matróna, aki nekikeseredik az általa akaratlanul okozott zűrzavar miatt. Ezért utolsó kívánságával áldást kér az egész vidékre, amit a dzsinn teljesít is, majd, hogy ismét szabad, köddé válik."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QMC_16_SQ1_BODY","values":[{"lang":"Polish", "val":"Spróbuj związać dżina: zużyj 3 niebieskie [ClueMarkerGray]."},
+															 {"lang":"English","val":"Próbáld magadhoz láncolni a dzsinnt: költs 3 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_16_SQ1_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerBlue]",
+				"victoryPoints": 4,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"MagicLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"MagicLead": -3
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			},{
+				"fullBody": {"key":"QMC_16_SQ2_BODY","values":[{"lang":"Polish", "val":"Dowiedz się, kto ma magiczną lampę: zużyj 2 fioletowe [ClueMarkerGray]."},
+															 {"lang":"English","val":"Derítsd ki, kinél van a varázslámpa: költs 2 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_16_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "2 [ClueMarkerPurple]",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"DiplomacyLead": 2,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"DiplomacyLead": -2
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QMC_16_SUP_BODY","values":[{"lang":"Polish", "val":"Przydałaby ci się ochrona: zużyj 3 czerwone [ClueMarkerGray]."},
+															  {"lang":"English","val":"Jól jönne némi védelem: költs 3 vörös [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QMC_16_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerRed]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"CombatLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"CombatLead": -3
+					}
+				},{
+				 	"action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Tretogor",
+					"MagicEvidence": 1,
+					"DiplomacyEvidence": 1,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -1,
+				"DiplomacyEvidence": -1
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "remove_bad_fate_region",
+			"params": {
+				"all": true
+			}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	}]
+}

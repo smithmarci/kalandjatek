@@ -1,0 +1,2142 @@
+{
+	"defalutDescription":{
+		"ribbon": {"key":"TDD_RIBBON","values":[{"lang":"Polish", "val":"ŚLEDZTWO"},
+										 		{"lang":"English","val":"NYOMKERESÉS"}]},
+		"front": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Front-Investigation"},
+		"flag": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Flag-Investigation-Diplomacy"},
+		"back": {"atlas":"Atlases/Atlas-Card-Backgrounds_003", "sprite":"Card-Reverse-Investigation-Diplomacy"}
+	},
+	"cards":[{
+		"type":"TrailDiplomacyInvestigationValuableInformation",
+		"id":"TDD_1",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_1_IMAGE"},
+			"title": {"key":"TDD_1_TITLE","values":[{"lang":"Polish", "val":"Szansa na zarobek"},
+													{"lang":"English","val":"Pénzkereseti lehetőség"}]},
+			"subheader": {"key":"TDD_1_SUBHEADER","values":[{"lang":"Polish", "val":"Z brzękiem rzuca na stół ciężką sakiewkę. „No, masz coś wartego mojego czasu?”"},
+															{"lang":"English","val":"Egy nehéz erszényt ejt eléd az asztalra. „- Nos, van valamid, ami megéri fecsérelni az időmet?”"}]},
+			"body": {"key":"TDD_1_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nZadanie: odrzuć dowolną liczbę kart Cennej informacji.\n\nNagroda: zyskujesz 5 [GoldCoin] za każdą kartę Cennej informacji, którą odrzuciłeś."},
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\nFeladat: Dobj el 1 vagy több »Értékes értesülés« kártyát.\n\nJutalom: Kapsz 5 [GoldCoin]-at minden egyes eldobott értesülés után."}]},
+			"subtype": {"key":"TDD_1_SUBTYPE","values":[{"lang":"Polish", "val":"Cenna informacja"},
+														{"lang":"English","val":"Értékes értesülés"}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"InventoryCardType": {
+						"amount": 1,
+						"type": "TrailDiplomacyInvestigationValuableInformation"
+					},
+					"roll": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		}],
+		"useTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"select_inventory_card",
+			"params": {
+				"filter": "TrailDiplomacyInvestigationValuableInformation",
+				"amount": 1,
+				"mode": "DISCARD",
+				"orMore": true 
+			}
+		},{
+			"action":"resource",
+			"params": {
+				"Gold": {
+					"variable_amount": "DISCARD",
+					"multiply_amount": 5
+				}
+			}
+		},{
+			"action": "complete_task"
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigationValuableInformation",
+		"id":"TDD_2",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_2_IMAGE"},
+			"title": {"key":"TDD_2_TITLE","values":[{"lang":"Polish", "val":"Niespodziewany zwrot"},
+													{"lang":"English","val":"Egy váratlan fordulat"}]},
+			"subheader": {"key":"TDD_2_SUBHEADER","values":[{"lang":"Polish", "val":"Miałeś się spotkać z uroczą, młodą niewiastą, lecz zamiast niej na spotkanie wychodzi ci stary znajomy, którego miałeś za zmarłego. „Potrzebuję twojej pomocy, i to już” – mówi z desperacją w oczach."},
+															{"lang":"English","val":"Egy csinos leányzóval kellett volna találkoznod, ehelyett egy halottnak hitt régi barát jött el a találkozóra. „- Szükségem van a segítségedre. Most rögtön!” - mondja kétségbeesetten."}]},
+			"body": {"key":"TDD_2_BODY","values":[	{"lang":"Polish", "val":"Zadanie: odrzuć dowolną liczbę kart Cennej informacji.\n\nNagroda: pobierz 2 karty dobrego losu za każdą kartę Cennej informacji, którą odrzuciłeś."},
+													{"lang":"English","val":"Feladat: Dobj el 1 vagy több »Értékes értesülés« kártyát.\n\nJutalom: Húzz 2 jószerencse-\nkártyát minden egyes eldobott értesülés után."}]},
+			"subtype": {"key":"TDD_2_SUBTYPE","values":[{"lang":"Polish", "val":"Cenna informacja"},
+														{"lang":"English","val":"Értékes értesülés"}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"InventoryCardType": {
+						"amount": 1,
+						"type": "TrailDiplomacyInvestigationValuableInformation"
+					},
+					"roll": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"select_inventory_card",
+			"params": {
+				"filter": "TrailDiplomacyInvestigationValuableInformation",
+				"amount": 1,
+				"mode": "DISCARD",
+				"orMore": true 
+			}
+		},{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"variable_amount": "DISCARD",
+				"multiply_amount": 2,
+				"resolveAll": true
+			}
+		},{
+			"action": "complete_task"
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_3",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_3_IMAGE"},
+			"title": {"key":"TDD_3_TITLE","values":[{"lang":"Polish", "val":"Ciekawa rozmowa"},
+													{"lang":"English","val":"Egy érdekes értekezés"}]},
+			"subheader": {"key":"TDD_3_SUBHEADER","values":[{"lang":"Polish", "val":"Rozmowa przybiera dziwny obrót. Powoli zaczynasz rozumieć, dlaczego ludzie Dijkstry od pewnego czasu depczą ci po piętach!"},
+															{"lang":"English","val":"A beszélgetés érdekesen alakult. Csak most érted meg, miért loholnak még mindig Dijkstra emberei a nyomodban."}]},
+			"body": {"key":"TDD_3_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nZadanie: odrzuć 1 kartę Cennej informacji\n\nNagroda: usuń wszystkie [BadFateMarker] swojej karty postaci i ze swojego regionu."},
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\nFeladat: Dobj el 1 »Értékes értesülés« kártyát.\n\nJutalom: Távolíts el minden [BadFateMarker]-t\na hőslapodról és a régiódról."}]}
+		},
+		"drawTask":[{
+			"action": "bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition": {
+					"InventoryCardType": {
+						"amount": 1,
+						"type": "TrailDiplomacyInvestigationValuableInformation" 
+					},
+					"hasBadFateRegionOrAction": true
+				}
+			}
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		},{
+			"action": "kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"select_inventory_card",
+			"params": {
+				"filter": "TrailDiplomacyInvestigationValuableInformation",
+				"amount": 1,
+				"mode": "DISCARD"
+			}
+		},{
+			"action":"remove_bad_fate",
+			"params": {
+				"all": true
+			}
+		},{
+			"action":"remove_bad_fate_region"
+		},{
+			"action": "complete_task"
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigationValuableInformation",
+		"id":"TDD_4",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_4_IMAGE"},
+			"title": {"key":"TDD_4_TITLE","values":[{"lang":"Polish", "val":"Niespodziewane informacje"},
+													{"lang":"English","val":"Keresetlen tudás"}]},
+			"subheader": {"key":"TDD_4_SUBHEADER","values":[{"lang":"Polish", "val":"Nie wierzysz, że on naprawdę powiedział to publicznie, w biały dzień. Próbujesz zachować kamienną twarz, gdy przechodzisz obok, i udajesz, że nic nie słyszałeś."},
+															{"lang":"English","val":"El sem hiszed, hogy tényleg kimondta, mindenki füle hallatára, fényes nappal. Miközben továbbsétálsz, próbálsz fapofát magadra erőltetni úgy téve, mint aki nem hallott semmit."}]},
+			"body": {"key":"TDD_4_BODY","values":[	{"lang":"Polish", "val":"Zachowaj kartę z uwagi na kategorię."},
+													{"lang":"English","val":"Tartsd meg ezt a kártyát a jellemzőjéért!"}]},
+			"subtype": {"key":"TDD_4_SUBTYPE","values":[{"lang":"Polish", "val":"Cenna informacja"},
+														{"lang":"English","val":"Értékes értesülés"}]}
+		},
+		"drawTask":{
+			"action":"kill_card_inventory"
+		},
+		"useTask": {
+			"action":"kill_card_inventory"
+		},"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigationValuableInformation",
+		"id":"TDD_5",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_5_IMAGE"},
+			"title": {"key":"TDD_5_TITLE","values":[{"lang":"Polish", "val":"Zastraszenie"},
+													{"lang":"English","val":"Egy csipetnyi megfélemlítés"}]},
+			"subheader": {"key":"TDD_5_SUBHEADER","values":[{"lang":"Polish", "val":"Czasami po prostu musisz wykonać brudną robotę."},
+															{"lang":"English","val":"Az embernek néha magának kell elvégeznie a piszkos munkát."}]},
+			"body": {"key":"TDD_5_BODY","values":[	{"lang":"Polish", "val":"Możesz zużyć 1 czerwony [ClueMarkerGray] by zachować tę kartę z uwagi na kategorię. W przeciwnym razie pobierz 1 fioletowy [ClueMarkerGray] i odrzuć tę kartę"},
+													{"lang":"English","val":"1 vörös [ClueMarkerGray] elköltésével megtarthatod ezt a kártyát a jellemzőjéért.\n\nHa eldobod, kapsz 1 lila [ClueMarkerGray]-ot."}]},
+			"subtype": {"key":"TDD_5_SUBTYPE","values":[{"lang":"Polish", "val":"Cenna informacja"},
+														{"lang":"English","val":"Értékes értesülés"}]}
+		},
+		"drawTask":[{
+			"action": "test",
+			"params": {
+				"CombatLead": 1
+			},
+			"success": {
+				"action": "confirm",
+				"params": {
+					"titleKey": "TDD_5_TITLE",
+					"contentKey": "TDD_5_BODY",
+					"confirm": {"key":"TDD_5_CONFIRM","values":[{"lang":"Polish", "val":"Zużyj 1 [ClueMarkerRed] i zachowaj kartę"},{"lang":"English","val":"Elköltök 1 [ClueMarkerRed]-ot, és megtartom"}]},	
+					"cancel": {"key":"TDD_5_CANCEL","values":[{"lang":"Polish", "val":"Otrzymaj 1 [ClueMarkerPurple] i odrzuć kartę"},{"lang":"English","val":"Eldobom, és 1 [ClueMarkerPurple]-ot kérek"}]}
+				},
+				"success": [{
+					"action":"resource",
+					"params": {
+						"CombatLead": -1
+					}
+				},{
+					"action":"kill_card_inventory"
+				}],
+				"fail": [{
+					"action":"resource",
+					"params": {
+						"DiplomacyLead": 1
+					}
+				},{
+					"action":"kill_card",
+					"params": "TrailDiplomacy"
+				}]
+			},
+			"fail": [{
+					"action":"resource",
+					"params": {
+						"DiplomacyLead": 1
+					}
+				},{
+					"action":"kill_card",
+					"params": "TrailDiplomacy"
+				}]
+			}
+		],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigationValuableInformation",
+		"id":"TDD_6",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_6_IMAGE"},
+			"title": {"key":"TDD_6_TITLE","values":[{"lang":"Polish", "val":"Ziarno prawdy"},
+													{"lang":"English","val":"Az igazság morzsái"}]},
+			"subheader": {"key":"TDD_6_SUBHEADER","values":[{"lang":"Polish", "val":"W karczemnych plotkach można znaleźć okruchy prawdy. Trzeba tylko usiąść przy odpowiednim stole i postawić kolejkę lub dwie!"},
+															{"lang":"English","val":"Az igazság morzsái bármelyik fogadóban felcsipegethetők - épp csak a megfelelő asztalhoz kell letelepedni, és fizetni kell egy-két kör italt."}]},
+			"body": {"key":"TDD_6_BODY","values":[	{"lang":"Polish", "val":"Możesz wydać 1 [GoldCoin], by zachować tę kartę z uwagi na kategorię. W przeciwnym razie pobierz 1 fioletowy [ClueMarkerGray] i odrzuć tę kartę."},
+													{"lang":"English","val":"1 [GoldCoin] elköltésével megtarthatod ezt a kártyát a jellemzőjéért.\n\nHa eldobod, kapsz 1 lila [ClueMarkerGray]-ot."}]},
+			"subtype": {"key":"TDD_6_SUBTYPE","values":[{"lang":"Polish", "val":"Cenna informacja"},
+														{"lang":"English","val":"Értékes értesülés"}]}
+		},
+		"drawTask":{
+			"action": "test",
+			"params": {
+				"Gold": 1
+			},
+			"success": {
+				"action": "confirm",
+				"params": {
+					"titleKey": "TDD_6_TITLE",
+					"contentKey": "TDD_6_BODY",
+					"confirm": {"key":"TDD_6_CONFIRM","values":[{"lang":"Polish", "val":"Wydaj 1 [GoldCoinColor] i zachowaj kartę"},{"lang":"English","val":"Elköltök 1 [GoldCoinColor]-at, és megtartom"}]},	
+					"cancel": {"key":"TDD_6_CANCEL","values":[{"lang":"Polish", "val":"Otrzymaj 1 [ClueMarkerPurple] i odrzuć kartę"},{"lang":"English","val":"Eldobom, és 1 [ClueMarkerPurple]-ot kérek"}]}
+				},
+				"success": [{
+					"action": "resource",
+					"params": {
+						"Gold": -1
+					}
+				},{
+					"action":"kill_card_inventory"
+				}],
+				"fail": [{
+					"action":"resource",
+					"params": {
+						"DiplomacyLead": 1
+					}
+				},{
+					"action":"kill_card",
+					"params": "TrailDiplomacy"
+				}]
+			},
+			"fail": [ {
+				"action":"kill_card",
+				"params": "TrailDiplomacy"
+				},{
+				"action": "resource",
+					"params": {
+					"DiplomacyLead": 1
+				}
+			}]
+		},"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigationValuableInformation",
+		"id":"TDD_7",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_7_IMAGE"},
+			"title": {"key":"TDD_7_TITLE","values":[{"lang":"Polish", "val":"Udana rozmowa"},
+													{"lang":"English","val":"Egy jó beszélgetés"}]},
+			"subheader": {"key":"TDD_7_SUBHEADER","values":[{"lang":"Polish", "val":"Udana rozmowa kończy się tym, że wszyscy rozmówcy dostają to, czego chcieli, czy to obciążające dowody, czy to soczyste plotki, czy to po prostu miło spędzony czas."},
+															{"lang":"English","val":"Minden jó beszélgetés úgy végződik, hogy mindenki megkapja általa, amit akart, legyen szó sötét titokról, szaftos pletykáról, vagy egyszerűen csak kellemes időtöltésről."}]},
+			"body": {"key":"TDD_7_BODY","values":[	{"lang":"Polish", "val":"Możesz zużyć 1 fioletowy [ClueMarkerGray], by zachować tę kartę z uwagi na kategorię. W przeciwnym razie pobierz 1 fioletowy [ClueMarkerGray] i odrzuć tę kartę."},
+													{"lang":"English","val":"1 lila [ClueMarkerGray] elköltésével megtarthatod ezt a kártyát a jellemzőjéért.\n\nHa eldobod, kapsz 1 lila [ClueMarkerGray]-ot."}]},
+			"subtype": {"key":"TDD_7_SUBTYPE","values":[{"lang":"Polish", "val":"Cenna informacja"},
+														{"lang":"English","val":"Értékes értesülés"}]}
+		},
+		"drawTask":{
+			"action": "test",
+			"params": {
+				"DiplomacyLead": 1
+			},
+			"success": {
+				"action": "confirm",
+				"params": {
+					"titleKey": "TDD_7_TITLE",
+					"contentKey": "TDD_7_BODY",
+					"confirm": {"key":"TDD_7_CONFIRM","values":[{"lang":"Polish", "val":"Wydaj 1 [ClueMarkerPurple] i zachowaj kartę"},{"lang":"English","val":"Elköltök 1 [ClueMarkerPurple]-ot, és megtartom"}]},	
+					"cancel": {"key":"TDD_7_CANCEL","values":[{"lang":"Polish", "val":"Otrzymaj 1 [ClueMarkerPurple] i odrzuć kartę"},{"lang":"English","val":"Eldobom, és 1 [ClueMarkerPurple]-ot kérek"}]}
+				},
+				"success": [{
+					"action":"resource",
+					"params": {
+						"DiplomacyLead": -1
+					}
+				},{
+					"action":"kill_card_inventory"
+				}],
+				"fail": [{
+					"action":"resource",
+					"params": {
+						"DiplomacyLead": 1
+					}
+				},{
+					"action":"kill_card",
+					"params": "TrailDiplomacy"
+				}]
+			},
+			"fail": [{
+				"action":"kill_card",
+				"params": "TrailDiplomacy"
+			},{
+				"action": "resource",
+				"params": {
+					"DiplomacyLead": 1
+				}
+			}]
+		},"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigationValuableInformation",
+		"id":"TDD_8",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_8_IMAGE"},
+			"title": {"key":"TDD_8_TITLE","values":[{"lang":"Polish", "val":"Tajemniczy list"},
+													{"lang":"English","val":"Rejtjelezett levél"}]},
+			"subheader": {"key":"TDD_8_SUBHEADER","values":[{"lang":"Polish", "val":"Rzut oka na pieczęć na liście – kancelaria prawna Codringher i Fen – i wiesz, że masz w rękach coś cennego. Teraz musisz się tylko rozeznać, co to wszystko znaczy."},
+															{"lang":"English","val":"Elég egyetlen pillantás a levélen található pecsétre („Codringher és Fen Ügyvédi Iroda”), és azonnal tudod, hogy valami értékeset tartasz a kezedben. Már csak arra kell rájönnöd, mit is jelent az iromány."}]},
+			"body": {"key":"TDD_8_BODY","values":[	{"lang":"Polish", "val":"Możesz zużyć 1 niebieski [ClueMarkerGray], by zachować tę kartę z uwagi na kategorię. W przeciwnym razie pobierz 1 fioletowy [ClueMarkerGray] i odrzuć tę kartę."},
+													{"lang":"English","val":"1 kék [ClueMarkerGray] elköltésével megtarthatod ezt a kártyát a jellemzőjéért.\n\nHa eldobod, kapsz 1 lila [ClueMarkerGray]-ot."}]},
+			"subtype": {"key":"TDD_8_SUBTYPE","values":[{"lang":"Polish", "val":"Cenna informacja"},
+														{"lang":"English","val":"Értékes értesülés"}]}
+		},
+		"drawTask":{
+			"action": "test",
+			"params": {
+				"MagicLead": 1
+			},
+			"success": {
+				"action": "confirm",
+				"params": {
+					"titleKey": "TDD_8_TITLE",
+					"contentKey": "TDD_8_BODY",
+					"confirm": {"key":"TDD_8_CONFIRM","values":[{"lang":"Polish", "val":"Wydaj 1 [ClueMarkerBlue] i zachowaj kartę"},{"lang":"English","val":"Elköltök 1 [ClueMarkerBlue]-ot, és megtartom"}]},	
+					"cancel": {"key":"TDD_8_CANCEL","values":[{"lang":"Polish", "val":"Otrzymaj 1 [ClueMarkerPurple] i odrzuć kartę"},{"lang":"English","val":"Eldobom, és 1 [ClueMarkerPurple]-ot kérek"}]}
+				},
+				"success": [{
+					"action":"resource",
+					"params": {
+						"MagicLead": -1
+					}
+				},{
+					"action":"kill_card_inventory"
+				}],
+				"fail": [{
+					"action":"resource",
+					"params": {
+						"DiplomacyLead": 1
+					}
+				},{
+					"action":"kill_card",
+					"params": "TrailDiplomacy"
+				}]
+			},
+			"fail": [{
+				"action":"kill_card",
+				"params": "TrailDiplomacy"
+			},{
+				"action": "resource",
+				"params": {
+					"DiplomacyLead": 1
+				}
+			}]
+		},"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigationValuableInformation",
+		"id":"TDD_9",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_9_IMAGE"},
+			"title": {"key":"TDD_9_TITLE","values":[{"lang":"Polish", "val":"Mroczne sekrety"},
+													{"lang":"English","val":"Sötét titkok"}]},
+			"subheader": {"key":"TDD_9_SUBHEADER","values":[{"lang":"Polish", "val":"Na myśl o tym, co właśnie zrobiłeś, dostajesz mdłości, ale nie ma już odwrotu."},
+															{"lang":"English","val":"Rosszul leszel, ha csak rágondolsz, mit is tettél; de innen már nincs visszaút."}]},
+			"body": {"key":"TDD_9_BODY","values":[	{"lang":"Polish", "val":"Możesz otrzymać 1 [BadFateMarker], by zachować tę kartę z uwagi na kategorię. W przeciwnym razie pobierz 1 fioletowy [ClueMarkerGray] i odrzuć tę kartę."},
+													{"lang":"English","val":"1 [BadFateMarker] szerzésével megtarthatod ezt a kártyát a jellemzőjéért.\n\nHa eldobod, kapsz 1 lila [ClueMarkerGray]-ot."}]},
+			"subtype": {"key":"TDD_9_SUBTYPE","values":[{"lang":"Polish", "val":"Cenna informacja"},
+														{"lang":"English","val":"Értékes értesülés"}]}
+		},
+		"drawTask":[{
+			"action": "confirm",
+			"params": {
+				"titleKey": "TDD_9_TITLE",
+				"contentKey": "TDD_9_BODY",
+				"confirm": {"key":"TDD_9_CONFIRM","values":[{"lang":"Polish", "val":"Otrzymaj 1 [BadFateMarkerColor] i zachowaj kartę"},{"lang":"English","val":"Szerzek 1 [BadFateMarkerColor]-t, és megtartom"}]},	
+				"cancel": {"key":"TDD_9_CANCEL","values":[{"lang":"Polish", "val":"Otrzymaj 1 [ClueMarkerPurple] i odrzuć kartę"},{"lang":"English","val":"Eldobom, és 1 [ClueMarkerPurple]-ot kérek"}]}
+			},
+			"success": [{
+				"action": "kill_card_inventory"
+			},{
+				"action": "place_bad_fate",
+				"params": {
+					"amount": 1
+				}
+			}],
+			"fail": [{
+				"action":"kill_card",
+				"params": "TrailDiplomacy"
+			},{
+				"action": "resource",
+				"params": {
+					"DiplomacyLead": 1
+				}
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigationValuableInformation",
+		"id":"TDD_10",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_10_IMAGE"},
+			"title": {"key":"TDD_10_TITLE","values":[{"lang":"Polish", "val":"Odwiedziny w więzieniu"},
+													{"lang":"English","val":"Börtönlátogatás"}]},
+			"subheader": {"key":"TDD_10_SUBHEADER","values":[{"lang":"Polish", "val":"Naprawdę nie chcesz się angażować w kłopoty Einara, ale rozmowa z krasnoludem będzie z pewnością warta wizyty w lochu."},
+															{"lang":"English","val":"Tényleg nem akarsz belekeveredni a kereskedő Einar ügyeibe, de egy elbeszélgetés a törppel igencsak megéri a látogatást a tömlöcben."}]},
+			"body": {"key":"TDD_10_BODY","values":[	{"lang":"Polish", "val":"Możesz opóźnić działania, by zachować tę kartę z uwagi na kategorię. W przeciwnym razie pobierz 1 fioletowy [ClueMarkerGray] i odrzuć tę kartę"},
+													{"lang":"English","val":"Ha megtartod ezt a kártyát a jellemzőjéért, feltartóztatnak.\n\nHa eldobod, kapsz 1 lila [ClueMarkerGray]-ot."}]},
+			"subtype": {"key":"TDD_10_SUBTYPE","values":[{"lang":"Polish", "val":"Cenna informacja"},
+														{"lang":"English","val":"Értékes értesülés"}]}
+		},
+		"drawTask":[{
+			"action": "confirm",
+			"params": {
+				"titleKey": "TDD_10_TITLE",
+				"contentKey": "TDD_10_BODY",
+				"confirm": {"key":"TDD_10_CONFIRM","values":[{"lang":"Polish", "val":"Opóźnij działania i zachowaj kartę"},{"lang":"English","val":"Megtartom, és veszteglek"}]},	
+				"cancel": {"key":"TDD_10_CANCEL","values":[{"lang":"Polish", "val":"Otrzymaj 1 [ClueMarkerPurple] i odrzuć kartę"},{"lang":"English","val":"Eldobom, és 1 [ClueMarkerPurple]-ot kérek"}]}
+			},
+			"success": [{
+				"action":"delay_action"
+			},{
+				"action": "kill_card_inventory"
+			}],
+			"fail": [{
+				"action":"kill_card",
+				"params": "TrailDiplomacy"
+			},{
+				"action": "resource",
+				"params": {
+					"DiplomacyLead": 1
+				}
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_11",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_11_IMAGE"},
+			"title": {"key":"TDD_11_TITLE","values":[{"lang":"Polish", "val":"Carmen ma kłopoty"},
+													{"lang":"English","val":"Carmen csávában"}]},
+			"subheader": {"key":"TDD_11_SUBHEADER","values":[{"lang":"Polish", "val":"Dama z przybytku Chętne Uda mówi, że wpadła w tarapaty i potrzebuje twojej pomocy. To już trzeci raz w tym miesiącu!"},
+															{"lang":"English","val":"A Mohó Combok bordélyház madámja azt mondja, szorult helyzetbe került, és jól jönne neki a segítséged. Ebben a hónapban már harmadszor!"}]},
+			"body": {"key":"TDD_11_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nMożesz opóźnić działania, by pobrać 1 kartę dobrego losu."},
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\n1 jószerencse-kártya húzásáért cserébe feltartóztatnak."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action": "resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		},{
+			"action": "confirm",
+			"params": {
+				"titleKey": "TDD_11_TITLE",
+				"content": {"key":"TDD_11_DECISION","values":[	{"lang":"Polish", "val":"Możesz opóźnić działania, by pobrać 1 kartę dobrego losu."},
+																{"lang":"English","val":"1 jószerencse-kártya húzásáért cserébe feltartóztatnak."}]}
+			},
+			"success": [{
+				"action":"delay_action"
+			},{
+				"action": "draw_card",
+				"params": {
+					"deck": "FateGood",
+					"amount": 1
+				}
+			}],
+			"fail": {
+				"action":"kill_card",
+				"params": "TrailDiplomacy"
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_12",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_12_IMAGE"},
+			"title": {"key":"TDD_12_TITLE","values":[{"lang":"Polish", "val":"Prośba o pomoc"},
+													{"lang":"English","val":"Segítségkérés"}]},
+			"subheader": {"key":"TDD_12_SUBHEADER","values":[{"lang":"Polish", "val":"Ha! Krispin z lombardu przychodzi do ciebie po pożyczkę... Cóż za ironia losu!"},
+															{"lang":"English","val":"Nocsak! Krispin, a zálogkölcsönző hozzád jön kölcsönért...? Minő irónia!"}]},
+			"body": {"key":"TDD_12_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nMożesz wydać 2 [GoldCoin], by pobrać 1 kartę dobrego losu."},
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\n2 [GoldCoin] elköltéséért húzhatsz 1 jószerencse-kártyát."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		},{
+			"action":"pay_gold",
+			"params": {
+				"amount": 2,
+				"message": {
+					"titleKey": "TDD_12_TITLE",
+					"content": {"key":"TDD_12_DECISION","values":[	{"lang":"Polish", "val":"Możesz wydać 2 [GoldCoin], by pobrać 1 kartę dobrego losu."},
+																	{"lang":"English","val":"Ha költesz 2 [GoldCoin]-at, húzhatsz 1 jószerencse-kártyát."}]}
+				}
+			},
+			"success": {
+				"action":"draw_card",
+				"params": {
+					"deck": "FateGood",
+					"amount": 1
+					}
+				}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_13",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_13_IMAGE"},
+			"title": {"key":"TDD_13_TITLE","values":[{"lang":"Polish", "val":"Zadanie od Aneżki"},
+													{"lang":"English","val":"Anezka feladata"}]},
+			"subheader": {"key":"TDD_13_SUBHEADER","values":[{"lang":"Polish", "val":"Normalnie nie kiwnąłbyś palcem, by pomóc tej pyskatej wiedźmie, ale skoro jej pacjentka jest tak urocza, nie możesz odmówić wsparcia."},
+															{"lang":"English","val":"Alapesetben a kisujjadat sem mozdítanád ezért a lepcsesszájú banyáért, de amikor az ápoltja ennyire szemrevaló, nem tudod visszautasítani."}]},
+			"body": {"key":"TDD_13_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nMożesz zużyć 1 niebieski [ClueMarkerGray]by pobrać 2 [GoldCoin] i 1 kartę rozwoju."},
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\n1 kék [ClueMarkerGray] elköltéséért kaphatsz\n2 [GoldCoin]-at, és húzhatsz 1 fejlesztés-\nkártyát."}]}
+		},
+		"drawTask":[{
+			"action": "resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		},{
+			"action": "test",
+			"params": {
+				"MagicLead": 1
+			},
+			"success": {
+				"action": "confirm",
+				"params": {
+					"titleKey": "TDD_13_TITLE",
+					"content": {"key":"TDD_13_DECISION","values":[	{"lang":"Polish", "val":"Możesz zużyć 1 niebieski [ClueMarkerGray]by pobrać 2 [GoldCoin] i 1 kartę rozwoju."},
+																	{"lang":"English","val":"Ha elköltesz 1 kék [ClueMarkerGray]-ot, kapsz 2 [GoldCoin]-at, és húzhatsz 1 fejlesztés-kártyát."}]}
+				},
+				"success": [{
+					"action": "resource",
+					"params": {
+						"MagicLead": -1
+					}
+				},{
+					"action": "resource",
+					"params": {
+						"Gold": 2
+					}
+				},{
+					"action": "draw_card",
+					"params": {
+						"deck": "XP",
+						"amount": 1
+					}
+				}]
+			}
+		},{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_14",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_14_IMAGE"},
+			"title": {"key":"TDD_14_TITLE","values":[{"lang":"Polish", "val":"Zabawa w chowanego"},
+													{"lang":"English","val":"Bújócska"}]},
+			"subheader": {"key":"TDD_14_SUBHEADER","values":[{"lang":"Polish", "val":"Odwracasz się, by zawołać barmankę, a informator znika! Myśli, że to jakaś zabawa?"},
+															{"lang":"English","val":"Alig csak egy pillanatra fordulsz oda a felszolgáló fehércselédhez, mire az informátorod köddé válik. Azt gondolja talán, hogy ez valamiféle játék csupán?"}]},
+			"body": {"key":"TDD_14_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nZa każdym razem, gdy wykonujesz akcję podróży, rzuć kością swojej postaci. W wypadku  sukcesu, otrzymujesz 2 fioletowe [ClueMarkerGray]. Następnie odrzuć tę kartę."},
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\nMiután utazás-akciót hajtasz végre, dobj a hős-kockáddal!\n\nHa sikert dobsz, kapsz 2 lila [ClueMarkerGray]-ot, aztán dobd el ezt a kártyát."}]}
+		},
+		"drawTask":[{
+			"action": "bind_task",
+			"params": {
+				"event": "ActionEnd",
+				"mode": "EXECUTE",
+				"condition": {"OnAction": "Move"}
+			}
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		},{
+			"action": "kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"success": [{
+				"action": "resource",
+				"params": {
+					"DiplomacyLead": 2
+				}
+			},{
+				"action":"kill_card",
+				"params": "TrailDiplomacy"
+			}],
+			"fail": [{
+				"action": "bind_task",
+				"params": {
+					"event": "ActionEnd",
+					"mode": "EXECUTE",
+					"condition": {"OnAction": "Move"}
+				}
+			},{
+				"action": "kill_card_inventory"
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_15",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_15_IMAGE"},
+			"title": {"key":"TDD_15_TITLE","values":[{"lang":"Polish", "val":"Ostrzeżenie dla księżniczki"},
+													{"lang":"English","val":"Figyelmeztetni a hercegkisasszonyt"}]},
+			"subheader": {"key":"TDD_15_SUBHEADER","values":[{"lang":"Polish", "val":"Jakiś paskudny typ zadaje pytania o księżniczkę Ciri, które mrożą ci krew w żyłach. Musisz ją odnaleźć, zanim on to zrobi."},
+															{"lang":"English","val":"Amikor egy tagbaszakadt drabál állat Ciri hercegkisasszonyról kezd kérdezősködni, meghűl benned a vér. Még a fickó előtt meg kell találnod a lányt."}]},
+			"body": {"key":"TDD_15_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nZadanie: udaj się do Cintry.\nNagroda: otrzymujesz 1 fioletowy [ClueMarkerGray] i pobierasz 1 kartę rozwoju."},
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\nFeladat: Menj Cintrába!\n\nJutalom: Kapsz 1 lila [ClueMarkerGray]-ot, és húzhatsz 1 fejlesztés-kártyát."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition":{"location": "Cintra","roll": false}
+			}
+		},{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		},{
+			"action": "draw_card",
+			"params": {
+				"deck": "XP",
+				"amount": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_16",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_16_IMAGE"},
+			"title": {"key":"TDD_16_TITLE","values":[{"lang":"Polish", "val":"Zaskakujący trop"},
+													{"lang":"English","val":"Egy váratlan nyom"}]},
+			"subheader": {"key":"TDD_16_SUBHEADER","values":[{"lang":"Polish", "val":"Hmm... Co ludzie Dijkstry robią w Rivii? Lepiej to sprawdzić."},
+															{"lang":"English","val":"Mit nem hallasz! Dijkstra emberei Ríviában? Legjobb lesz, ha ennek utánajársz."}]},
+			"body": {"key":"TDD_16_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nZadanie: udaj się do Rivii.\nNagroda: otrzymujesz 1 [ClueMarkerGray] fioletowy i 2 czerwone [ClueMarkerGray]."},
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\nFeladat: Menj Ríviába!\n\nJutalom: Kapsz 1 kék [ClueMarkerGray]-ot és 1 vörös [ClueMarkerGray]-ot."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition":{"location": "Rivia","roll": false}
+			}
+		},{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"resource",
+			"params": {
+				"MagicLead": 1,
+				"CombatLead": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_17",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_17_IMAGE"},
+			"title": {"key":"TDD_17_TITLE","values":[{"lang":"Polish", "val":"Pijany krasnolud"},
+													{"lang":"English","val":"A részeg törp"}]},
+			"subheader": {"key":"TDD_17_SUBHEADER","values":[{"lang":"Polish", "val":"Pijany w sztok nie będzie pamiętał, że ci się przechwalał, gdzie ukrył skarb, prawda?"},
+															{"lang":"English","val":"Elég részeg ahhoz, hogy ne emlékezzen majd arra, miképp dicsekedett el vele, hogy hol is rejtette el a kincseit. Nem?"}]},
+			"body": {"key":"TDD_17_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nZadanie: udaj się do Mahakamu.\nNagroda: otrzymujesz 1 fioletowy [ClueMarkerGray] i 2 [GoldCoin]."},
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\nFeladat: Menj Mahakamba!\n\nJutalom: Kapsz 1 lila [ClueMarkerGray]-ot és 2 [GoldCoin]-at."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition":{"location": "Mahakam","roll": false}
+			}
+		},{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1,
+				"Gold": 2
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_18",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_18_IMAGE"},
+			"title": {"key":"TDD_18_TITLE","values":[{"lang":"Polish", "val":"Mobilizacja elfów"},
+													{"lang":"English","val":"Tünde mozgósítás"}]},
+			"subheader": {"key":"TDD_18_SUBHEADER","values":[{"lang":"Polish", "val":"Od twoich nielicznych elfickich informatorów napływają pilne wieści. Nikt nie zna szczegółów, ale w Dol Blathanna wydarzy się coś ważnego."},
+															{"lang":"English","val":"Sürgős mozgósítási parancsokról kapsz hírt tünde informátoraid révén. Senki sem biztos a részletekben, de annyi bizonyos, hogy valami nagyszabású dolog van most készülőben Dol Blathannában."}]},
+			"body": {"key":"TDD_18_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nZadanie: udaj się do Dol Blathanna.\nNagroda: otrzymujesz 1 niebieski [ClueMarkerGray] i pobierasz 1 kartę rozwoju."},
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\nFeladat: Menj Dol Blathannába!\n\nJutalom: Kapsz 1 kék [ClueMarkerGray]-ot, és húzhatsz 1 fejlesztés-kártyát."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition":{"location": "Dol Blathanna","roll": false}
+			}
+		},{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"resource",
+			"params": {
+				"MagicLead": 1
+			}
+		},{
+			"action": "draw_card",
+			"params": {
+				"deck": "XP",
+				"amount": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_19",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_19_IMAGE"},
+			"title": {"key":"TDD_19_TITLE","values":[{"lang":"Polish", "val":"Człowiek Foltesta"},
+													{"lang":"English","val":"Foltest embere"}]},
+			"subheader": {"key":"TDD_19_SUBHEADER","values":[{"lang":"Polish", "val":"Jeden z przyjaciół z dworu Foltesta przesłał wieść, że ma pewne intrygujące informacje o rychłych podbojach."},
+															{"lang":"English","val":"Egy barát Foltest király udvarából arról értesít, hogy érdekfeszítő hírei vannak a közelgő hadjáratról."}]},
+			"body": {"key":"TDD_19_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nZadanie: udaj się do Wyzimy.\nNagroda: otrzymujesz 1 czerwony [ClueMarkerGray] i 1 fioletowy [ClueMarkerGray]."}, 
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\nFeladat: Menj Vizimába!\n\nJutalom: Kapsz 1 vörös [ClueMarkerGray]-ot és 1 lila [ClueMarkerGray]-ot."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition":{"location": "Wyzima","roll": false}
+			}
+		},{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1,
+				"DiplomacyLead": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_20",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_20_IMAGE"},
+			"title": {"key":"TDD_20_TITLE","values":[{"lang":"Polish", "val":"Wschodni akcent"},
+													{"lang":"English","val":"Keleti akcentus"}]},
+			"subheader": {"key":"TDD_20_SUBHEADER","values":[{"lang":"Polish", "val":"Nie trzeba słuchu wiedźmina, by rozpoznać, skąd pochodzi ten człowiek. Ale możesz potrzebować wiedźmińskich umiejętności, by dotrzeć tam w jednym kawałku."},
+															{"lang":"English","val":"Nem kell vajákfülekkel rendelkezni ahhoz, hogy megállapíthasd, ez az ember honnan jött. De hogy egy darabban el is juss oda, ahhoz már vajákképességek kellenek, az egyszer biztos."}]},
+			"body": {"key":"TDD_20_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nZadanie: udaj się do Ard Carraigh.\nNagroda: otrzymujesz 1 fioletowy [ClueMarkerGray] i pobierasz 1 kartę dobrego losu."}, 
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\nFeladat: Menj Ard Carraigh-be!\n\nJutalom: Kapsz 1 lila [ClueMarkerGray]-ot, és húzhatsz 1 jószerencse-kártyát."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "EXECUTE",
+				"condition":{"location": "Ard Carraigh","roll": false}
+			}
+		},{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		},{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}	
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_21",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_21_IMAGE"},
+			"title": {"key":"TDD_21_TITLE","values":[{"lang":"Polish", "val":"Krispin z lombardu"},
+													{"lang":"English","val":"Krispin, a zálogos"}]},
+			"subheader": {"key":"TDD_21_SUBHEADER","values":[{"lang":"Polish", "val":"Wolałbyś nie prowadzić interesów z Krispinem, drań, żerujący na cudzym nieszczęściu... lecz wiedzą i kontaktami krasnolud ustępuje tylko Codringherowi. Pilnie potrzebujesz informacji i to przeważa."},
+															{"lang":"English","val":"Szíved szerint nem üzletelnél egy olyan emberrel, aki mások nyomorából húz hasznot. De nála csak Codringhernek van több értesülése, jobb kapcsolatai. Ezúttal azonban győz a szükség."}]},
+			"body": {"key":"TDD_21_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nMożesz wydać 2 [GoldCoin], by pobrać 1 kartę dobrego losu, albo odrzucić 1 kartę Cennej informacji, by otrzymać 3 [ClueMarkerGray] dowolnego koloru."}, 
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\nKölthetsz 2 [GoldCoin]-at 1 jószerencse-\nkártya húzásához, vagy eldobhatod 1 »Értékes értesülés« kártyádat 3 tetszőleges színű [ClueMarkerGray]-ért."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		},{
+			"action": "test",
+			"params": {
+				"InventoryCardType": {
+					"amount": 1,
+					"type": "TrailDiplomacyInvestigationValuableInformation" 
+				}
+			},
+			"success": {
+				"action": "test",
+				"params": {
+					"Gold": 2
+				},
+				"success": {
+					"action": "confirm",
+					"params": {
+						"titleKey": "TDD_21_TITLE",
+						"content": {"key":"TDD_21_DECISION","values":[	{"lang":"Polish", "val":"Możesz wydać 2 [GoldCoin], by pobrać 1 kartę dobrego losu, albo odrzucić 1 kartę Cennej informacji, by otrzymać 3 [ClueMarkerGray] dowolnego koloru."},
+																		{"lang":"English","val":"Vagy elköltesz 2 [GoldCoin]-at 1 jószerencse-kártya húzásához, vagy eldobod 1 »Értékes értesülés« kártyádat 3 tetszőleges színű [ClueMarkerGray]-ért."}]},
+						"confirm": {"key":"TDD_21_CONFIRM","values":[{"lang":"Polish", "val":"Wydaj 2 [GoldCoinColor]"},{"lang":"English","val":"Elköltök 2 [GoldCoinColor]-at"}]},	
+						"cancel": {"key":"TDD_21_CANCEL","values":[{"lang":"Polish", "val":"Odrzuć karte cennej informacji"},{"lang":"English","val":"1 »Értékes értesülés« kártyámat dobom el"}]}
+					},
+					"success": {
+						"action": "resource",
+						"params": {
+							"Gold": -2
+						},
+						"success": {
+							"action": "draw_card",
+							"params": {
+								"deck": "FateGood",
+								"amount": 1
+							}
+						}						
+					},
+					"fail": [{
+						"action":"select_inventory_card",
+						"params": {
+							"filter": "TrailDiplomacyInvestigationValuableInformation",
+							"amount": 1,
+							"mode": "DISCARD"
+						}
+					},{
+						"action":"select_leads", 
+						"params": {
+							"DiplomacyLead": 3,
+							"CombatLead": 3,
+							"MagicLead": 3
+						}
+					}]
+				},
+				"fail": [{
+					"action":"select_inventory_card",
+					"params": {
+						"filter": "TrailDiplomacyInvestigationValuableInformation",
+						"amount": 1,
+						"mode": "DISCARD"
+					}
+				}, {
+					"action":"select_leads", 
+					"params": {
+						"DiplomacyLead": 3,
+						"CombatLead": 3,
+						"MagicLead": 3
+					}
+				}]
+			},
+			"fail": {
+				"action":"pay_gold",
+				"params": {
+					"amount": 2,
+					"message": {
+						"titleKey": "TDD_21_TITLE",
+						"content": {"key":"TDD_21_DECISION_1","values":[	{"lang":"Polish", "val":"Możesz wydać 2 [GoldCoin], by pobrać 1 kartę dobrego losu"},
+																			{"lang":"English","val":"2 [GoldCoin]-ért cserébe húzhatsz 1 jószerencse-kártyát"}]}
+										
+					}
+				},
+				"success": {
+					"action": "draw_card",
+					"params": {
+						"deck": "FateGood",
+						"amount": 1
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_22",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_22_IMAGE"},
+			"title": {"key":"TDD_22_TITLE","values":[{"lang":"Polish", "val":"Układ z wrogiem"},
+													{"lang":"English","val":"Alku az ellenséggel"}]},
+			"subheader": {"key":"TDD_22_SUBHEADER","values":[{"lang":"Polish", "val":"Przyjaciele nigdy by nie zrozumieli twojego spotkania ze Nilfgaardczykami. Lepiej, żeby nie wiedzieli."},
+															{"lang":"English","val":"A barátaid sosem értenék meg, egy nilfgaardiakkal való találkozóba miért egyeztél bele. Jobb, ha nem is szereznek róla tudomást."}]},
+			"body": {"key":"TDD_22_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nMożesz przesunąć znacznik na torze wojny do przodu, aby albo wymienić 3 [ClueMarkerGray] dowolnego koloru na [ClueMarkerGray] innego koloru, albo odrzucić 1 kartę Cennej informacji w zamian za 5 [GoldCoin]."}, 
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\nElőmozdíthatod a háború menetét 3 [ClueMarkerGray] bármilyen, más színű [ClueMarkerGray]-ra cseréléséhez, vagy eldobhatod 1 »Értékes értesülés« kártyádat 5 [GoldCoin]-ért cserébe."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		},{
+			"action": "confirm",
+			"params": {
+				"titleKey": "TDD_22_TITLE",
+				"content": {"key":"TDD_22_DECISION","values":[	{"lang":"Polish", "val":"Możesz przesunąć znacznik na torze wojny do przodu, aby albo wymienić dowolną liczbę [ClueMarkerGray] jednego koloru na [ClueMarkerGray] innego koloru, albo odrzucić 1 kartę Cennej informacji w zamian za 5 [GoldCoin]."},
+																{"lang":"English","val":"Előmozdíthatod a háború menetét 3 [ClueMarkerGray] bármilyen, más színű [ClueMarkerGray]-ra cseréléséhez, vagy eldobhatod 1 »Értékes értesülés« kártyádat 5 [GoldCoin]-ért cserébe."}]},
+				"confirm": {"key":"TDD_22_CONFIRM","values":[{"lang":"Polish", "val":"Przesuń znacznik"},{"lang":"English","val":"Előmozdítom a háború menetét"}]},	
+				"cancel": {"key":"TDD_22_CANCEL","values":[{"lang":"Polish", "val":"Nie przesuwaj"},{"lang":"English","val":"Nem mozdítom elő a háború menetét"}]}
+			},
+			"success": [{
+				"action": "advance_war_track"
+			},{
+				"action": "test",
+				"params": {
+					"InventoryCardType": {
+						"amount": 1,
+						"type": "TrailDiplomacyInvestigationValuableInformation" 
+					}
+				},
+				"success": {
+					"action": "confirm",
+					"params": {
+						"titleKey": "TDD_22_TITLE",
+						"content": {"key":"TDD_22_DECISION_2","values":[	{"lang":"Polish", "val":"Wymienień dowolną liczbę [ClueMarkerGray] jednego koloru na [ClueMarkerGray] innego koloru, albo odrzucić 1 kartę Cennej informacji w zamian za 5 [GoldCoin]."},
+																		{"lang":"English","val":"Vagy elcserélsz [ClueMarkerGray]-ot bármilyen, más színű [ClueMarkerGray]-ra, vagy eldobod 1 »Értékes értesülés« kártyádat 5 [GoldCoin]-ért cserébe."}]},
+						"confirm": {"key":"TDD_22_CONFIRM_2","values":[{"lang":"Polish", "val":"Wymień [ClueMarkerGrayWhite]"},{"lang":"English","val":"[ClueMarkerGrayWhite]-ot cserélek el"}]},	
+						"cancel": {"key":"TDD_22_CANCEL_2","values":[{"lang":"Polish", "val":"Odrzuć kartę"},{"lang":"English","val":"Kártyát dobok el"}]}
+					},
+					"fail": [{
+						"action":"select_inventory_card",
+						"params": {
+							"filter": "TrailDiplomacyInvestigationValuableInformation",
+							"amount": 1,
+							"mode": "DISCARD"
+						}
+					},{
+						"action":"resource", 
+						"params": {
+							"Gold": 5
+						}
+					}],
+					"success":[{
+						"action":"test",
+						"params": {
+							"Lead": 1
+						},
+						"success": [{
+							"action":"select_leads",
+							"params": {
+								"DiplomacyLead": -1,
+								"CombatLead": -1,
+								"MagicLead": -1
+							}				
+						},{			
+							"action":"select_leads",
+							"params": {
+								"DiplomacyLead": 1,
+								"CombatLead": 1,
+								"MagicLead": 1
+							}
+						}]
+					},{
+						"action":"test",
+						"params": {
+							"Lead": 1
+						},
+						"success": [{
+							"action":"select_leads",
+							"params": {
+								"DiplomacyLead": -1,
+								"CombatLead": -1,
+								"MagicLead": -1
+							}				
+						},{			
+							"action":"select_leads",
+							"params": {
+								"DiplomacyLead": 1,
+								"CombatLead": 1,
+								"MagicLead": 1
+							}
+						}]
+					},{
+						"action":"test",
+						"params": {
+							"Lead": 1
+						},
+						"success": [{
+							"action":"select_leads",
+							"params": {
+								"DiplomacyLead": -1,
+								"CombatLead": -1,
+								"MagicLead": -1
+							}				
+						},{			
+							"action":"select_leads",
+							"params": {
+								"DiplomacyLead": 1,
+								"CombatLead": 1,
+								"MagicLead": 1
+							}
+						}]
+					}]
+				},
+				"fail":[{
+					"action":"test",
+					"params": {
+						"Lead": 1
+					},
+					"success": [{
+						"action":"select_leads",
+						"params": {
+							"DiplomacyLead": -1,
+							"CombatLead": -1,
+							"MagicLead": -1
+						}				
+					},{			
+						"action":"select_leads",
+						"params": {
+							"DiplomacyLead": 1,
+							"CombatLead": 1,
+							"MagicLead": 1
+						}
+					}]
+				},{
+					"action":"test",
+					"params": {
+						"Lead": 1
+					},
+					"success": [{
+						"action":"select_leads",
+						"params": {
+							"DiplomacyLead": -1,
+							"CombatLead": -1,
+							"MagicLead": -1
+						}				
+					},{			
+						"action":"select_leads",
+						"params": {
+							"DiplomacyLead": 1,
+							"CombatLead": 1,
+							"MagicLead": 1
+						}
+					}]
+				},{
+					"action":"test",
+					"params": {
+						"Lead": 1
+					},
+					"success": [{
+						"action":"select_leads",
+						"params": {
+							"DiplomacyLead": -1,
+							"CombatLead": -1,
+							"MagicLead": -1
+						}				
+					},{			
+						"action":"select_leads",
+						"params": {
+							"DiplomacyLead": 1,
+							"CombatLead": 1,
+							"MagicLead": 1
+						}
+					}]
+				}]
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_23",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_23_IMAGE"},
+			"title": {"key":"TDD_23_TITLE","values":[{"lang":"Polish", "val":"Wizyta na targu"},
+													{"lang":"English","val":"Séta a piactéren"}]},
+			"subheader": {"key":"TDD_23_SUBHEADER","values":[{"lang":"Polish", "val":"Tutaj dobrze znać kogoś, kto ma ucho do najciekawszych plotek."},
+															{"lang":"English","val":"A legjobb hely a friss hírek és a szaftos pletykák elcsípésére a piac."}]},
+			"body": {"key":"TDD_23_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nZadanie: odrzuć dowolną liczbę kart Cennej informacji.\n\nNagroda: otrzymujesz 3 [ClueMarkerGray] wybranego koloru za każdą kartę Cennej informacji, którą odrzuciłeś."}, 
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\nFeladat: Dobd el 1 vagy több »Értékes értesülés« kártyád.\n\nJutalom: Kapsz 3 tetszőleges színű [ClueMarkerGray]-ot minden egyes eldobott értesülés kártyádért cserébe."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"InventoryCardType": {
+						"amount": 1,
+						"type": "TrailDiplomacyInvestigationValuableInformation" 
+					},
+					"roll": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		}],
+		"useTask":[{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"select_inventory_card",
+			"params": {
+				"filter": "TrailDiplomacyInvestigationValuableInformation",
+				"amount": 1,
+				"mode": "DISCARD",
+				"orMore": true 
+			}
+		},{
+			"action":"select_leads",
+			"params": {
+				"Lead": {
+					"variable_amount": "DISCARD",
+					"multiply_amount": 3
+				},
+				"random": false
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_24",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_24_IMAGE"},
+			"title": {"key":"TDD_24_TITLE","values":[{"lang":"Polish", "val":"Nieczyste zagranie"},
+													{"lang":"English","val":"Gaztett"}]},
+			"subheader": {"key":"TDD_24_SUBHEADER","values":[{"lang":"Polish", "val":"Zdobywanie haków na nieprzyjaciół chluby ci nie przyniesie, ale wymierne korzyści – i owszem."},
+															{"lang":"English","val":"Bár az ellenségeid piszkos múltjának felderítése nem hoz számodra túl sok dicsőséget, más jellegű előnyökhöz azért még juttathat."}]},
+			"body": {"key":"TDD_24_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 3 fioletowe [ClueMarkerGray] i 1 [BadFateMarker]. Następnie połóż 1 srebrnego [EnemyMarker] w swoim regionie."},
+													{"lang":"English","val":"Kapsz 3 lila [ClueMarkerGray]-ot, szerzel 1 [BadFateMarker]-t, és helyezz le 1 ezüst [EnemyMarker]-et a régiódban."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action": "resource",
+			"params": {
+				"DiplomacyLead": 3
+			}
+		},{
+			"action": "place_bad_fate",
+			"params": {
+				"amount": 1
+			}
+		},{
+			"action":"place_enemy",
+			"params": {
+				"amount": 1,
+				"type": "EnemyMedium"
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_25",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_25_IMAGE"},
+			"title": {"key":"TDD_25_TITLE","values":[{"lang":"Polish", "val":"Bez wyrzutów sumienia"},
+													{"lang":"English","val":"Nem bánok semmit"}]},
+			"subheader": {"key":"TDD_25_SUBHEADER","values":[{"lang":"Polish", "val":"Sprawa jest zbyt pilna, by przejmować się moralnością. Donosisz na swojego powściągliwego informatora, a potem opłacasz strażników, by brutalnie wyciągnęli z twego byłego przyjaciela wszystko, czego nie chciał powiedzieć tobie."},
+															{"lang":"English","val":"Nincs időd morális kérdésekről filozofálni - ahhoz ez az ügy túlságosan is sürgető. Kénytelen vagy szófukar informátorodat feldobni a városőrségnél, majd lefizetni őket, hogy verjék ki belőle mindazt, amit vonakodott elárulni neked."}]},
+			"body": {"key":"TDD_25_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 3 fioletowe [ClueMarkerGray], wydajesz 2 [GoldCoin] i przesuwasz znacznik na torze wojny w przód."},
+													{"lang":"English","val":"Kapsz 3 lila [ClueMarkerGray]-ot, költs 2 [GoldCoin]-at, és előmozdítod a háború menetét."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 3,
+				"Gold": -2
+			}
+		},{
+			"action": "advance_war_track"			
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_26",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_26_IMAGE"},
+			"title": {"key":"TDD_26_TITLE","values":[{"lang":"Polish", "val":"Noc w mieście"},
+													{"lang":"English","val":"Egy éjszaka a városban"}]},
+			"subheader": {"key":"TDD_26_SUBHEADER","values":[{"lang":"Polish", "val":"Najpierw koncert, później flirt, na koniec zaś bójka z zazdrosnym narzeczonym, który akurat jest studentem magii i ma dość rosłego starszego brata. Znowu to samo!"},
+															{"lang":"English","val":"Szerenádod, ez a semmicske kis flört elég nagy kalamajkába kever, ráadásul a leányzó jegyesével. Ja, hogy varázslótanonc? És van egy idősebb, nagydarab bátyja is? Hát persze!"}]},
+			"body": {"key":"TDD_26_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray] oraz toczysz walkę!\n\nWróg: 2 [Sword] 2 [Shield] 1 [Special].\nUdany [Sword]: otrzymujesz 1 czerwony [ClueMarkerGray].\nUdany [Special]: otrzymujesz 1 niebieski [ClueMarkerGray]\nNieudana [Shield]: odnosisz 1 [Wound]."},
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\nEllenfél: 2 [Sword] 2 [Shield] 1 [Special]\n\nSikeres [Sword]: kapsz 1 vörös [ClueMarkerGray]-ot.\n\nSikeres [Special]: kapsz 1 kék [ClueMarkerGray]-ot.\n\nSikertelen [Shield]: szerzel 1 [Wound]-t."}]}
+		},
+		"ai":{
+			"special": 1,
+			"wound" : 1,
+			"sword": 2,
+			"shield": 2
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		},{
+			"action": "battle",
+			"params": {
+				"attack": {
+					"condition":["sword", "sword"],
+					"success": {
+						"action": "resource",
+						"params": {
+							"CombatLead": 1 
+						}
+					}
+				},
+				"special": {
+					"condition":["special"],
+					"success": {
+						"action": "resource",
+						"params": {
+							"MagicLead": 1 
+						}
+					}
+				},
+				"defense": {
+					"condition":["shield", "shield"],
+					"fail": {
+						"action": "place_wound",
+						"params": {
+							"amount": 1,
+							"wound": 1
+						}
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_27",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_27_IMAGE"},
+			"title": {"key":"TDD_27_TITLE","values":[{"lang":"Polish", "val":"Zacieranie śladów"},
+													{"lang":"English","val":"Tüntesd el a nyomaidat"}]},
+			"subheader": {"key":"TDD_27_SUBHEADER","values":[{"lang":"Polish", "val":"Tyle osób depcze ci po piętach, że coraz trudniej znaleźć chwilę na wytchnienie i relaks."},
+															{"lang":"English","val":"Elég nehéz úgy nyugodtan hátradőlni és lazítani, hogy ennyien lihegnek már a nyakadba."}]},
+			"body": {"key":"TDD_27_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nRzuć kością swojej postaci. Jeśli odniesiesz sukces, usuń 1 [BadFateMarker] albo z karty swojej postaci, albo ze swojego regionu, i połóż go w dowolnym innym regionie."},
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\nDobj a hős-kockáddal!\n\nHa sikert dobsz, eltávolíthatsz 1 [BadFateMarker]-t a karakterlapodról, vagy a régiódról. Ezután helyezz le 1 [BadFateMarker]-t bármely régión!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		},{
+			"action":"test",
+			"params": {
+				"hasBadFateRegionOrAction": true
+			},
+			"success": {
+				"action":"success_roll",
+				"params": {
+					"condition": ["character"],
+					"characterOnly": true
+				},
+				"success": {
+					"action":"test",
+					"params": {
+						"hasBadFate": true,
+						"currentRegionBadFate": true			
+					},
+					"success": {
+						"action":"confirm",
+						"params": {
+							"titleKey": "TDD_27_TITLE",
+							"content": {"key":"TDD_27_CONTENT","values":[{"lang":"Polish", "val":"Usuń 1 [BadFateMarker] albo z karty swojej postaci, albo ze swojego regionu"},
+																		 {"lang":"English","val":"Távolíts el 1 [BadFateMarker]-t a karakterlapodról, vagy a régiódról."}]},	
+							"confirm": {"key":"TDD_27_CONFIRM","values":[{"lang":"Polish", "val":"Usuń [BadFateMarkerColor] z postaci"},{"lang":"English","val":"A hőslapról távolítok el [BadFateMarkerColor]-t"}]},
+							"cancel": {"key":"TDD_27_CANCEL","values":[{"lang":"Polish", "val":"Usuń [BadFateMarkerColor] z regionu"},{"lang":"English","val":"A régióról távolítok el [BadFateMarkerColor]-t"}]}				
+						},
+						"success": {
+							"action":"remove_bad_fate",
+							"params": {
+								"amount": 1
+							}
+						},
+						"fail": {
+							"action":"remove_bad_fate_region",
+							"params": {
+								"amount": 1,
+								"direction": "THIS"
+							}
+						}
+					},
+					"fail": {
+						"action":"test",
+						"params": {
+							"currentRegionBadFate": true			
+						},
+						"success": {
+							"action":"remove_bad_fate_region",
+							"params": {
+								"amount": 1,
+								"direction": "THIS"
+							}
+						},
+						"fail": {
+							"action":"remove_bad_fate",
+							"params": {
+								"amount": 1
+							}
+						}
+					}
+				}
+			}
+		},{
+			"action": "place_bad_fate_region",
+			"params": {
+				"amount": 1,
+				"direction": "ANY"
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_28",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_004", "sprite":"TDD_28_IMAGE"},
+			"title": {"key":"TDD_28_TITLE","values":[{"lang":"Polish", "val":"Niepokojące wieści"},
+													{"lang":"English","val":"Nyugtalanító hírek"}]},
+			"subheader": {"key":"TDD_28_SUBHEADER","values":[{"lang":"Polish", "val":"Dochodzą cię słuchy, że cesarz uwięził gdzieś Ciri."},
+															{"lang":"English","val":"Úgy hallottad, a császár tömlöcbe záratta Cirit egy világ háta mögötti, számodra ismeretlen helyen."}]},
+			"body": {"key":"TDD_28_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nPołóż 1 [BadFateMarker] w sąsiednim regionie, jeśli to możliwe."},
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\nHelyezz le 1 [BadFateMarker]-t egy szomszédos régióban, ha tudsz."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		},{
+			"action":"place_bad_fate_region",
+			"params": {
+				"amount": 1,
+				"direction": "NEIGHBOURS",
+				"if_possible": true
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_29",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TDD_29_IMAGE"},
+			"title": {"key":"TDD_29_TITLE","values":[{"lang":"Polish", "val":"Szpiedzy Nilfgaardu zacieśniają pętlę"},
+													{"lang":"English","val":"Nilfgaard kémei mindenütt ott vannak"}]},
+			"subheader": {"key":"TDD_29_SUBHEADER","values":[{"lang":"Polish", "val":"Podróżni coraz częściej donoszą, że ktoś wypytuje o ludzi, których rysopisy pasują do twoich przyjaciół. Na szczęście szpiegom łatwo się wymknąć."},
+															{"lang":"English","val":"Egyre több utazót vegzálnak olyasvalaki után kutatva, akire nagyon is ráillik útitársad személyleírása. Szerencsére könnyedén egérutat nyertek a kémek elől."}]},
+			"body": {"key":"TDD_29_BODY","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 fioletowy [ClueMarkerGray].\n\nKażdy z pozostałych graczy kładzie 1 [BadFateMarker] na swoim polu akcji podróży, o ile to możliwe. Ty wydajesz 2 [GoldCoin] albo otrzymujesz 1 [BadFateMarker]."},
+													{"lang":"English","val":"Kapsz 1 lila [ClueMarkerGray]-ot.\n\nA többi játékos pedig elhelyez 1 [BadFateMarker]-t az utazás-akcióján, ha tud.\n\nKölts 2 [GoldCoin]-at, vagy szerzel 1 [BadFateMarker]-t."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"resource",
+			"params": {
+				"DiplomacyLead": 1
+			}
+		},{
+			"action": "dispatch",
+			"params": {
+				"characterMode": "OTHERS",
+				"description":{
+					"title": {"key":"TDD_29_TITLE_1","values":[{"lang":"Polish","val":"Szpiedzy Nilfgaardu zacieśniają pętlę"},
+													 {"lang":"English","val":"Nilfgaard kémei mindenütt ott vannak"}]},
+					"body": {"key":"TDD_29_BODY_1","values":[	{"lang":"Polish", "val":"Połóż 1 [BadFateMarker] na swoim polu akcji podróży, o ile to możliwe."},
+													{"lang":"English","val":"Helyezz el 1 [BadFateMarker]-t az utazás-akciódon, ha tudsz."}]}
+				},
+				"task": {
+					"action":"place_bad_fate",
+					"params": {
+						"actionTag": "Move",
+						"ifAble": true
+					}
+				}
+			}
+		},{
+			"action": "test",
+			"params": {
+				"placeBadFate": 1
+			},
+			"success": {
+				"action": "test",
+				"params": {
+					"Gold": 2
+				},
+				"success": {
+					"action": "confirm",
+					"params": {
+						"titleKey": "TDD_29_TITLE",
+						"content": {"key":"TDD_29_DECISION","values":[	{"lang":"Polish", "val":"Ty wydajesz 2 [GoldCoin] albo otrzymujesz 1 [BadFateMarker]."},
+																		{"lang":"English","val":"Elköltesz 2 [GoldCoin]-at, vagy szerzel 1 [BadFateMarker]-t."}]},
+						"confirm": {"key":"TDD_29_CONFIRM","values":[{"lang":"Polish", "val":"Wydaj 2 [GoldCoinColor]"},{"lang":"English","val":"Elköltök 2 [GoldCoinColor]-at"}]},	
+						"cancel": {"key":"TDD_29_CANCEL","values":[{"lang":"Polish", "val":"Otrzymaj 1 [BadFateMarkerColor]"},{"lang":"English","val":"1 [BadFateMarkerColor]-t szerzek"}]}
+					},
+					"success": {
+						"action": "resource",
+						"params": {
+							"Gold": -2
+						}
+					},
+					"fail": {
+						"action": "place_bad_fate",
+						"params": {
+							"amount": 1
+						}
+					}
+				},
+				"fail": {
+					"action": "place_bad_fate",
+					"params": {
+						"amount": 1
+					}
+				}
+			},
+			"fail": {
+				"action": "resource",
+				"params": {
+					"Gold": -2
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyTrap",
+		"id":"TDD_30",
+		"description":{
+			"ribbon": {"key":"TDD_30_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TDD_30_IMAGE"},
+			"title": {"key":"TDD_30_TITLE","values":[{"lang":"Polish", "val":"Miejskie pogłoski"},
+													{"lang":"English","val":"Azt beszéli már az egész város"}]},
+			"subheader": {"key":"TDD_30_SUBHEADER","values":[{"lang":"Polish", "val":"Gospody żyją teraz tylko dwiema sprawami: kłopotami na południu i tobą. Lepiej spróbuj nie rzucać się w oczy."},
+															{"lang":"English","val":"A kocsmában most csak két dologról folyik a diskurzus: a csetepatéról Délen és rólad. Ideje kicsit meghúznod magad."}]},
+			"body": {"key":"TDD_30_BODY","values":[	{"lang":"Polish", "val":"Połóż 1 [BadFateMarker] na swoim polu akcji śledztwa, o ile to możliwe.\n\nJeśli jesteś Jaskrem, połóż także 1 [BadFateMarker] na swoim polu akcji śpiewu, o ile to możliwe."},
+													{"lang":"English","val":"Helyezz el 1 [BadFateMarker]-t a nyomkeresés-​akciódon, ha tudsz!\n\nHa te vagy Kökörcsin, a dalolás-​akciódon is helyezz el 1 [BadFateMarker]-t, ha tudsz!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"place_bad_fate",
+			"params": {
+				"actionTag": "Investigation",
+				"ifAble": true
+			}
+		},{
+			"action": "test",
+			"params": {
+				"character": "DANDELION"
+			},
+			"success": {
+				"action":"place_bad_fate",
+				"params": {
+					"actionTag": "Special",
+					"ifAble": true
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyTrap",
+		"id":"TDD_31",
+		"description":{
+			"ribbon": {"key":"TDD_31_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TDD_31_IMAGE"},
+			"title": {"key":"TDD_31_TITLE","values":[{"lang":"Polish", "val":"Dezerterzy na traktach"},
+													{"lang":"English","val":"Kóbor dezertőr bandák"}]},
+			"subheader": {"key":"TDD_31_SUBHEADER","values":[{"lang":"Polish", "val":"Na traktach z każdym tygodniem robi się niebezpieczniej. Strach wychodzić poza miejskie mury."},
+															{"lang":"English","val":"Útra kelni egyre veszélyesebb. Csak a bátrak merik kitenni a lábukat a városfalon kívülre."}]},
+			"body": {"key":"TDD_31_BODY","values":[	{"lang":"Polish", "val":"Połóż 1 [BadFateMarker] oraz 1 srebrnego [EnemyMarker]w swoim regionie."},
+													{"lang":"English","val":"Helyezz le 1 [BadFateMarker]-t és 1 ezüst [EnemyMarker]-et a régiódban!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"place_bad_fate_region"			
+		},{
+			"action":"place_enemy",
+			"params": {
+				"amount": 1,
+				"type": "EnemyMedium",
+				"direction": "THIS"
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyTrap",
+		"id":"TDD_32",
+		"description":{
+			"ribbon": {"key":"TDD_32_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TDD_32_IMAGE"},
+			"title": {"key":"TDD_32_TITLE","values":[{"lang":"Polish", "val":"Ślepy zaułek"},
+													{"lang":"English","val":"Tanácstalanul"}]},
+			"subheader": {"key":"TDD_32_SUBHEADER","values":[{"lang":"Polish", "val":"To już boleśnie oczywiste: naprawdę nie masz pojęcia, co robisz. Tylko pogarszasz sprawę."},
+															{"lang":"English","val":"Fájdalmasan nyilvánvalóvá vált, hogy egy fikarcnyi fogalmad sincs arról, mit csinálsz. Minden cselekedeteddel csak rontasz a helyzeten."}]},
+			"body": {"key":"TDD_32_BODY","values":[	{"lang":"Polish", "val":"Zużyj 3 [ClueMarkerGray] albo odrzuć 1 ze swoich kart rozwoju. Następnie przesuń znacznik na torze wojny w przód."},
+													{"lang":"English","val":"Költs 3 [ClueMarkerGray]-ot, vagy dobj el 1 fejlesztés-kártyát!\n\nEzután mozdítsd előre a háború menetét!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action": "test",
+			"params": {
+				"InventoryCardType": {
+					"amount": 1,
+					"type": "XP" 
+				}
+			},
+			"success": {
+				"action": "test",
+				"params": {
+					"Lead": 3
+				},
+				"success": {
+					"action": "confirm",
+					"params": {
+						"titleKey": "TDD_32_TITLE",
+						"content": {"key":"TDD_32_DECISION","values":[	{"lang":"Polish", "val":"Zużyj 3 [ClueMarkerGray] albo odrzuć 1 ze swoich kart rozwoju."},
+																		{"lang":"English","val":"Költs el 3 [ClueMarkerGray]-ot, vagy dobj el 1 fejlesztés-kártyát!"}]},
+						"confirm": {"key":"TDD_32_CONFIRM","values":[{"lang":"Polish", "val":"Zużyj 3 [ClueMarkerGrayWhite]"},{"lang":"English","val":"3 [ClueMarkerGrayWhite]-ot költök"}]},	
+						"cancel": {"key":"TDD_32_CANCEL","values":[{"lang":"Polish", "val":"Odrzuć kartę rozwoju"},{"lang":"English","val":"Fejlesztés-kártyát dobok el"}]}
+					},
+					"success": [{
+						"action": "select_leads",
+						"params": {
+							"Lead": -1,
+							"random": false
+						}
+					},{
+						"action": "test",
+						"params": {
+							"Lead": 1
+						},
+						"success": {
+							"action": "select_leads",
+							"params": {
+								"Lead": -1,
+								"random": false
+							}
+						}
+					},{
+						"action": "test",
+						"params": {
+							"Lead": 1
+						},
+						"success": {
+							"action": "select_leads",
+							"params": {
+								"Lead": -1,
+								"random": false
+							}
+						}
+					}],
+					"fail": {
+						"action": "select_inventory_card",
+						"params": {
+							"filter": "XP",
+							"mode": "DISCARD",
+							"amount": 1
+						}
+					}
+				},
+				"fail": {
+					"action": "select_inventory_card",
+					"params": {
+						"filter": "XP",
+						"mode": "DISCARD",
+						"amount": 1
+					}
+				}
+			},
+			"fail": [{
+				"action": "select_leads",
+				"params": {
+					"Lead": -1,
+					"random": false
+				}
+			},{
+				"action": "test",
+				"params": {
+					"Lead": 1
+				},
+				"success": {
+					"action": "select_leads",
+					"params": {
+						"Lead": -1,
+						"random": false
+					}
+				}
+			},{
+				"action": "test",
+				"params": {
+					"Lead": 1
+				},
+				"success": {
+					"action": "select_leads",
+					"params": {
+						"Lead": -1,
+						"random": false
+					}
+				}
+			}]
+		},{
+			"action":"advance_war_track"
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyTrap",
+		"id":"TDD_33",
+		"description":{
+			"ribbon": {"key":"TDD_33_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TDD_33_IMAGE"},
+			"title": {"key":"TDD_33_TITLE","values":[{"lang":"Polish", "val":"Giverna"},
+													{"lang":"English","val":"Giverna"}]},
+			"subheader": {"key":"TDD_33_SUBHEADER","values":[{"lang":"Polish", "val":"Dla wieczoru z Giverną mężczyzna poświęciłby wszystko!"},
+															{"lang":"English","val":"Nincs olyan ember, aki ne tenne kockára mindent egy Givernával töltött éjszakáért!"}]},
+			"body": {"key":"TDD_33_BODY","values":[	{"lang":"Polish", "val":"Przesuń tor wojny w przód.\n\nJeśli jesteś Jaskrem, dodatkowo zużyj 1 [ClueMarkerGray]."},
+													{"lang":"English","val":"Előmozdítod a háború menetét.\n\nHa te vagy Kökörcsin, 1 [ClueMarkerGray]-ot is költs!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"advance_war_track"
+		},{
+			"action":"test",
+			"params": {
+				"character": "DANDELION"
+			},
+			"success": {
+				"action": "select_leads",
+				"params": {
+					"DiplomacyLead": -1,
+					"CombatLead": -1,
+					"MagicLead": -1
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyTrap",
+		"id":"TDD_34",
+		"description":{
+			"ribbon": {"key":"TDD_34_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TDD_34_IMAGE"},
+			"title": {"key":"TDD_34_TITLE","values":[{"lang":"Polish", "val":"Rivetta"},
+													{"lang":"English","val":"Rivetta"}]},
+			"subheader": {"key":"TDD_34_SUBHEADER","values":[{"lang":"Polish", "val":"Poruszyłbyś dla niej niebo i ziemię, mówiąc, że to drobnostka."},
+															{"lang":"English","val":"Lehoznád neki a csillagokat, és még erre is csak azt mondanád, hogy igazán semmiség volt."}]},
+			"body": {"key":"TDD_34_BODY","values":[	{"lang":"Polish", "val":"Wydaj 1 [GoldCoin].\n\nJeśli jesteś Jaskrem, wydaj dodatkowo 2 [GoldCoin]."},
+													{"lang":"English","val":"Költs 1 [GoldCoin]-at!\n\nHa te vagy Kökörcsin, költs további 2 [GoldCoin]-at!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action": "resource",
+			"params": {
+				"Gold": -1
+			}
+		},{
+			"action":"test",
+			"params": {
+				"character": "DANDELION"
+			},
+			"success": {
+				"action": "resource",
+				"params": {
+					"Gold": -2
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyTrap",
+		"id":"TDD_35",
+		"description":{
+			"ribbon": {"key":"TDD_35_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TDD_35_IMAGE"},
+			"title": {"key":"TDD_35_TITLE","values":[{"lang":"Polish", "val":"Taliss"},
+													{"lang":"English","val":"Taliss"}]},
+			"subheader": {"key":"TDD_35_SUBHEADER","values":[{"lang":"Polish", "val":"Sprawy wielkiego świata na pewno mogą zaczekać dla kilku upojnych chwil..."},
+															{"lang":"English","val":"A világ összes gondja várhat egy röpke, mámorító pillanat erejéig."}]},
+			"body": {"key":"TDD_35_BODY","values":[	{"lang":"Polish", "val":"Połóż 1 [BadFateMarker], 1 brązowego [EnemyMarker] and 1 srebrnego [EnemyMarker] w dowolnych regionach.\n\nJeśli jesteś Jaskrem, dodatkowo usuń wszystkie [Wound] i wszystkie [BadFateMarker] ze swojej karty postaci."},
+													{"lang":"English","val":"Helyezz le 1 [BadFateMarker]-t, 1 bronz [EnemyMarker]-et és 1 ezüst [EnemyMarker]-et bármelyik régióra.\n\nHa te vagy Kökörcsin, távolítsd el az összes [Wound]-t és [BadFateMarker]-t a karakterlapodról!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"place_bad_fate_region",
+			"params": {
+				"direction": "ANY"
+			}			
+		},{
+			"action":"place_enemy",
+			"params": {
+				"amount": 1,
+				"type": "EnemySmall",
+				"direction": "ANY"
+			}
+		},{
+			"action":"place_enemy",
+			"params": {
+				"amount": 1,
+				"type": "EnemyMedium",
+				"direction": "ANY"
+			}
+		},{
+			"action": "test",
+			"params": {
+				"character": "DANDELION"
+			},
+			"success": [{
+				"action":"heal",
+				"params": {
+					"wound_amount": -1
+				}
+			},{
+				"action":"remove_bad_fate",
+				"params": {
+					"all": true
+				}
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyTrap",
+		"id":"TDD_36",
+		"description":{
+			"ribbon": {"key":"TDD_36_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TDD_36_IMAGE"},
+			"title": {"key":"TDD_36_TITLE","values":[{"lang":"Polish", "val":"Hrabina De Luxiov"},
+													{"lang":"English","val":"De Luxiov grófné"}]},
+			"subheader": {"key":"TDD_36_SUBHEADER","values":[{"lang":"Polish", "val":"Hrabia De Luxiov często wyjeżdża w interesach i hrabina czuje się samotna."},
+															{"lang":"English","val":"De Luxiov gróf gyakran van távol üzleti ügyei miatt, a grófné pedig gyakran magányos."}]},
+			"body": {"key":"TDD_36_BODY","values":[	{"lang":"Polish", "val":"Połóż 1 [BadFateMarker] na swoim polu akcji podróży i 1 [BadFateMarker] na swoim polu akcji odpoczynku, o ile to możliwe.\n\nJeśli jesteś Jaskrem, dodatkowo albo pobierz 1 [GoldCoin] albo usuń 1 [Wound] ze swojej karty postaci."},
+													{"lang":"English","val":"Helyezz el 1 [BadFateMarker]-t az utazás-\nakciódon, és helyezz el 1 [BadFateMarker]-t\na pihenés-akciódon, ha tudsz!\n\nHa te vagy Kökörcsin, vagy kapsz 1 [GoldCoin]-at, vagy vegyél le 1 [Wound]-t a karakterlapodról."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"place_bad_fate",
+			"params": {
+				"actionTag": "Move",
+				"ifAble": true
+			}
+		},{
+			"action":"place_bad_fate",
+			"params": {
+				"actionTag": "Heal",
+				"ifAble": true
+			}
+		},{
+			"action": "test",
+			"params": {
+				"character": "DANDELION"
+			},
+			"success": {
+				"action": "test",
+				"params": {
+					"woundedRegular": true
+				},
+				"success": {
+					"action": "confirm",
+					"params": {
+						"titleKey": "TDD_36_TITLE",
+						"content": {"key":"TDD_36_DECISION","values":[	{"lang":"Polish", "val":"Pobierz 1 [GoldCoin] albo usuń 1 [Wound] ze swojej karty postaci."},
+																		{"lang":"English","val":"Vagy kapsz 1 [GoldCoin]-at, vagy vegyél le 1 [Wound]-t a karaketrlapodról!"}]},
+						"confirm": {"key":"TDD_36_CONFIRM","values":[{"lang":"Polish", "val":"Pobierz 1 [GoldCoinColor]"},{"lang":"English","val":"1 [GoldCoinColor]-at kérek"}]},	
+						"cancel": {"key":"TDD_36_CANCEL","values":[{"lang":"Polish", "val":"Usuń 1 [WoundColor]"},{"lang":"English","val":"Leveszek 1 [WoundColor]-t"}]}
+					},
+					"success": {
+						"action": "resource",
+						"params": {
+							"Gold": 1
+						}
+					},
+					"fail": {
+						"action": "heal",
+						"params": {
+							"wound_amount": 1
+						}
+					}
+				},
+				"fail": {
+					"action": "resource",
+					"params": {
+						"Gold": 1
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyTrap",
+		"id":"TDD_37",
+		"description":{
+			"ribbon": {"key":"TDD_37_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TDD_37_IMAGE"},
+			"title": {"key":"TDD_37_TITLE","values":[{"lang":"Polish", "val":"Miriam"},
+													{"lang":"English","val":"Miriam"}]},
+			"subheader": {"key":"TDD_37_SUBHEADER","values":[{"lang":"Polish", "val":"Romantyczne spotkanie po latach porywa cię bez reszty."},
+															{"lang":"English","val":"Az egyik régi barátnéddal történt romantikus légyott után a fellegekben jársz."}]},
+			"body": {"key":"TDD_37_BODY","values":[	{"lang":"Polish", "val":"Opóźnij działania.\n\nJeśli jesteś Jaskrem, dodatkowo pobierz 1 kartę dobrego losu."},
+													{"lang":"English","val":"Feltartóztatnak.\n\nHa te vagy Kökörcsin, húzz 1 jószerencse-kártyát is!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"delay_action"
+		},{
+			"action": "test",
+			"params": {
+				"character": "DANDELION"
+			},
+			"success": {
+				"action": "draw_card",
+				"params": {
+					"deck": "FateGood",
+					"amount": 1
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyTrap",
+		"id":"TDD_38",
+		"description":{
+			"ribbon": {"key":"TDD_38_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TDD_38_IMAGE"},
+			"title": {"key":"TDD_38_TITLE","values":[{"lang":"Polish", "val":"Leah"},
+													{"lang":"English","val":"Leah"}]},
+			"subheader": {"key":"TDD_38_SUBHEADER","values":[{"lang":"Polish", "val":"Ostatnie spotkanie z rudowłosą pięknością zakończyło się dość burzliwie."},
+															{"lang":"English","val":"A legutóbbi találkozásod ezzel a vörös hajú szépséggel, mondhatni, viharosan ért véget."}]},
+			"body": {"key":"TDD_38_BODY","values":[	{"lang":"Polish", "val":"Odnosisz 1 [Wound].\n\nJeśli jesteś Jaskrem, dodatkowo odnosisz 1 [Wound] albo otrzymujesz 2 [BadFateMarker]."},
+													{"lang":"English","val":"Szerzel 1 [Wound]-t.\n\nHa te vagy Kökörcsin, további 1 [Wound]-t vagy 2 [BadFateMarker]-t is szerzel."}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action": "place_wound",
+			"params": {
+				"amount": 1,
+				"wound": 1
+			}
+		},{
+			"action" :"test",
+			"params": {
+				"character": "DANDELION"
+			},
+			"success": {
+				"action":"confirm",
+				"params": {
+					"titleKey": "TDD_38_TITLE",
+					"content": {"key":"TDD_38_DECISION","values":[	{"lang":"Polish", "val":"Odnosisz 1 [Wound] albo otrzymujesz 2 [BadFateMarker]."},
+																	{"lang":"English","val":"Vagy további 1 [Wound]-t szerzel, vagy 2 [BadFateMarker]-t."}]},
+					"confirm": {"key":"TDD_38_CONFIRM","values":[{"lang":"Polish", "val":"Odnosisz [WoundColor]"},{"lang":"English","val":"1 [WoundColor]-t szerzek"}]},	
+					"cancel": {"key":"TDD_38_CANCEL","values":[{"lang":"Polish", "val":"Odnosisz 2 [BadFateMarkerColor]"},{"lang":"English","val":"2 [BadFateMarkerColor]-t szerzek"}]}
+				},
+				"success": {
+					"action": "place_wound",
+					"params": {
+						"amount": 1,
+						"wound": 1
+					}
+				},
+				"fail": {
+					"action": "place_bad_fate",
+					"params": {
+						"amount": 2
+					}
+				}
+			}
+			
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyTrap",
+		"id":"TDD_39",
+		"description":{
+			"ribbon": {"key":"TDD_39_RIBBON","values":[{"lang":"Polish", "val":"NIEPOWODZENIE"},
+											 		{"lang":"English","val":"HÁTRÁLTATÁS"}]},
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TDD_39_IMAGE"},
+			"title": {"key":"TDD_39_TITLE","values":[{"lang":"Polish", "val":"Hannah"},
+													{"lang":"English","val":"Hanna"}]},
+			"subheader": {"key":"TDD_39_SUBHEADER","values":[{"lang":"Polish", "val":"Młoda służąca zakochuje się bezgranicznie w przystojnym i tajemniczym mężczyźnie. Cóż za piękna historia..."},
+															{"lang":"English","val":"Ez a fiatal hajadon reménytelenül beleesett egy jóképű és titokzatos férfiba. Minő csodás történet..."}]},
+			"body": {"key":"TDD_39_BODY","values":[	{"lang":"Polish", "val":"Zużyj 2 [ClueMarkerGray].\n\nJeśli jesteś Jaskrem, dodatkowo pobierz 1 kartę dobrego losu."},
+													{"lang":"English","val":"Költs 2 [ClueMarkerGray]-ot.\n\nHa te vagy Kökörcsin, húzz 1 jószerencse-kártyát is!"}]}
+		},
+		"drawTask":[{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action": "select_leads",
+			"params": {
+				"Lead": -1,
+				"random": false
+			}
+		},{
+			"action": "test",
+			"params": {
+				"Lead": 1
+			},
+			"success": {
+				"action": "select_leads",
+				"params": {
+					"Lead": -1,
+					"random": false
+				}
+			}
+		},{
+			"action": "test",
+			"params": {
+				"character": "DANDELION"
+			},
+			"success": {
+				"action": "draw_card",
+				"params": {
+					"deck": "FateGood",
+					"amount": 1
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"type":"TrailDiplomacyInvestigation",
+		"id":"TDD_40",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_005", "sprite":"TDD_40_IMAGE"},
+			"title": {"key":"TDD_40_TITLE","values":[{"lang":"Polish", "val":"Sojusznik wśród wrogów"},
+													{"lang":"English","val":"Szövetséges az ellenség soraiban"}]},
+			"subheader": {"key":"TDD_40_SUBHEADER","values":[{"lang":"Polish", "val":"Sprzymierzeńców trzeba mieć po obu stronach barykady, szczególnie jeśli siedzisz na niej okrakiem."}, 
+															{"lang":"English","val":"Fontos, hogy a határ mindkét felén legyenek szövetségeseid, főleg, ha egyik és másik oldalon is vannak érdekeltségeid."}]},
+			"body": {"key":"TDD_40_BODY","values":[	{"lang":"Polish", "val":"Zadanie: odrzuć 1 kartę Cennej informacji\n\nNagroda: gracz posiadający największą liczbę PZ traci 2 PZ, ty otrzymujesz 2 PZ."},
+													{"lang":"English","val":"Feladat: Dobj el 1 »Értékes értesülés« kártyát!\n\nJutalom: A legtöbb DP-tal rendelkező hős 2 DP-ot veszít,\nte pedig kapsz 2 DP-ot."}]}
+		},
+		"drawTask":[{
+			"action": "bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition": {
+					"roll": false,
+					"InventoryCardType": {
+						"amount": 1,
+						"type": "TrailDiplomacyInvestigationValuableInformation"
+					}
+				}
+			}
+		},{
+			"action": "kill_card_inventory"
+		}],
+		"useTask": [{
+			"action": "complete_task"
+		},{
+			"action":"kill_card",
+			"params": "TrailDiplomacy"
+		},{
+			"action":"select_inventory_card",
+			"params": {
+				"filter": "TrailDiplomacyInvestigationValuableInformation",
+				"amount": 1,
+				"mode": "DISCARD"
+			}
+		},{
+			"action": "dispatch",
+			"params": {
+				"characterMode": "MOST_VP",
+				"description":{
+					"title": {"key":"TDD_40_TITLE_1","values":[{"lang":"Polish","val":"Sojusznik wśród wrogów"},
+													 {"lang":"English","val":"Szövetséges az ellenség soraiban"}]},
+					"body": {"key":"TDD_40_BODY_1","values":[	{"lang":"Polish", "val":"Tracisz 2 PZ."},
+													{"lang":"English","val":"Veszítesz 2 DP-ot."}]}
+				},
+				"task": {
+					"action": "resource",
+					"params": {
+						"VictoryPoints": -2
+					}
+				}
+			}
+		},{
+			"action": "resource",
+			"params": {
+				"VictoryPoints": 2
+			}
+		}],"------------------":"------------------------"
+	}]
+}

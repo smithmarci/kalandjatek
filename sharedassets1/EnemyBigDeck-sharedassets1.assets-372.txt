@@ -1,0 +1,477 @@
+{
+	"defalutDescription":{
+		"ribbon": {"key":"EBC_RIBBON","values":[{"lang":"Polish", "val":"WRÓG DUŻY"},
+										 		{"lang":"English","val":"NAGY SZÖRNYEK"}]},
+		"front": {"atlas":"Atlases/Atlas-Card-Backgrounds_002", "sprite":"Card-Front-EnemyBig"},
+		"back": {"atlas":"Atlases/Atlas-Card-Backgrounds_002", "sprite":"Card-Reverse-EnemyBig"}
+	},
+	"cards":[{
+		"------------------":"------------------------",
+		"type":"EnemyBig",
+		"id":"EBC_1",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"EBC_1_IMAGE"},
+			"title": {"key":"EBC_1_TITLE","values":[{"lang":"Polish","val":"Gryf"},
+													 {"lang":"English","val":"Griff"}]},
+			"body": {"key":"EBC_1_BODY","values":[	{"lang":"Polish", "val":"Udany [Sword]: otrzymujesz 2 PZ i 1  [GoldCoin].\nNieudana [Shield]: odnosisz 1 [Wound] i 1 [WoundSevere]."},
+													{"lang":"English","val":"[Sword] siker: kapsz 2 DP-ot\nés 1 [GoldCoin]-at,\n[Shield] bukás: szerzel 1 [Wound]-t\nés 1 [WoundSevere]-t"}]}
+		},
+		"ai":{
+			"wound": 1,
+			"severe_wound": 1,
+			"sword": 4,
+			"shield": 4,
+			"victoryPoints": 2
+		},
+		"enemy": {
+			"attack": 4,
+			"defense": 4
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition":["sword", "sword", "sword", "sword"],
+					"success": {
+						"action":"resource",
+						"params": {
+							"VictoryPoints": 2,
+							"Gold": 1
+						}
+					}
+				},
+				"defense": {
+					"condition":["shield", "shield", "shield", "shield"],
+					"fail": [{
+						"action":"place_wound",
+						"params": {
+							"amount": 1,
+							"wound": 1
+						}
+					},{
+						"action":"place_wound",
+						"params": {
+							"amount": 1,
+							"wound": 2
+						}
+					}]
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemyBig"
+			}
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"EnemyBig",
+		"id":"EBC_2",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"EBC_2_IMAGE"},
+			"title": {"key":"EBC_2_TITLE","values":[{"lang":"Polish","val":"Nidhogg"},
+													 {"lang":"English","val":"Nídhögg"}]},
+			"body": {"key":"EBC_2_BODY","values":[	{"lang":"Polish", "val":"Przed rzutem: odnosisz 1 [WoundSevere]. Udany [Sword]: otrzymujesz 3 PZ. Nieudana [Shield]: odnosisz 1 [Wound] za każdą brakującą [Shield]."},
+													{"lang":"English","val":"Dobás előtt: szerzel 1 [WoundSevere]-t.\n[Sword] siker: kapsz 3 DP-ot,\n[Shield] bukás: szerzel 1 [Wound]-t minden hiányzó [Shield] után"}]}
+		},
+		"enemy": {
+			"attack": 5,
+			"defense": 4
+		},
+		"ai":{
+			"wound": 4,
+			"severe_wound" : 1,
+			"beforeRoll": true,
+			"sword": 5,
+			"shield": 4,
+			"victoryPoints": 3
+		},
+		"drawTask":{
+			"action":"place_wound",
+			"params": {
+				"amount": 1,
+				"wound": 2
+			} 
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition":["sword", "sword", "sword", "sword", "sword"],
+					"success": {
+						"action":"resource",
+						"params": {
+							"VictoryPoints": 3
+						}
+					}
+				},
+				"defense": {
+					"condition":["shield", "shield", "shield", "shield"],
+					"fail": {
+						"action":"place_wound",
+						"params": {
+							"variable_amount": "DEFENCE_SHORT",
+							"wound": 1
+						}
+					}
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemyBig"
+			}
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"EnemyBig",
+		"id":"EBC_3",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"EBC_3_IMAGE"},
+			"title": {"key":"EBC_3_TITLE","values":[{"lang":"Polish", "val":"Strzyga"},
+													{"lang":"English","val":"Striga"}]},
+			"body": {"key":"EBC_3_BODY","values":[	{"lang":"Polish", "val":"Udany [Sword]: otrzymujesz 3 PZ i 2 [GoldCoin].\nNieudana [Shield]: odnosisz 1 [Wound] za każdą brakującą [Shield]."},
+													{"lang":"English","val":"[Sword] siker: kapsz 3 DP-ot\nés 2 [GoldCoin]-at,\n[Shield] bukás: szerzel 1 [Wound]-t minden hiányzó [Shield] után"}]}
+		},
+		"ai":{
+			"wound": 4,
+			"sword": 5,
+			"shield": 5,
+			"victoryPoints": 3
+		},
+		"enemy": {
+			"attack": 5,
+			"defense": 5
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition":["sword", "sword", "sword", "sword", "sword"],
+					"success": {
+						"action":"resource",
+						"params": {
+							"VictoryPoints": 3,
+							"Gold": 2
+						}
+					}
+				},
+				"defense": {
+					"condition":["shield", "shield", "shield", "shield", "shield"],
+					"fail": {
+						"action":"place_wound",
+						"params": {
+							"variable_amount": "DEFENCE_SHORT",
+							"wound": 1
+						}
+					}
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemyBig"
+			}		
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"EnemyBig",
+		"id":"EBC_4",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"EBC_4_IMAGE"},
+			"title": {"key":"EBC_4_TITLE","values":[{"lang":"Polish","val":"Żywiołak"},
+													 {"lang":"English","val":"Elementál"}]},
+			"body": {"key":"EBC_4_BODY","values":[	{"lang":"Polish", "val":"Przed rzutem: każdy gracz w regionie odnosi 1 [WoundSevere].\nUdany [Sword]: otrzymujesz 2 PZ. Nieudana [Shield]: odnosisz 1 [WoundSevere]."},
+													{"lang":"English","val":"Dobás előtt: a régióban minden hős szerez 1 [WoundSevere]-t.\n[Sword] siker: kapsz 2 DP-ot,\n[Shield] bukás: szerzel 1 [WoundSevere]-t"}]}
+		},
+		"enemy": {
+			"attack": 3,
+			"defense": 4
+		},
+		"ai":{
+			"severe_wound" : 2,
+			"beforeRoll": true,
+			"sword": 3,
+			"shield": 4,
+			"victoryPoints": 2
+		},
+		"drawTask":{
+			"action": "dispatch",
+			"params": {
+				"characterMode": "ALL",
+				"characterFilter": "IN_REGION",
+				"description":{
+					"title": {"key":"EBC_4_TITLE_1","values":[{"lang":"Polish","val":"Żywiołak"},
+													 {"lang":"English","val":"Elementál"}]},
+					"body": {"key":"EBC_4_BODY_1","values":[	{"lang":"Polish", "val":"Odnosisz 1 [WoundSevere]."},
+													{"lang":"English","val":"Szerzel 1 [WoundSevere]-t!"}]}
+				},
+				"task": {
+					"action": "place_wound",
+					"params": {
+						"amount": 1,
+						"wound": 2
+					}
+				}
+			}
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition":["sword", "sword", "sword"],
+					"success": {
+						"action":"resource",
+						"params": {
+							"VictoryPoints": 2
+						}
+					}
+				},
+				"defense": {
+					"condition":["shield", "shield", "shield", "shield"],
+					"fail": {
+						"action":"place_wound",
+						"params": {
+							"amount": 1,
+							"wound": 2
+						}
+					}
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemyBig"
+			}	
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"EnemyBig",
+		"id":"EBC_5",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_008", "sprite":"EBC_5_IMAGE"},
+			"title": {"key":"EBC_5_TITLE","values":[{"lang":"Polish", "val":"Leszy"},
+													{"lang":"English","val":"Lesi"}]},
+			"body": {"key":"EBC_5_BODY","values":[	{"lang":"Polish", "val":"Udany [Sword]: otrzymujesz 2 PZ.\nNieudany [Sword]: otrzymujesz 1 [BadFateMarker] za każdy brakujący [Sword]."},
+													{"lang":"English","val":"[Sword] siker: kapsz 2 DP-ot,\n[Sword] bukás: szerzel 1 [BadFateMarker]-t minden hiányzó [Sword] után"}]}
+		},
+		"enemy": {
+			"attack": 5,
+			"defense": 0,
+			"victoryPoints": 2
+		},
+		"ai":{
+			"sword": 5
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition":["sword", "sword", "sword", "sword", "sword"],
+					"success": {
+						"action":"resource",
+						"params": {
+							"VictoryPoints": 2
+						}
+					},
+					"fail": {
+						"action": "place_bad_fate",
+						"params": {
+							"variable_amount": "ATTACK_SHORT"					
+						}
+					}
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemyBig"
+			}		
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"EnemyBig",
+		"id":"EBC_6",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_008", "sprite":"EBC_6_IMAGE"},
+			"title": {"key":"EBC_6_TITLE","values":[{"lang":"Polish", "val":"Draug"},
+													{"lang":"English","val":"Draug"}]},
+			"body": {"key":"EBC_6_BODY","values":[	{"lang":"Polish", "val":"Przed rzutem: połóż 1 [BadFateMarker] w jednym sąsiednim regionie.\nUdany [Sword]: otrzymujesz 2 PZ. Nieudana [Shield]: każda postać otrzymuje 1 [BadFateMarker]."},
+													{"lang":"English","val":"Dobás előtt: helyezz le 1\n[BadFateMarker]-t 1 szomszédos régióban.\n[Sword] siker: kapsz 2 DP-ot,\n[Shield] bukás: minden hős szerez 1 [BadFateMarker]-t"}]}
+		},
+		"enemy": {
+			"attack": 4,
+			"defense": 3
+		},
+		"ai":{
+			"beforeRoll": true,
+			"sword": 4,
+			"shield": 3,
+			"victoryPoints": 2
+		},
+		"drawTask":{
+			"action":"place_bad_fate_region",
+			"params": {
+				"amount": 1,
+				"direction": "NEIGHBOURS"
+			}
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition":["sword", "sword", "sword", "sword"],
+					"success": {
+						"action":"resource",
+						"params": {
+							"VictoryPoints": 2
+						}
+					}
+				},
+				"defense": {
+					"condition":["shield", "shield", "shield"],
+					"fail": {
+						"action": "dispatch",
+						"params": {
+							"characterMode": "ALL",
+							"description":{
+								"title": {"key":"EBC_4_TITLE_1","values":[{"lang":"Polish","val":"Żywiołak"},
+																 {"lang":"English","val":"Elementál"}]},
+								"body": {"key":"EBC_4_BODY_1","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 [BadFateMarker]."},
+																{"lang":"English","val":"Szerzel 1 [BadFateMarker]-t!"}]}
+							},
+							"task": {
+								"action": "place_bad_fate",
+								"params": {
+									"amount": 1
+								}		
+							}
+						}
+					}
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemyBig"
+			}		
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"EnemyBig",
+		"id":"EBC_7",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_008", "sprite":"EBC_7_IMAGE"},
+			"title": {"key":"EBC_7_TITLE","values":[{"lang":"Polish", "val":"Dagon"},
+													{"lang":"English","val":"Dagon"}]},
+			"body": {"key":"EBC_7_BODY","values":[	{"lang":"Polish", "val":"Przed rzutem: odrzuć 1 [Charge] ze swojej karty rozwoju.\nUdany [Sword]: otrzymujesz 2 PZ. Nieudana [Shield]: odnosisz 2 [WoundSevere]."},
+													{"lang":"English","val":"Dobás előtt: végy le 1 [Charge]-t\n1 fejlesztés-kártyádról.\n[Sword] siker: kapsz 2 DP-ot,\n[Shield] bukás: szerzel 2 [WoundSevere]-t"}]}
+		},
+		"enemy": {
+			"attack": 4,
+			"defense": 4
+		},
+		"ai":{
+			"severe_wound" : 2,
+			"beforeRoll": true,
+			"sword": 4,
+			"shield": 4,
+			"victoryPoints": 2
+		},
+		"drawTask":{
+			"action":"select_inventory_card",
+			"params": {
+				"filter": "XP",
+				"amount": 1,
+				"mode": "CHARGE_REMOVE"
+			}
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition":["sword", "sword", "sword", "sword"],
+					"success": {
+						"action":"resource",
+						"params": {
+							"VictoryPoints": 2
+						}
+					}
+				},
+				"defense": {
+					"condition":["shield", "shield", "shield", "shield"],
+					"fail": {
+						"action":"place_wound",
+						"params": {
+							"amount": 2,
+							"wound": 2
+						}
+					}
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemyBig"
+			}		
+		},"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"EnemyBig",
+		"id":"EBC_8",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_008", "sprite":"EBC_8_IMAGE"},
+			"title": {"key":"EBC_8_TITLE","values":[{"lang":"Polish", "val":"Przeraza"},
+													{"lang":"English","val":"Rémsáska"}]},
+			"body": {"key":"EBC_8_BODY","values":[	{"lang":"Polish", "val":"Przed rzutem: Umieść 1 [BadFateMarker] na swojej akcji podróży (jeśli możliwe). Udany [Sword]: otrzymujesz 2 PZ. Nieudana [Shield]: odnosisz 2 [WoundSevere]."},
+													{"lang":"English","val":"Dobás előtt: helyezz el\n1 [BadFateMarker]-t az utazás-akciódon,\nha tudsz.\n[Sword] siker: kapsz 2 DP-ot,\n[Shield] bukás: szerzel 2 [WoundSevere]-t"}]}
+		},
+		"enemy": {
+			"attack": 4,
+			"defense": 3
+		},
+		"ai":{
+			"severe_wound" : 2,
+			"beforeRoll": true,
+			"sword": 4,
+			"shield": 3,
+			"victoryPoints": 2
+		},
+		"drawTask":{
+			"action":"place_bad_fate",
+			"params": {
+				"actionTag": "Move",
+				"ifAble": true
+			}
+		},
+		"useTask":{
+			"action":"battle",
+			"params": {
+				"successInAttackOnly": true,
+				"attack": {
+					"condition":["sword", "sword", "sword", "sword"],
+					"success": {
+						"action":"resource",
+						"params": {
+							"VictoryPoints": 2
+						}
+					}
+				},
+				"defense": {
+					"condition":["shield", "shield", "shield"],
+					"fail": {
+						"action":"place_wound",
+						"params": {
+							"amount": 2,
+							"wound": 2
+						}
+					}
+				}
+			},
+			"success": { 
+				"action":"kill_card",
+				"params":"EnemyBig"
+			}		
+		},"------------------":"------------------------"
+	}]
+}

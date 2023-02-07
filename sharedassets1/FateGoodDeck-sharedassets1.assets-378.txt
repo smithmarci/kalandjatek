@@ -1,0 +1,1558 @@
+{
+	"defalutDescription":{
+		"ribbon": {"key":"GFC_RIBBON","values":[{"lang":"Polish", "val":"DOBRY LOS"},
+										 		{"lang":"English","val":"JÓSZERENCSE"}]},
+		"front": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Front-LuckGood"},
+		"flag": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Flag-LuckGood"},
+		"back": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Reverse-LuckGood"}
+	},
+	"cards":[{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_1",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"GFC_1_IMAGE"},
+			"title": {"key":"GFC_1_TITLE","values":[{"lang":"Polish", "val":"Podróżny w kapturze"},
+													{"lang":"English","val":"A csuklyás utazó"}]},
+			"subheader": {"key":"GFC_1_SUBHEADER","values":[{"lang":"Polish", "val":"Na widok nieznajomego robisz się czujny, lecz gdy ściąga kaptur, cieszysz się na widok starego druha."},
+															{"lang":"English","val":"Óvatos vagy, amikor az idegen feléd közelít, ám miután hátraveti csuklyáját, örülsz, hogy egy régi barátodat látod."}]},
+			"body": {"key":"GFC_1_BODY","values":[	{"lang":"Polish", "val":"W wypadku opóźnienia działań twojej postaci, zagraj tę kartę, by zapobiec opóźnieniu.\n\nJeśli dodatkowo wydasz 1 [GoldCoin], możesz zmusić inną postać do opóźnienia działań."},
+													{"lang":"English","val":"Ha feltartóztatnak, játszd ki ezt a kártyát az elkerülésére!\n\nHa 1 [GoldCoin]-at is költesz, egy másik hőst tartóztatnak fel."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"roll": false, 
+					"delayed": true,
+					"action": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card",
+			"params": "FateGood"
+		},{
+			"action":"prevent_delay_action"
+		},{
+			"action": "test",
+			"params": {
+				"playerAmount": 2
+			},
+			"success": {
+				"action": "pay_gold",
+				"params": {
+					"amount": 1,
+					"obligatory": false,
+					"message": {
+						"titleKey": "GFC_1_TITLE",
+						"content": {"key":"GFC_1_DECISION","values":[	{"lang":"Polish", "val":"Jeśli dodatkowo wydasz 1 [GoldCoin], możesz zmusić inną postać do opóźnienia działań."},
+																		{"lang":"English","val":"Ha költesz 1 [GoldCoin]-at, másik hőst tartóztatnak fel."}]},
+						"confirm": {"key":"GFC_1_CONFIRM","values":[{"lang":"Polish", "val":"Wydaj 1 [GoldCoinColor]"},{"lang":"English","val":"Költök 1 [GoldCoinColor]-at"}]},	
+						"cancel": {"key":"GFC_1_CANCEL","values":[{"lang":"Polish", "val":"Nie wydawaj"},{"lang":"English","val":"Nem költök"}]}
+					}
+				},
+				"success": {
+					"action": "dispatch",
+					"params": {
+						"characterMode": "SELECT",
+						"description":{
+							"title": {"key":"GFC_1_TITLE_1","values":[{"lang":"Polish","val":"Podróżny w kapturze"},
+															 {"lang":"English","val":"A csuklyás utazó"}]},
+							"body": {"key":"GFC_1_BODY_1","values":[	{"lang":"Polish", "val":"Opóźniasz działania."},
+															{"lang":"English","val":"Feltartóztattak!"}]}
+						},
+						"task": {
+							"action":"delay_action"	
+						}
+					}
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_2",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"GFC_2_IMAGE"},
+			"title": {"key":"GFC_2_TITLE","values":[{"lang":"Polish", "val":"Przesyłka od Nenneke"},
+													{"lang":"English","val":"Csomag Nennekétől"}]},
+			"subheader": {"key":"GFC_2_SUBHEADER","values":[{"lang":"Polish", "val":"Nie wiesz, skąd Nenneke wie- działa, dokąd wysłać pakunek, ale z radością korzystasz z maści, które są w środku."},
+															{"lang":"English","val":"Nem világos, Nenneke honnan tudta, hova kell küldenie a csomagot, de örülsz, mert jó hasznát veszed a gyógykencéknek."}]},
+			"body": {"key":"GFC_2_BODY","values":[	{"lang":"Polish", "val":"Podczas swojej kolejki, zagraj tę kartę, by usunąć 1 [WoundSevere] lub maksymalnie 2 [Wound] ze swojej karty postaci. Jeśli dodatkowo wydasz 1 [GoldCoin], usuń 1 dodatkową [WoundSevere] lub [Wound] ze swojej karty postaci."},
+													{"lang":"English","val":"Köröd során játszd ki ezt a kártyát 1 [WoundSevere] vagy 2 [Wound] eltávolításához a hőslapodról!\n\nHa 1 [GoldCoin]-at is elköltesz, további 1 [WoundSevere]-t vagy [Wound]-t távolíthatsz el."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"wounded": true, 
+					"roll": false, 
+					"action": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card",
+			"params": "FateGood"
+		},{
+			"action":"heal",
+			"params": {
+				"wound_amount": 2,
+				"or": true,
+				"severe_wound_amount": 1
+			}	
+		},{
+			"action":"test",
+			"params": {
+				"wounded": true
+			},
+			"success": [{
+				"action":"pay_gold",
+				"params": {
+					"amount": 1,
+					"obligatory": false,
+					"message": {
+						"titleKey": "GFC_2_TITLE",
+						"content": {"key":"GFC_2_DECISION","values":[	{"lang":"Polish", "val":"Jeśli dodatkowo wydasz 1 [GoldCoin], usuń 1 dodatkowa [WoundSevere] lub [Wound] ze swojej karty postaci."},
+																		{"lang":"English","val":"Ha 1 [GoldCoin]-at is elköltesz, eltávolíthatsz további 1 [WoundSevere]-t vagy [Wound]-t a hőslapodról."}]}
+					}
+				},
+				"success": {
+					"action": "heal",
+					"params": {
+						"wound_amount": 1,
+						"or": true,
+						"severe_wound_amount": 1
+					}
+				}
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_3",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"GFC_3_IMAGE"},
+			"title": {"key":"GFC_3_TITLE","values":[{"lang":"Polish", "val":"Najemnik"},
+													{"lang":"English","val":"Testőr"}]},
+			"subheader": {"key":"GFC_3_SUBHEADER","values":[{"lang":"Polish", "val":"Weteran kilku wojen jest gotów walczyć i zginąć u twego boku."},
+															{"lang":"English","val":"Készen áll az oldaladon harcolni ez a számos csatát megjárt veterán."}]},
+			"body": {"key":"GFC_3_BODY","values":[	{"lang":"Polish", "val":"Podczas walki zużyj 1 [Charge] z tej karty, by jeszcze raz rzucić 1 kością walki.\n\nGdy na karcie nie ma już żadnego [Charge], odrzuć ją."},
+													{"lang":"English","val":"Harc közben elkölthetsz 1 [Charge]-t erről a kártyáról 1 harc-​​​​​kocka újradobásához.\n\nHa már nem marad több [Charge], dobd el ezt a kártyát!"}]}
+		},
+		"maxUseCount": 3,
+		"ai":{
+			"reroll": "ANY_SINGLE"
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"battle": true,
+					"rollResult": true,
+					"rollResultSuccess": false,
+					"reroll": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action": "test",
+			"params": {
+				"charge": false
+			},
+			"success": {
+				"action":"kill_card",
+				"params": "FateGood"	
+			},
+			"fail": {
+				"action":"kill_card_inventory"
+			}
+			
+		},{
+			"action":"roll_result_reroll",
+			"params": {
+				"mode": "UNIVERSAL",
+				"amount": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_4",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"GFC_4_IMAGE"},
+			"title": {"key":"GFC_4_TITLE","values":[{"lang":"Polish", "val":"Sheldon Skaggs"},
+													{"lang":"English","val":"Sheldon Skaggs"}]},
+			"subheader": {"key":"GFC_4_SUBHEADER","values":[{"lang":"Polish", "val":"Sheldon zna wiele historii o szlachetnych czynach i wielkich bitwach. Chętnie wskaże ci właściwy kierunek, by tych historii było jeszcze więcej."},
+															{"lang":"English","val":"Sheldon nemes tettekről és nagy csatákról szóló mesék igazi tárháza. Újabb történetekért nem rest mindig a megfelelő irányba terelni téged."}]},
+			"body": {"key":"GFC_4_BODY","values":[	{"lang":"Polish", "val":"Podczas pobierania nowych kart misji, zagraj tę kartę, by pobrać 2 dodatkowe karty misji.\nJeśli dodatkowo wydasz 1 [GoldCoin], pobierz 3 dodatkowe karty, a nie 2."},
+													{"lang":"English","val":"Amikor új küldetés-kártyákat húzol, játszd ki ezt a lapot további 2 kártya húzásához! Tarts meg egyet, a többit pedig dobd el! Ha 1 [GoldCoin]-at is költesz, 3 küldetés-kártyát húzhatsz."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "QuestDraw",
+				"mode": "EXECUTE",
+				"condition":{
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card",
+			"params": "FateGood"
+		},{
+			"action": "pay_gold",
+			"params": {
+				"amount": 1,
+				"message": {
+					"titleKey": "GFC_4_TITLE",
+					"content": {"key":"GFC_4_DECISION0","values":[	{"lang":"Polish", "val":"Jeśli wydasz 1 [GoldCoin], pobierz 3 dodatkowe karty, a nie 2."},
+																	{"lang":"English","val":"Ha költesz 1 [GoldCoin]-at, további 2 helyett 3 küldetés-kártyát húzhatsz."}]}
+				}
+			},
+			"success": [{
+				"action": "set_property",
+				"params": {
+					"drawAdditionalQuest": 3
+				}
+			}],
+			"fail": [{
+				"action": "set_property",
+				"params": {
+					"drawAdditionalQuest": 2
+				}
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_5",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"GFC_5_IMAGE"},
+			"title": {"key":"GFC_5_TITLE","values":[{"lang":"Polish", "val":"Teleri Drouhard"},
+													{"lang":"English","val":"Teleri Drouhard"}]},
+			"subheader": {"key":"GFC_5_SUBHEADER","values":[{"lang":"Polish", "val":"Rynek przypraw najwyraźniej przeżywa rozkwit, skoro kupiec Teleri chętnie daje parę orenów przyjacielowi w potrzebie."},
+															{"lang":"English","val":"Jól mehet mostanában a fűszerpiac, ha Teleri, a kereskedő örömmel ad néhány orent egy anyagi nehézségekkel küszködő barátnak."}]},
+			"body": {"key":"GFC_5_BODY","values":[	{"lang":"Polish", "val":"Podczas swojej kolejki zagraj tę kartę, by otrzymać 5 [GoldCoin]."},
+													{"lang":"English","val":"A köröd során játszd ki ezt a lapot, és kapsz cserébe 5 [GoldCoin]-at!"}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"roll": false, 
+					"action": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card",
+			"params": "FateGood"
+		},{
+			"action":"resource",
+			"params": {
+				"Gold": 5
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_6",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"GFC_6_IMAGE"},
+			"title": {"key":"GFC_6_TITLE","values":[{"lang":"Polish", "val":"Zygfryd z Denesle"},
+													{"lang":"English","val":"Deneslei Zigfrid"}]},
+			"subheader": {"key":"GFC_6_SUBHEADER","values":[{"lang":"Polish", "val":"Nie zawsze zgadzacie się z Zygfrydem, ale zaoferował ci wsparcie i głupotą byłoby go nie przyjąć."},
+															{"lang":"English","val":"Bár te és Zigfrid nem mindig vagytok egy véleményen, ő mégis felajánlja a segítségét, amit bolond lennél visszautasítani."}]},
+			"body": {"key":"GFC_6_BODY","values":[	{"lang":"Polish", "val":"Podczas swojej kolejki zagraj tę kartę, by usuń maksymalnie 3 [BadFateMarker] ze swojej karty postaci.\n\nJeśli dodatkowo wydasz 1 [GoldCoin], usuń 1 [BadFateMarker] ze swojego regionu."},
+													{"lang":"English","val":"A köröd során játszd ki ezt a kártyát legfeljebb 3 [BadFateMarker] eltávolításához a hőslapodról!\n\nHa 1 [GoldCoin]-at is költesz, 1 [BadFateMarker]-t is eltávolíthatsz a régiódról."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"hasBadFate": true,
+					"roll": false, 
+					"action": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card",
+			"params": "FateGood"
+		},{
+			"action":"remove_bad_fate",
+			"params": {
+				"amount": 3
+			}
+		},{
+			"action":"test",
+			"params": {
+				"currentRegionBadFate": true
+			},
+			"success": {
+				"action":"pay_gold",
+				"params": {
+					"amount": 1,
+					"obligatory": false,
+					"message": {
+						"titleKey": "GFC_6_TITLE",
+						"content": {"key":"GFC_6_DECISION","values":[	{"lang":"Polish", "val":"Jeśli dodatkowo wydasz 1 [GoldCoin], usuń 1 [BadFateMarker] ze swojego regionu."},
+																		{"lang":"English","val":"Ha költesz 1 [GoldCoin]-at, eltávolíthatsz 1 [BadFateMarker]-t a régiódról."}]}
+					}
+				},
+				"success": {
+					"action": "remove_bad_fate_region"			
+				}		
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_7",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"GFC_7_IMAGE"},
+			"title": {"key":"GFC_7_TITLE","values":[{"lang":"Polish", "val":"Vesemir"},
+													{"lang":"English","val":"Vesemir"}]},
+			"subheader": {"key":"GFC_7_SUBHEADER","values":[{"lang":"Polish", "val":"Nie spodziewałeś się spotkać tu starego wiedźmina, lecz on jest gotów zostać i nauczyć cię paru sztuczek."},
+															{"lang":"English","val":"Nem számítottál rá, hogy itt találod az öreg vajákot, de örömmel elidőzik egy darabig, közben pedig néhány új trükköt is megtanít neked."}]},
+			"body": {"key":"GFC_7_BODY","values":[	{"lang":"Polish", "val":"Podczas swojej kolejki zagraj tę kartę, by pobrać 3 karty rozwoju. Wybierz jedną i zachowaj, a pozostałe odrzuć.\n\nJeśli dodatkowo wydasz 2 [GoldCoin], wybierz i zachowaj 2 karty, a nie 1."}, 
+													{"lang":"English","val":"A köröd során játszd ki ezt a lapot 3 fejlesztés-kártya húzásához! Válassz egyet, a többit pedig helyezd vissza!\nHa 2 [GoldCoin]-at is költesz, 2 kártyát tarthatsz meg."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"roll": false, 
+					"action": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card",
+			"params": "FateGood"
+		},{
+			"action":"draw_card",
+			"params": {
+				"deck": "XP",
+				"amount": 3
+			}
+		},{
+			"action":"pay_gold",
+			"params": {
+				"amount": 2,
+				"obligatory": false,
+				"message": {
+					"titleKey": "GFC_7_TITLE",
+					"content": {"key":"GFC_7_DECISION","values":[	{"lang":"Polish", "val":"Jeśli dodatkowo wydasz 2 [GoldCoin], wybierz i zachowaj 2 karty, a nie 1."},
+																	{"lang":"English","val":"Ha költesz 2 [GoldCoin]-at, 2 kártyát tarthatsz meg."}]}
+				}
+			},
+			"success": {
+				"action":"draw_card",
+				"params": {
+					"deck": "XP",
+					"amount": 3
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_8",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"GFC_8_IMAGE"},
+			"title": {"key":"GFC_8_TITLE","values":[{"lang":"Polish", "val":"Krasnoludzki płatnerz"},
+													{"lang":"English","val":"A törp páncél"}]},
+			"subheader": {"key":"GFC_8_SUBHEADER","values":[{"lang":"Polish", "val":"Stary płatnerz, wygnany przed laty z Mahakamu, nic nie stracił z biegłości w swoim fachu."},
+															{"lang":"English","val":"Az öreg páncélkovács tudása egy fikarcnyit sem kopott a Mahakamból történt számüzetése évei alatt."}]},
+			"body": {"key":"GFC_8_BODY","values":[	{"lang":"Polish", "val":"Zachowaj tę kartę i połóż na niej 3 [Charge].\nPodczas walki zużyj 1 [Charge] z tej karty, aby uzyskać 1 [Shield].\n\nGdy na karcie nie ma już żadnego [Charge], odrzuć ją."},
+													{"lang":"English","val":"Tartsd meg ezt a kártyát, és helyezz el rajta 3 [Charge]-t! Harc közben elkölthetsz 1 [Charge]-t erről a kártyáról 1 [Shield] eredményhez.\n\nHa már nincs rajta több [Charge], dobd el ezt a lapot!"}]}
+		},
+		"chargeable": false,
+		"maxUseCount": 3,
+		"ai":{
+			"shield": 1
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"rollResult": true,
+					"charge": true
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"roll_result_modifier",
+			"params": {
+				"produce": ["shield"]
+			}
+		},{
+			"action": "test",
+			"params": {
+				"charge": true
+			},
+			"success": {
+				"action": "kill_card_inventory"
+			},
+			"fail": {
+				"action":"kill_card",
+				"params": "FateGood"
+				
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_9",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"GFC_9_IMAGE"},
+			"title": {"key":"GFC_9_TITLE","values":[{"lang":"Polish", "val":"Suty posiłek"},
+													{"lang":"English","val":"Egy finom vacsora"}]},
+			"subheader": {"key":"GFC_9_SUBHEADER","values":[{"lang":"Polish", "val":"Wieczór przy dobrym piwie i wyśmienitej strawie pozwala spojrzeć na świat z nowej perspektywy."},
+															{"lang":"English","val":"Egy ízletes étek és egy jó kupa sör után azonnal szebb színben látod a világot."}]},
+			"body": {"key":"GFC_9_BODY","values":[	{"lang":"Polish", "val":"Podczas swojej kolejki zagraj tę kartę, by usunąć 1 [Wound] i 1 [BadFateMarker] ze swojej karty postaci.\n\nJeśli dodatkowo wydasz 1 [GoldCoin], możesz usunąć z karty postaci 1 [WoundSevere] zamiast 1 [Wound]."}, 
+													{"lang":"English","val":"A köröd során játszd ki ezt a kártyát 1 [Wound] és 1 [BadFateMarker] eltávolításához a hőslapodról!\n\nHa 1 [GoldCoin]-at is költesz, 1 [WoundSevere]-t távolíthatsz el a karakterlapodról 1 [Wound] helyett."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"roll": false,
+					"hasBadFateOrWounded": true,
+					"action": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card",
+			"params": "FateGood"
+		},{
+			"action": "test",
+			"params": {
+				"woundedSevere": true
+			},
+			"success": {
+				"action":"pay_gold",
+				"params": {
+					"amount": 1,
+					"obligatory": false,
+					"message": {
+						"titleKey": "GFC_9_TITLE",
+						"content": {"key":"GFC_9_DECISION","values":[	{"lang":"Polish", "val":"Jeśli dodatkowo wydasz 1 [GoldCoin], możesz usunąć z karty postaci 1 [WoundSevere] zamiast 1 [Wound]."},
+																		{"lang":"English","val":"Ha költesz 1 [GoldCoin]-at, 1 [WoundSevere]-t távolíthatsz el a karakterlapodról 1 [Wound] helyett."}]}
+					}
+				},
+				"success": [{
+					"action":"heal",
+					"params": {
+						"severe_wound_amount": 1
+					}
+				},{
+					"action":"remove_bad_fate",
+					"params": {
+						"amount": 1
+					}
+				}],
+				"fail": [{
+					"action":"heal",
+					"params": {
+						"wound_amount": 1
+					}
+				},{
+					"action":"remove_bad_fate",
+					"params": {
+						"amount": 1
+					}
+				}]		
+			},
+			"fail": [{
+				"action":"heal",
+				"params": {
+					"wound_amount": 1
+				}
+			},{
+				"action":"remove_bad_fate",
+				"params": {
+					"amount": 1
+				}
+			}]	
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_10",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"GFC_10_IMAGE"},
+			"title": {"key":"GFC_10_TITLE","values":[{"lang":"Polish", "val":"Narzędzia uzdrowiciela"},
+													{"lang":"English","val":"Egy gyógyító szerszámai"}]},
+			"subheader": {"key":"GFC_10_SUBHEADER","values":[{"lang":"Polish", "val":"Bogato zdobiona skórzana torba kryje wiele ciekawych przedmiotów."},
+															{"lang":"English","val":"A gazdagon díszített bőrtáska számos érdekes eszközt rejt."}]},
+			"body": {"key":"GFC_10_BODY","values":[	{"lang":"Polish", "val":"Wykonując akcję odpoczynku, możesz zużyć 1 [Charge] z tej karty, by usunąć 1 [Wound] albo 1 [WoundSevere] ze swojej karty postaci.\nGdy na karcie nie ma już żadnego [Charge], odrzuć ją."},
+													{"lang":"English","val":"Amikor pihenés-akciót hajtasz végre, elkölthetsz 1 [Charge]-t erről a kártyáról 1 [Wound] vagy 1 [WoundSevere] eltávolításához a hőslapodról.\n\nHa már nem marad több [Charge] a kártyán, dobd el!"}]}
+		},
+		"chargeable": false,
+		"dischargeOnUseLock": true,
+		"maxUseCount": 3,
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionEnd",
+				"mode": "EXECUTE",
+				"condition":{ 
+					"roll": false, 
+					"wounded": true,
+					"charge": true,
+					"OnAction": "Heal"
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action": "confirm",
+			"params": {
+				"titleKey": "GFC_10_TITLE",
+				"content": {"key":"GFC_10_DECISION","values":[{"lang":"Polish", "val":"Wykonując akcję odpoczynku, możesz zużyć 1 [Charge] z tej karty, by usunąć 1 [Wound] albo 1 [WoundSevere] ze swojej karty postaci.\nGdy na karcie nie ma już żadnego [Charge], odrzuć ją."},
+															  {"lang":"English","val":"Amikor pihenés-akciót hajtasz végre, elkölthetsz 1 [Charge]-t erről a kártyáról 1 [Wound] vagy 1 [WoundSevere] eltávolításához a hőslapodról.\nHa már nem marad több [Charge] a kártyán, dobd el!"}]},
+				"confirm": {"key":"GFC_10_CONFIRM","values":[{"lang":"Polish", "val":"Użyj kartę"},{"lang":"English","val":"Elköltöm"}]},	
+				"cancel": {"key":"GFC_10_CANCEL","values":[{"lang":"Polish", "val":"Nie uzywaj"},{"lang":"English","val":"Nem költöm el"}]}
+			},
+			"success": [{
+				"action": "charge",
+				"params": {
+					"removeCharge": true
+				}
+			},{
+				"action": "heal",
+				"params": {
+					"wound_amount": 1,
+					"severe_wound_amount": 1,
+					"or": true
+				}
+			},{
+				"action": "test",
+				"params": {
+					"charge": true
+				},
+				"success": {
+					"action": "kill_card_inventory"
+				},
+				"fail": {
+					"action":"kill_card",
+					"params": "FateGood"
+					
+				}
+			}],
+			"fail": [{
+				"action": "kill_card_inventory"
+			}]
+		},{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionEnd",
+				"mode": "EXECUTE",
+				"condition":{ 
+					"roll": false, 
+					"wounded": true,
+					"charge": true,
+					"OnAction": "Heal"
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_11",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"GFC_11_IMAGE"},
+			"title": {"key":"GFC_11_TITLE","values":[{"lang":"Polish", "val":"Yaren Bolt"},
+													{"lang":"English","val":"Yaren Bolt"}]},
+			"subheader": {"key":"GFC_11_SUBHEADER","values":[{"lang":"Polish", "val":"Spędzasz długą noc z Yarenem, sącząc mocny miód z Mahakamu. Po takiej nocy nic, tylko góry przenosić!"},
+															{"lang":"English","val":"Hosszú estét töltesz Yarennel, jó korsó törp sört kortyolgatva. Egy ilyen éjszaka után úgy érzed, még egy hegyet is arrébb tudnál mozdítani!"}]},
+			"body": {"key":"GFC_11_BODY","values":[	{"lang":"Polish", "val":"Podczas swojej kolejki zagraj tę kartę i połóż 1 [Charge] na każdej swojej karcie rozwoju.\n\nJeśli dodatkowo wydasz 1 [GoldCoin], połóż 1 dodatkowy [Charge] na 1 swojej karcie rozwoju."},
+													{"lang":"English","val":"A köröd során játszd ki ezt a kártyát 1 [Charge] elhelyezéséhez minden fejlesztés-kártyádon!\nHa 1 [GoldCoin]-at is költesz, további 1 [Charge]-t helyezhetsz el 1 fejlesztés-​kártyán."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"roll": false,
+					"chargeableInventoryCard": true,
+					"action": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card",
+			"params": "FateGood"
+		},{
+			"action":"select_inventory_card",
+			"params": {
+				"filter": "XP",
+				"mode": "CHARGE_ADD_ALL"
+			}
+		},{
+			"action":"pay_gold",
+			"params": {
+				"amount": 1,
+				"obligatory": false,
+				"message": {
+					"titleKey": "GFC_11_TITLE",
+					"content": {"key":"GFC_11_DECISION","values":[	{"lang":"Polish", "val":"Jeśli dodatkowo wydasz 1 [GoldCoin], połóż 1 dodatkowy [Charge] na 1 swojej karcie rozwoju."},
+																	{"lang":"English","val":"Ha költesz 1 [GoldCoin]-at, további 1 [Charge]-t is elhelyezhetsz 1 fejlesztés-kártyádon."}]}
+				}
+			},
+			"success": {
+				"action":"select_inventory_card",
+				"params": {
+					"filter": "XP",
+					"amount": 1,
+					"mode": "CHARGE_ADD"
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_12",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"GFC_12_IMAGE"},
+			"title": {"key":"GFC_12_TITLE","values":[{"lang":"Polish", "val":"Wyśmienita pogoda"},
+													{"lang":"English","val":"Ragyogó idő"}]},
+			"subheader": {"key":"GFC_12_SUBHEADER","values":[{"lang":"Polish", "val":"Słońce ogrzewa trakt, a lekki wietrzyk chłodzi zmęczone ciało."},
+															{"lang":"English","val":"A nap melengetőn süt le rád, miközben megfáradt testedet egyhe szellő hűsíti."}]},
+			"body": {"key":"GFC_12_BODY","values":[	{"lang":"Polish", "val":"Gdy napotykasz przeszkody pod koniec swojej kolejki, zagraj tę kartę, by zignorować wszelkie przeszkody w swoim regionie."},
+													{"lang":"English","val":"Amikor a köröd végén akadályba ütközöl, játszd ki ezt a kártyát a régiódban található minden akadály figyelmen kívül hagyásához!"}]}
+		},
+		"drawTask": [{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"useOncePerTurn": true,
+					"beforeObstaclesResolve": true
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card",
+			"params": "FateGood"
+		},{
+			"action": "ignore_obstacles"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_13",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"GFC_13_IMAGE"},
+			"title": {"key":"GFC_13_TITLE","values":[{"lang":"Polish", "val":"Zoltan i jego banda"},
+													{"lang":"English","val":"Zoltán és kompániája"}]},
+			"subheader": {"key":"GFC_13_SUBHEADER","values":[{"lang":"Polish", "val":"No to się chłopcy zjawili w samą porę!"},
+															{"lang":"English","val":"Zoltán és vidám cimborái semmi perc alatt megjelennek!"}]},
+			"body": {"key":"GFC_13_BODY","values":[	{"lang":"Polish", "val":"Podczas swojej kolejki zagraj tę kartę, by usunąć 1 [BadFateMarker] lub 1 [EnemyMarker] z dowolnego regionu.\n\nJeśli dodatkowo wydasz 2 [GoldCoin], usuń jeszcze 1 [BadFateMarker] lub [EnemyMarker] z dowolnego regionu."},
+													{"lang":"English","val":"A köröd során játszd ki ezt a kártyát 1 [BadFateMarker] vagy 1 [EnemyMarker] eltávolításához bármely régióból!\n\nHa 2 [GoldCoin]-at is költesz, további 1 [BadFateMarker]-t vagy [EnemyMarker]-et eltávolíthatsz bármely régióból."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"anyRegionBadFateOrEnemy": true,
+					"roll": false,
+					"action": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card",
+			"params": "FateGood"
+		},{
+			"action":"test",
+			"params": {
+				"anyRegionEnemy": true,
+				"anyRegionBadFate": true			
+			},
+			"success": {
+				"action":"confirm",
+				"params": {
+					"titleKey": "GFC_13_TITLE",
+					"content": {"key":"GFC_13_CONTENT","values":[{"lang":"Polish", "val":"Usuń 1 [BadFateMarker] lub 1 [EnemyMarker] z dowolnego regionu."},
+																 {"lang":"English","val":"Távolíts el 1 [BadFateMarker]-t, vagy 1 [EnemyMarker]-et bármely régióból."}]},	
+					"confirm": {"key":"GFC_13_CONFIRM","values":[{"lang":"Polish", "val":"Usuń [BadFateMarkerColor]"},{"lang":"English","val":" [BadFateMarkerColor]-t távolítok el"}]},
+					"cancel": {"key":"GFC_13_CANCEL","values":[{"lang":"Polish", "val":"Usuń [EnemyMarkerWhite]"},{"lang":"English","val":"[EnemyMarkerWhite]-et távolítok el"}]}				
+				},
+				"success": {
+					"action":"remove_bad_fate_region",
+					"params": {
+						"amount": 1,
+						"direction": "ANY"
+					}
+				},
+				"fail": {
+					"action":"remove_enemy",
+					"params": {
+						"amount": 1,
+						"direction": "ANY"
+					}
+				}				
+			},
+			"fail": {
+				"action":"test",
+				"params": {
+					"anyRegionBadFate": true			
+				},
+				"success": {
+					"action":"remove_bad_fate_region",
+					"params": {
+						"amount": 1,
+						"direction": "ANY"
+					}
+				},
+				"fail": {
+					"action":"remove_enemy",
+					"params": {
+						"amount": 1,
+						"direction": "ANY"
+					}
+				}
+			}			
+		},{
+			"action":"pay_gold",
+			"params": {
+				"amount": 2,
+				"obligatory": false,
+				"message": {
+					"titleKey": "GFC_13_TITLE",
+					"content": {"key":"GFC_13_DECISION","values":[	{"lang":"Polish", "val":"Jeśli dodatkowo wydasz 2 [GoldCoin], usuń jeszcze 1 [BadFateMarker] lub [EnemyMarker] z dowolnego regionu."},
+																	{"lang":"English","val":"Ha elköltesz 2 [GoldCoin]-at, további 1 [BadFateMarker]-t vagy [EnemyMarker]-et távolíthatsz el bármely régióból."}]}
+				}
+			},
+			"success": {
+				"action":"test",
+				"params": {
+					"anyRegionEnemy": true,
+					"anyRegionBadFate": true			
+				},
+				"success": {
+					"action":"confirm",
+					"params": {
+						"titleKey": "GFC_13_TITLE",
+						"content": {"key":"GFC_13_CONTENT_2","values":[{"lang":"Polish", "val":"Usuń 1 [BadFateMarker] lub 1 [EnemyMarker] z dowolnego regionu."},
+																	 {"lang":"English","val":"Távolíts el 1 [BadFateMarker]-t, vagy 1 [EnemyMarker]-et bármely régióból."}]},	
+						"confirm": {"key":"GFC_13_CONFIRM_2","values":[{"lang":"Polish", "val":"Usuń [BadFateMarkerColor]"},{"lang":"English","val":"[BadFateMarkerColor]-t távolítok el"}]},
+						"cancel": {"key":"GFC_13_CANCEL_2","values":[{"lang":"Polish", "val":"Usuń [EnemyMarkerWhite]"},{"lang":"English","val":"[EnemyMarkerWhite]-et távolítok el"}]}				
+					},
+					"success": {
+						"action":"remove_bad_fate_region",
+						"params": {
+							"amount": 1,
+							"direction": "ANY"
+						}
+					},
+					"fail": {
+						"action":"remove_enemy",
+						"params": {
+							"amount": 1,
+							"direction": "ANY"
+						}
+					}
+				},
+				"fail": {
+					"action":"test",
+					"params": {
+						"anyRegionBadFate": true			
+					},
+					"success": {
+						"action":"remove_bad_fate_region",
+						"params": {
+							"amount": 1,
+							"direction": "ANY"
+						}
+					},
+					"fail": {
+						"action":"remove_enemy",
+						"params": {
+							"amount": 1,
+							"direction": "ANY"
+						}
+					}
+				}	
+			}		
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_14",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_002", "sprite":"GFC_14_IMAGE"},
+			"title": {"key":"GFC_14_TITLE","values":[{"lang":"Polish", "val":"Madame Karoll"},
+													{"lang":"English","val":"Madám Karoll"}]},
+			"subheader": {"key":"GFC_14_SUBHEADER","values":[{"lang":"Polish", "val":"Trzeba przyznać, że masz z Madam Karoll wielu wspólnych znajomych."},
+															{"lang":"English","val":"Meg kell hagyni, Madám Karollnak és neked rengeteg közös barátotok van!"}]},
+			"body": {"key":"GFC_14_BODY","values":[	{"lang":"Polish", "val":"Podczas swojej kolejki zagraj tę kartę, by każdy z graczy musiał ci oddać 1 wybrany przez siebie [ClueMarkerGray].\n\nJeśli dodatkowo wydasz 3 [GoldCoin], możesz sam wybrać, jaki 1 [ClueMarkerGray] odda ci każdy z graczy."},
+													{"lang":"English","val":"A köröd során játszd ki ezt a kártyát, hogy mindegyik másik hőstől 1, általuk választott színű [ClueMarkerGray]-ot szerezz!\n\nHa ezen felül 3 [GoldCoin]-at is költesz, elvehetsz további 1 [ClueMarkerGray]-ot az összes többi hőstől."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"roll": false,
+					"anyOtherCharatersWithLeads": true,
+					"action": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card",
+			"params": "FateGood"
+		},{
+			"action": "dispatch",
+			"params": {
+				"characterMode": "OTHERS",
+				"description":{
+					"title": {"key":"GFC_14_TITLE_1","values":[{"lang":"Polish","val":"Madame Karoll"},
+													 		   {"lang":"English","val":"Madám Karoll"}]},
+					"body": {"key":"GFC_14_BODY_1","values":[{"lang":"Polish", "val":"Oddaj 1 wybrany przez siebie [ClueMarkerGray]"},
+															 {"lang":"English","val":"Adj oda 1 választott [ClueMarkerGray]-ot!"}]}
+				},
+				"task": {
+					"action": "test",
+					"params": {
+						"Lead": 1
+					},
+					"success": [{									
+						"action":"select_leads",
+						"params": {
+							"Lead": -1,
+							"random": false,
+							"characterDst": "SENDER",
+							"titleKey": "GFC_14_BODY_1"
+						}
+					}]				
+				}
+			}
+		},{
+			"action":"test",
+			"params": {
+				"anyOtherCharatersWithLeads": true	
+			},
+			"success": {
+				"action":"pay_gold",
+				"params": {
+					"amount": 3,
+					"obligatory": false,
+					"message": {
+						"titleKey": "GFC_14_TITLE",
+						"content": {"key":"GFC_14_DECISION","values":[	{"lang":"Polish", "val":"Jeśli wydasz 3 [GoldCoin], możesz sam wybrać, jaki 1 [ClueMarkerGray] odda ci każdy z graczy."},
+																		{"lang":"English","val":"Ha elköltesz 3 [GoldCoin]-at, az összes többi hőstől elvehetsz további 1 [ClueMarkerGray]-ot."}]}
+					}
+				},
+				"success": [{
+					"action":"test",
+					"params": {
+						"otherCharatersWithLeads": "GERALT"	
+					},
+					"success": {
+						"action":"select_leads",
+						"params": {
+							"Lead": -1,
+							"random": false,
+							"characterSrc": "GERALT",
+							"title": {"key":"GFC_14_SELECT_G","values":[	{"lang":"Polish", "val":"Wybierz, jaki 1 [ClueMarkerGray] odda ci Geralt."},
+																			{"lang":"English","val":"Válassz 1 [ClueMarkerGray]-ot Geralttól!"}]}
+						}
+					}
+				},{
+					"action":"test",
+					"params": {
+						"otherCharatersWithLeads": "TRISS"	
+					},
+					"success": {
+						"action":"select_leads",
+						"params": {
+							"Lead": -1,
+							"random": false,
+							"characterSrc": "TRISS",
+							"title": {"key":"GFC_14_SELECT_T","values":[	{"lang":"Polish", "val":"Wybierz, jaki 1 [ClueMarkerGray] odda ci Triss."},
+																			{"lang":"English","val":"Válassz 1 [ClueMarkerGray]-ot Triss-től!"}]}
+						}
+					}
+				},{
+					"action":"test",
+					"params": {
+						"otherCharatersWithLeads": "DANDELION"	
+					},
+					"success": {
+						"action":"select_leads",
+						"params": {
+							"Lead": -1,
+							"random": false,
+							"characterSrc": "DANDELION",
+							"title": {"key":"GFC_14_SELECT_D","values":[	{"lang":"Polish", "val":"Wybierz, jaki 1 [ClueMarkerGray] odda ci Jaskier."},
+																			{"lang":"English","val":"Válassz 1 [ClueMarkerGray]-ot Kökörcsintől!"}]}
+						}
+					}
+				},{
+					"action":"test",
+					"params": {
+						"otherCharatersWithLeads": "YARPEN"	
+					},
+					"success": {
+						"action":"select_leads",
+						"params": {
+							"Lead": -1,
+							"random": false,
+							"characterSrc": "YARPEN",
+							"title": {"key":"GFC_14_SELECT_Y","values":[	{"lang":"Polish", "val":"Wybierz, jaki 1 [ClueMarkerGray] odda ci Yarpen."},
+																			{"lang":"English","val":"Válassz 1 [ClueMarkerGray]-ot Yarpentől!"}]}
+						}
+					}
+				}]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_15",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_003", "sprite":"GFC_15_IMAGE"},
+			"title": {"key":"GFC_15_TITLE","values":[{"lang":"Polish", "val":"Wieści o starej przyjaciółce"},
+													{"lang":"English","val":"Hírek egy régi barát felől"}]},
+			"subheader": {"key":"GFC_15_SUBHEADER","values":[{"lang":"Polish", "val":"Ruszasz śladem Yennefer. Ktoś coś słyszał, ktoś ją ponoć widział, ale i tak poszukiwania nie przynoszą wielu informacji."},
+															{"lang":"English","val":"Yennefer nyomát kutatod - egy szóbeszéd emitt, egy szemtanú amott. Végül nem találsz rá, de a keresés során így is sok mindent megtudsz."}]},
+			"body": {"key":"GFC_15_BODY","values":[	{"lang":"Polish", "val":"Podczas swojej kolejki zagraj tę kartę, by otrzymać 1 czerwony [ClueMarkerGray], 1 niebieski [ClueMarkerGray] i 1 fioletowy [ClueMarkerGray].\n\nJeśli dodatkowo wydasz 2 [GoldCoin], otrzymasz 1 dodatkowy [ClueMarkerGray]."},
+													{"lang":"English","val":"A köröd során ha kijátszod ezt a kártyát, kapsz 1 vörös [ClueMarkerGray]-ot, 1 kék [ClueMarkerGray]-ot és 1 lila [ClueMarkerGray]-ot.\n\nHa 2 [GoldCoin]-at is költesz, további 1 [ClueMarkerGray]-ot kapsz."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"roll": false, 
+					"action": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card",
+			"params": "FateGood"
+		},{
+			"action":"resource",
+			"params": {
+				"CombatLead": 1,
+				"MagicLead": 1,
+				"DiplomacyLead": 1
+			}
+		},{
+			"action":"pay_gold",
+			"params": {
+				"amount": 2,
+				"obligatory": false,
+				"message": {
+					"titleKey": "GFC_15_TITLE",
+					"content": {"key":"GFC_15_DECISION","values":[	{"lang":"Polish", "val":"Jeśli dodatkowo wydasz 2 [GoldCoin], otrzymasz 1 dodatkowy [ClueMarkerGray]."},
+																	{"lang":"English","val":"Ha elköltesz 2 [GoldCoin]-at, további 1 [ClueMarkerGray]-ot is kapsz."}]}
+				}
+			},
+			"success": {
+				"action":"select_leads",
+				"params": {
+					"CombatLead": 1,
+					"MagicLead": 1,
+					"DiplomacyLead": 1
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_16",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_003", "sprite":"GFC_16_IMAGE"},
+			"title": {"key":"GFC_16_TITLE","values":[{"lang":"Polish", "val":"Informator"},
+													{"lang":"English","val":"Értesülés kufár"}]},
+			"subheader": {"key":"GFC_16_SUBHEADER","values":[{"lang":"Polish", "val":"Interesy z tym szpiegiem to czysta przyjemność, choć to najbrzydszy przedstawiciel tego fachu."},
+															{"lang":"English","val":"Mindig igazi öröm ezzel a kémmel üzletelni, annak ellenére, hogy talán ő a szakmája legundorítóbb mintapéldánya."}]},
+			"body": {"key":"GFC_16_BODY","values":[	{"lang":"Polish", "val":"Podczas swojej kolejki zagraj tę kartę i zużyj maksymalnie 3 [ClueMarkerGray] lub 3 [GoldCoin]. Za każdy 1 [ClueMarkerGray] lub 1 [GoldCoin] otrzymujesz 1 [ClueMarkerGray] lub 1 [GoldCoin]."},
+													{"lang":"English","val":"A köröd során játszd ki ezt a kártyát, és költs legfeljebb 3 [ClueMarkerGray]-ot vagy 3 [GoldCoin]-at!\n\nMinden elköltött 1 [ClueMarkerGray] vagy 1 [GoldCoin] után kapsz 1 [ClueMarkerGray]-ot vagy 1 [GoldCoin]-at."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"roll": false, 
+					"action": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card",
+			"params": "FateGood"
+		},{
+			"action": "test",
+			"params": {
+				"Lead": 1
+			},
+			"success": {
+				"action": "test",
+				"params": {
+					"Gold": 1
+				},
+				"success": {
+					"action": "confirm",
+					"params": {
+						"titleKey": "GFC_16_TITLE",
+						"contentKey": "GFC_16_BODY",
+						"confirm": {"key":"GFC_16_CONFIRM","values":[{"lang":"Polish", "val":"Zamień [GoldCoinColor]"},{"lang":"English","val":"[GoldCoinColor]-ért cserélek"}]},	
+						"cancel": {"key":"GFC_16_CANCEL","values":[{"lang":"Polish", "val":"Zamień [ClueMarkerGrayWhite]"},{"lang":"English","val":"[ClueMarkerGrayWhite]-ért cserélek"}]}
+					},
+					"success": {
+						"action": "pay_gold",
+						"params": {
+							"amount": 1,
+							"obligatory": false,
+							"message": {
+								"titleKey": "GFC_16_TITLE",
+								"content": {"key":"GFC_16_DECISION_0","values":[	{"lang":"Polish", "val":"Możesz wydać 1 [GoldCoin] by otrzymać 1 [ClueMarkerGray]."},
+																					{"lang":"English","val":"1 [GoldCoin] elköltésével szerzel 1 [ClueMarkerGray]-ot."}]}
+							}
+						},
+						"success": [{
+							"action": "select_leads",
+							"params": {
+								"CombatLead": 1,
+								"MagicLead": 1,
+								"DiplomacyLead": 1
+							}
+						},{
+							"action": "pay_gold",
+							"params": {
+								"amount": 1,
+								"obligatory": false,
+								"message": {
+									"titleKey": "GFC_16_TITLE",
+									"contentKey": "GFC_16_DECISION_0"
+								}
+							},
+							"success": [{
+									"action": "select_leads",
+									"params": {
+										"CombatLead": 1,
+										"MagicLead": 1,
+										"DiplomacyLead": 1
+									}									
+							},{
+								"action": "pay_gold",
+								"params": {
+									"amount": 1,
+									"obligatory": false,
+									"message": {
+										"titleKey": "GFC_16_TITLE",
+										"contentKey": "GFC_16_DECISION_0"
+									}
+								},
+								"success": {
+									"action": "select_leads",
+									"params": {
+										"CombatLead": 1,
+										"MagicLead": 1,
+										"DiplomacyLead": 1
+									}
+								}
+							}]				
+						}]
+					},
+					"fail": {
+						"action": "confirm",
+						"params": {
+							"titleKey": "GFC_16_TITLE",
+							"content": {"key":"GFC_16_DECISION_1","values":[	{"lang":"Polish", "val":"Możesz zużyć 1 [ClueMarkerGray] by otrzymać 1 [GoldCoin]."},
+																				{"lang":"English","val":"1 [ClueMarkerGray] elköltésével szerzel 1 [GoldCoin]-at."}]}
+						},
+						"success": [{
+							"action":"select_leads",
+							"params": {
+								"Lead": -1,
+								"random": false
+							}
+						},{
+							"action": "resource",
+							"params": {
+								"Gold": 1
+							}														
+						},{
+							"action": "test",
+							"params": {
+								"Lead": 1
+							},
+							"success": {
+								"action": "confirm",
+								"params": {
+									"titleKey": "GFC_16_TITLE",
+									"contentKey": "GFC_16_DECISION_1"
+								},
+								"success": [{
+									"action":"select_leads",
+									"params": {
+										"Lead": -1,
+										"random": false
+									}
+								},{
+									"action": "resource",
+									"params": {
+										"Gold": 1
+									}
+								},{
+									"action": "test",
+									"params": {
+										"Lead": 1
+									},
+									"success": {									
+										"action": "confirm",
+										"params": {
+											"titleKey": "GFC_16_TITLE",
+											"contentKey": "GFC_16_DECISION_1"
+										},
+										"success": [{
+											"action":"select_leads",
+											"params": {
+												"Lead": -1,
+												"random": false
+											}
+										},{
+											"action": "resource",
+											"params": {
+												"Gold": 1
+											}
+										}]
+									}
+								}]
+							}
+						}]
+					}
+				},
+				"fail": {
+					"action": "confirm",
+					"params": {
+						"titleKey": "GFC_16_TITLE",
+						"content": {"key":"GFC_16_DECISION_1","values":[	{"lang":"Polish", "val":"Możesz zużyć 1 [ClueMarkerGray] by otrzymać 1 [GoldCoin]."},
+																			{"lang":"English","val":"1 [ClueMarkerGray] elköltésével szerzel 1 [GoldCoin]-at."}]}
+					},
+					"success": [{
+						"action":"select_leads",
+						"params": {
+							"Lead": -1,
+							"random": false
+						}
+					},{
+						"action": "resource",
+						"params": {
+							"Gold": 1
+						}
+					},{
+						"action": "test",
+						"params": {
+							"Lead": 1
+						},
+						"success": {
+							"action": "confirm",
+							"params": {
+								"titleKey": "GFC_16_TITLE",
+								"contentKey": "GFC_16_DECISION_1"
+							},
+							"success": [{
+								"action":"select_leads",
+								"params": {
+									"Lead": -1,
+									"random": false
+								}
+							},{
+								"action": "resource",
+								"params": {
+									"Gold": 1
+								}
+							},{
+								"action": "test",
+								"params": {
+									"Lead": 1
+								},
+								"success": {									
+									"action": "confirm",
+									"params": {
+										"titleKey": "GFC_16_TITLE",
+										"contentKey": "GFC_16_DECISION_1"
+									},
+									"success": [{
+										"action":"select_leads",
+										"params": {
+											"Lead": -1,
+											"random": false
+										}
+									},{
+										"action": "resource",
+										"params": {
+											"Gold": 1
+										}
+									}]
+								}
+							}]
+						}
+					}]
+				}
+				
+			},
+			"fail": {
+				"action": "pay_gold",
+				"params": {
+					"amount": 1,
+					"obligatory": false,
+					"message": {
+						"titleKey": "GFC_16_TITLE",
+						"content": {"key":"GFC_16_DECISION_0","values":[	{"lang":"Polish", "val":"Możesz wydać 1 [GoldCoin] by otrzymać 1 [ClueMarkerGray]."},
+																			{"lang":"English","val":"1 [GoldCoin] elköltésével szerzel 1 [ClueMarkerGray]-ot."}]}
+					}
+				},
+				"success": [{
+					"action": "select_leads",
+					"params": {
+						"CombatLead": 1,
+						"MagicLead": 1,
+						"DiplomacyLead": 1
+					}
+				},{
+					"action": "pay_gold",
+					"params": {
+						"amount": 1,
+						"obligatory": false,
+						"message": {
+							"titleKey": "GFC_16_TITLE",
+							"contentKey": "GFC_16_DECISION_0"
+						}
+					},
+					"success": [{
+							"action": "select_leads",
+							"params": {
+								"CombatLead": 1,
+								"MagicLead": 1,
+								"DiplomacyLead": 1
+							}									
+					},{
+						"action": "pay_gold",
+						"params": {
+							"amount": 1,
+							"obligatory": false,
+							"message": {
+								"titleKey": "GFC_16_TITLE",
+								"contentKey": "GFC_16_DECISION_0"
+							}
+						},
+						"success": {
+							"action": "select_leads",
+							"params": {
+								"CombatLead": 1,
+								"MagicLead": 1,
+								"DiplomacyLead": 1
+							}
+						}
+					}]				
+				}]
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_17",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_003", "sprite":"GFC_17_IMAGE"},
+			"title": {"key":"GFC_17_TITLE","values":[{"lang":"Polish", "val":"Brigida Papebrock"},
+													{"lang":"English","val":"Brigida Papebrock"}]},
+			"subheader": {"key":"GFC_17_SUBHEADER","values":[{"lang":"Polish", "val":"Choć Brigida jest dziwnym typem szpiega, wie o wielu rzeczach, o których chyba wiedzieć nie powinna."},
+															{"lang":"English","val":"Furcsa egy kém ez a Brigida; túl sok olyan dologról tud, amiről egyáltalán nem kellene."}]},
+			"body": {"key":"GFC_17_BODY","values":[	{"lang":"Polish", "val":"Podczas swojej kolejki zagraj tę kartę, by otrzymać 2 [ClueMarkerGray] tego samego koloru.\n\nJeśli dodatkowo wydasz 1 [GoldCoin] otrzymasz 1 dodatkowy [ClueMarkerGray] tego samego koloru."},
+													{"lang":"English","val":"A köröd során eme kártya kijátszásával 2 azonos színű [ClueMarkerGray]-ot kapsz.\n\nHa 1 [GoldCoin]-at is költesz, további 1 azonos színű [ClueMarkerGray]-ot kapsz."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"roll": false, 
+					"action": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card",
+			"params": "FateGood"
+		},{
+			"action": "pay_gold",
+			"params": {
+				"amount": 1,
+				"obligatory": false,
+				"message": {
+					"titleKey": "GFC_17_TITLE",
+					"content": {"key":"GFC_17_DECISION","values":[	{"lang":"Polish", "val":"Jeśli dodatkowo wydasz 1 [GoldCoin] otrzymasz 1 dodatkowy [ClueMarkerGray] tego samego koloru."},
+																	{"lang":"English","val":"Ha elköltesz 1 [GoldCoin]-at, további 1 azonos színű [ClueMarkerGray]-ot szerezhetsz."}]},
+					"confirm": {"key":"GFC_17_CONFIRM","values":[{"lang":"Polish", "val":"Wydaj 1 [GoldCoinColor]"},{"lang":"English","val":"Elköltök 1 [GoldCoinColor]-at"}]},	
+					"cancel": {"key":"GFC_17_CANCEL","values":[{"lang":"Polish", "val":"Nie wydawaj"},{"lang":"English","val":"Nem költök"}]}
+				}
+			},
+			"success": {
+				"action":"select_leads", 
+				"params": {
+					"DiplomacyLead": 3,
+					"CombatLead": 3,
+					"MagicLead": 3
+				}					
+			},
+			"fail": {
+				"action":"select_leads", 
+				"params": {
+					"DiplomacyLead": 2,
+					"CombatLead": 2,
+					"MagicLead": 2
+				}
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_18",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_003", "sprite":"GFC_18_IMAGE"},
+			"title": {"key":"GFC_18_TITLE","values":[{"lang":"Polish", "val":"Iorveth"},
+													{"lang":"English","val":"Iorveth"}]},
+			"subheader": {"key":"GFC_18_SUBHEADER","values":[{"lang":"Polish", "val":"Myślałeś, że ta potyczka z Iorwethem skończy się twoją śmiercią, ale najwyraźniej macie wspólny cel i jest gotów podzielić się z tobą wieściami."},
+															{"lang":"English","val":"Ilyen egymásba botlás után ott kellett volna hagynod a fogad, ám úgy fest, most közös a célotok. Ezért Iorveth hajlandó némi információt megosztani veled."}]},
+			"body": {"key":"GFC_18_BODY","values":[	{"lang":"Polish", "val":"Podczas akcji śledztwa zagraj tę kartę, by pobrać 2 dodatkowe karty śledztwa. Wybierz 1 kartę do rozpatrzenia, a pozostałe odrzuć. Jeśli dodatkowo wydasz 2 [GoldCoin], rozpatrz wszystkie karty śledztwa."},
+													{"lang":"English","val":"Amikor nyomkeresés-akciót cselekszel, játszd ki ezt a lapot további 2 lap húzásához! Válassz egyet, oldd meg, a többit dobd el! Ha 2 [GoldCoin]-at is költesz, minden húzott lapot megoldhatsz."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "ActionSubmit",
+				"mode": "EXECUTE",
+				"condition":{
+					"OnActionSubmit": "Investigation"
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card",
+			"params": "FateGood"
+		},{
+			"action": "confirm",
+			"params": {
+				"titleKey": "GFC_18_TITLE",
+				"content": {"key":"GFC_18_CONTENT","values":[{"lang":"Polish", "val":"Możesz pobrać 2 dodatkowe karty śledztwa. Wybierz 1 kartę do rozpatrzenia, a pozostałe odrzuć."},
+													{"lang":"English","val":"Húzhatsz további 2 nyomkeresés-kártyát. Válassz 1-et, oldd meg, a többit dobd el!"}]},
+				"confirm": {"key":"GFC_18_CONFIRM","values":[{"lang":"Polish", "val":"Użyj kartę"},{"lang":"English","val":"Kijátszom ezt a lapot"}]},	
+				"cancel": {"key":"GFC_18_CANCEL","values":[{"lang":"Polish", "val":"Nie uzywaj"},{"lang":"English","val":"Nem játszom ki"}]}
+			},
+			"success": [{
+				"action": "set_property",
+				"params": {
+					"drawAdditionalInvestigation": 2
+				}
+			},{
+				"action": "pay_gold",
+				"params": {
+					"amount": 2,
+					"obligatory": false,
+					"message": {
+						"titleKey": "GFC_18_TITLE",
+						"content": {"key":"GFC_18_DECISION","values":[	{"lang":"Polish", "val":"Jeśli dodatkowo wydasz 2 [GoldCoin], rozpatrz wszystkie karty śledztwa."},
+																		{"lang":"English","val":"Ha elköltesz 2 [GoldCoin]-at, az összes húzott nyomkeresés-kártyát megoldhatod."}]},
+						"confirm": {"key":"GFC_18_CONFIRM_1","values":[{"lang":"Polish", "val":"Wydaj 2 [GoldCoinColor]"},{"lang":"English","val":"Elköltök 2 [GoldCoinColor]-at"}]},	
+						"cancel": {"key":"GFC_18_CANCEL_1","values":[{"lang":"Polish", "val":"Nie wydawaj"},{"lang":"English","val":"Nem költök"}]}
+					}
+				},
+				"success": {
+					"action": "set_property",
+					"params": {
+						"resolveAllDrawn": true
+					}					
+				}	
+			}],
+			"fail": [{
+				"action": "kill_card_inventory"
+			},{
+				"action":"bind_task",
+				"params": {
+					"event": "ActionSubmit",
+					"mode": "EXECUTE",
+					"condition":{
+						"OnActionSubmit": "Investigation"
+					}
+				}
+			}]
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_19",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_003", "sprite":"GFC_19_IMAGE"},
+			"title": {"key":"GFC_19_TITLE","values":[{"lang":"Polish", "val":"Shani"},
+													{"lang":"English","val":"Találkozás Shanival"}]},
+			"subheader": {"key":"GFC_19_SUBHEADER","values":[{"lang":"Polish", "val":"Dzięki pomocy rudowłosej piękności udaje ci się uniknąć poważnych kłopotów."},
+															{"lang":"English","val":"Komoly bajtól sikerült megóvnod magad, hála a vöröshajú szépségtől kapott segítségnek."}]},
+			"body": {"key":"GFC_19_BODY","values":[	{"lang":"Polish", "val":"Podczas pobierania kart śledztwa, zagraj tę kartę, by odrzucić wszystkie pobrane karty niepowodzeń bez ich rozpatrywania. Jeśli dodatkowo wydasz 1 [GoldCoin], za każde odrzucone niepowodzenie pobierz 1 kartę śledztwa."},
+													{"lang":"English","val":"Amikor nyomkeresés-kártyákat húzol, játszd ki ezt a kártyát, és minden húzott hátráltatás-​kártyát megoldás nélkül eldobhatsz! Ha 1 [GoldCoin]-at is költesz, minden egyes eldobott hátráltatás-kártya után húzhatsz egy nyomkeresés-kártyát."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"event": "DrawSetbeck",
+				"mode": "EXECUTE",
+				"condition":{}
+			}
+		},{
+			"action": "set_property",
+			"params": {
+				"monitorSetbaks": true
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask": [{
+			"action":"kill_card",
+			"params": "FateGood"
+		},{
+			"action": "confirm",
+			"params": {
+				"titleKey": "GFC_19_TITLE",
+				"content": {"key":"GFC_19_CONTENT","values":[{"lang":"Polish", "val":"Możesz odrzucić wszystkie pobrane karty niepowodzeń bez ich rozpatrywania."},
+													{"lang":"English","val":"Minden húzott hátráltatás-kártyát megoldás nélkül eldobhatsz."}]},
+				"confirm": {"key":"GFC_19_CONFIRM","values":[{"lang":"Polish", "val":"Użyj kartę"},{"lang":"English","val":"Kijátszom ezt a lapot"}]},	
+				"cancel": {"key":"GFC_19_CANCEL","values":[{"lang":"Polish", "val":"Nie uzywaj"},{"lang":"English","val":"Nem játszom ki"}]}
+			},
+			"success": [{
+				"action": "set_property",
+				"params": {
+					"discardAllSetbaks": true
+				}
+			},{
+				"action": "pay_gold",
+				"params": {
+					"amount": 1,
+					"obligatory": false,
+					"message": {
+						"titleKey": "GFC_18_TITLE",
+						"content": {"key":"GFC_18_DECISION","values":[	{"lang":"Polish", "val":"Jeśli dodatkowo wydasz 1 [GoldCoin], za każde odrzucone niepowodzenie pobierz 1 kartę śledztwa."},
+																		{"lang":"English","val":"Ha elköltesz 1 [GoldCoin]-at, minden egyes eldobott hátráltatás-kártya után húzhatsz egy nyomkeresés-kártyát."}]},
+						"confirm": {"key":"GFC_18_CONFIRM_1","values":[{"lang":"Polish", "val":"Wydaj 1 [GoldCoinColor]"},{"lang":"English","val":"Elköltök 1 [GoldCoinColor]-at"}]},	
+						"cancel": {"key":"GFC_18_CANCEL_1","values":[{"lang":"Polish", "val":"Nie wydawaj"},{"lang":"English","val":"Nem költök"}]}
+					}
+				},
+				"success": {
+					"action": "set_property",
+					"params": {
+						"drawInvestigationForEachDiscardedSetback": true
+					}					
+				}	
+			}],
+			"fail": [{
+				"action": "kill_card_inventory"
+			},{
+				"action":"bind_task",
+				"params": {
+					"event": "DrawSetbeck",
+					"mode": "EXECUTE",
+					"condition":{}
+				}
+			}]
+		}],
+		"discardTask":[{
+			"action": "set_property",
+			"params": {
+				"monitorSetbaks": false
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"FateGood",
+		"id":"GFC_20",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_003", "sprite":"GFC_20_IMAGE"},
+			"title": {"key":"GFC_20_TITLE","values":[{"lang":"Polish", "val":"Przyjaciel driad"},
+													{"lang":"English","val":"Driádok barátja"}]},
+			"subheader": {"key":"GFC_20_SUBHEADER","values":[{"lang":"Polish", "val":"Driady od wieków pomagały elfom w ucieczce. Teraz pokazują ci swoje tajne szlaki."},
+															{"lang":"English","val":"A driádok évszázadok óta segítik a tündéket a menekülésben és a bújdoklásban. Most veled is megosztják, merre futnak a titkos ösvényeik."}]},
+			"body": {"key":"GFC_20_BODY","values":[	{"lang":"Polish", "val":"Podczas akcji podróży zagraj tę kartę i zamiast przemieszczać się jak zwykle, przenieś się do dowolnej lokacji. U celu nadal otrzymujesz tropy."},
+													{"lang":"English","val":"Amikor utazás-akciót hajtasz végre, ezen kártya kijátszásával bármely tetszőleges helyszínre eljuthatsz. Célba értedkor a helyszín után járó, választott nyomot is megkapod."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"roll": false,
+					"OnActionNotSubmited": "AnyMove"
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"useTask":[{
+			"action":"kill_card",
+			"params": "FateGood"
+		},{
+			"action": "move",
+			"params": {
+				"freeTravel" : true,
+				"skipConsumeAction": false,
+				"radius": -1
+			}
+		}],"------------------":"------------------------"
+	}]
+}

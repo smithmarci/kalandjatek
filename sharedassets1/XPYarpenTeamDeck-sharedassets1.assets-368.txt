@@ -1,0 +1,147 @@
+{
+	"defalutDescription":{
+		"ribbon": {"key":"XPYTC_RIBBON","values":[{"lang":"Polish", "val":"KOMPAN"},
+										 		{"lang":"English","val":"BAJTÁRS"}]},
+		"front": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Front-YarpenTeam"},
+		"flag": {"atlas":"Atlases/Atlas-Card-Backgrounds_001", "sprite":"Card-Flag-YarpenTeam"},
+		"back": {"atlas":"Atlases/Atlas-Card-Backgrounds_003", "sprite":"Card-Reverse-YarpenTeam"}
+	},
+	"cards":[{
+		"------------------":"------------------------",
+		"type":"XPYarpenTeam",
+		"id":"XPYTC_1",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"XPYTC_1_IMAGE"},
+			"title": {"key":"XPYTC_1_TITLE","values":[{"lang":"Polish", "val":"Yannick Brass"},
+													{"lang":"English","val":"Yannick Brass"}]},
+			"body": {"key":"XPYTC_1_BODY","values":[{"lang":"Polish", "val":"Wydaj 1 [ClueMarkerGray] aby otrzymać 1 [ClueMarkerGray] innego koloru."},
+													{"lang":"English","val":"Költs 1 [ClueMarkerGray]-ot 1 más színű [ClueMarkerGray] megszerzéséhez."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{"Lead": 1},
+				"character": "YARPEN"
+			}
+		},{
+			"action":"kill_card_inventory",
+			"params": {
+				"character": "YARPEN"
+			}
+		}],
+		"useTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"select_leads",
+			"params": {
+				"DiplomacyLead": -1,
+				"CombatLead": -1,
+				"MagicLead": -1
+			}				
+		},{			
+			"action":"select_leads",
+			"params": {
+				"DiplomacyLead": 1,
+				"CombatLead": 1,
+				"MagicLead": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPYarpenTeam",
+		"id":"XPYTC_2",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"XPYTC_2_IMAGE"},
+			"title": {"key":"XPYTC_2_TITLE","values":[{"lang":"Polish", "val":"Xavier Moran"},
+													 {"lang":"English","val":"Xavier Moran"}]},
+			"body": {"key":"XPYTC_2_BODY","values":[{"lang":"Polish", "val":"Otrzymujesz 1 [GoldCoin]."},
+													{"lang":"English","val":"Kapsz 1 [GoldCoin]-at."}]}
+		},
+		"drawTask":{
+			"action":"kill_card_inventory",
+			"params": {
+				"character": "YARPEN"
+			}
+		},
+		"useTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"resource",
+			"params": {
+				"Gold": 1
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPYarpenTeam",
+		"id":"XPYTC_3",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"XPYTC_3_IMAGE"},
+			"title": {"key":"XPYTC_3_TITLE","values":[{"lang":"Polish", "val":"Regan Dahlberg"},
+													 {"lang":"English","val":"Regan Dahlberg"}]},
+			"body": {"key":"XPYTC_3_BODY","values":[{"lang":"Polish", "val":"Połóż 1 [Charge] na maksymalnie 2 posiadanych kartach rozwoju."},
+													{"lang":"English","val":"Helyezz el 1 [Charge]-t legfeljebb 2 fejlesztés-kártyádon."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{"chargeableInventoryCard": true},
+				"character": "YARPEN"
+			}
+		},{ 
+			"action":"kill_card_inventory",
+			"params": {
+				"character": "YARPEN"
+			}
+		}],
+		"useTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action":"select_inventory_card",
+			"params": {
+				"amount": 2,
+				"mode": "CHARGE_ADD",
+				"filter": "XP"
+			}
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"XPYarpenTeam",
+		"id":"XPYTC_4",
+		"description":{
+			"image": {"atlas":"Atlases/Atlas-Card-Images_007", "sprite":"XPYTC_4_IMAGE"},
+			"title": {"key":"XPYTC_4_TITLE","values":[{"lang":"Polish", "val":"Paulie Dahlberg"},
+													 {"lang":"English","val":"Paulie Dahlberg"}]},
+			"body": {"key":"XPYTC_4_BODY","values":[{"lang":"Polish", "val":"Przenieś 1 [EnemyMarker] lub 1 [BadFateMarker] ze swojego regionu do sąsiedniego regionu, o ile to możliwe."},
+													{"lang":"English","val":"Helyezz át 1 [EnemyMarker]-et vagy 1 [BadFateMarker]-t a régiódból egy szomszédos régióba, ha tudsz."}]}
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"currentRegionBadFate": true,
+					"currentRegionEnemy": true,
+					"isOr": true
+				},
+				"character": "YARPEN"
+			}
+		},{ 
+			"action":"kill_card_inventory",
+			"params": {
+				"character": "YARPEN"
+			}
+		}],
+		"useTask":[{
+			"action":"kill_card_inventory"
+		},{
+			"action": "resolve_region_obstacles",
+			"params": {
+				"move": true,
+				"direction": "NEIGHBOURS"
+			}
+		}],"------------------":"------------------------"
+	}]
+}

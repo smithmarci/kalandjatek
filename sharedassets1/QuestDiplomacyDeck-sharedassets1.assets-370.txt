@@ -1,0 +1,2328 @@
+{
+	"defalutDescription":{
+		"ribbon": {"key":"QDC_RIBBON","values":[{"lang":"Polish", "val":"DYPLOMACJA"},
+										 		{"lang":"English","val":"DIPLOMÁCIA"}]},
+		"front": {"atlas":"Atlases/Atlas-Card-Backgrounds_002", "sprite":"Card-Front-Quest"},
+		"flag": {"atlas":"Atlases/Atlas-Card-Backgrounds_002", "sprite":"Card-Flag-Quest-Diplomacy"},
+		"flagMini": {"atlas":"Atlases/Atlas-Slate_001", "sprite":"QuestCardMini-Flag-Diplomacy"},
+		"back": {"atlas":"Atlases/Atlas-Card-Backgrounds_003", "sprite":"Card-Reverse-Quest-Diplomacy"}
+	},
+	"cards":[{
+		"------------------":"------------------------",
+		"type":"QuestDiplomacy",
+		"id":"QDC_1",
+		"description":{
+			"title": {"key":"QDC_1_TITLE","values":[{"lang":"Polish", "val":"Szalony kapłan"},
+													{"lang":"English","val":"Az őrült pap"}]},
+			"subheader": {"key":"QDC_1_SUBHEADER","values":[{"lang":"Polish", "val":"Szalony kapłan Kreve nasyła stada groźnych potworów na obozy wojskowe w Tretogorze. Ktoś musi położyć temu kres."},
+															{"lang":"English","val":"Egy Kreve nevű, megzápult agyú pap démoni teremtmények hordáit szabadítja a Tretogor mellett állomásozó csapatok táborára. Ideje, hogy valaki megállítsa végre!"}]},
+			"body": {"key":"QDC_1_BODY","values":[	{"lang":"Polish", "val":"Spróbuj przekonać kapłana, że głosy w jego głowie wolą, by przestał."},
+													{"lang":"English","val":"Próbáld meggyőzni a papot arról, hogy a hangok, amiket a fejében hall, valójában azt szeretnék, ha abbahagyná, amit csinál!"}]}
+		},
+		"ai":{
+			"EvidenceDiplomacy": 1,
+			"EvidenceCombat" : 1,
+			"wound" : 2,
+			"shield": 3
+		},
+		"quest":{
+			"locationCondition": "Tretogor",
+			"resourceCondition": "1 [EvidenceCombat] 1 [EvidenceDiplomacy]",
+			"victoryPoints": 16,
+			"enemyTaps": ["EnemyType1", "EnemyType2"],
+			"payment": {"key":"QDC_1_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu, 1 kartę rozwoju i 1 kartę śledztwa. Następnie stocz walkę:\nWróg: 3 [Shield]\nNieudana [Shield]: odnosisz 2 [Wound]."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, 1 fejlesztés-kártyát,\nés 1 lila nyomkeresés-kártyát! Aztán harcolj:\nEllenfél: 3 [Shield]\nSikertelen [Shield]: szerzel 2 [Wound]-t."}]},
+			"shortPayment": {"key":"QDC_1_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu, rozwoju, śledztwa. Walka 3 [Shield]."},
+															  {"lang":"English","val":"1 jószerencse, 1 fejlesztés, 1 nyomkeresés-kártya. Harc: 3 [Shield]"}]},
+			"paymentDescription": {"key":"QDC_1_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Bezpiecznie docierasz do Kreve'a, ale przesłuchiwany kapłan wpada w furię i nasyła na ciebie jedną z bestii!"},
+															  				  {"lang":"English","val":"Épségben Kreve közelébe férkőzöl, ám a faggatózásodtól elborul az agya, és ráduszítja az egyik ocsmány teremtményét!"}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QDC_1_SQ1_BODY","values":[{"lang":"Polish", "val":"Przekup Kreve'a najlepszym krasnoludzkim tytoniem: udaj się do Mahakamu."},
+															 {"lang":"English","val":"Vesztegesd meg Kreve-et a legfinomabb törp szivarral: menj Mahakamba! -"}]},
+				"shortBody": {"key":"QDC_1_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Mahakam"},
+															   {"lang":"English","val":"Menj Mahakamba!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Mahakam",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QDC_1_SQ2_BODY","values":[{"lang":"Polish", "val":"Ochroń się przed potworami Kreve'a: zużyj 2 niebieskie [ClueMarkerGray]."},
+															 {"lang":"English","val":"Védd meg magad Kreve szörnyeivel szemben: költs 2 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_1_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "2 [ClueMarkerBlue]",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"MagicLead": 2,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"MagicLead": -2
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QDC_1_SUP_BODY","values":[{"lang":"Polish", "val":"Przydałaby się pomoc w rozprawie z bestiami, które zdążył wysłać Kreve: zużyj 3 czerwone [ClueMarkerGray]."},
+															  {"lang":"English","val":"Elkélne a segítség a garázdálkodó szörnyekkel szemben: költs 3 vörös [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_1_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerRed]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"CombatLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"CombatLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+			}											 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Tretogor",
+					"DiplomacyEvidence": 1,
+					"CombatEvidence": 1,
+					"roll": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"DiplomacyEvidence": -1,
+				"CombatEvidence": -1
+			}
+		},{
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "draw_card",
+			"params": {
+				"deck": "XP",
+				"amount": 1
+			}
+		},{
+			"action": "draw_card",
+			"params": {
+				"deck": "TrailDiplomacy",
+				"amount": 1
+			}
+		},{
+			"action":"battle",
+				"params": {
+					"defense": {
+						"condition":["shield", "shield", "shield"],
+						"fail": {
+							"action": "place_wound",
+							"params": {
+								"amount": 2,
+								"wound": 1
+							}
+						}
+					}
+				}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestDiplomacy",
+		"id":"QDC_2",
+		"description":{
+			"title": {"key":"QDC_2_TITLE","values":[{"lang":"Polish", "val":"Na twe rozkazy"},
+													{"lang":"English","val":"Akaratod szerint"}]},
+			"subheader": {"key":"QDC_2_SUBHEADER","values":[{"lang":"Polish", "val":"Królowa driad, Eithne z Brokilonu, wzywa cię do siebie z jakiegoś nieznanego powodu. Masz nadzieję, że nie chodzi o coś niebezpiecznego."},
+															{"lang":"English","val":"Eithné, a driádok királynője számodra ismeretlen okból Brokilonba hívat. Reméled, nem várja el tőled, hogy a bőrödet a vásárra vidd."}]},
+			"body": {"key":"QDC_2_BODY","values":[	{"lang":"Polish", "val":"Spotkaj się z królewską strażą."},
+													{"lang":"English","val":"Találkozz a királynői őrséggel!"}]}
+		},
+		"ai":{
+			"EvidenceDiplomacy": 2
+		},
+		"quest":{
+			"locationCondition": "Duén Canell",
+			"resourceCondition": "2 [EvidenceDiplomacy]",
+			"victoryPoints": 8,
+			"enemyTaps": ["EnemyType1", "EnemyType2"],
+			"payment": {"key":"QDC_2_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu, przemieść się do Brokilonu i opóźnij działania."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, utazz Brokilonba, és vesztegelj!"}]},
+			"shortPayment": {"key":"QDC_2_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. Idź do Brokilonu. Opóźnij działania."},
+															  {"lang":"English","val":"Jószerencse. Brokilonba mész. Vesztegelsz."}]},
+			"paymentDescription": {"key":"QDC_2_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Straż królowej eskortuje cię do Brokilonu, gdzie Eithne wita cię z otwartymi ramionami i nalega, byś spędził noc w jej komnatach. Z radością się zgadzasz i śpiewasz jej serenady do białego rana."},
+															  				  {"lang":"English","val":"A királynő őrei Brokilonba kísérnek, ahol aztán Eithné szívélyesen köszönt, majd ragaszkodik hozzá, hogy az éjszakát az ő termeiben töltsd. Örömmel elfogadod a meghívását, majd hajnalhasadtáig az erényeirő zengsz neki ódákat."}]},					
+			"sideQuests": [{
+				"fullBody": {"key":"QDC_2_SQ1_BODY","values":[{"lang":"Polish", "val":"Spróbuj się dowiedzieć, czego królowa od ciebie chce: zużyj 3 fioletowe [ClueMarkerGray]."},
+															 {"lang":"English","val":"Próbáld kideríteni, mit is akar valójában a királynő: költs 3 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_2_SQ1_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerPurple]",
+				"victoryPoints": 4,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"DiplomacyLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"DiplomacyLead": -3
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			},{
+				"fullBody": {"key":"QDC_2_SQ2_BODY","values":[{"lang":"Polish", "val":"Zdobądź kosztowny prezent dla królowej: wydaj 4 [GoldCoin]."},
+															 {"lang":"English","val":"Halmozd el a királynőt ajándékokkal: költs 4 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QDC_2_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "4 [GoldCoinColor]",
+				"victoryPoints": 4,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"Gold": 4,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"Gold": -4
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QDC_2_SUP_BODY","values":[{"lang":"Polish", "val":"Może ktoś z dużą wiedzą o driadach mógby ci co nieco o nich powiedzieć: zużyj 3 niebieskie [ClueMarkerGray]."},
+															  {"lang":"English","val":"Esetleg megkérdezhetnél olyasvalakit, aki többet tud a driádokról nálad: költs 3 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_2_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerBlue]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"MagicLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"MagicLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Duén Canell",
+					"DiplomacyEvidence": 2,
+					"roll": false
+				}
+			}
+		},{
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"DiplomacyEvidence": -2
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "teleport",
+			"params": {
+				"location": "Brokilon"
+			}
+		},{
+			"action": "delay_action"
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestDiplomacy",
+		"id":"QDC_3",
+		"description":{
+			"title": {"key":"QDC_3_TITLE","values":[{"lang":"Polish", "val":"Zwiad na południu"},
+													{"lang":"English","val":"Déli felderítés"}]},
+			"subheader": {"key":"QDC_3_SUBHEADER","values":[{"lang":"Polish", "val":"Trzeba ruszyć do Rivii, do chałup i siół, by zasięgnąć u chłopów języka na temat ruchów nilfgaardzkich wojsk."},
+															{"lang":"English","val":"Ideje felkeresned a Rívia környéki falvakat és tanyákat, és a nilfgaardi csapatok mozgásairól tudakozódnod a helyi parasztoktól."}]},
+			"body": {"key":"QDC_3_BODY","values":[	{"lang":"Polish", "val":"Sypnij tu i ówdzie groszem, by zdobyć cenne informacje i uspokoić ciemne chłopstwo."},
+													{"lang":"English","val":"Adj nekik néhány orent, hogy értékes értesülésekhez juss, valamint megnyugtasd kissé a földműveseket!"}]}
+		},
+		"ai":{
+			"Gold": 13
+		},
+		"quest":{
+			"locationCondition": "Rívia",
+			"resourceCondition": "13 [GoldCoin]",
+			"victoryPoints": 12,
+			"enemyTaps": ["EnemyType1", "EnemyType2"],
+			"payment": {"key":"QDC_3_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i 1 fioletową kartę śledztwa; odnosisz 1 [Wound] i przesuwasz w przód znacznik na torze wojny."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, húzz 1 lila nyomkeresés-\nkártyát, szerzel 1 [Wound]-t, és mozdítsd előre a háború menetét!"}]},
+			"shortPayment": {"key":"QDC_3_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. 1 karta śledztwa. 1 [Wound]. Przesuwasz w przód znacznik na torze wojny."},
+															  {"lang":"English","val":"1 jószerencse. 1 nyomkeresés. 1 [Wound]. Háború menetét előmozdít."}]},
+			"paymentDescription": {"key":"QDC_3_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Zdobywasz wiele cennych informacji, ale później beztrosko wdajesz się w spór z agentem Nilfgaardu i odnosisz ranę. Uznajesz, że na południu nie jest już bezpiecznie."},
+															  				  {"lang":"English","val":"Bár rengeteg hasznos értesüléssel leszel gazdagabb, a kérdezősködés közben belebotlasz egy nilfgaardi ügynökbe is, aki csúnya sebet ejt rajtad, mielőtt meglóg. Rájössz, hogy a dél már nem olyan biztonságos számodra."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QDC_3_SQ1_BODY","values":[{"lang":"Polish", "val":"Zbierz plotki o planach Nilfgaardu: udaj się do Cintry."},
+															 {"lang":"English","val":"Gyűjts a nilfgaardiak terveiről szóló híreszteléseket: menj Cintrába! -"}]},
+				"shortBody": {"key":"QDC_3_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Cintra"},
+															   {"lang":"English","val":"Menj Cintrába!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Cintra",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QDC_3_SQ2_BODY","values":[{"lang":"Polish", "val":"Przygotuj się na niebezpieczeństwo: zużyj 2 czerwone [ClueMarkerGray]."},
+															 {"lang":"English","val":"Készülj fel a bajra: költs 2 vörös [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_3_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "2 [ClueMarkerRed]",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"CombatLead": 2,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"CombatLead": -2
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QDC_3_SUP_BODY","values":[{"lang":"Polish", "val":"Przydałby ci się przyjaciel do pomocy w rozdawaniu grosiwa: wydaj 3 [GoldCoin]."},
+															  {"lang":"English","val":"Kérd meg egy barátodat, segítsen megkenni egy-két tenyeret, hogy megeredjenek a nyelvek: költs 3 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QDC_3_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [GoldCoinColor]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"Gold": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"Gold": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Rivia",
+					"Gold": 13,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"Gold": -13
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}			
+		},{
+			"action":"draw_card",
+			"params": {
+				"deck": "TrailDiplomacyInvestigation",
+				"amount": 1
+			}			
+		},{
+			"action": "place_wound",
+			"params": {
+				"amount": 1,
+				"wound": 1
+			}
+		},{
+			"action": "advance_war_track"
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestDiplomacy",
+		"id":"QDC_4",
+		"description":{
+			"title": {"key":"QDC_4_TITLE","values":[{"lang":"Polish", "val":"Książęce klejnoty"},
+													{"lang":"English","val":"Egy fejedelmi ékszer"}]},
+			"subheader": {"key":"QDC_4_SUBHEADER","values":[{"lang":"Polish", "val":"Książę Nazairu dopytuje o swoje rodowe diamenty, które gdzieś się zapodziały. Księżniczka wyznaje ci, że podarowała je kochankowi z północy i błaga cię o pomoc."},
+															{"lang":"English","val":"Nazair hercege a családja ékköveit keresi, amiknek, úgy tűnik, lába kélt. A Hercegnő a bizalmába fogad, és elárulja, hogy a szeretőjének adta őket; ezért most a segítségedért esedezik."}]},
+			"body": {"key":"QDC_4_BODY","values":[	{"lang":"Polish", "val":"Odzyskaj diamenty, zanim książę zorientuje się, co się stało."},
+													{"lang":"English","val":"Szerezd vissza a gyémántokat, mielőtt a Herceg rájönne, mi is történt valójában!"}]}
+		},
+		"ai":{
+			"EvidenceDiplomacy": 1,
+			"EvidenceMagic" : 1
+		},
+		"quest":{
+			"locationCondition": "Ellander",
+			"resourceCondition": "1 [EvidenceMagic] 1 [EvidenceDiplomacy]",
+			"victoryPoints": 12,
+			"enemyTaps": ["EnemyType1", "EnemyType2"],
+			"payment": {"key":"QDC_4_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i 3 [GoldCoin] oraz usuń 1 [Wound] ze swojej karty postaci."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, vételezz 3 [GoldCoin]-at, és végy le 1 [Wound]-t a hőslapodról!"}]},
+			"shortPayment": {"key":"QDC_4_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. 3 [GoldCoin]. Usuń 1 [Wound]."},
+															  {"lang":"English","val":"1 jószerencse. 3 [GoldCoin]. 1 [Wound]-t eltávolít."}]},
+			"paymentDescription": {"key":"QDC_4_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Po sporych trudach udaje ci się dostarczyć diamenty na dwór księcia, zanim ten nabierze podejrzeń. Niczego nieświadomy książę dziękuje ci za pomoc w odnalezieniu zaginionych klejnotów i wynagradza cię za fatygę."},
+															  				  {"lang":"English","val":"Nem kevés kavarodás árán, de sikerül visszajuttatnod az ékköveket a herceg termeibe, mielőtt rájönne a turpisságra. A boldog tudatlan Herceg megköszöni, hogy segítettél megtalálni a drágaköveket, és bőségesen megjutalmaz a fáradozásodért."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QDC_4_SQ1_BODY","values":[{"lang":"Polish", "val":"Zdobądź kopię diamentów, by na jakiś czas rozwiać podejrzenia: udaj się do Mahakamu."},
+															 {"lang":"English","val":"Szerezz néhány hamis követ, hogy egy kis időre elaltasd a Herceg gyanakvását: menj Mahakamba! -"}]},
+				"shortBody": {"key":"QDC_4_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Mahakam"},
+															   {"lang":"English","val":"Menj Mahakamba!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Mahakam",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QDC_4_SQ2_BODY","values":[{"lang":"Polish", "val":"Spróbuj wrobić kogoś z dworu w kradzież biżuterii, by mieć plan awaryjny: zużyj 3 fioletowe [ClueMarkerGray]."},
+															 {"lang":"English","val":"Elterelésképp gyanúsíts meg valakit az udvartartásból az ékkövek ellopásával: költs 3 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_4_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerPurple]",
+				"victoryPoints": 4,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"DiplomacyLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"DiplomacyLead": -3
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QDC_4_SUP_BODY","values":[{"lang":"Polish", "val":"Ktoś mógłby odkupić diamenty od oszusta, który uwiódł księżniczkę: wydaj 3 [GoldCoin]."},
+															  {"lang":"English","val":"Valakivel visszavásároltathatnád a drágaköveket a Hercegnőt elcsábító szélhámostól: költs 3 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QDC_4_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [GoldCoinColor]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"Gold": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"Gold": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Ellander",
+					"MagicEvidence": 1,
+					"DiplomacyEvidence": 1,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -1,
+				"DiplomacyEvidence": -1
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "resource",
+			"params": {
+				"Gold": 3
+			}
+		},{
+			"action": "heal",
+			"params": {
+				"wound_amount": 1
+			}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestDiplomacy",
+		"id":"QDC_5",
+		"description":{
+			"title": {"key":"QDC_5_TITLE","values":[{"lang":"Polish", "val":"Drugie przyjście Lilith"},
+													{"lang":"English","val":"Lilith második eljövetele"}]},
+			"subheader": {"key":"QDC_5_SUBHEADER","values":[{"lang":"Polish", "val":"Czarodziej Finth wywołuje histerię w związku z Klątwą Czarnego Słońca i nawołuje do wiwisekcji księżniczek!"},
+															{"lang":"English","val":"A Finth nevű varázsló a Fekete Nap átkának újbóli felemlegetésével kelt pánikot az Udvarban, és a hercegkisasszonyok élveboncolását szorgalmazza!"}]},
+			"body": {"key":"QDC_5_BODY","values":[	{"lang":"Polish", "val":"Powstrzymaj Fintha, zanim ktoś straci życie."},
+													{"lang":"English","val":"Állítsd meg a tébolyult varázslót, még mielőtt valaki meghal!"}]}
+		},
+		"ai":{
+			"EvidenceDiplomacy": 1,
+			"EvidenceMagic" : 1
+		},
+		"quest":{
+			"locationCondition": "Tretogor",
+			"resourceCondition": "1 [EvidenceMagic] 1 [EvidenceDiplomacy]",
+			"victoryPoints": 12,
+			"enemyTaps": ["EnemyType1", "EnemyType2"],
+			"payment": {"key":"QDC_5_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i 1 kartę rozwoju, usuń 1 [BadFateMarker] ze swojej karty postaci i usuń 1 [BadFateMarker] ze swojego regionu."},
+														{"lang":"English","val":"Húzz 1 jószerecse-kártyát, húzz 1 fejlesztés-kártyát, végy le 1 [BadFateMarker]-t a hőslapodról, és végy le 1 [BadFateMarker]-t a régiódról."}]},
+			"shortPayment": {"key":"QDC_5_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu, rozwoju card. Usuń 1 [BadFateMarker]."},
+															  {"lang":"English","val":"1 jószerencse. 1 fejlesztés. 1-1 [BadFateMarker] eltávolítása."}]},
+			"paymentDescription": {"key":"QDC_5_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Komponujesz prześmiewczą balladę, wyjawiającą wiele wad i tajemnic Fintha. Pieśń nie tylko dyskredytuje maga i wystawia go na pośmiewisko, ale też przyczynia się do twojej rosnącej sławy."}, 
+															  				  {"lang":"English","val":"Egy Finth-et karikírozó kis gúnydalt költesz a hibái és titkai szétkürtölésére, így lejáratva a varázslót. Ráadásul egész Tretogorszerte köznevetség tárgyává is teszed, ami által még a népszerűséged is nő."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QDC_5_SQ1_BODY","values":[{"lang":"Polish", "val":"Zbadaj działania Fintha: zużyj 3 niebieskie [ClueMarkerGray]."},
+															 {"lang":"English","val":"Járj utána Finth ügyes-bajos dolgainak: költs 3 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_5_SQ1_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerBlue]",
+				"victoryPoints": 4,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"MagicLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"MagicLead": -3
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			},{
+				"fullBody": {"key":"QDC_5_SQ2_BODY","values":[{"lang":"Polish", "val":"Poznaj mroczne tajemnice z pierwszych lat nauki czarodzieja: udaj się do Vengerbergu."},
+															 {"lang":"English","val":"Fedezd fel a varázsló tanoncéveivel kapcsolatos sötét titkait: menj Vengerbergbe! -"}]},
+				"shortBody": {"key":"QDC_5_SQ2_SBODY","values":[{"lang":"Polish", "val":"Idź do Vengerberg"},
+															   {"lang":"English","val":"Menj Vengerbergbe!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Vengerberg",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QDC_5_SUP_BODY","values":[{"lang":"Polish", "val":"Warto, by ktoś ci wyjaśnił, na czym polega Klątwa Czarnego Słońca: zużyj 3 niebieskie [ClueMarkerGray]."},
+															  {"lang":"English","val":"Találj valakit, aki el tudja neked magyarázni a Fekete Nap átkának mibenlétét: költs 3 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_5_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerBlue]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"MagicLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"MagicLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Tretogor",
+					"MagicEvidence": 1,
+					"DiplomacyEvidence": 1,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"MagicEvidence": -1,
+				"DiplomacyEvidence": -1
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action":"draw_card",
+			"params": {
+				"deck": "XP",
+				"amount": 1
+			}
+		},{
+			"action": "remove_bad_fate",
+			"params": {
+				"amount": 1
+			}
+		},{
+			"action": "remove_bad_fate_region"
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestDiplomacy",
+		"id":"QDC_6",
+		"description":{
+			"title": {"key":"QDC_6_TITLE","values":[{"lang":"Polish", "val":"Szpieg w Mariborze"},
+													{"lang":"English","val":"Kém Mariborban"}]},
+			"subheader": {"key":"QDC_6_SUBHEADER","values":[{"lang":"Polish", "val":"W dzielnicy nieludzi doszło do kilku zabójstw, a straż prowadzi śledztwo bardzo opieszale. Jesteś niemal pewien, że coś tu śmierdzi."},
+															{"lang":"English","val":"Történt néhány gyilkosság a másfajúak kerületében, és a városőrség egyáltalán nem kapkodja el az ügy kivizsgálását. Neked ez az egész valahogy bűzlik!"}]},
+			"body": {"key":"QDC_6_BODY","values":[	{"lang":"Polish", "val":"Odkryj polityczne motywy zabójstw."},
+													{"lang":"English","val":"Fedd fel a gyilkosságok hátterében megbúvó politikai indítékot!"}]}
+		},
+		"ai":{
+			"EvidenceDiplomacy": 1,
+			"EvidenceCombat" : 1
+		},
+		"quest":{
+			"locationCondition": "Maribor",
+			"resourceCondition": "1 [EvidenceCombat] 1 [EvidenceDiplomacy]",
+			"victoryPoints": 16,
+			"payment": {"key":"QDC_6_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i 1 fioletową kartę śledztwa; wszyscy pozostali gracze otrzymują 1 [BadFateMarker]."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, húzz 1 lila nyomkeresés-kártyát, és a többi hős szerez 1 [BadFateMarker]-t."}]},
+			"shortPayment": {"key":"QDC_6_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. Fioletowa karta śledztwa. Wszyscy otrzymują 1 [BadFateMarker]."},
+															  {"lang":"English","val":"1 jószerencse. 1 lila nyomkeresés. Többi hős 1 [BadFateMarker]-t szerez."}]},
+			"paymentDescription": {"key":"QDC_6_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Trop jest bardzo wyraźny, gdy już docierasz do Mariboru, i zbyt późno zdajesz sobie sprawę, że nie bez powodu. Wchodzisz prosto w zasadzkę i zostajesz pojmany przez agentów Nilfgaardu. Ujawniasz kilka tajemnic o swoich przyjaciołach, ale dowiadujesz się od swoich prześladowców niemal tyle samo, ile oni od ciebie."}, 
+															  				  {"lang":"English","val":"Miután eljutsz Mariborba, már könnyedén követed a nyomokat, de csak későn ébredsz rá, hogy ez nem a képességeidnek köszönhető. Egyenesen belesétálsz a nilfgaardi ügynökök csapdájába. Kénytelen-\nkelletlen megosztasz velük néhányat a barátaid titkai közül, cserébe viszont te is megtudsz egyet s mást a fogvatartóidtól."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QDC_6_SQ1_BODY","values":[{"lang":"Polish", "val":"Wszystkie ofiary były niedawno w Shaerrawedd: udaj się do Shaerrawedd."},
+															 {"lang":"English","val":"Mindegyik áldozat mostanában járt Shaerraweddben: menj Shaerraweddbe! -"}]},
+				"shortBody": {"key":"QDC_6_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Shaerrawedd"},
+															   {"lang":"English","val":"Menj Shaerraweddbe!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Shaerrawedd",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QDC_6_SQ2_BODY","values":[{"lang":"Polish", "val":"Opłać kilku najemnych zbirów, by osłaniali ci tyły podczas śledztwa: wydaj 2 [GoldCoin]."},
+															 {"lang":"English","val":"Fizess meg néhány zsoldost, hogy a nyomozás során vigyázzanak a testi épségedre: költs 2 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QDC_6_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "2 [GoldCoinColor]",
+				"victoryPoints": 2,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"Gold": 2,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"Gold": -2
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QDC_6_SUP_BODY","values":[{"lang":"Polish", "val":"Przyda ci się pomoc w poszukiwaniach: zużyj 3 niebieskie [ClueMarkerGray]."},
+															  {"lang":"English","val":"Hasznát vennéd némi segítségnek a keresés során: költs 3 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_6_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerBlue]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"MagicLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"MagicLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Maribor",
+					"DiplomacyEvidence": 1,
+					"CombatEvidence": 1,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"DiplomacyEvidence": -1,
+				"CombatEvidence": -1
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action":"draw_card",
+			"params": {
+				"deck": "TrailDiplomacyInvestigation",
+				"amount": 1
+			}
+		},{
+			"action": "dispatch",
+			"params": {
+				"characterMode": "ALL",
+				"description":{
+					"title": {"key":"QDC_6_TITLE_1","values":[{"lang":"Polish","val":"Szpieg w Mariborze"},
+													 {"lang":"English","val":"Kém Mariborban"}]},
+					"body": {"key":"QDC_6_BODY_1","values":[	{"lang":"Polish", "val":"Otrzymujesz 1 [BadFateMarker]."},
+													{"lang":"English","val":"Szereztél 1 [BadFateMarker]-t!"}]}
+				},
+				"task": {
+					"action": "place_bad_fate",
+					"params": {
+						"amount": 1
+					}
+				}
+			}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestDiplomacy",
+		"id":"QDC_7",
+		"description":{
+			"title": {"key":"QDC_7_TITLE","values":[{"lang":"Polish", "val":"My, naród Oxenfurtu"},
+													{"lang":"English","val":"Mi, Oxenfurt polgárai"}]},
+			"subheader": {"key":"QDC_7_SUBHEADER","values":[{"lang":"Polish", "val":"Grupa żaków rozpoczęła strajk okupacyjny, próbując założyć republikę demokratyczną, i paraliżuje działalność uniwersytetu."},
+															{"lang":"English","val":"Néhány diák tiltakozásba kezd azért, hogy elérjék a demokratikus köztársaság, mint államforma bevezetését - ám ezzel az egyetem működését sodorják veszélybe."}]},
+			"body": {"key":"QDC_7_BODY","values":[	{"lang":"Polish", "val":"Rozwiąż problem, dyskredytując zaangażowanych w sprawę żaków."},
+													{"lang":"English","val":"Oldd meg a problémát a tüntető diákok lejáratásával!"}]}
+		},
+		"ai":{
+			"EvidenceDiplomacy": 2
+		},
+		"quest":{
+			"locationCondition": "Oxenfurt",
+			"resourceCondition": "2 [EvidenceDiplomacy]",
+			"victoryPoints": 8,
+			"payment": {"key":"QDC_7_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu, usuń 1 [Wound] ze swojej karty postaci i opóżnij działania."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, végy le 1 [Wound]-t a hőslapodról, és vesztegelj!"}]},
+			"shortPayment": {"key":"QDC_7_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. usuń 1 [Wound]. Opóżnij działania."},
+															  {"lang":"English","val":"1 jószerencse. 1 [Wound] eltávolítása. Feltartóztatnak."}]},
+			"paymentDescription": {"key":"QDC_7_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Gdy przywódcy ruchu tracą dobre imię, wsparcie w społeczeństwie zanika i protesty ustają. Pani dziekan jest ci wdzięczna. Zaprasza cię na miły, intymny wieczór przy winie."},
+															  				  {"lang":"English","val":"A mozgalomban résztvevők lejáratásával a köznép támogatása is alábbhagy, és a tüntetéseknek vége szakad. A dékán hálás neked; egy rendkívül kellemes estét töltesz a párnái között, némi finom borral és intim csevejjel fűszerezve."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QDC_7_SQ1_BODY","values":[{"lang":"Polish", "val":"Sprowokuj skandal z udziałem członków ruchu: wydaj 4 [GoldCoin]."},
+															 {"lang":"English","val":"Szíts botrányt, amiben a mozgalom résztvevői érintettek legyenek: költs 4 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QDC_7_SQ1_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "4 [GoldCoinColor]",
+				"victoryPoints": 4,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"Gold": 4,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"Gold": -4
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			},{
+				"fullBody": {"key":"QDC_7_SQ2_BODY","values":[{"lang":"Polish", "val":"Wyciągnij na jaw mroczne tajemnice rodu jednego z założycieli: zużyj 3 niebieskie [ClueMarkerGray]."},
+															 {"lang":"English","val":"Tárd nyilvánosság el a mozgalom egyik elindítójának sötét kis családi titkait: költs 3 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_7_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerBlue]",
+				"victoryPoints": 5,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"MagicLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"MagicLead": -3
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QDC_7_SUP_BODY","values":[{"lang":"Polish", "val":"Ktoś powinien przekupić strażników miejskich, by rozproszyli ciżbę: wydaj 3 [GoldCoin]."},
+															  {"lang":"English","val":"Valaki lefizethetné a városőröket, hogy verjék szét a csőcseléket: költs 3 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QDC_7_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [GoldCoinColor]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"Gold": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"Gold": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Oxenfurt",
+					"DiplomacyEvidence": 2,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"DiplomacyEvidence": -2
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "heal",
+			"params": {
+				"wound_amount": 1
+			}
+		},{
+			"action": "delay_action"
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestDiplomacy",
+		"id":"QDC_8",
+		"description":{
+			"title": {"key":"QDC_8_TITLE","values":[{"lang":"Polish", "val":"Brat przeciw bratu"},
+													{"lang":"English","val":"Testvér testvér ellen"}]},
+			"subheader": {"key":"QDC_8_SUBHEADER","values":[{"lang":"Polish", "val":"Krwawa waśń między dwoma dowódcami trzebi szeregi Scoia'tael, stacjonujących w lasach w pobliżu Dol Blathanna. Dyplomata z Nilfgaardu prosi cię o pomoc w tej sprawie."},
+															{"lang":"English","val":"Egy véres leszámolás két parancsnok között a Brokilon melletti erdőkben állomásozó Scoia'tael csapatok szétzilálódásával fenyeget. Egy nilfgaardi diplomata a te közbenjárásodat kéri az ügyben."}]},
+			"body": {"key":"QDC_8_BODY","values":[	{"lang":"Polish", "val":"Odszukaj zwaśnionych przywódców i przemów im do rozumu."},
+													{"lang":"English","val":"Találd meg a viszálykodó parancsnokokat, és érd el, hogy egyetértésre jussanak!"}]}
+		},
+		"ai":{
+			"EvidenceDiplomacy": 1,
+			"EvidenceCombat" : 1
+		},
+		"quest":{
+			"locationCondition": "Brokilon",
+			"resourceCondition": "1 [EvidenceCombat] 1 [EvidenceDiplomacy]",
+			"victoryPoints": 16,
+			"payment": {"key":"QDC_8_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 2 karty dobrego losu i przenieś 1 [BadFateMarker] z innego regionu do swojego regionu."},
+														{"lang":"English","val":"Húzz 2 jószerencse-kártyát, és mozgass el 1 [BadFateMarker]-t egy másik régióról a tiédre, ha tudsz!"}]},
+			"shortPayment": {"key":"QDC_8_SPAYMENT","values":[{"lang":"Polish", "val":"2 karty dobrego losu. Przenieś 1 [BadFateMarker]."},
+															  {"lang":"English","val":"2 jószerencse-kártya. 1 [BadFateMarker] áthelyezése."}]},
+			"paymentDescription": {"key":"QDC_8_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Po kilku bezsennych dniach i nocach doprowadzasz do zgody między dowódcami. Gdy Scoia'tael zaczynają plądrować okolicę, szybko staje się jasne, że Nilfgaard wykorzystał cię do brudnej roboty."}, 
+															  				  {"lang":"English","val":"Jó néhány, ébrenléttel töltött éjszaka és nappal után eléred, hogy a parancsnokok egyezségre jussanak. Amint a Scoia'tael újból a környék dúlásába kezd, rájössz, hogy Nilfgaard csak veled végeztette el a piszkos munkát..."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QDC_8_SQ1_BODY","values":[{"lang":"Polish", "val":"Prześledź ruchy pobliskich wojsk: zużyj 2 czerwone [ClueMarkerGray]."},
+															 {"lang":"English","val":"Kövesd figyelemmel a hadmozgásokat a közelben: költs 2 vörös [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_8_SQ1_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "2 [ClueMarkerRed]",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"CombatLead": 2,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"CombatLead": -2
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			},{
+				"fullBody": {"key":"QDC_8_SQ2_BODY","values":[{"lang":"Polish", "val":"Ułóż pieśń w oparciu o starożytną wieszczbę elfów: zużyj 2 niebieskie"},
+															 {"lang":"English","val":"Írj egy balladát egy ősi tünde prófécia alapján: költs 2 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_8_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "2 [ClueMarkerBlue]",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"MagicLead": 2,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"MagicLead": -2
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QDC_8_SUP_BODY","values":[{"lang":"Polish", "val":"Byłoby dobrze, gdyby ktoś zadziałał jako adwokat wobec innych elfów: 3 fioletowe"},
+															  {"lang":"English","val":"Jó lenne, ha valaki az egyes felek szószólójaként lépne fel: költs 3 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_8_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerPurple]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"DiplomacyLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"DiplomacyLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Brokilon",
+					"DiplomacyEvidence": 1,
+					"CombatEvidence": 1,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"DiplomacyEvidence": -1,
+				"CombatEvidence": -1
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "test",
+			"params": {
+				"currentRegionBadFate": false,
+				"anyRegionBadFate": true
+			},
+			"success": [{
+				"action": "remove_bad_fate_region",
+				"params": {
+					"direction": "ANY",
+					"amount": 1
+				}
+			},{
+				"action": "place_bad_fate_region"
+			}]
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestDiplomacy",
+		"id":"QDC_9",
+		"description":{
+			"title": {"key":"QDC_9_TITLE","values":[{"lang":"Polish", "val":"Bardzo cenny ładunek"},
+													{"lang":"English","val":"Rendkívül értékes rakomány"}]},
+			"subheader": {"key":"QDC_9_SUBHEADER","values":[{"lang":"Polish", "val":"Wyładowany skarbami statek Nauzicaa, duma nilfgaardzkiej armady, zatonął podczas dziewiczego rejsu Jarugą. Świadkowie mówią, że z brzegu widzieli magiczne rozbłyski na pokładzie, zanim statek poszedł na dno."},
+															{"lang":"English","val":"A Nauzicaa, a Nilfgaardi Armada kincsekkel megrakodott büszkesége már az első útján elsüllyed a Jarugában. A folyó partján álló szemtanúk a habokba alábukó hajón mágia-\nhasználatra utaló felvillanásokról számolnak be."}]},
+			"body": {"key":"QDC_9_BODY","values":[	{"lang":"Polish", "val":"Rozwiąż zagadkę zatonięcia statku."},
+													{"lang":"English","val":"Bogozd ki az elsüllyedt hajó rejtélyét!"}]}
+		},
+		"ai":{
+			"EvidenceDiplomacy": 1,
+			"EvidenceMagic" : 1
+		},
+		"quest":{
+			"locationCondition": "A Jaruga",
+			"resourceCondition": "1 [EvidenceMagic] 1 [EvidenceDiplomacy]",
+			"victoryPoints": 12,
+			"enemyTaps": ["EnemyType1", "EnemyType2"],
+			"payment": {"key":"QDC_9_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i 1 kartę śledztwa, odwróć wszystkie swoje [Wound] na stronę [WoundSevere]."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, húzz 1 nyomkeresés-\nkártyát, fordíts át minden [Wound]-t a [WoundSevere] oldalára!"}]},
+			"shortPayment": {"key":"QDC_9_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. 1 karta śledztwa. Odwróć wszystkie swoje [Wound] na [WoundSevere]."},
+															  {"lang":"English","val":"1 jószerencse. 1 nyomkeresés. Minden [Wound]-t átfordít erre: [WoundSevere]"}]},
+			"paymentDescription": {"key":"QDC_9_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Po długim brodzeniu przez bagniste brzegi rzeki Jarugi, wynik twoich poszukiwań to podejrzane nic, jakby statek po prostu zniknął. Leżysz skulony w łóżku, złożony jakąś chorobą rodem z mokradeł, i dochodzisz do wniosku, że statek musiał być teleportowany za pomocą magii. To jedyne logiczne wyjaśnienie."},
+															  				  {"lang":"English","val":"Ahogy fel s alá lábalsz a Jaruga-folyó posványos partjai mentén, nem találsz mást, csak a nagy semmit - mintha a hajó egyszerűen csak eltűnt volna. Ahogy aztán az éjszaka valami mocsári kórságtól összegörnyedve hánykolódsz az ágyadban, arra a következtetésre jutsz, hogy a hajót, minden bizonnyal, elteleportálták. Ez az egyetlen észszerű magyarázat."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QDC_9_SQ1_BODY","values":[{"lang":"Polish", "val":"Odszukaj członków załogi, którzy przeżyli katastrofę: zużyj 3 fioletowe [ClueMarkerGray]."},
+															 {"lang":"English","val":"Próbáld felkutatni a katasztrófát túlélő matrózokat: költs 3 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_9_SQ1_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerPurple]",
+				"victoryPoints": 4,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"DiplomacyLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"DiplomacyLead": -3
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			},{
+				"fullBody": {"key":"QDC_9_SQ2_BODY","values":[{"lang":"Polish", "val":"Znajdź wrak w dole rzeki: udaj się do Cintry."},
+															 {"lang":"English","val":"Keress roncsokat lejjebb a folyón: menj Cintrába! -"}]},
+				"shortBody": {"key":"QDC_9_SQ2_SBODY","values":[{"lang":"Polish", "val":"Idź do Cintra"},
+															   {"lang":"English","val":"Menj Cintrába!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Cintra",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QDC_9_SUP_BODY","values":[{"lang":"Polish", "val":"Pomoc przyspieszyłaby śledztwo: zużyj 3 niebieskie [ClueMarkerGray]."},
+															  {"lang":"English","val":"Segítő kezek meggyorsíthatják a keresést: költs 3 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_9_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerBlue]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"MagicLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"MagicLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Jaruga",
+					"DiplomacyEvidence": 1,
+					"MagicEvidence": 1,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"DiplomacyEvidence": -1,
+				"MagicEvidence": -1
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action":"draw_card",
+			"params": {
+				"deck": "Investigation",
+				"amount": 1
+			}
+		},{
+			"action": "place_posine_wound",
+			"params": {
+				"all": true
+			}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestDiplomacy",
+		"id":"QDC_10",
+		"description":{
+			"title": {"key":"QDC_10_TITLE","values":[{"lang":"Polish", "val":"Płomień rozgryzie\nmalowane dzieje"},
+													{"lang":"English","val":"Lángoktól ölelt\n- Lefestett történetek"}]},
+			"subheader": {"key":"QDC_10_SUBHEADER","values":[{"lang":"Polish", "val":"Novigrad gości doroczny konkurs trubadurów. To tygodniowy festiwal, pełen muzyki, pompy i kobiet. W tym roku koniecznie chcesz wygrać."}, 
+															{"lang":"English","val":"Ebben az évben Novigrád ad otthont az Énekmondók Versenyének. Egy hét, tele vigassággal, énekkel és zeneszóval, pompával és nőkkel. Elhatározod, hogy idén nyerni fogsz!"}]},
+			"body": {"key":"QDC_10_BODY","values":[	{"lang":"Polish", "val":"Daj występ swojego życia."},
+													{"lang":"English","val":"Nyújtsd életed legjobb alakítását!"}]}
+		},
+		"ai":{
+			"EvidenceDiplomacy": 2
+		},
+		"quest":{
+			"locationCondition": "Novigrád",
+			"resourceCondition": "2 [EvidenceDiplomacy]",
+			"victoryPoints": 8,
+			"payment": {"key":"QDC_10_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i rzuć swoją kością postaci. W wypadku sukcesu otrzymujesz 3 [GoldCoin]."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, és dobj a hős-kockáddal! Amennyiben sikert dobsz, kapsz 3 [GoldCoin]-at."}]},
+			"shortPayment": {"key":"QDC_10_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrebo losu. Rzuć kością by otrzymać 3 [GoldCoin]."},
+															  {"lang":"English","val":"1 jószerencse. Dobás hős-kockával 3 [GoldCoin]-ért."}]},
+			"paymentDescription": {"key":"QDC_10_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Twój koncert chwyta za serce. Publiczność śmieje się i płacze, po czym gotuje ci owację na stojąco. Wprawdzie nie wygrywasz, ale twoja reputacja wiele zyskuje."},
+															  				  {"lang":"English","val":"Előadásod felemelő és szívszorító egyszerre. A közönség nevet és sír, egy emberként felállva tapsol és éljenez. Még ha nem is nyersz, a hírnevednek hatalmas lökést fog adni ez az esemény."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QDC_10_SQ1_BODY","values":[{"lang":"Polish", "val":"Zostawiłeś trochę niezłych wierszy w szafce u dawnej miłości: udaj się do Vengerbergu."},
+															 {"lang":"English","val":"Néhány egészen jól sikerült költeményt felejtettél egy régi szeretőd budoárjában: menj Vengerbergbe! -"}]},
+				"shortBody": {"key":"QDC_10_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Vengerberg"},
+															   {"lang":"English","val":"Menj Vengerbergbe!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Vengerberg",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QDC_10_SQ2_BODY","values":[{"lang":"Polish", "val":"Dorzecze zawsze była dla ciebie inspiracją: udaj się do Jarugi."},
+															 {"lang":"English","val":"A folyók mindig is inspiráltak: menj a Jarugához! -"}]},
+				"shortBody": {"key":"QDC_10_SQ2_SBODY","values":[{"lang":"Polish", "val":"Idź do Jaruga"},
+															   {"lang":"English","val":"Menj a Jarugához!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Jaruga",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QDC_10_SUP_BODY","values":[{"lang":"Polish", "val":"Ktoś może próbować zmusić cię do wycofania się z konkursu. Przyda ci się ochrona: zużyj 3 czerwone [ClueMarkerGray]."},
+															  {"lang":"English","val":"Valaki meghátrálásra próbálhat kényszeríteni. Fogadj testőröket: költs 3 vörös [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_10_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerRed]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"CombatLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"CombatLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Novigrad",
+					"DiplomacyEvidence": 2,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"DiplomacyEvidence": -2
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "success_roll",
+			"params": {
+				"condition": ["character"],
+				"characterOnly": true
+			},
+			"success": {
+				"action": "resource",
+				"params": {
+					"Gold": 3
+				}
+			}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestDiplomacy",
+		"id":"QDC_11",
+		"description":{
+			"title": {"key":"QDC_11_TITLE","values":[{"lang":"Polish", "val":"Dar języków"},
+													{"lang":"English","val":"A nyelvek ajándéka"}]},
+			"subheader": {"key":"QDC_11_SUBHEADER","values":[{"lang":"Polish", "val":"Słynna Księga Poligloty zawiera wiele przydatnych zaklęć, pozwalających rozumieć obcą mowę i czytać zaszyfrowane wiadomości. Według twoich ostatnich informacji, księgę miał kupiec z Nilfgaardu."},
+															{"lang":"English","val":"A híres Többnyelvűség Nagykönyve rengeteg hasznos varázsigét rejt az idegen nyelvek megértéséhez és titkosított üzenetek megfejtéséhez. Úgy hallottad, egy nilfgaardi kereskedő birtokolta legutóbb."}]},
+			"body": {"key":"QDC_11_BODY","values":[	{"lang":"Polish", "val":"Zorganizuj zakup księgi."},
+													{"lang":"English","val":"Találd meg a kereskedőt, és szervezd meg az adás-vételt!"}]}
+		},
+		"ai":{
+			"EvidenceDiplomacy": 1,
+			"EvidenceMagic" : 1
+		},
+		"quest":{
+			"locationCondition": "Vizima",
+			"resourceCondition": "1 [EvidenceMagic] 1 [EvidenceDiplomacy]",
+			"victoryPoints": 12,
+			"payment": {"key":"QDC_11_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i kartę rozwoju oraz przesuń w przód znacznik na torze wojny."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, húzz 1 fejlesztés-kártyát, és mozdítsd előre a háború menetét!"}]},
+			"shortPayment": {"key":"QDC_11_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. Przesuń w przód znacznik na torze wojny."},
+															  {"lang":"English","val":"1 jószerencse-kártya. Háború menetét előmozdít."}]},
+			"paymentDescription": {"key":"QDC_11_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Po kilku godzinach negocjacji kupujesz księgę, lecz ta okazuje się bezużyteczną fałszywką. W akcie zemsty rozpuszczasz wieści o nieuczciwym nilfgaardzkim kupcu, ale to tylko wywołuje napięcia z cesartwem."},
+															  				  {"lang":"English","val":"Több órányi egyezkedés után végül megkaparintod a könyvet, de rájössz, hogy az csak egy értéktelen hamisítvány csupán. Megtorlásként a csaló nilfgaardi kereskedő rossz hírét kelted, de mindez csak a Császársággal fennálló feszültségek további fokozódásához vezet..."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QDC_11_SQ1_BODY","values":[{"lang":"Polish", "val":"Wiedźmini też wyrazili zainteresowanie księgą: udaj się do Kaer Morhen."},
+															 {"lang":"English","val":"A vajákok is érdekődésüket fejezték ki a könyv iránt: menj Kaer Morhenbe! -"}]},
+				"shortBody": {"key":"QDC_11_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Kaer Morhen"},
+															   {"lang":"English","val":"Menj Kaer Morhenbe!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Kaer Morhen",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QDC_11_SQ2_BODY","values":[{"lang":"Polish", "val":"Kup kolekcję cennych klejnotów do wymiany na księgę: wydaj 4 [GoldCoin]."},
+															 {"lang":"English","val":"Szerezz be néhány értékes drágakövet a könyvért cserébe: költs 4 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QDC_11_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "4 [GoldCoinColor]",
+				"victoryPoints": 4,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"Gold": 4,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"Gold": -4
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QDC_11_SUP_BODY","values":[{"lang":"Polish", "val":"Ktoś powinien przyłączyć się do negocjacji i zaniżać wartość księgi: zużyj 3 fioletowe [ClueMarkerGray]."},
+															  {"lang":"English","val":"Valaki beszállhatna harmadik félként, hogy lejjebb alkudja az árat: költs 3 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_11_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerPurple]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"DiplomacyLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"DiplomacyLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Wyzima",
+					"DiplomacyEvidence": 1,
+					"MagicEvidence": 1,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"DiplomacyEvidence": -1,
+				"MagicEvidence": -1
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action":"draw_card",
+			"params": {
+				"deck": "XP",
+				"amount": 1
+			}
+		},{
+			"action": "advance_war_track"
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestDiplomacy",
+		"id":"QDC_12",
+		"description":{
+			"title": {"key":"QDC_12_TITLE","values":[{"lang":"Polish", "val":"Tajemnicze pożary"},
+													{"lang":"English","val":"Titokzatos tüzek"}]},
+			"subheader": {"key":"QDC_12_SUBHEADER","values":[{"lang":"Polish", "val":"Nieobliczalny mag Giaccomo Vitti zafiksował się na punkcie przyzywania dżina ognia, mimo że mieszka w środku miasta. Poproszono cię, byś go namówił do przeprowadzki."},
+															{"lang":"English","val":"Giaccomo Vitti, a labilis elmeállapotú varázsló egy tűzdzsinn megidézésének a megszállottjává vált, és még az sem érdekli, hogy az otthona épp egy nagyváros kellős közepén van. Arra kérnek, győzd meg a mágust, hogy költözzön máshová."}]},
+			"body": {"key":"QDC_12_BODY","values":[	{"lang":"Polish", "val":"Przekonaj czarodzieja, by kontynuował swoje eksperymenty gdzie indziej."},
+													{"lang":"English","val":"Győzd meg a varázslót, hogy valahol máshol folytassa a kísérleteit!"}]}
+		},
+		"ai":{
+			"EvidenceDiplomacy": 1,
+			"EvidenceMagic" : 1
+		},
+		"quest":{
+			"locationCondition": "Cintra",
+			"resourceCondition": "1 [EvidenceMagic] 1 [EvidenceDiplomacy]",
+			"victoryPoints": 12,
+			"payment": {"key":"QDC_12_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 2 karty dobrego losu i odnosisz 2 [Wound]."},
+														{"lang":"English","val":"Húzz 2 jószerencse-kártyát, és szerzel 2 [Wound]-t."}]},
+			"shortPayment": {"key":"QDC_12_SPAYMENT","values":[{"lang":"Polish", "val":"2 Karty dobrego losu. 2 [Wound]."},
+															  {"lang":"English","val":"1 jószerencse-kártya. 2 [Wound]."}]},
+			"paymentDescription": {"key":"QDC_12_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Giaccomo zaprasza cię do domu na rozmowę, lecz zanim udaje ci się choćby skosztować wyśmienitego wina, atakuje cię strugą magicznego ognia. Ledwie uchodzisz z życiem i uznajesz, że szalonym magiem powinny się zająć odpowiednie władze."},
+															  				  {"lang":"English","val":"Giaccomo az otthonába invitál egy beszélgetésre, de még az előtt, hogy egy kortyot is ihatnál a felkínált borból, egy tűzcsóvát küld egyenesen feléd. Alig úszod meg ép bőrrel, és inkább úgy döntesz, hogy jobb lesz, ha a megfelelő szervek intézkednek az őrült varázslóval szemben."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QDC_12_SQ1_BODY","values":[{"lang":"Polish", "val":"Dijkstra też interesował się Giaccomo. Dowiedz się, czemu: zużyj 3 niebieskie [ClueMarkerGray]."},
+															 {"lang":"English","val":"Dijkstra szintén érdeklődik Giaccomo iránt. Desítsd ki, miért: költs 3 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_12_SQ1_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerBlue]",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"MagicLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"MagicLead": -3
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			},{
+				"fullBody": {"key":"QDC_12_SQ2_BODY","values":[{"lang":"Polish", "val":"Krążą opowieści o dżinie ognia na południowym wschodzie: udaj się do Vengerbergu."},
+															 {"lang":"English","val":"Történetek keringenek egy tűzdzsinnről dél-keleten: menj Vengerbergbe! -"}]},
+				"shortBody": {"key":"QDC_12_SQ2_SBODY","values":[{"lang":"Polish", "val":"Idź do Vengerberg"},
+															   {"lang":"English","val":"Menj Vengerbergbe!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Vengerberg",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QDC_12_SUP_BODY","values":[{"lang":"Polish", "val":"Ktoś powinien dowiedzieć się więcej o Giaccomo: zużyj 3 niebieskie [ClueMarkerGray]."},
+															  {"lang":"English","val":"Talán jobb volna, ha valaki más derítene ki többet Giaccomóról: költs 3 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_12_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerBlue]",
+				"victoryPoints": 4,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"MagicLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"MagicLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Cintra",
+					"DiplomacyEvidence": 1,
+					"MagicEvidence": 1,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"DiplomacyEvidence": -1,
+				"MagicEvidence": -1
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action":"place_wound",
+			"params": {
+				"amount": 2,
+				"wound": 1
+			}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestDiplomacy",
+		"id":"QDC_13",
+		"description":{
+			"title": {"key":"QDC_13_TITLE","values":[{"lang":"Polish", "val":"Do upadłego"},
+													{"lang":"English","val":"Kifulladásig"}]},
+			"subheader": {"key":"QDC_13_SUBHEADER","values":[{"lang":"Polish", "val":"Korred dręczy mieszkańców kaedweńskich wsi. To będzie trudna walka, ale jeśli pokonasz go w konkursie picia, może zawstydzi się i pójdzie gdzie indziej bez przemocy."},
+															{"lang":"English","val":"Korrány háborgatja egy kaedweni falucska lakóit. Kemény küzdelem lenne, ha végezni akarnál vele, de ha csak legyőzöd egy ivópárbajban, szégyenében talán akkor is elkotródik, anélkül, hogy bárkinek is baja esne."}]},
+			"body": {"key":"QDC_13_BODY","values":[	{"lang":"Polish", "val":"Nakłoń korreda do udziału w konkursie."},
+													{"lang":"English","val":"Vedd rá a korrányt az ivóversenyre!"}]}
+		},
+		"ai":{
+			"EvidenceDiplomacy": 2
+		},
+		"quest":{
+			"locationCondition": "Ard Carraigh",
+			"resourceCondition": "2 [EvidenceDiplomacy]",
+			"victoryPoints": 8,
+			"payment": {"key":"QDC_13_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i 2 [BadFateMarker]."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, és szerzel 2 [BadFateMarker]-t."}]},
+			"shortPayment": {"key":"QDC_13_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. 2 [BadFateMarker]."},
+															  {"lang":"English","val":"1 jószerencse-kártya. 2 [BadFateMarker]."}]},
+			"paymentDescription": {"key":"QDC_13_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Konkurs picia przeradza się w noc hulanek i swawoli. Rano korreda już nie ma, ale wciąż są mężowie niewiast, którym składałeś nieprzystojne propozycje. Lepiej ruszaj w drogę."},
+															  				  {"lang":"English","val":"Az ivópárbaj egy kicsapongásba és tivornyába átcsapó éjszakába torkollik. Bár a korrány reggelre továbbáll, de azoknak az asszonyoknak a férjei, akiknek nagyvonalúan felajánlkoztál az éjjel, még itt vannak. Talán ideje volna szedned a sátorfádat."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QDC_13_SQ1_BODY","values":[{"lang":"Polish", "val":"Kup najlepsze piwo, by skusić korreda: udaj się do Mahakamu."},
+															 {"lang":"English","val":"Próbáld a korrányt a környék legjobb sörével versenyre csábítani: menj Mahakamba! -"}]},
+				"shortBody": {"key":"QDC_13_SQ1_SBODY","values":[{"lang":"Polish", "val":"Idź do Mahakam"},
+															   {"lang":"English","val":"Menj Mahakamba!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Mahakam",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			},{
+				"fullBody": {"key":"QDC_13_SQ2_BODY","values":[{"lang":"Polish", "val":"Namów do tego niecodziennego zadania flisackiego mistrza pijaków: udaj się do Jarugi."},
+															 {"lang":"English","val":"Győzd meg a közelben horgonyzó bárka jelenlegi ivóbajnokát, hogy vállalja el ezt a szokatlan felkérést: menj a Jarugához! -"}]},
+				"shortBody": {"key":"QDC_13_SQ2_SBODY","values":[{"lang":"Polish", "val":"Idź do Jaruga"},
+															   {"lang":"English","val":"Menj a Jarugához!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Jaruga",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QDC_13_SUP_BODY","values":[{"lang":"Polish", "val":"Porządny konkurs picia sporo kosztuje. Może przyjaciel sypnie groszem? Wydaj 3 [GoldCoin]."},
+															  {"lang":"English","val":"Egy igazi versenyivászat bizony sok pénzbe kerül. Tud bármelyik barátod kölcsönözni? Költs 3 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QDC_13_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [GoldCoinColor]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"Gold": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"Gold": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Ard Carraigh",
+					"DiplomacyEvidence": 2,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"DiplomacyEvidence": -2
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "place_bad_fate",
+			"params": {
+				"amount": 2
+			}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestDiplomacy",
+		"id":"QDC_14",
+		"description":{
+			"title": {"key":"QDC_14_TITLE","values":[{"lang":"Polish", "val":"Krew w Dolinie\nKwiatów"},
+													{"lang":"English","val":"Vérontás a Virágok Völgyében"}]},
+			"subheader": {"key":"QDC_14_SUBHEADER","values":[{"lang":"Polish", "val":"Mglaki napadają na pasterzy i ich stada w pobliżu Dol Blathanna. Elfy pozostają niewzruszone wołaniami o pomoc."},
+															{"lang":"English","val":"Ködárnyak támadják a Dol Blathanna közelében legeltető pásztorokat és nyájaikat. A tündéket, sajnos, nem hatják meg különösebben az emberek segélykiáltásai."}]},
+			"body": {"key":"QDC_14_BODY","values":[	{"lang":"Polish", "val":"Namów elfy do walki z mglakami."},
+													{"lang":"English","val":"Győzd meg a tündéket, hogy irtsák el a ködárnyakat!"}]}
+		},
+		"ai":{
+			"EvidenceDiplomacy": 1,
+			"EvidenceCombat" : 1
+		},
+		"quest":{
+			"locationCondition": "Dol Blathanna",
+			"resourceCondition": "1 [EvidenceCombat] 1 [EvidenceDiplomacy]",
+			"victoryPoints": 16,
+			"payment": {"key":"QDC_14_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i 1 kartę rozwoju; połóż w swoim regionie 2 brązowych [EnemyMarker], a w sąsiednim regionie – 1 srebrnego [EnemyMarker]."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, húzz 1 fejlesztés-kártyát, helyezz le 2 bronz [EnemyMarker]-et a régiódban, és helyezz le 1 ezüst [EnemyMarker]-et egy szomszédos régióban!"}]},
+			"shortPayment": {"key":"QDC_14_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. Karta rozwoju. 2 brązowe [EnemyMarker] w twoim regionie, 1 srebrny [EnemyMarker] w sąsiednim regionie."},
+															  {"lang":"English","val":"1 jószerencse. 1 fejlesztés. 2 bronz [EnemyMarker] a régióban, 1 ezüst [EnemyMarker] szomszédos régióba."}]},
+			"paymentDescription": {"key":"QDC_14_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Elfy niechętnie zgadzają się pomóc. Szybko likwidują gniazdo mglaków na bagnach, lecz przy okazji rozdrażniają całą zgraję innych potworów i nie widzą potrzeby, by zająć się także tym problemem."},
+															  				  {"lang":"English","val":"A tündék, vonakodva bár, de beleegyeznek a segítségnyújtásba. Hamar kifüstölik a ködárnyak fészkét, de közben felzavarnak más szörnyeket a lápvidéken - amikkel, úgy látják, nekik nem feladatuk foglalkozni."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QDC_14_SQ1_BODY","values":[{"lang":"Polish", "val":"Zbierz informacje o atakach mglaków: zużyj 2 niebieskie [ClueMarkerGray]."},
+															 {"lang":"English","val":"Gyűjts értesüléseket a ködárny támadásokról: költs 2 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_14_SQ1_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "2 [ClueMarkerBlue]",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"MagicLead": 2,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"MagicLead": -2
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			},{
+				"fullBody": {"key":"QDC_14_SQ2_BODY","values":[{"lang":"Polish", "val":"Zdobądź zaklęty pergamin, usypiający mglaki: udaj się do Wyzimy."},
+															 {"lang":"English","val":"Szerezz olyan varázsigét, amivel álomba ringathatók a ködárnyak: menj Vizimába! -"}]},
+				"shortBody": {"key":"QDC_14_SQ2_SBODY","values":[{"lang":"Polish", "val":"Idź do Wyzima"},
+															   {"lang":"English","val":"Menj Vizimába!"}]},
+				"shortResource": "",
+				"victoryPoints": 3,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "EXECUTE",
+						"condition":{
+							"location": "Wyzima",
+							"roll": false
+						}
+					}
+				},
+				"useTask": {
+					"action":"complete_side_quest"
+				}
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QDC_14_SUP_BODY","values":[{"lang":"Polish", "val":"Czułbyś się bezpieczniej, stawiając czoło mglakom z towarzyszem: zużyj 3 czerwone [ClueMarkerGray]."},
+															  {"lang":"English","val":"Hasznát vennéd némi védelemnek: költs 3 vörös [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_14_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerRed]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"CombatLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"CombatLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Dol Blathanna",
+					"DiplomacyEvidence": 1,
+					"CombatEvidence": 1,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"DiplomacyEvidence": -1,
+				"CombatEvidence": -1
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action":"draw_card",
+			"params": {
+				"deck": "XP",
+				"amount": 1
+			}
+		},{
+			"action": "place_enemy",
+			"params": {
+				"amount": 2,
+				"type": "EnemySmall"
+			}
+		},{
+			"action": "place_enemy",
+			"params": {
+				"amount": 1,
+				"type": "EnemyMedium",
+				"direction": "NEIGHBOURS"
+			}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestDiplomacy",
+		"id":"QDC_15",
+		"description":{
+			"title": {"key":"QDC_15_TITLE","values":[{"lang":"Polish", "val":"Głos rozsądku"},
+													{"lang":"English","val":"A józan ész hangja"}]},
+			"subheader": {"key":"QDC_15_SUBHEADER","values":[{"lang":"Polish", "val":"Grupa nilfgaardzkich dezerterów zadomowiła się w pobliżu ruin Shaerrawedd. Możesz przymknąć oko na ich bandycie wybryki w zamian za informacje o cesarskim wojsku."},
+															{"lang":"English","val":"Nilfgaardi dezertőrök egy csoportja fészkelte be magát Shaerrawedd romjainak közelében. Hajlandó vagy szemet húnyni a fosztogatások fölött, amennyiben bennfentes információkkal látnak el a Császári Hadsereggel kapcsolatban."}]},
+			"body": {"key":"QDC_15_BODY","values":[	{"lang":"Polish", "val":"Zawrzyj układ z nilfgaardzkimi dezerterami."},
+													{"lang":"English","val":"Köss alkut a nilfgaardi dezertőrökkel!"}]}
+		},
+		"ai":{
+			"EvidenceDiplomacy": 2
+		},
+		"quest":{
+			"locationCondition": "Shaerrawedd",
+			"resourceCondition": "2 [EvidenceDiplomacy]",
+			"victoryPoints": 8,
+			"payment": {"key":"QDC_15_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu i usuń 1 [EnemyMarker] z dowolnego regionu."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát, és távolíts el 1 [EnemyMarker]-et bármely régióról!"}]},
+			"shortPayment": {"key":"QDC_15_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. Usuń 1 [EnemyMarker] z dowolnego regionu."},
+															  {"lang":"English","val":"1 jószerencse-kártya. 1 [EnemyMarker] eltávolítása bármely régióról."}]},
+			"paymentDescription": {"key":"QDC_15_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Wprawdzie dezerterzy wiedzą o Nilfgaardzie niewiele rzeczy, których już byś nie wiedział, zgadzają się nie plądrować okolicy, o ile wolno im będzie się tu osiedlić i wstąpić do straży obywatelskiej. Załatwiasz to z miejscowym panem, który cieszy się ze wzmocnienia swoich oddziałów."},
+															  				  {"lang":"English","val":"Habár a dezertőrök kevés olyat tudnak mondani, amit már ne tudtál volna magad is, beleegyeznek, hogy felhagynak a fosztogatással, amennyiben megengedik nekik, hogy letelepedjenek és csatlakozzanak a helyi milíciához. Kieszközlöd az egyezséget a környék nemesurával."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QDC_15_SQ1_BODY","values":[{"lang":"Polish", "val":"Zbierz informacje o ich działaniach: zużyj 3 czerwone [ClueMarkerGray]."},
+															 {"lang":"English","val":"Gyűjts értesüléseket a ténykedéseikről: költs 3 vörös [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_15_SQ1_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerRed]",
+				"victoryPoints": 4,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"CombatLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"CombatLead": -3
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			},{
+				"fullBody": {"key":"QDC_15_SQ2_BODY","values":[{"lang":"Polish", "val":"Zaoferuj im zaopatrzenie, by nie musieli uciekać się do grabieży: wydaj 4 [GoldCoin]."},
+															 {"lang":"English","val":"Ajánlj fel nekik ellátmányt, ezáltal feleslegessé téve számukra a fosztogatást: költs 4 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QDC_15_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "4 [GoldCoinColor]",
+				"victoryPoints": 4,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"Gold": 4,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"Gold": -4
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QDC_15_SUP_BODY","values":[{"lang":"Polish", "val":"Przydałaby ci się osłona podczas rozmów: zużyj 3 fioletowe [ClueMarkerGray]."},
+															  {"lang":"English","val":"Hasznát vennéd segítségnek a tárgyalások során: költs 3 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_15_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerPurple]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"DiplomacyLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"DiplomacyLead": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Shaerrawedd",
+					"DiplomacyEvidence": 2,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"DiplomacyEvidence": -2
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action":"remove_enemy",
+			"params": {
+				"direction": "ANY",
+				"amount": 1
+			}
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	},{
+		"------------------":"------------------------",
+		"type":"QuestDiplomacy",
+		"id":"QDC_16",
+		"description":{
+			"title": {"key":"QDC_16_TITLE","values":[{"lang":"Polish", "val":"Porozumienie na Belletynie"},
+													{"lang":"English","val":"A Belleteyn-egyezmény"}]},
+			"subheader": {"key":"QDC_16_SUBHEADER","values":[{"lang":"Polish", "val":"Belleteyn, wiosenna noc hulanek, to świetna okazja do rozmów między dyplomatami Redanii i Nifgaardu, pod warunkiem, że nie przesadzą z winem i obelgami."},
+															{"lang":"English","val":"Belleteyn, a tavaszi vigasság éjszakája - és egy tökéletes alkalom a Redánia és Nilfgaard diplomatái közötti megbeszélésekhez. Már ha mértékletesen fogyasztanak a borból, és csak mértékkel inzultálják egymást."}]},
+			"body": {"key":"QDC_16_BODY","values":[	{"lang":"Polish", "val":"Zorganizuj spotkanie i zadbaj o skupienie dyplomatów."},
+													{"lang":"English","val":"Szervezd meg a találkozót, és gondoskodj róla, hogy a követek a probléma megoldására koncentráljanak!"}]}
+		},
+		"ai":{
+			"EvidenceDiplomacy": 2
+		},
+		"quest":{
+			"locationCondition": "Vengerberg",
+			"resourceCondition": "2 [EvidenceDiplomacy]",
+			"victoryPoints": 8,
+			"payment": {"key":"QDC_16_PAYMENT","values":[{"lang":"Polish", "val":"Pobierz 1 kartę dobrego losu, połóż 1 srebrnego [EnemyMarker] w swoim regionie i przesuń w przód znacznik na torze wojny."},
+														{"lang":"English","val":"Húzz 1 jószerencse-kártyát; ezután helyezz le 1 ezüst [EnemyMarker]-et a régiódban, majd mozdítsd elő a háború menetét!"}]},
+			"shortPayment": {"key":"QDC_16_SPAYMENT","values":[{"lang":"Polish", "val":"Karta dobrego losu. 1 srebrny [EnemyMarker] w twoim regionie. Przesuń w przód znacznik na torze wojny."},
+															  {"lang":"English","val":"1 jószerencse. 1 ezüst [EnemyMarker] a régiódba. Háború menetét előre!"}]},
+			"paymentDescription": {"key":"QDC_16_PAYMENTDESCRIPTION","values":[{"lang":"Polish", "val":"Pomimo twoich starannych przygotowań, rozmowy załamują się ledwie po paru godzinach. Jeszcze zanim zabawa zaczyna się na dobre, delegacja Nilfgaardu się wycofuje, a cały region wstrzymuje oddech, czekając, co teraz będzie."},
+															  				  {"lang":"English","val":"Minden erőfeszítésed ellenére a tárgyalások már néhány óra elteltével katasztrófába torkollanak. Még mielőtt a vigasságok elkezdődnének, Nilfgaard delegációja már távozik is, és az egész régió lélegzetvisszafojtva várja, mi következik eztán..."}]},
+			"sideQuests": [{
+				"fullBody": {"key":"QDC_16_SQ1_BODY","values":[{"lang":"Polish", "val":"Dowiedz się o wzajemnych animozjach i zaplanuj rozstawienie krzeseł: zużyj 4 fioletowe [ClueMarkerGray]."},
+															 {"lang":"English","val":"Az ültetési rendhez tudd meg, ki kire pikkel: költs 4 lila [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_16_SQ1_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "4 [ClueMarkerPurple]",
+				"victoryPoints": 5,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"DiplomacyLead": 4,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"DiplomacyLead": -4
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			},{
+				"fullBody": {"key":"QDC_16_SQ2_BODY","values":[{"lang":"Polish", "val":"Znajdź najskuteczniejsze magiczne sposoby na zachowanie trzeźwości: zużyj 3 niebieskie [ClueMarkerGray]."},
+															 {"lang":"English","val":"Találd meg a józanságot leghatásosabban fenntartó varázsigét: költs 3 kék [ClueMarkerGray]-ot! -"}]},
+				"shortBody": {"key":"QDC_16_SQ2_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+															   {"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [ClueMarkerBlue]",
+				"victoryPoints": 4,
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"mode": "ACTIVATE",
+						"condition":{
+							"MagicLead": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action":"resource",
+					"params": {
+						"MagicLead": -3
+					}
+				},{
+					"action":"complete_side_quest"
+				}]
+			}],
+			"supportQuest": {
+				"fullBody": {"key":"QDC_16_SUP_BODY","values":[{"lang":"Polish", "val":"Może ktoś mógłby przywieźć jadło i napitki na ucztę: wydaj 3 [GoldCoin]."},
+															  {"lang":"English","val":"Talán valaki gondoskodhatna étkekről és italokról a találkozóra: költs 3 [GoldCoin]-at! -"}]},
+				"shortBody": {"key":"QDC_16_SUP_SBODY","values":[{"lang":"Polish", "val":"Zużyj"},
+																{"lang":"English","val":"Költs!"}]},
+				"shortResource": "3 [GoldCoinColor]",
+				"drawTask":{
+					"action":"bind_task",
+					"params": {
+						"character": "OTHERS",
+						"mode": "ACTIVATE",
+						"condition":{
+							"CharaterLocation": {},
+							"Gold": 3,
+							"roll": false
+						}
+					}
+				},
+				"useTask": [{
+					"action": "resource",
+					"params": {
+						"Gold": -3
+					}
+				},{
+				 "action":"complete_support_quest"
+				}]
+			}												 
+		},
+		"drawTask":[{
+			"action":"bind_task",
+			"params": {
+				"mode": "ACTIVATE",
+				"condition":{
+					"location": "Vengerberg",
+					"DiplomacyEvidence": 2,
+					"roll": false
+				}
+			}
+		},{		
+			"action":"kill_card_inventory"
+		}],
+		"completeTask": [{
+			"action":"resource",
+			"params": {
+				"DiplomacyEvidence": -2
+			}
+		},{ 
+			"action":"complete_quest"
+		}],
+		"useTask": [{
+			"action":"draw_card",
+			"params": {
+				"deck": "FateGood",
+				"amount": 1
+			}
+		},{
+			"action": "place_enemy",
+			"params": {
+				"amount": 1,
+				"type": "EnemyMedium"
+			}
+		},{
+			"action": "advance_war_track"
+		},{
+			"action":"kill_quest"
+		}],"------------------":"------------------------"
+	}]
+}
