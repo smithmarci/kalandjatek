@@ -1,72 +1,72 @@
-Ôªø-----------------------------------------------------
-THE WITCHER ADVENTURE GAME :: MAGYARITAS :: v2.1.0921
------------------------------------------------------
+Ôªø----------------------------------------------------
+THE WITCHER ADVENTURE GAME :: MAGYARITAS :: v23.0206
+----------------------------------------------------
 
-Teljes (~99,9%-os) magyar√≠t√°s az 1.2.5A verzi√≥hoz.
+Teljes (~99,9%-os) magyar°t†s az 1.2.5A verzi¢hoz.
 
 Ebben beletartoznak
-- a men√ºelemek,
-- a j√°t√©kelemek,
-- a UI sz√∂vegez√©se,
-- a j√°t√©k "√ºzenetei",
-- a szab√°lyk√∂nyv elemei,
-- az √∫tmutat√≥ oktat√≥vide√≥inak feliratoz√°sa,
-- √©s az √∂sszes, a j√°t√©kban szerepl√µ k√°rtyalap sz√∂vegez√©se.
+- a menÅelemek,
+- a j†tÇkelemek,
+- a UI szîvegezÇse,
+- a j†tÇk "Åzenetei",
+- a szab†lykînyv elemei,
+- az £tmutat¢ oktat¢vide¢inak feliratoz†sa,
+- Çs az îsszes, a j†tÇkban szereplo k†rtyalap szîvegezÇse.
 
-Tov√°bb√° kieg√©sz√≠t√©st √©s jav√≠t√°st is tartalmaz
-- a szab√°lyk√∂nyv asztali t√°bl√°s t√°rsasj√°t√©k sz√≥cikkeire,
-- egyes k√°rty√°knak a j√°t√©k sor√°n el√µfordul√≥ hat√°s√°ra,
-- √©s egyes k√°rty√°k hib√°s sz√∂vegez√©s√©re
-vonatkoz√≥an (a k√°rty√°kn√°l az eredeti, hib√°tlan lengyel sz√∂vegez√©s lett alapul v√©ve)!
+Tov†bb† kiegÇsz°tÇst Çs jav°t†st is tartalmaz
+- a szab†lykînyv asztali t†bl†s t†rsasj†tÇk sz¢cikkeire,
+- egyes k†rty†knak a j†tÇk sor†n elofordul¢ hat†s†ra,
+- Çs egyes k†rty†k hib†s szîvegezÇsÇre
+vonatkoz¢an (a k†rty†kn†l az eredeti, hib†tlan lengyel szîvegezÇs lett alapul vÇve)!
 
 
-Telep√≠t√©s
+Telep°tÇs
 ---------
-A telep√≠to k√©t l√©p√©sbol √°ll:
-1., a telep√≠to elobb a megfelelo helyre m√°solja be a tulajdonk√©ppeni magyar√≠t√°s-telep√≠tot,
+A telep°to kÇt lÇpÇsbol †ll:
+1., a telep°to elobb a megfelelo helyre m†solja be a tulajdonkÇppeni magyar°t†s-telep°tot,
 majd
 2., lefuttatja azt.
 
-Az el√µbbi (1.), ha tal√°l a regisztr√°ci√≥s adatb√°zisban a j√°t√©kra vonatkoz√≥ bejegyz√©st, akkor a megfelel√µ helyre m√°solja be a magyar√≠t√°s-telep√≠t√µt. Amennyiben nem tal√°lhat√≥ ilyen bejegyz√©s, √∫gy a megfelel√µ mapp√°t manu√°lisan kell megadni. Azt a k√∂nyvt√°rt kell megadni, amelyben a 'TheWitcherAdventureGame.exe' futtathat√≥ √°llom√°ny tal√°lhat√≥! A telep√≠t√µ jelezni fog, ha √©s amennyiben nem siker√ºlt a helyes c√©lk√∂nyvt√°rt megadni!
+Az elobbi (1.), ha tal†l a regisztr†ci¢s adatb†zisban a j†tÇkra vonatkoz¢ bejegyzÇst, akkor a megfelelo helyre m†solja be a magyar°t†s-telep°tot. Amennyiben nem tal†lhat¢ ilyen bejegyzÇs, £gy a megfelelo mapp†t manu†lisan kell megadni. Azt a kînyvt†rt kell megadni, amelyben a 'TheWitcherAdventureGame.exe' futtathat¢ †llom†ny tal†lhat¢! A telep°to jelezni fog, ha Çs amennyiben nem sikerÅlt a helyes cÇlkînyvt†rt megadni!
 
-Az ut√≥bbi (2.), ha a megfelel√µ k√∂nyvt√°rba m√°sol√≥dott be, akkor nem ig√©nyel semmilyen beavatkoz√°st, tov√°bbi mappa-megad√°st. Ellenkez√µ esetben sz√ºks√©ges lehet a c√©lk√∂nyvt√°r manu√°lis betall√≥z√°sa az al√°bb olvashat√≥ minta szerint:
+Az ut¢bbi (2.), ha a megfelelo kînyvt†rba m†sol¢dott be, akkor nem igÇnyel semmilyen beavatkoz†st, tov†bbi mappa-megad†st. Ellenkezo esetben szÅksÇges lehet a cÇlkînyvt†r manu†lis betall¢z†sa az al†bb olvashat¢ minta szerint:
 
-A j√°t√©kmagyar√≠t√°st a
-[meghajt√≥:]\\[j√°t√©k k√∂nyvt√°ra]\TheWitcherAdventureGame_Data
+A j†tÇkmagyar°t†st a
+[meghajt¢:]\\[j†tÇk kînyvt†ra]\TheWitcherAdventureGame_Data
 vagy
-[meghajt√≥:]\\[GOG Galaxy k√∂nyvt√°ra]\[j√°t√©k k√∂nyvt√°ra]\TheWitcherAdventureGame_Data
+[meghajt¢:]\\[GOG Galaxy kînyvt†ra]\[j†tÇk kînyvt†ra]\TheWitcherAdventureGame_Data
 vagy
-[meghajt√≥:]\\[Steam k√∂nyvt√°ra]\SteamApps\common\The Witcher Adventure Game\TheWitcherAdventureGame_Data
-alk√∂nyvt√°rba
-kell telep√≠teni, ahol "bele√≠r" az eredeti, sz√∂vegf√°jlokat tartalmaz√≥ √°llom√°nyokba ('resources.assets', 'sharedassets0.assets', 'sharedassets1.assets'), valamint l√©trehoz mindegyik √°llom√°ny eredetij√©b√µl egy biztons√°gi m√°solatot ('~.bak000' kiterjeszt√©ssel).
+[meghajt¢:]\\[Steam kînyvt†ra]\SteamApps\common\The Witcher Adventure Game\TheWitcherAdventureGame_Data
+alkînyvt†rba
+kell telep°teni, ahol "bele°r" az eredeti, szîvegf†jlokat tartalmaz¢ †llom†nyokba ('resources.assets', 'sharedassets0.assets', 'sharedassets1.assets'), valamint lÇtrehoz mindegyik †llom†ny eredetijÇbol egy biztons†gi m†solatot ('~.bak000' kiterjesztÇssel).
 
-Az √∫tmutat√≥ feliratozott oktat√≥vide√≥it a
-[meghajt√≥:]\\[j√°t√©k k√∂nyvt√°ra]\TheWitcherAdventureGame_Data\StreamingAssets
+Az £tmutat¢ feliratozott oktat¢vide¢it a
+[meghajt¢:]\\[j†tÇk kînyvt†ra]\TheWitcherAdventureGame_Data\StreamingAssets
 vagy
-[meghajt√≥:]\\[GOG Galaxy k√∂nyvt√°ra]\[j√°t√©k k√∂nyvt√°ra]\TheWitcherAdventureGame_Data\StreamingAssets
+[meghajt¢:]\\[GOG Galaxy kînyvt†ra]\[j†tÇk kînyvt†ra]\TheWitcherAdventureGame_Data\StreamingAssets
 vagy
-[meghajt√≥:]\\[Steam k√∂nyvt√°ra]\SteamApps\common\The Witcher Adventure Game\TheWitcherAdventureGame_Data\StreamingAssets
-alk√∂nyvt√°rba
-kell telep√≠teni, ahol fel√ºl√≠rja az eredeti, '.ogv' √©s 'ogg' kiterjeszt√©s√ª Theora vide√≥- √©s hangf√°jlokat.
+[meghajt¢:]\\[Steam kînyvt†ra]\SteamApps\common\The Witcher Adventure Game\TheWitcherAdventureGame_Data\StreamingAssets
+alkînyvt†rba
+kell telep°teni, ahol felÅl°rja az eredeti, '.ogv' Çs 'ogg' kiterjesztÇsñ Theora vide¢- Çs hangf†jlokat.
 
 
-Elt√°vol√≠t√°s
+Elt†vol°t†s
 -----------
-A magyar√≠t√°s √©s a feliratozott √∫tmutat√≥ vide√≥k csak √∫jratelep√≠t√©s, VAGY a biztons√°gi mentett eredeti f√°jlokkal t√∂rt√©n√µ fel√ºlm√°sol√°s, VAGY a '.bak' f√°jlok √°tnevez√©s√©vel, azok "kiterjeszt√©stelen√≠t√©se" √∫tj√°n t√°vol√≠that√≥k el, azaz √°ll√≠that√≥ vissza az eredeti angol+lengyel nyelv√ª √°llapot!
+A magyar°t†s Çs a feliratozott £tmutat¢ vide¢k elt†vol°t†s†hoz Çs az eredeti, angol nyelvñ v†ltozat vissza†ll°t†s†hoz csak le kell futtatni a magyar°t†s-elt†vol°t¢ 'uninstaller'-t.
 
 
-Tudnival√≥k
+Tudnival¢k
 ----------
-A ford√≠t√°s a GOG-os v√°ltozat f√°jlainak m√≥dos√≠t√°s√°val k√©sz√ºlt, de a Steam-es v√°ltozattal is m√ªk√∂dik, amennyiben az 1.2.5A verzi√≥ tal√°lhat√≥ a sz√°m√≠t√≥g√©pen. Csak azon almapp√°k el√©r√©si √∫tjaiban lehet k√ºl√∂nbs√©g, amely almapp√°kba a f√°jlokat telep√≠teni kell. A m√≥dos√≠t√°s - sajnos - az angol nyelvi f√°jlokat √©rinti, ami miatt (√©s persze amiatt, hogy a j√°t√©k alap√©rtelmezetten magyar nyelven induljon,) a j√°t√©k csak magyar √©s lengyel nyelven lesz j√°tszhat√≥!
+A ford°t†s a GOG-os v†ltozat f†jlainak m¢dos°t†s†val kÇszÅlt, de a Steam-es v†ltozattal is mñkîdik, amennyiben az 1.2.5A verzi¢ tal†lhat¢ a sz†m°t¢gÇpen. Csak azon almapp†k elÇrÇsi £tjaiban lehet kÅlînbsÇg, amely almapp†kba a f†jlokat telep°teni kell. A m¢dos°t†s - sajnos - az angol nyelvi f†jlokat Çrinti, ami miatt (Çs persze amiatt, hogy a j†tÇk alapÇrtelmezetten magyar nyelven induljon,) a j†tÇk csak magyar Çs lengyel nyelven lesz j†tszhat¢!
 
-A ford√≠t√°s sajnos nem 100%-ig teljes, ugyanis k√©t kifejez√©s ford√≠t√°sa r√©szleges az ezen kifejez√©seket tartalmaz√≥ j√°t√©kelemek (helysz√≠n-jelz√µ lobog√≥k) m√≥dos√≠thatatlans√°ga ok√°n (ezek: "Vizima" = 'Wyzima' & "R√≠via" = 'Rivia'), mely ok a szoftver √°ltali "ki√≠rat√°sban" keresend√µ. A sz√∂vegez√©s r√©szben Kellermann Vikt√≥ria √©s Hermann P√©ter ford√≠t√°sai, valamint a The Witcher sz√°m√≠t√≥g√©pes j√°t√©kok lokaliz√°i√≥i alapj√°n k√©sz√ºlt (teh√°t tartalmazhat a novell√°kban √©s a reg√©nyekben el√µfordul√≥ jellegzetes (esetleg karakterspecifikus) kifejez√©seket).
+A ford°t†s sajnos nem 100%-ig teljes, ugyanis kÇt kifejezÇs ford°t†sa rÇszleges az ezen kifejezÇseket tartalmaz¢ j†tÇkelemek (helysz°n-jelzo lobog¢k) m¢dos°thatatlans†ga ok†n (ezek: "Vizima" = 'Wyzima' & "R°via" = 'Rivia'), mely ok a szoftver †ltali "ki°rat†sban" keresendo. A szîvegezÇs rÇszben Kellermann Vikt¢ria Çs Hermann PÇter ford°t†sai, valamint a The Witcher sz†m°t¢gÇpes j†tÇkok lokaliz†ci¢i alapj†n kÇszÅlt (teh†t tartalmazhat a novell†kban Çs a regÇnyekben elofordul¢ jellegzetes (esetleg karakterspecifikus) kifejezÇseket).
 
-A ford√≠t√°sban el√µfordulhatnak el√≠r√°sok, f√©lreford√≠t√°sok, szintaktikai hib√°k, egyebek, amik miatt folyamatos jav√≠t√°s alatt √°llhat. Ezen m√≥dos√≠t√°sok legk√∂zelebb akkor ker√ºlnek kivitelez√©sre, amikor elegend√µ √∂sszegy√ªlik bel√µl√ºk ahhoz, hogy konzekvensen √°t lehessen vezetni azokat a nyelvi f√°jlok √∂sszess√©g√©n. Teh√°t v√°rhat√≥ m√©g hozz√° m√≥dos√≠t√°s √©s/vagy jav√≠t√°s, amennyiben √©rkezik vagy t√∂rt√©nik m√©g √©szrev√©tel!
+A ford°t†sban elofordulhatnak el°r†sok, fÇlreford°t†sok, szintaktikai hib†k, egyebek, amik miatt folyamatos jav°t†s alatt †llhat. Ezen m¢dos°t†sok legkîzelebb akkor kerÅlnek kivitelezÇsre, amikor elegendo îsszegyñlik belolÅk ahhoz, hogy konzekvensen †t lehessen vezetni azokat a nyelvi f†jlok îsszessÇgÇn. Teh†t v†rhat¢ mÇg hozz† m¢dos°t†s Çs/vagy jav°t†s, amennyiben Çrkezik vagy tîrtÇnik mÇg ÇszrevÇtel!
 
 
 Fontos
 ------
-Jelen tudnival√≥k kivonata a telep√≠t√µkben is elolvashat√≥, a biztons√°g kedv√©√©rt!
+Jelen tudnival¢k kivonata a telep°tokben is elolvashat¢, a biztons†g kedvÇÇrt!
 
 
 -----------------------
@@ -74,8 +74,8 @@ JO KALANDOZAST KIVANOK!
 -----------------------
 
 
-2021.09.21
-
-
 by smithmarci
-Kov√°cs M√ªhely
+Kov†cs Mñhely
+-
+WWW :: kovacsmuhely.eu
+@ :: kovacsmuhely@hotmail.com
